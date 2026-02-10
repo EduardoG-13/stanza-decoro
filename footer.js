@@ -115,5 +115,14 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
 
         footerContainer.innerHTML = footerHTML;
+
+        // Deixar os links de contato em coluna
+        const contactContents = document.querySelectorAll('.contact-content');
+        
+        contactContents.forEach(contact => {
+          contact.style.display = 'flex';
+          contact.style.flexDirection = 'column';
+          contact.style.gap = '6px';
+        });
     }
 });
