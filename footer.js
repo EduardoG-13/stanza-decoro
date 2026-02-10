@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   </span>
                   <div class="contact-content">
                     <a title="Clique aqui para iniciar uma conversa" href="https://api.whatsapp.com/send?1=pt_BR&amp;phone=551197556-3037&amp;text=Olá, tudo bem? Peguei o contato da loja no site" class="footer-link" target="_blank">(11) 97556-3037</a>
-                    <a title="Clique aqui para iniciar uma conversa" href="https://api.whatsapp.com/send?1=pt_BR&amp;phone=5511980156617" class="footer-link" target="_blank">(11) 980156617</a>
+                    <a title="Clique aqui para iniciar uma conversa" href="https://api.whatsapp.com/send?1=pt_BR&amp;phone=5511980156617&amp;text=Olá, tudo bem? Peguei o contato da loja no site" class="footer-link" target="_blank">(11) 980156617</a>
                   </div>
                 </li>
                 <li class="contact-item">
