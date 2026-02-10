@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                   </span>
                   <div class="contact-content">
-                    <a title="Clique aqui para iniciar uma conversa" href="https://api.whatsapp.com/send?1=pt_BR&amp;phone=551197556-3037&text=Olá, tudo bem? Peguei o contato da loja no site" class="footer-link" target="_blank">(11) 97556-3037</a>
+                    <a title="Clique aqui para iniciar uma conversa" href="https://api.whatsapp.com/send?1=pt_BR&amp;phone=551197556-3037&amp;text=Olá, tudo bem? Peguei o contato da loja no site" class="footer-link" target="_blank">(11) 97556-3037</a>
                     <a title="Clique aqui para iniciar uma conversa" href="https://api.whatsapp.com/send?1=pt_BR&amp;phone=5511980156617" class="footer-link" target="_blank">(11) 980156617</a>
                   </div>
                 </li>
