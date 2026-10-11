@@ -1,5 +1,6 @@
-param([int]$Port = 8935)
+﻿param([int]$Port = 8935)
 $ErrorActionPreference = 'Stop'
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
 $siteProjectPath = $PSScriptRoot
 Set-Location -LiteralPath $siteProjectPath
 $env:PYTHONIOENCODING = 'utf-8'
