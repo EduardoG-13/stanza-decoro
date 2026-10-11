@@ -1,0 +1,14 @@
+{
+  "name": "Stanza Decoro",
+  "url": "https://stanzadecoro.com.br",
+  "production": false,
+  "whatsapp": "5511975563037",
+  "phoneDisplay": "(11) 97556-3037",
+  "email": "stanzadecoro@gmail.com",
+  "availability": {
+    "enabled": false,
+    "text": "Conte seu projeto. Prazo e transporte após avaliação.",
+    "startsOn": null,
+    "endsOn": null
+  }
+}

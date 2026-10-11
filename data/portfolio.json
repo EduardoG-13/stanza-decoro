@@ -1,0 +1,324 @@
+[
+  {
+    "id": "projeto-1",
+    "family": "sofas",
+    "source": "sofas/SOFA-1.jpg",
+    "alt": "Sofá Setorial em L com Revestimento Suede Bordô",
+    "title": "Sofá Setorial em L com Revestimento Suede Bordô"
+  },
+  {
+    "id": "projeto-2",
+    "family": "sofas",
+    "source": "sofas/SOFA-2.jpg",
+    "alt": "Sofá Orgânico em Design Feijão",
+    "title": "Sofá Orgânico em Design Feijão"
+  },
+  {
+    "id": "projeto-3",
+    "family": "sofas",
+    "source": "sofas/SOFA-3.jpg",
+    "alt": "Sofá Modulado de 3 Lugares em Tecido Cinza Escuro",
+    "title": "Sofá Modulado de 3 Lugares em Tecido Cinza Escuro Amarronzado"
+  },
+  {
+    "id": "projeto-4",
+    "family": "sofas",
+    "source": "sofas/SOFA-4.jpg",
+    "alt": "Sofá Setorial em L com Estofamento Texturizado Cinza Claro",
+    "title": "Sofá Setorial em L com Estofamento Texturizado Cinza Claro"
+  },
+  {
+    "id": "projeto-5",
+    "family": "sofas",
+    "source": "sofas/SOFA-5.jpg",
+    "alt": "Sofá Contemporâneo em Cinza Claro com Pés de Madeira",
+    "title": "Sofá Contemporâneo em Cinza Claro com Pés de Madeira"
+  },
+  {
+    "id": "projeto-6",
+    "family": "sofas",
+    "source": "sofas/SOFA-6.jpg",
+    "alt": "Sofá Azul Marinho com Detalhe Listrado",
+    "title": "Sofá Azul Marinho com Detalhe Listrado"
+  },
+  {
+    "id": "projeto-7",
+    "family": "sofas",
+    "source": "sofas/SOFA-7.jpg",
+    "alt": "Sofá para Áreas Externas",
+    "title": "Conforto e Estilo para Áreas Externas"
+  },
+  {
+    "id": "projeto-8",
+    "family": "sofas",
+    "source": "sofas/SOFA-8.jpg",
+    "alt": "Sofá Comercial em U com Couro Capitonê",
+    "title": "Sofá Comercial em U com Couro Capitonê"
+  },
+  {
+    "id": "projeto-9",
+    "family": "sofas",
+    "source": "sofas/SOFA-9.png",
+    "alt": "Sofá Verde Musgo com Detalhe de Cobertura Acolchoada",
+    "title": "Sofá Verde Musgo com Detalhe de Cobertura Acolchoada"
+  },
+  {
+    "id": "projeto-10",
+    "family": "sofas",
+    "source": "sofas/SOFA-10.jpg",
+    "alt": "Sofá Retrátil UrbanFlex",
+    "title": "Sofá Retrátil UrbanFlex"
+  },
+  {
+    "id": "projeto-11",
+    "family": "complementos",
+    "source": "pufs/pufs-7.jpg",
+    "alt": "Puff Adicional 7",
+    "title": "Puff Retangular Verde-Acinzentado"
+  },
+  {
+    "id": "projeto-12",
+    "family": "complementos",
+    "source": "pufs/pufs-8.jpg",
+    "alt": "Puff Adicional 8",
+    "title": "Conjunto de Puffs Hexagonais"
+  },
+  {
+    "id": "projeto-13",
+    "family": "complementos",
+    "source": "pufs/pufs-9.jpg",
+    "alt": "Puff Adicional 9",
+    "title": "Conjunto Modular de Puffs Quadrados"
+  },
+  {
+    "id": "projeto-14",
+    "family": "complementos",
+    "source": "pufs/pufs-10.jpg",
+    "alt": "Puff Adicional 10",
+    "title": "Conjunto Modular de Puffs Cúbicos"
+  },
+  {
+    "id": "projeto-15",
+    "family": "complementos",
+    "source": "pufs/pufs-11.jpg",
+    "alt": "Puff Adicional 11",
+    "title": "Conjunto Modular de Puffs"
+  },
+  {
+    "id": "projeto-16",
+    "family": "complementos",
+    "source": "pufs/pufs-12.jpg",
+    "alt": "Puff Adicional 12",
+    "title": "Conjunto de Pufes – Design Modular e Sofisticado"
+  },
+  {
+    "id": "projeto-17",
+    "family": "complementos",
+    "source": "cabeceiras/cabeceiras-2.jpg",
+    "alt": "Cabeceira Capitonê Clássica",
+    "title": "Cabeceira Azul-Escuro – Detalhes Artesanais"
+  },
+  {
+    "id": "projeto-18",
+    "family": "complementos",
+    "source": "cabeceiras/cabeceiras-3.jpg",
+    "alt": "Cabeceira Estofada Contemporânea",
+    "title": "Cabeceira Estofada Taupe – Elegância e Conforto"
+  },
+  {
+    "id": "projeto-19",
+    "family": "complementos",
+    "source": "cabeceiras/cabeceiras-4.jpg",
+    "alt": "Cabeceira Estofada Contemporânea",
+    "title": "Cabeceira Marrom Minimalista – Sofisticação e Conforto"
+  },
+  {
+    "id": "projeto-20",
+    "family": "complementos",
+    "source": "cabeceiras/cabeceiras-5.jpg",
+    "alt": "Cabeceira Estofada Contemporânea",
+    "title": "Cabeceira Azul-Claro – Minimalismo e Conforto"
+  },
+  {
+    "id": "projeto-21",
+    "family": "complementos",
+    "source": "cabeceiras/cabeceiras-6.jpg",
+    "alt": "Cabeceira Estofada Contemporânea",
+    "title": "Cabeceira Integrada – Sofisticação e Funcionalidade"
+  },
+  {
+    "id": "projeto-22",
+    "family": "complementos",
+    "source": "cabeceiras/cabeceiras-7.jpg",
+    "alt": "Cabeceira Estofada Contemporânea",
+    "title": "Elegância e Conforto – Cabeceira, Forro de Cama e Recamier"
+  },
+  {
+    "id": "projeto-23",
+    "family": "assentos",
+    "source": "poltronas/poltronas-10.jpg",
+    "alt": "Poltrona Adicional 11",
+    "title": "Poltrona e Puff Acolchoados em Verde-Acinzentado"
+  },
+  {
+    "id": "projeto-24",
+    "family": "assentos",
+    "source": "poltronas/poltronas-11.jpg",
+    "alt": "Poltrona Adicional 11",
+    "title": "Poltronas Clássicas com Puff Acolhedor"
+  },
+  {
+    "id": "projeto-25",
+    "family": "assentos",
+    "source": "poltronas/poltronas-12.jpg",
+    "alt": "Poltrona Adicional 12",
+    "title": "Poltrona de Couro Marrom com Design Curvo"
+  },
+  {
+    "id": "projeto-26",
+    "family": "assentos",
+    "source": "poltronas/poltronas-13.jpg",
+    "alt": "Poltrona Adicional 13",
+    "title": "Poltrona Acolchoada Azul-Clara"
+  },
+  {
+    "id": "projeto-27",
+    "family": "assentos",
+    "source": "poltronas/poltronas-14.jpg",
+    "alt": "Poltrona Adicional 14",
+    "title": "Cadeira Cinza com Estrutura Dourada"
+  },
+  {
+    "id": "projeto-28",
+    "family": "assentos",
+    "source": "poltronas/poltronas-15.jpg",
+    "alt": "Poltrona Adicional 15",
+    "title": "Poltrona Chesterfield em Couro Caramelo"
+  },
+  {
+    "id": "projeto-29",
+    "family": "assentos",
+    "source": "poltronas/poltronas-16.jpg",
+    "alt": "Poltrona Adicional 16",
+    "title": "Poltrona Aconchegante em Verde-Acinzentado"
+  },
+  {
+    "id": "projeto-30",
+    "family": "assentos",
+    "source": "poltronas/poltronas-17.jpg",
+    "alt": "Poltrona Adicional 17",
+    "title": "Poltrona Clássica em Tecido Cinza Escuro com Entalhes Artesanais"
+  },
+  {
+    "id": "projeto-31",
+    "family": "assentos",
+    "source": "poltronas/poltronas-18.jpg",
+    "alt": "Poltrona Adicional 18",
+    "title": "Cadeira de Madeira com Assento Amarelo"
+  },
+  {
+    "id": "projeto-32",
+    "family": "assentos",
+    "source": "poltronas/poltronas-19.jpg",
+    "alt": "Poltrona Adicional 19",
+    "title": "Cadeira de Rattan com Almofadas Brancas"
+  },
+  {
+    "id": "projeto-33",
+    "family": "assentos",
+    "source": "poltronas/poltronas-20.jpg",
+    "alt": "Poltrona Adicional 20",
+    "title": "Poltrona Azul Claro com Estofamento Tufado"
+  },
+  {
+    "id": "projeto-34",
+    "family": "assentos",
+    "source": "poltronas/poltronas-21.jpg",
+    "alt": "Poltrona Adicional 21",
+    "title": "Poltrona e Puff Bege com Base de Madeira"
+  },
+  {
+    "id": "projeto-35",
+    "family": "assentos",
+    "source": "poltronas/poltronas-22.jpg",
+    "alt": "Poltrona Adicional 22",
+    "title": "Poltrona Aveludada Vermelha com Estrutura em Madeira"
+  },
+  {
+    "id": "projeto-36",
+    "family": "assentos",
+    "source": "poltronas/poltronas-23.jpg",
+    "alt": "Poltrona Adicional 23",
+    "title": "Poltrona Cinza-Esverdeada com Estrutura de Madeira"
+  },
+  {
+    "id": "projeto-37",
+    "family": "revestimentos",
+    "source": "capas/capas-1.jpg",
+    "alt": "Capa de Sofá Personalizada",
+    "title": "Capas de Cadeira – Elegância e Proteção"
+  },
+  {
+    "id": "projeto-38",
+    "family": "revestimentos",
+    "source": "capas/capas-2.jpg",
+    "alt": "Capa de Poltrona Premium",
+    "title": "Capas de Sofá – Proteção e Sofisticação"
+  },
+  {
+    "id": "projeto-39",
+    "family": "revestimentos",
+    "source": "capas/capas-3.jpg",
+    "alt": "Revestimento de Almofadas",
+    "title": "Capa de Poltrona – Proteção com Sofisticação"
+  },
+  {
+    "id": "projeto-40",
+    "family": "revestimentos",
+    "source": "capas/capas-4.jpg",
+    "alt": "Conjunto de Capas Decorativas",
+    "title": "Capas de Poltronas e Puffes – Harmonia e Proteção"
+  },
+  {
+    "id": "projeto-41",
+    "family": "revestimentos",
+    "source": "cortinas/cortinas-1.jpg",
+    "alt": "Cortina Elegante Blackout",
+    "title": "Leveza e Iluminação Minimalista"
+  },
+  {
+    "id": "projeto-42",
+    "family": "revestimentos",
+    "source": "cortinas/cortinas-2.PNG",
+    "alt": "Capa Sob Medida Premium",
+    "title": "Elegância Suspensa – Cortinas de Teto"
+  },
+  {
+    "id": "projeto-43",
+    "family": "revestimentos",
+    "source": "cortinas/cortinas-3.jpg",
+    "alt": "Cortina Voil Translúcida",
+    "title": "Cortinas de Teto – Elegância e Sofisticação"
+  },
+  {
+    "id": "projeto-44",
+    "family": "revestimentos",
+    "source": "cortinas/cortinas-5.jpg",
+    "alt": "Cortina Adicional 5",
+    "title": "Cortinas Amplas – Elegância e Conforto"
+  },
+  {
+    "id": "projeto-45",
+    "family": "revestimentos",
+    "source": "cortinas/cortinas-6.jpg",
+    "alt": "Cortina Adicional 6",
+    "title": "Cortina com Lambrequim – Sofisticação e Harmonia"
+  },
+  {
+    "id": "projeto-46",
+    "family": "revestimentos",
+    "source": "cortinas/cortinas-8.jpg",
+    "alt": "Cortina Adicional 8",
+    "title": "Cortina de Voal – Leveza e Sofisticação"
+  }
+]

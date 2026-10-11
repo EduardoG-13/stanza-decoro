@@ -1,0 +1,5 @@
+dist/
+assets/images/
+__pycache__/
+.preview/
+*.local
