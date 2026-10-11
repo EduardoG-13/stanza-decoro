@@ -12,6 +12,13 @@ from PIL import Image, ImageOps
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist'
 CONFIG = json.loads((ROOT / 'site.config.json').read_text(encoding='utf-8'))
+LOCAL_CONFIG = ROOT / 'site.config.local.json'
+if LOCAL_CONFIG.exists():
+    local = json.loads(LOCAL_CONFIG.read_text(encoding='utf-8'))
+    assert set(local).issubset({'quote'}), 'A configuração local aceita apenas quote.'
+    CONFIG.update(local)
+assert CONFIG['quote']['mode'] in ['manual','emulator','firebase']
+assert not (CONFIG['production'] and CONFIG['quote']['mode'] == 'emulator'), 'Demonstração local não pode ser publicada.'
 CATALOG = json.loads((ROOT / 'data/catalog.json').read_text(encoding='utf-8'))
 PORTFOLIO = json.loads((ROOT / 'data/portfolio.json').read_text(encoding='utf-8'))
 FAMILIES = {'sofas':'Sofás','assentos':'Poltronas e assentos','complementos':'Cabeceiras e puffs','revestimentos':'Capas e cortinas'}
@@ -75,7 +82,7 @@ def main():
     (OUT / 'assets/images').mkdir(parents=True,exist_ok=True)
     assert len({item['id'] for item in CATALOG}) == len(CATALOG)
     assert len({item['id'] for item in PORTFOLIO}) == len(PORTFOLIO)
-    for file in ['site.css','app.js']:
+    for file in ['site.css','app.js','quote-api.js']:
         shutil.copy2(ROOT / 'assets' / file, OUT / 'assets' / file)
     shutil.copy2(ROOT / 'icon/Logo Stanza Decoro Grande.png', OUT / 'assets/images/stanza-logo.png')
     shutil.copytree(ROOT / 'icon', OUT / 'icon', dirs_exist_ok=True)
@@ -100,6 +107,15 @@ def main():
     paths = []
     for page,path,source,title,description in pages:
         content = replace((ROOT / 'pages' / source).read_text(encoding='utf-8'),common)
+        if page == 'quote':
+            content += '<script type="application/json" id="quote-config">' + json.dumps(CONFIG['quote'],ensure_ascii=False).replace('<','\\u003c') + '</script>'
+            if CONFIG['quote']['mode'] != 'manual':
+                content = content.replace('Prepare as informações do projeto e continue a conversa com a Stanza no WhatsApp.', 'Envie seu projeto e suas fotos para a equipe avaliar. Depois, continue a conversa pelo WhatsApp.')
+                content = content.replace('As fotos ficam neste dispositivo. Você poderá anexá-las diretamente na conversa do WhatsApp.', 'As fotos ficam no dispositivo até você confirmar o envio. Depois, a equipe da Stanza poderá consultá-las no atendimento privado.')
+            if CONFIG['quote']['mode'] == 'emulator':
+                content = '<div class="availability">Demonstração local: use dados fictícios. Nenhum e-mail será enviado à Stanza.</div>' + content
+        if page == 'privacy':
+            content = replace(content,{'QUOTE_PRIVACY':('O formulário prepara o resumo no seu navegador. O site não grava os dados de contato e não recebe as fotos selecionadas.' if CONFIG['quote']['mode']=='manual' else 'Após você confirmar o envio, os dados e fotos ficam registrados no atendimento privado da Stanza. O protocolo confirma o registro; preço e prazo dependem de avaliação.'),'PHOTO_PRIVACY':('As fotos precisam ser anexadas na conversa.' if CONFIG['quote']['mode']=='manual' else 'As fotos enviadas são preparadas para avaliação, com redução de tamanho e remoção de metadados como localização. Os originais não são conservados por este formulário.'),'STORAGE_PRIVACY':('O registro pelo site está desativado nesta versão.' if CONFIG['quote']['mode']=='manual' else 'O registro utiliza Firebase/Google Cloud para armazenamento privado e proteção de envio. Somente administrador ou secretária autorizados consultam o atendimento. Um aviso com o resumo pode ser enviado ao e-mail da Stanza; as fotos ficam fora desse aviso. Rascunhos expiram após uma hora; a limpeza é agendada. Pedidos concluídos permanecem no atendimento até a revisão da conservação pela empresa. Para solicitar correção ou exclusão, use o contato abaixo. O envio não autoriza publicidade.')})
         if page == 'quote':
             lookup = {item['id']:{'name':item['name'],'piece':('Poltrona' if item['family']=='assentos' else 'Cabeceira' if 'cabeceira' in item['id'] else 'Puff' if 'puff' in item['id'] else 'Sofá')} for item in CATALOG}
             content += '<script type="application/json" id="catalog-references">' + json.dumps(lookup,ensure_ascii=False).replace('<','\\u003c') + '</script>'

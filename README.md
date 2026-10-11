@@ -51,7 +51,7 @@ O build também atualiza os HTML na raiz, mantendo a forma de entrada do reposit
 
 O formulário prepara um resumo local. A pessoa copia esse resumo, abre o WhatsApp com uma mensagem inicial e anexa as fotos na conversa. A URL de WhatsApp não inclui dados pessoais do formulário. Nenhum protocolo ou confirmação de registro é inventado.
 
-O registro durável, arquivos privados, caixa de pedidos da secretária/dono e notificação automática por e-mail serão implementados no servidor na fase C. Não usar este formulário como prova de recebimento ou de envio automático. A interface e a privacidade devem ser atualizadas junto da ativação desse fluxo.
+O registro durável, arquivos privados e a caixa de pedidos da secretária/dono foram preparados na segunda etapa local, descrita abaixo. A fila e o worker de e-mail estão implementados, mas o remetente e a entrega real ainda não foram configurados. O modo padrão manual não é prova de recebimento nem de envio automático.
 
 ## Conferências e limites
 
@@ -60,3 +60,10 @@ Sintaxe, geração das páginas, arquivos locais, links, manifesto, identificaç
 Antes da publicação, confirmar individualmente o direito de uso das imagens, revisar fichas com a Stanza, verificar celular/teclado, implementar ou manter explicitamente o canal manual escolhido e conferir a disponibilidade vigente. Reutilização do acervo atual não comprova autoria ou autorização de cada fotografia.
 
 O plano de execução e seus critérios permanecem em `../outputs/planos/00-MAPA-DA-EXECUCAO.md`.
+## Registro de pedidos — segunda etapa local
+
+O formulário agora também tem um modo de registro pelo servidor, preparado na cópia `../stanza-oficina`. O modo padrão deste repositório permanece `manual`: resumo e conversa pelo WhatsApp. O registro usa dados e fotos, confirmação real de gravação e protocolo; dados não são guardados no armazenamento persistente do navegador.
+
+Para experimentar o caminho completo, abra `../stanza-oficina/ABRIR-ATENDIMENTO-LOCAL.cmd`. O atalho abre formulário e atendimento privado com dados fictícios, sem e-mail real. Veja `../stanza-oficina/README-pedidos-site.md` para as contas locais, verificações e condições de ativação. Não publicar uma configuração de demonstração.
+
+`assets/quote-api.js` cuida da preparação/repetição; `quote` em `site.config.json` controla manual/emulator/firebase. A configuração temporária `site.config.local.json` é ignorada pelo Git. `npm test` verifica hash/capacidade, recuperação de resposta perdida e restrição do modo local. O site continua estático e a construção principal permanece em `scripts/build.py`.

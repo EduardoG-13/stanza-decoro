@@ -43,6 +43,15 @@ if (form) {
   const photoInput = document.querySelector('#quote-photos');
   const previews = document.querySelector('#photo-previews');
   const copyStatus = document.querySelector('#copy-status');
+  const quoteConfig = JSON.parse(document.querySelector('#quote-config').textContent);
+  const automatic = quoteConfig.mode !== 'manual';
+  const sendButton = document.querySelector('#send-quote');
+  const sendStatus = document.querySelector('#send-status');
+  const sendError = document.querySelector('#send-error');
+  const editButton = document.querySelector('#edit-quote');
+  let reviewedData, submission, sending = false;
+  document.querySelector('#manual-instructions').hidden = automatic;
+  document.querySelector('#api-instructions').hidden = !automatic;
   const params = new URLSearchParams(location.search);
   const references = JSON.parse(document.querySelector('#catalog-references').textContent);
   const selected = references[params.get('referencia')];
@@ -85,6 +94,9 @@ if (form) {
     if (!form.reportValidity()) { quoteError.textContent = 'Confira os campos obrigatórios antes de continuar.'; quoteError.hidden = false; return; }
     const lines = ['Olá, Stanza! Gostaria de avaliar meu projeto.', '', 'Serviço: ' + value('service'), 'Peça: ' + value('piece'), 'Referência: ' + (value('reference') || 'A definir'), 'Medidas aproximadas: ' + (value('dimensions') || 'Ainda não informadas'), 'Observações: ' + (value('details') || 'Não informadas'), '', 'Nome: ' + value('name'), 'WhatsApp: ' + value('phone'), 'E-mail: ' + value('email'), 'Cidade/UF: ' + value('city') + ' / ' + value('state'), 'Período desejado: ' + (value('period') || 'A avaliar'), 'Fotos: ' + (photos.length ? photos.length + ' selecionada(s), a anexar na conversa' : 'Não selecionadas'), '', 'Viabilidade, prazo e transporte após avaliação.'];
     summary.textContent = lines.join('\n');
+    reviewedData = Object.fromEntries(['service','piece','reference','dimensions','details','name','phone','email','city','state','period'].map(name=>[name,value(name)]));
+    if (automatic) summary.textContent = summary.textContent.replace('selecionada(s), a anexar na conversa','selecionada(s), a enviar com o projeto');
+    submission = undefined; sendStatus.textContent = ''; sendError.hidden = true; sendButton.disabled = false;
     // A URL abre só uma mensagem inicial. Dados pessoais permanecem no resumo local.
     const initial = 'Olá, Stanza! Gostaria de conversar sobre ' + (value('service') === 'Reforma' ? 'a reforma de uma peça' : 'uma peça sob medida') + '. Preparei um resumo do projeto para enviar na conversa.';
     document.querySelector('#continue-whatsapp').href = 'https://wa.me/' + document.body.dataset.whatsapp + '?text=' + encodeURIComponent(initial);
@@ -94,12 +106,34 @@ if (form) {
   });
   for (const name of ['name', 'city']) field(name).addEventListener('input', () => field(name).setCustomValidity(''));
   document.querySelector('#edit-quote').addEventListener('click', () => {
+    if (sending || submission?.confirmacaoIniciada) return;
+    submission = undefined;
     review.hidden = true; form.hidden = false; document.querySelector('.quote-aside').hidden = false;
     field('reference').focus({preventScroll:true}); form.scrollIntoView({behavior:'instant',block:'start'});
   });
   document.querySelector('#copy-summary').addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(summary.textContent); copyStatus.textContent = 'Resumo copiado. Cole na conversa e anexe as fotos.'; }
+    try { await navigator.clipboard.writeText(summary.textContent); copyStatus.textContent = automatic ? 'Resumo copiado.' : 'Resumo copiado. Cole na conversa e anexe as fotos.'; }
     catch { const range = document.createRange(); range.selectNodeContents(summary); const selection = window.getSelection(); selection.removeAllRanges(); selection.addRange(range); copyStatus.textContent = 'Selecionei o resumo. Use Copiar no seu dispositivo.'; }
+  });
+  sendButton.addEventListener('click', async () => {
+    if (sending || !automatic) return;
+    sending = true; sendButton.disabled = true; editButton.disabled = true; sendError.hidden = true;
+    try {
+      const api = await import('/assets/quote-api.js');
+      if (!submission) submission = await api.prepararEnvio(reviewedData,photos.map(photo=>photo.file));
+      const received = await api.registrarEnvio(quoteConfig,submission,text=>{sendStatus.textContent=text;});
+      if (typeof received.protocolo !== 'string' || !/^ST-\d{4}-[A-F0-9-]{36}$/.test(received.protocolo)) throw new Error('O recebimento ainda não pôde ser confirmado. Tente novamente.');
+      sendStatus.textContent = (quoteConfig.mode === 'emulator' ? 'Registrado somente na demonstração local. ' : 'Projeto recebido para avaliação. ') + 'Protocolo: ' + received.protocolo;
+      sendButton.textContent = 'Projeto registrado';
+      document.querySelector('#continue-whatsapp').href = 'https://wa.me/' + document.body.dataset.whatsapp + '?text=' + encodeURIComponent('Olá, Stanza! Enviei o projeto pelo site. Meu protocolo é ' + received.protocolo + '.');
+      document.querySelector('#review-title').textContent = quoteConfig.mode === 'emulator' ? 'Recebido na demonstração.' : 'Seu projeto chegou.';
+      submission.confirmacaoIniciada = true;
+    } catch (error) {
+      sendError.textContent = (error instanceof Error ? error.message : 'Não foi possível confirmar o envio.') + ' Use Tentar novamente para conferir o mesmo envio, sem criar outro pedido. Você também pode conversar pelo WhatsApp.';
+      sendError.hidden = false; sendStatus.textContent = 'Recebimento ainda não confirmado.';
+      sendButton.textContent = 'Tentar novamente'; sendButton.disabled = false;
+      editButton.disabled = !!submission?.confirmacaoIniciada;
+    } finally {sending = false;}
   });
   window.addEventListener('pagehide', () => { photos.forEach(photo => URL.revokeObjectURL(photo.url)); }, {once:true});
   window.addEventListener('pageshow', event => {

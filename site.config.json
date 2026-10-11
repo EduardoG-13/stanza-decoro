@@ -5,6 +5,12 @@
   "whatsapp": "5511975563037",
   "phoneDisplay": "(11) 97556-3037",
   "email": "stanzadecoro@gmail.com",
+  "quote": {
+    "mode": "manual",
+    "endpoint": "",
+    "firebase": null,
+    "recaptchaSiteKey": ""
+  },
   "availability": {
     "enabled": false,
     "text": "Conte seu projeto. Prazo e transporte após avaliação.",

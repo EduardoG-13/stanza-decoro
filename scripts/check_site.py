@@ -62,5 +62,5 @@ assert 'navigator.clipboard.writeText(summary.textContent)' in script
 assert not errors,errors
 print(f'{len(pages)} páginas conferidas; links/arquivos, IDs, formulários, manifesto e contatos válidos.')
 print('Portfólio: 46 referências; catálogo: 8; empreendimentos ausentes da principal.')
-print('Dados do formulário sem armazenamento persistente; fotos não são enviadas por esta versão.')
+print('Dados do formulário sem armazenamento persistente no navegador; registro opcional por servidor configurável.')
 print('Esta verificação não substitui navegação visual ou testes de interação em navegador.')

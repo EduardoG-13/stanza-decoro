@@ -3,3 +3,4 @@ assets/images/
 __pycache__/
 .preview/
 *.local
+site.config.local.json
