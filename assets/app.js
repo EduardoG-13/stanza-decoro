@@ -122,7 +122,7 @@ if (form) {
       const api = await import('/assets/quote-api.js');
       if (!submission) submission = await api.prepararEnvio(reviewedData,photos.map(photo=>photo.file));
       const received = await api.registrarEnvio(quoteConfig,submission,text=>{sendStatus.textContent=text;});
-      if (typeof received.protocolo !== 'string' || !/^ST-\d{4}-[A-F0-9-]{36}$/.test(received.protocolo)) throw new Error('O recebimento ainda não pôde ser confirmado. Tente novamente.');
+      if (!api.protocoloValido(received.protocolo)) throw new Error('O recebimento ainda não pôde ser confirmado. Tente novamente.');
       sendStatus.textContent = (quoteConfig.mode === 'emulator' ? 'Registrado somente na demonstração local. ' : 'Projeto recebido para avaliação. ') + 'Protocolo: ' + received.protocolo;
       sendButton.textContent = 'Projeto registrado';
       document.querySelector('#continue-whatsapp').href = 'https://wa.me/' + document.body.dataset.whatsapp + '?text=' + encodeURIComponent('Olá, Stanza! Enviei o projeto pelo site. Meu protocolo é ' + received.protocolo + '.');

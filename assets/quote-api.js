@@ -1,5 +1,14 @@
 /* Registro opcional. O modo manual continua disponível sem Firebase no navegador. */
 let appCheckPromise;
+export function protocoloValido(valor) {
+  // Recibos antigos continuam válidos quando uma resposta anterior precisa ser recuperada.
+  if (typeof valor !== 'string' || /\s/.test(valor)) return false;
+  if (/^ST-\d{2}-\d{4,16}$/.test(valor)) {
+    const numero = Number(valor.slice(6));
+    return Number.isSafeInteger(numero) && numero > 0 && String(numero).padStart(4,'0') === valor.slice(6);
+  }
+  return /^ST-\d{4}-[A-F0-9]{8}-[A-F0-9]{4}-4[A-F0-9]{3}-[89AB][A-F0-9]{3}-[A-F0-9]{12}$/.test(valor);
+}
 async function appCheckToken(config) {
   if (config.mode === 'emulator') {
     const url = new URL(config.endpoint);

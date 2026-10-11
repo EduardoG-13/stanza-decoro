@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {webcrypto} from 'node:crypto';
-import {prepararEnvio,registrarEnvio} from '../assets/quote-api.js';
+import {prepararEnvio,registrarEnvio,protocoloValido} from '../assets/quote-api.js';
 globalThis.location={hostname:'127.0.0.1'};
 if(!globalThis.crypto)globalThis.crypto=webcrypto;
 globalThis.FileReader=class {
@@ -18,11 +18,16 @@ test('perda da resposta final usa a mesma identidade e recupera o recibo na repe
   const envio=await prepararEnvio({name:'Pessoa'},[]);let concluiu=false;const identidades=[];
   globalThis.fetch=async(url,request)=>{
     const body=JSON.parse(request.body);identidades.push(body.entrada.chave);
-    if(body.acao==='iniciar')return {ok:true,json:async()=>concluiu?{concluido:true,protocolo:'ST-2027-TESTE'}:{concluido:false}};
+    if(body.acao==='iniciar')return {ok:true,json:async()=>concluiu?{concluido:true,protocolo:'ST-27-0001'}:{concluido:false}};
     concluiu=true;throw new TypeError('A conexão caiu depois do registro');
   };
   await assert.rejects(registrarEnvio(config,envio,()=>{}));assert.equal(envio.confirmacaoIniciada,true);
-  const recibo=await registrarEnvio(config,envio,()=>{});assert.equal(recibo.protocolo,'ST-2027-TESTE');assert.equal(new Set(identidades).size,1);
+  const recibo=await registrarEnvio(config,envio,()=>{});assert.equal(recibo.protocolo,'ST-27-0001');assert.ok(protocoloValido(recibo.protocolo));assert.equal(new Set(identidades).size,1);
+});
+
+test('a confirmação aceita a numeração curta e recupera recibos antigos sem aceitar respostas arbitrárias',()=>{
+  for (const valor of ['ST-26-0001','ST-27-10000','ST-2026-11111111-1111-4111-8111-111111111111']) assert.ok(protocoloValido(valor));
+  for (const valor of [undefined,123,'ST-26-1','ST-26-0000','ST-26-00001','ST-26-9007199254740992','ST-27-TESTE','ST-26-0001\n','<script>','ST-2026-------------------------------------']) assert.equal(protocoloValido(valor),false);
 });
 test('modo de demonstração não permite enviar para um servidor real nem executar fora do computador local',async()=>{
   const envio=await prepararEnvio({},[]);
