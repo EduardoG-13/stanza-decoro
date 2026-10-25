@@ -1,10 +1,170 @@
 [
-  {"id":"sofa-organico","name":"Sofá orgânico","family":"sofas","label":"Linhas que acolhem","description":"Curvas e volumes suaves como ponto de partida para o seu ambiente.","source":"sofas/SOFA-2.jpg","alt":"Sofá orgânico claro fotografado em um ambiente","featured":true},
-  {"id":"sofa-modular","name":"Sofá modular","family":"sofas","label":"Espaço para compor","description":"Uma referência de assentos amplos para pensar a composição do espaço.","source":"sofas/SOFA-3.jpg","alt":"Sofá cinza com assentos amplos e almofadas claras","featured":true},
-  {"id":"sofa-chaise","name":"Sofá com chaise","family":"sofas","label":"Para se estender","description":"Uma composição em L para conversar sobre proporção, uso e circulação.","source":"sofas/SOFA-4.jpg","alt":"Sofá cinza em L com encosto marcado por linhas verticais","featured":false},
-  {"id":"sofa-reto","name":"Sofá de linhas retas","family":"sofas","label":"Presença discreta","description":"Linhas retas e pés aparentes em uma referência do acervo.","source":"sofas/SOFA-5.jpg","alt":"Referência de sofá de linhas retas do acervo Stanza","featured":false},
-  {"id":"sofa-retratil","name":"Sofá retrátil","family":"sofas","label":"Outra forma de relaxar","description":"Referência para avaliar configuração, mecanismo e espaço disponível.","source":"sofas/SOFA-10.jpg","alt":"Referência de sofá retrátil do acervo Stanza","featured":false},
-  {"id":"poltrona-bracos","name":"Poltrona com braços","family":"assentos","label":"Um canto só seu","description":"Uma peça de apoio para dar presença e personalidade ao ambiente.","source":"poltronas/poltronas-11.jpg","alt":"Poltronas azuis com braços e puff capitonê em ambiente","featured":true},
-  {"id":"cabeceira-capitone","name":"Cabeceira capitonê","family":"complementos","label":"Textura para o quarto","description":"Contorno curvo e superfície marcada como referência para uma nova cabeceira.","source":"cabeceiras/cabeceiras-2.jpg","alt":"Cabeceira azul capitonê com contorno curvo","featured":true},
-  {"id":"puff-quadrado","name":"Puff quadrado","family":"complementos","label":"Pequenas possibilidades","description":"Assentos de apoio que podem participar de diferentes composições.","source":"pufs/pufs-10.jpg","alt":"Puffs amarelos e cinza fotografados em um ambiente","featured":false}
+  {
+    "id": "sofa-organico",
+    "name": "Sofá orgânico",
+    "family": "sofas",
+    "label": "Linhas que acolhem",
+    "description": "Curvas e volumes suaves como ponto de partida para o seu ambiente.",
+    "source": "sofas/SOFA-2.jpg",
+    "alt": "Sofá orgânico claro fotografado em um ambiente",
+    "featured": true,
+    "piece": "Sofá",
+    "projectNotes": [
+      "Largura, profundidade e circulação ao redor da peça.",
+      "Formato das curvas, tecido e composição das almofadas."
+    ]
+  },
+  {
+    "id": "sofa-modular",
+    "name": "Sofá modular",
+    "family": "sofas",
+    "label": "Espaço para compor",
+    "description": "Uma referência de assentos amplos para pensar a composição do espaço.",
+    "source": "sofas/SOFA-3.jpg",
+    "alt": "Sofá cinza com assentos amplos e almofadas claras",
+    "featured": true,
+    "piece": "Sofá",
+    "projectNotes": [
+      "Composição dos assentos e espaço de circulação.",
+      "Proporções dos módulos, apoio e acabamento."
+    ]
+  },
+  {
+    "id": "sofa-chaise",
+    "name": "Sofá em L",
+    "family": "sofas",
+    "label": "Um canto para ficar",
+    "description": "Um desenho que acompanha o canto, com encosto marcado e assentos contínuos.",
+    "source": "sofas/SOFA-4.jpg",
+    "alt": "Sofá cinza em L com encosto marcado por linhas verticais",
+    "featured": false,
+    "piece": "Sofá",
+    "projectNotes": [
+      "Lados da composição e medidas de cada parede.",
+      "Altura do encosto, assento e circulação."
+    ]
+  },
+  {
+    "id": "sofa-reto",
+    "name": "Sofá de linhas retas",
+    "family": "sofas",
+    "label": "Presença discreta",
+    "description": "Linhas retas e pés aparentes em uma referência do acervo.",
+    "source": "sofas/SOFA-5.jpg",
+    "alt": "Referência de sofá de linhas retas do acervo Stanza",
+    "featured": false,
+    "piece": "Sofá",
+    "projectNotes": [
+      "Largura total, altura do assento e dos braços.",
+      "Desenho dos pés, almofadas e acabamento."
+    ]
+  },
+  {
+    "id": "sofa-retratil",
+    "name": "Sofá retrátil",
+    "family": "sofas",
+    "label": "Outra forma de relaxar",
+    "description": "Referência para avaliar configuração, mecanismo e espaço disponível.",
+    "source": "sofas/SOFA-10.jpg",
+    "alt": "Referência de sofá retrátil do acervo Stanza",
+    "featured": false,
+    "piece": "Sofá",
+    "projectNotes": [
+      "Espaço necessário para a peça aberta e fechada.",
+      "Configuração e mecanismo, sujeitos à avaliação."
+    ]
+  },
+  {
+    "id": "poltrona-bracos",
+    "name": "Poltrona com braços",
+    "family": "assentos",
+    "label": "Um canto só seu",
+    "description": "Uma peça de apoio para dar presença e personalidade ao ambiente.",
+    "source": "poltronas/poltronas-11.jpg",
+    "alt": "Poltronas azuis com braços e puff capitonê em ambiente",
+    "featured": true,
+    "piece": "Poltrona",
+    "projectNotes": [
+      "Tamanho da peça e posição no ambiente.",
+      "Formato dos braços, pés e tecido."
+    ]
+  },
+  {
+    "id": "cabeceira-capitone",
+    "name": "Cabeceira de contorno",
+    "family": "complementos",
+    "label": "O desenho do quarto",
+    "description": "Contorno curvo e borda marcada em uma referência de cabeceira estofada.",
+    "source": "cabeceiras/cabeceiras-2.jpg",
+    "alt": "Cabeceira azul com contorno curvo e borda marcada, atrás de uma cama",
+    "featured": false,
+    "piece": "Cabeceira",
+    "projectNotes": [
+      "Largura da cama e proporção com a parede.",
+      "Contorno, fixação e acabamento da borda."
+    ]
+  },
+  {
+    "id": "puff-quadrado",
+    "name": "Puff quadrado",
+    "family": "complementos",
+    "label": "Pequenas possibilidades",
+    "description": "Assentos de apoio que podem participar de diferentes composições.",
+    "source": "pufs/pufs-10.jpg",
+    "alt": "Puffs amarelos e cinza fotografados em um ambiente",
+    "featured": false,
+    "piece": "Puff",
+    "projectNotes": [
+      "Uso como assento ou apoio e medidas desejadas.",
+      "Quantidade de peças, tecido e cores."
+    ]
+  },
+  {
+    "id": "sofa-curvo",
+    "name": "Sofá de braços curvos",
+    "family": "sofas",
+    "label": "Curvas e presença",
+    "description": "Braços arredondados, pés aparentes e almofadas soltas em uma composição verde.",
+    "source": "sofas/SOFA-9.png",
+    "gallery": [
+      "sofas/SOFA-9.2.png"
+    ],
+    "alt": "Sofá verde com braços curvos, almofadas e pés de madeira em uma sala",
+    "piece": "Sofá",
+    "featured": false,
+    "projectNotes": [
+      "Desenho dos braços, largura e profundidade.",
+      "Composição das almofadas, pés e tecido."
+    ]
+  },
+  {
+    "id": "banco-canto",
+    "name": "Banco de canto",
+    "family": "sofas",
+    "label": "Acompanhar o espaço",
+    "description": "Assentos e encosto que acompanham o canto como referência para uma composição sob medida.",
+    "source": "sofas/SOFA-8.jpg",
+    "alt": "Banco estofado marrom em composição de canto com encosto marcado",
+    "piece": "Banco",
+    "featured": false,
+    "projectNotes": [
+      "Formato da composição e medidas de cada lado.",
+      "Altura da mesa, profundidade e acesso ao assento."
+    ]
+  },
+  {
+    "id": "cabeceira-paineis",
+    "name": "Cabeceira de painéis",
+    "family": "complementos",
+    "label": "Linhas no quarto",
+    "description": "Painéis horizontais e contorno reto para pensar a proporção da cama e da parede.",
+    "source": "cabeceiras/cabeceiras-6.jpg",
+    "alt": "Cabeceira clara de painéis horizontais entre duas mesas de cabeceira",
+    "featured": true,
+    "piece": "Cabeceira",
+    "projectNotes": [
+      "Largura da cama, altura da cabeceira e posição das tomadas.",
+      "Divisão dos painéis, fixação e acabamento."
+    ]
+  }
 ]

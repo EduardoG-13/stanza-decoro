@@ -1,69 +1,63 @@
-# Stanza Decoro — nova versão local
+# Stanza Decoro — prévia local
 
-Implementação iniciada em 11 de outubro de 2026, na branch `codex/site-v2`, a partir da base `4711ea9`. Esta cópia está na pasta da tarefa; o clone original e o sistema da oficina foram preservados.
+Cópia de trabalho na branch codex/site-v2. Os repositórios originais da empresa permanecem preservados. Revisão atual: 25 de outubro de 2026, direção Ateliê editorial.
 
-## Primeira entrega
+## Abrir e revisar
 
-Página principal editorial com logo real, preto/dourado e verde oliva; páginas de fabricação e reforma; catálogo com oito referências e fichas próprias; portfólio com as 46 imagens existentes, filtros por família; orçamento com validação, prévia local de fotos, revisão e continuação no WhatsApp; contatos e página de privacidade.
+No Windows, abra **ABRIR-PREVIA.cmd** nesta pasta. O atalho prepara o site e abre o navegador em http://127.0.0.1:8935/index.html. Mantenha a janela aberta enquanto navega. Se necessário, execute iniciar-previa.ps1 com -Port 8936.
 
-Empreendimentos não aparecem na principal nem no menu público. O portal separado e o catálogo 3D fiel permanecem nas etapas próprias dos planos. Não foram adicionados parceiros, depoimentos, preços ou medidas fictícios.
+A prévia simples usa a configuração padrão manual, ignorando a configuração temporária de emulador sem apagá-la. Para a demonstração integrada da oficina, use o atalho próprio em ../stanza-oficina.
 
-## Abrir a prévia
-
-Com Python e Pillow disponíveis:
-
-No Windows, abra `ABRIR-PREVIA.cmd` na pasta do projeto. Ele prepara os arquivos e abre o navegador. Mantenha a janela aberta enquanto utiliza a prévia; feche ou pressione Ctrl+C para encerrar.
-
-Também é possível iniciar pela linha de comando:
+Para preparar sem abrir servidor:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\iniciar-previa.ps1
-```
-
-Abra `http://127.0.0.1:8935/index.html`. O servidor atende apenas neste computador. Se a porta estiver ocupada, use `-Port 8936` e ajuste o endereço. Mantenha a janela aberta enquanto navega.
-
-Para preparar e conferir sem iniciar servidor:
-
-```powershell
-python scripts/build.py
+python scripts/build.py --ignore-local-config
 python scripts/check_site.py
 node --check assets/app.js
+node --check assets/home-opening.js
+node --check assets/sofa-experience.js
+npm test
 ```
 
-O pacote publicável fica em `dist/`. Não foi publicado. A configuração `production: false` mantém a prévia fora da indexação; alterá-la faz parte da preparação do lançamento, após a revisão dos critérios.
+O pacote fica em dist/. Production=false conserva noindex. Nada foi publicado.
 
-## Onde editar
+## Experiência atual
 
-| Arquivo/pasta | Conteúdo |
+- Principal editorial, fabricação e reforma, contatos reais e privacidade.
+- Onze referências de catálogo, com fichas próprias e busca combinada com famílias.
+- Acervo de 46 fotos: descrições revisadas, busca e galeria ampliada com teclado.
+- Orçamento com contexto da peça, fotos locais, revisão e continuação no WhatsApp.
+- Sofá 3D na abertura: giro automático enquanto está visível; pausa ao sair da tela, ocultar a aba ou reduzir movimentos. Sem controle de expansão por rolagem.
+- Personalização em explorar-sofa.html: três tecidos e quatro cores de estudo, câmeras e camadas por controles manuais. A combinação segue ao orçamento como estudo.
+- Entrada discreta de conteúdo, com movimento reduzido respeitado. Preferência adicional no rodapé vale para a página atual.
+
+Empreendimentos continuam separados da principal. As fotos originais não foram retocadas ou substituídas por imagens geradas. O ensaio de troca de fundo foi rejeitado na comparação.
+
+## Organização
+
+| Fonte | Responsabilidade |
 |---|---|
-| `site.config.json` | Marca, contato, domínio, modo de prévia e aviso de agenda com vigência |
-| `data/catalog.json` | Referências, descrição, família e foto de origem |
-| `data/portfolio.json` | Acervo preservado de 46 referências |
-| `pages/` | Conteúdo das páginas |
-| `templates/layout.html` | Cabeçalho, rodapé e metadados comuns |
-| `assets/site.css` | Identidade, componentes e regras responsivas |
-| `assets/app.js` | Menu, filtros e preparação do orçamento |
-| `scripts/build.py` | Páginas completas e cópias web das fotografias |
+| site.config.json | Contatos, domínio, agenda e modo de orçamento |
+| data/catalog.json e data/portfolio.json | Referências e fotografias |
+| data/sofa-pilot.json | Identificadores e nomes permitidos de tecidos e cores |
+| pages/ e templates/layout.html | Conteúdo e navegação compartilhada |
+| assets/site.css e assets/app.js | Aparência e interações comuns |
+| assets/home-opening.js | Cena decorativa, enquadramento e ciclo de movimento |
+| assets/sofa-experience.js e .css | Interface de personalização |
+| assets/sofa-pilot/ | Modelos, texturas, módulo de visualização e licenças |
+| scripts/build.py | Geração dos HTML e cópias WebP |
+| scripts/check_site.py | Integridade do pacote, contatos, formulários e hashes dos GLBs |
 
-O build também atualiza os HTML na raiz, mantendo a forma de entrada do repositório estático. Edite as fontes acima e gere novamente; não edite os HTML gerados isoladamente. As fotos originais permanecem nas pastas do acervo. Cópias WebP e a pasta `dist/` são geradas e ignoradas pelo Git.
+Edite as fontes e gere novamente. Os HTML na raiz são também atualizados pelo build. As cópias WebP e dist/ são geradas; fotografias originais e arquivos do piloto enviado são conservados.
 
-## Orçamento nesta etapa
+Os dois GLBs são idênticos aos do pacote recebido. O módulo de visualização ganhou somente opções de cor de fundo/piso para composição no site; a animação e a interface ficam nos adaptadores. INTEGRATION.json separa essa integração dos relatórios originais do piloto. A fonte Blender editável continua no pacote entregue pela outra tarefa.
 
-O formulário prepara um resumo local. A pessoa copia esse resumo, abre o WhatsApp com uma mensagem inicial e anexa as fotos na conversa. A URL de WhatsApp não inclui dados pessoais do formulário. Nenhum protocolo ou confirmação de registro é inventado.
+## Orçamento e limites
 
-O registro durável, arquivos privados e a caixa de pedidos da secretária/dono foram preparados na segunda etapa local, descrita abaixo. A fila e o worker de e-mail estão implementados, mas o remetente e a entrega real ainda não foram configurados. O modo padrão manual não é prova de recebimento nem de envio automático.
+O modo padrão prepara um resumo no navegador; fotos são anexadas pela pessoa no WhatsApp. A URL não carrega os dados pessoais do formulário. Isso não confirma recebimento automático.
 
-## Conferências e limites
+O registro privado com protocolo foi preparado em ../stanza-oficina. A pesquisa por protocolo foi validada em emulador isolado. E-mail real e conversão em cliente/OS continuam pendentes.
 
-Sintaxe, geração das páginas, arquivos locais, links, manifesto, identificação dos campos, preservação do acervo e ausência de empreendimento na principal podem ser conferidos pelos scripts. Revisão visual e interação em navegador ainda são necessárias: a ferramenta de navegador não iniciou nesta execução.
+O 3D é ilustrativo: almofadas, proporções e interior ainda precisam de revisão. Não representa tecido em estoque, medida real ou fabricação homologada. Celular físico, Safari e Firefox ainda precisam de conferência.
 
-Antes da publicação, confirmar individualmente o direito de uso das imagens, revisar fichas com a Stanza, verificar celular/teclado, implementar ou manter explicitamente o canal manual escolhido e conferir a disponibilidade vigente. Reutilização do acervo atual não comprova autoria ou autorização de cada fotografia.
-
-O plano de execução e seus critérios permanecem em `../outputs/planos/00-MAPA-DA-EXECUCAO.md`.
-## Registro de pedidos — segunda etapa local
-
-O formulário agora também tem um modo de registro pelo servidor, preparado na cópia `../stanza-oficina`. O modo padrão deste repositório permanece `manual`: resumo e conversa pelo WhatsApp. O registro usa dados e fotos, confirmação real de gravação e protocolo; dados não são guardados no armazenamento persistente do navegador.
-
-Para experimentar o caminho completo, abra `../stanza-oficina/ABRIR-ATENDIMENTO-LOCAL.cmd`. O atalho abre formulário e atendimento privado com dados fictícios, sem e-mail real. Veja `../stanza-oficina/README-pedidos-site.md` para as contas locais, verificações e condições de ativação. Não publicar uma configuração de demonstração.
-
-`assets/quote-api.js` cuida da preparação/repetição; `quote` em `site.config.json` controla manual/emulator/firebase. A configuração temporária `site.config.local.json` é ignorada pelo Git. `npm test` verifica hash/capacidade, recuperação de resposta perdida e restrição do modo local. O site continua estático e a construção principal permanece em `scripts/build.py`.
+Relatório atual: ../outputs/IMPLEMENTACAO-STANZA-ETAPA3.md. Próxima revisão do ativo: ../outputs/REVISAO-3D-CAMADAS-E-REFERENCIAS.md.

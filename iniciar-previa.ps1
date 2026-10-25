@@ -4,7 +4,7 @@ $ErrorActionPreference = 'Stop'
 $siteProjectPath = $PSScriptRoot
 Set-Location -LiteralPath $siteProjectPath
 $env:PYTHONIOENCODING = 'utf-8'
-python scripts/build.py
+python scripts/build.py --ignore-local-config
 if ($LASTEXITCODE -ne 0) { throw 'Não foi possível preparar a prévia.' }
 Write-Host "Prévia da Stanza: http://127.0.0.1:$Port/index.html"
 Write-Host 'Mantenha esta janela aberta. Use Ctrl+C para encerrar a prévia.'

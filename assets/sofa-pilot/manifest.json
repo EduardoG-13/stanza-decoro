@@ -1,0 +1,1001 @@
+{
+  "contract": "stanza-sofa-pilot/v1",
+  "modelId": "stanza-organic-01",
+  "revision": "1.0.0",
+  "title": "Estudo de sofá orgânico em feijão",
+  "validation": {
+    "status": "technical-passed-reference-limited",
+    "date": "2026-10-25",
+    "gltfValidator": {
+      "version": "2.0.0-dev.3.10",
+      "main": {
+        "version": "2.0.0-dev.3.10",
+        "errors": 0,
+        "warnings": 0,
+        "infos": 38,
+        "hints": 0
+      },
+      "mobile": {
+        "version": "2.0.0-dev.3.10",
+        "errors": 0,
+        "warnings": 0,
+        "infos": 38,
+        "hints": 0
+      }
+    },
+    "browser": {
+      "passed": true,
+      "assertions": 50,
+      "environment": {
+        "headless": true,
+        "softwareGpuAllowed": true,
+        "physicalMobileTest": false,
+        "browser": "156.0.8078.47",
+        "gpu": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Intel, Intel(R) Graphics (0x00007D41) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+        }
+      },
+      "report": "validation/browser-checks.json"
+    },
+    "physicalDeviceTested": false,
+    "companyApproved": false,
+    "manufacturingVerified": false,
+    "reports": [
+      "validation/comparison.json",
+      "validation/sofa.validator.json",
+      "validation/sofa-mobile.validator.json",
+      "validation/visual-review.md"
+    ]
+  },
+  "units": "m",
+  "axes": {
+    "width": "+X",
+    "up": "+Y",
+    "front": "+Z",
+    "origin": "horizontal center of base at floor Y=0"
+  },
+  "dimensions": {
+    "width": 2.486694,
+    "height": 1.007378,
+    "depth": 1.084271,
+    "estimated": true,
+    "basis": "Single photograph, no measured shop dimensions"
+  },
+  "models": {
+    "main": {
+      "uri": "models/sofa.glb",
+      "bytes": 3970980,
+      "sha256": "c521e18b40c6e25c7383ce67cbd91ffe3d78cc34aeb01f5cb5e70082781723d1",
+      "triangles": 43936,
+      "boundsMeters": {
+        "min": [
+          -1.243347,
+          0,
+          -0.542136
+        ],
+        "max": [
+          1.243347,
+          1.007378,
+          0.542136
+        ],
+        "dimensions": [
+          2.486694,
+          1.007378,
+          1.084271
+        ],
+        "center": [
+          0,
+          0.503689,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal",
+          "embedded": true,
+          "bytes": 2125341,
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/png"
+        },
+        {
+          "index": 1,
+          "name": "embedded-boucle-areia",
+          "embedded": true,
+          "bytes": 26088,
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/jpeg"
+        },
+        {
+          "index": 2,
+          "name": "embedded-boucle-roughness",
+          "embedded": true,
+          "bytes": 243072,
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/png"
+        }
+      ],
+      "requiresDecoders": false
+    },
+    "mobile": {
+      "uri": "models/sofa-mobile.glb",
+      "bytes": 1686720,
+      "sha256": "b482875c69f434cc393b7e0902af88721906dbd46579e67c22f0431d4f05dc42",
+      "triangles": 21128,
+      "boundsMeters": {
+        "min": [
+          -1.2432,
+          0,
+          -0.541991
+        ],
+        "max": [
+          1.2432,
+          1.007378,
+          0.541991
+        ],
+        "dimensions": [
+          2.4864,
+          1.007378,
+          1.083983
+        ],
+        "center": [
+          0,
+          0.503689,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal",
+          "embedded": true,
+          "bytes": 578772,
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/png"
+        },
+        {
+          "index": 1,
+          "name": "basecolor",
+          "embedded": true,
+          "bytes": 26088,
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/jpeg"
+        },
+        {
+          "index": 2,
+          "name": "roughness",
+          "embedded": true,
+          "bytes": 243072,
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/png"
+        }
+      ],
+      "requiresDecoders": false
+    }
+  },
+  "poster": "previews/poster.jpg",
+  "source": "source/sofa.blend",
+  "rootNode": "sofa_root",
+  "groups": [
+    {
+      "id": "upholstery",
+      "nodeName": "upholstery",
+      "parentNode": "sofa_root",
+      "label": "Revestimento",
+      "constructionIllustrative": false
+    },
+    {
+      "id": "padding",
+      "nodeName": "padding",
+      "parentNode": "sofa_root",
+      "label": "Acolchoamento ilustrativo",
+      "constructionIllustrative": true
+    },
+    {
+      "id": "frame",
+      "nodeName": "frame",
+      "parentNode": "sofa_root",
+      "label": "Estrutura ilustrativa",
+      "constructionIllustrative": true
+    },
+    {
+      "id": "legs",
+      "nodeName": "legs",
+      "parentNode": "sofa_root",
+      "label": "Pés estimados",
+      "constructionIllustrative": false
+    },
+    {
+      "id": "cushions",
+      "nodeName": "cushions",
+      "parentNode": "sofa_root",
+      "label": "Almofadas soltas",
+      "constructionIllustrative": false
+    },
+    {
+      "id": "suspension",
+      "nodeName": "suspension",
+      "parentNode": "sofa_root",
+      "label": "Sustentação ilustrativa",
+      "constructionIllustrative": true
+    }
+  ],
+  "materialBindings": [
+    {
+      "materialName": "fabric_main",
+      "role": "customizable-fabric",
+      "groups": [
+        "upholstery",
+        "cushions"
+      ]
+    },
+    {
+      "materialName": "fabric_seam",
+      "role": "customizable-fabric",
+      "groups": [
+        "upholstery",
+        "cushions"
+      ]
+    },
+    {
+      "materialName": "padding_illustrative",
+      "role": "fixed-illustrative",
+      "groups": [
+        "padding"
+      ]
+    },
+    {
+      "materialName": "frame_illustrative",
+      "role": "fixed-illustrative",
+      "groups": [
+        "frame"
+      ]
+    },
+    {
+      "materialName": "suspension_illustrative",
+      "role": "fixed-illustrative",
+      "groups": [
+        "suspension"
+      ]
+    },
+    {
+      "materialName": "legs_dark",
+      "role": "fixed-illustrative",
+      "groups": [
+        "legs"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "label": "Trama plana",
+      "family": "plain_weave_linen_study",
+      "seed": 501,
+      "normalScale": 0.78,
+      "roughness": 1.0,
+      "sheen": 0.12,
+      "sheenRoughness": 0.85,
+      "description": "Trama plana alternada, fios de aproximadamente 1,25 mm e espessura irregular discreta. Estudo visual sem composicao comercial atribuida.",
+      "id": "linen",
+      "repeatMeters": 0.14,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalColorSpace": "linear-data",
+      "roughnessColorSpace": "linear-data",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "maps": {
+        "baseColor": "materials/linen/basecolor.jpg",
+        "normal": "materials/linen/normal.png",
+        "roughness": "materials/linen/roughness.jpg",
+        "thumbnail": "materials/linen/thumbnail.jpg"
+      },
+      "license": "CC0-1.0",
+      "source": "source/generate_materials.py",
+      "validation": {
+        "baseColorMean": 0.9248817819722591,
+        "roughnessMean": 0.8725013781322526,
+        "normalLengthMaxErrorBeforeQuantization": 2.220446049250313e-16,
+        "periodicity": "periodic Fourier noise, modular weave/loop sampling and wrapped normal derivatives"
+      }
+    },
+    {
+      "label": "Bouclé",
+      "family": "fine_loop_boucle_study",
+      "seed": 502,
+      "normalScale": 0.9,
+      "roughness": 1.0,
+      "sheen": 0.2,
+      "sheenRoughness": 0.9,
+      "description": "Lacos irregulares finos com relevo suave e penugem; distribuicao media de 1,9 mm. Estudo visual, sem codigo comercial.",
+      "id": "boucle",
+      "repeatMeters": 0.14,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalColorSpace": "linear-data",
+      "roughnessColorSpace": "linear-data",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "maps": {
+        "baseColor": "materials/boucle/basecolor.jpg",
+        "normal": "materials/boucle/normal.png",
+        "roughness": "materials/boucle/roughness.jpg",
+        "thumbnail": "materials/boucle/thumbnail.jpg"
+      },
+      "license": "CC0-1.0",
+      "source": "source/generate_materials.py",
+      "validation": {
+        "baseColorMean": 0.9358852962243184,
+        "roughnessMean": 0.9100106722228036,
+        "normalLengthMaxErrorBeforeQuantization": 2.220446049250313e-16,
+        "periodicity": "periodic Fourier noise, modular weave/loop sampling and wrapped normal derivatives"
+      }
+    },
+    {
+      "label": "Veludo",
+      "family": "short_pile_velvet_study",
+      "seed": 503,
+      "normalScale": 0.38,
+      "roughness": 1.0,
+      "sheen": 0.72,
+      "sheenRoughness": 0.55,
+      "fallback": {
+        "normalScale": 0.38,
+        "roughness": 1.0,
+        "metalness": 0,
+        "note": "Metallic-roughness continua funcional sem sheen, com menor resposta a luz rasante."
+      },
+      "description": "Pelo curto denso, microfibras de baixo relevo; sheen descreve a resposta suave a luz rasante, sem brilho metalico.",
+      "id": "velvet",
+      "repeatMeters": 0.14,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalColorSpace": "linear-data",
+      "roughnessColorSpace": "linear-data",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "maps": {
+        "baseColor": "materials/velvet/basecolor.jpg",
+        "normal": "materials/velvet/normal.png",
+        "roughness": "materials/velvet/roughness.jpg",
+        "thumbnail": "materials/velvet/thumbnail.jpg"
+      },
+      "license": "CC0-1.0",
+      "source": "source/generate_materials.py",
+      "validation": {
+        "baseColorMean": 0.9384256480339314,
+        "roughnessMean": 0.7217925367701485,
+        "normalLengthMaxErrorBeforeQuantization": 2.220446049250313e-16,
+        "periodicity": "periodic Fourier noise, modular weave/loop sampling and wrapped normal derivatives"
+      }
+    }
+  ],
+  "colors": [
+    {
+      "id": "areia",
+      "hex": "#d8c9b2",
+      "space": "sRGB",
+      "studyOnly": true
+    },
+    {
+      "id": "oliva",
+      "hex": "#72765a",
+      "space": "sRGB",
+      "studyOnly": true
+    },
+    {
+      "id": "terracota",
+      "hex": "#ae6952",
+      "space": "sRGB",
+      "studyOnly": true
+    },
+    {
+      "id": "grafite",
+      "hex": "#494b4b",
+      "space": "sRGB",
+      "studyOnly": true
+    }
+  ],
+  "finishes": [
+    {
+      "id": "linen-areia",
+      "fabricId": "linen",
+      "colorId": "areia",
+      "studyOnly": true
+    },
+    {
+      "id": "linen-oliva",
+      "fabricId": "linen",
+      "colorId": "oliva",
+      "studyOnly": true
+    },
+    {
+      "id": "linen-terracota",
+      "fabricId": "linen",
+      "colorId": "terracota",
+      "studyOnly": true
+    },
+    {
+      "id": "linen-grafite",
+      "fabricId": "linen",
+      "colorId": "grafite",
+      "studyOnly": true
+    },
+    {
+      "id": "boucle-areia",
+      "fabricId": "boucle",
+      "colorId": "areia",
+      "studyOnly": true
+    },
+    {
+      "id": "boucle-oliva",
+      "fabricId": "boucle",
+      "colorId": "oliva",
+      "studyOnly": true
+    },
+    {
+      "id": "boucle-terracota",
+      "fabricId": "boucle",
+      "colorId": "terracota",
+      "studyOnly": true
+    },
+    {
+      "id": "boucle-grafite",
+      "fabricId": "boucle",
+      "colorId": "grafite",
+      "studyOnly": true
+    },
+    {
+      "id": "velvet-areia",
+      "fabricId": "velvet",
+      "colorId": "areia",
+      "studyOnly": true
+    },
+    {
+      "id": "velvet-oliva",
+      "fabricId": "velvet",
+      "colorId": "oliva",
+      "studyOnly": true
+    },
+    {
+      "id": "velvet-terracota",
+      "fabricId": "velvet",
+      "colorId": "terracota",
+      "studyOnly": true
+    },
+    {
+      "id": "velvet-grafite",
+      "fabricId": "velvet",
+      "colorId": "grafite",
+      "studyOnly": true
+    }
+  ],
+  "defaultSelection": {
+    "modelId": "stanza-organic-01",
+    "revision": "1.0.0",
+    "fabricId": "boucle",
+    "colorId": "areia"
+  },
+  "embeddedFinish": {
+    "fabricId": "boucle",
+    "colorId": "areia",
+    "baseColorAlreadyTinted": true,
+    "multiplier": "white; load neutral external maps for other tints"
+  },
+  "uv": {
+    "nominalRepeatMeters": 0.14,
+    "textureRepeat": [
+      1,
+      1
+    ],
+    "notes": "Local panel projections; changes of grain direction at sewn panel boundaries. Not a manufacturing cutting pattern."
+  },
+  "cameras": {
+    "threequarter": {
+      "position": [
+        2.6,
+        1.65,
+        3.1
+      ],
+      "target": [
+        0,
+        0.5,
+        0
+      ],
+      "verticalFovDegrees": 36
+    },
+    "front": {
+      "position": [
+        0,
+        1.15,
+        4.5
+      ],
+      "target": [
+        0,
+        0.48,
+        0
+      ],
+      "verticalFovDegrees": 36
+    },
+    "side": {
+      "position": [
+        4.4,
+        1.2,
+        0
+      ],
+      "target": [
+        0,
+        0.48,
+        0
+      ],
+      "verticalFovDegrees": 36
+    },
+    "detail": {
+      "position": [
+        0.55,
+        0.63,
+        1
+      ],
+      "target": [
+        0.5,
+        0.43,
+        0.35
+      ],
+      "verticalFovDegrees": 36
+    },
+    "layers": {
+      "position": [
+        3.5,
+        2.7,
+        4.5
+      ],
+      "target": [
+        0,
+        1,
+        0
+      ],
+      "verticalFovDegrees": 36
+    }
+  },
+  "layerSequence": {
+    "construction": "illustrative",
+    "range": [
+      0,
+      1
+    ],
+    "interpolation": "smoothstep between adjacent stages",
+    "offsetSpace": "glTF local XYZ meters, added to original group positions",
+    "reassembledAt": [
+      0,
+      1
+    ],
+    "stages": [
+      {
+        "progress": 0,
+        "label": "Peça montada",
+        "offsets": {
+          "upholstery": [
+            0,
+            0,
+            0
+          ],
+          "padding": [
+            0,
+            0,
+            0
+          ],
+          "frame": [
+            0,
+            0,
+            0
+          ],
+          "legs": [
+            0,
+            0,
+            0
+          ],
+          "cushions": [
+            0,
+            0,
+            0
+          ],
+          "suspension": [
+            0,
+            0,
+            0
+          ]
+        },
+        "camera": {
+          "position": [
+            2.6,
+            1.65,
+            3.1
+          ],
+          "target": [
+            0,
+            0.5,
+            0
+          ]
+        }
+      },
+      {
+        "progress": 0.2,
+        "label": "Aproximação do revestimento",
+        "offsets": {
+          "upholstery": [
+            0,
+            0,
+            0
+          ],
+          "padding": [
+            0,
+            0,
+            0
+          ],
+          "frame": [
+            0,
+            0,
+            0
+          ],
+          "legs": [
+            0,
+            0,
+            0
+          ],
+          "cushions": [
+            0,
+            0,
+            0
+          ],
+          "suspension": [
+            0,
+            0,
+            0
+          ]
+        },
+        "camera": {
+          "position": [
+            2.1,
+            1.5,
+            2.6
+          ],
+          "target": [
+            0,
+            0.6,
+            0.15
+          ]
+        }
+      },
+      {
+        "progress": 0.5,
+        "label": "Revestimento e acolchoamento separados",
+        "offsets": {
+          "upholstery": [
+            0,
+            0.8,
+            0.3
+          ],
+          "padding": [
+            0,
+            0.3,
+            0
+          ],
+          "frame": [
+            0,
+            0,
+            0
+          ],
+          "legs": [
+            0,
+            0,
+            0
+          ],
+          "cushions": [
+            0,
+            0.9,
+            0.65
+          ],
+          "suspension": [
+            0,
+            0.08,
+            0
+          ]
+        },
+        "camera": {
+          "position": [
+            3.5,
+            2.7,
+            4.5
+          ],
+          "target": [
+            0,
+            1,
+            0
+          ]
+        }
+      },
+      {
+        "progress": 0.7,
+        "label": "Estrutura exposta · construção ilustrativa",
+        "offsets": {
+          "upholstery": [
+            0,
+            1.3,
+            0.5
+          ],
+          "padding": [
+            0,
+            0.65,
+            0
+          ],
+          "frame": [
+            0,
+            0,
+            0
+          ],
+          "legs": [
+            0,
+            0,
+            0
+          ],
+          "cushions": [
+            0,
+            1.45,
+            0.85
+          ],
+          "suspension": [
+            0,
+            0.22,
+            0
+          ]
+        },
+        "camera": {
+          "position": [
+            3.5,
+            2.7,
+            4.5
+          ],
+          "target": [
+            0,
+            1,
+            0
+          ]
+        }
+      },
+      {
+        "progress": 1,
+        "label": "Retorno à peça montada",
+        "offsets": {
+          "upholstery": [
+            0,
+            0,
+            0
+          ],
+          "padding": [
+            0,
+            0,
+            0
+          ],
+          "frame": [
+            0,
+            0,
+            0
+          ],
+          "legs": [
+            0,
+            0,
+            0
+          ],
+          "cushions": [
+            0,
+            0,
+            0
+          ],
+          "suspension": [
+            0,
+            0,
+            0
+          ]
+        },
+        "camera": {
+          "position": [
+            2.6,
+            1.65,
+            3.1
+          ],
+          "target": [
+            0,
+            0.5,
+            0
+          ]
+        }
+      }
+    ]
+  },
+  "viewer": {
+    "entry": "viewer/index.html",
+    "module": "viewer/sofa-viewer.js",
+    "api": "viewer/API.md",
+    "scrollAdapter": "viewer/scroll.js",
+    "webglVersion": 2,
+    "initialVariantPolicy": "mobile at viewport <=760px; otherwise main; override supported",
+    "methods": [
+      "setProgress",
+      "setFinish",
+      "setView",
+      "getSelection",
+      "dispose"
+    ],
+    "selectionFields": [
+      "modelId",
+      "revision",
+      "fabricId",
+      "colorId"
+    ]
+  },
+  "previews": [
+    {
+      "uri": "previews/three-quarter.png",
+      "source": "actual exported GLB rendered by Three.js",
+      "view": "threequarter",
+      "progress": 0,
+      "selection": {
+        "modelId": "stanza-organic-01",
+        "revision": "1.0.0",
+        "fabricId": "boucle",
+        "colorId": "areia"
+      }
+    },
+    {
+      "uri": "previews/front.png",
+      "source": "actual exported GLB rendered by Three.js",
+      "view": "front",
+      "progress": 0,
+      "selection": {
+        "modelId": "stanza-organic-01",
+        "revision": "1.0.0",
+        "fabricId": "boucle",
+        "colorId": "areia"
+      }
+    },
+    {
+      "uri": "previews/side.png",
+      "source": "actual exported GLB rendered by Three.js",
+      "view": "side",
+      "progress": 0,
+      "selection": {
+        "modelId": "stanza-organic-01",
+        "revision": "1.0.0",
+        "fabricId": "boucle",
+        "colorId": "areia"
+      }
+    },
+    {
+      "uri": "previews/fabric-detail.png",
+      "source": "actual exported GLB rendered by Three.js",
+      "view": "detail",
+      "progress": 0,
+      "selection": {
+        "modelId": "stanza-organic-01",
+        "revision": "1.0.0",
+        "fabricId": "boucle",
+        "colorId": "areia"
+      }
+    },
+    {
+      "uri": "previews/layers-open.png",
+      "source": "actual exported GLB rendered by Three.js",
+      "view": "layers",
+      "progress": 0.7,
+      "selection": {
+        "modelId": "stanza-organic-01",
+        "revision": "1.0.0",
+        "fabricId": "boucle",
+        "colorId": "areia"
+      }
+    },
+    {
+      "uri": "previews/poster.jpg",
+      "source": "actual exported GLB rendered by Three.js",
+      "view": "threequarter",
+      "progress": 0,
+      "selection": {
+        "modelId": "stanza-organic-01",
+        "revision": "1.0.0",
+        "fabricId": "boucle",
+        "colorId": "areia"
+      }
+    },
+    {
+      "uri": "previews/linen-detail.png",
+      "source": "actual exported GLB rendered by Three.js",
+      "view": "detail",
+      "progress": 0,
+      "selection": {
+        "modelId": "stanza-organic-01",
+        "revision": "1.0.0",
+        "fabricId": "linen",
+        "colorId": "areia"
+      }
+    },
+    {
+      "uri": "previews/boucle-detail.png",
+      "source": "actual exported GLB rendered by Three.js",
+      "view": "detail",
+      "progress": 0,
+      "selection": {
+        "modelId": "stanza-organic-01",
+        "revision": "1.0.0",
+        "fabricId": "boucle",
+        "colorId": "areia"
+      }
+    },
+    {
+      "uri": "previews/velvet-detail.png",
+      "source": "actual exported GLB rendered by Three.js",
+      "view": "detail",
+      "progress": 0,
+      "selection": {
+        "modelId": "stanza-organic-01",
+        "revision": "1.0.0",
+        "fabricId": "velvet",
+        "colorId": "areia"
+      }
+    },
+    {
+      "uri": "previews/mobile-viewer.png",
+      "source": "actual exported GLB rendered by Three.js",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    }
+  ],
+  "additionalPreview": {
+    "uri": "previews/studio-export.png",
+    "source": "same exported GLB imported into Blender, Cycles studio lighting"
+  },
+  "performance": {
+    "measurement": "HTTP response body bytes, no gzip; includes poster, CSS and loaded modules; excludes headers",
+    "mainInitialBytes": 4938291,
+    "mobileInitialBytes": 2654027,
+    "geometryTargets": {
+      "main": 60000,
+      "mobile": 25000
+    },
+    "initialBytesTarget": 5000000,
+    "maxTextureDimensionTarget": 2048,
+    "continuousRendering": false,
+    "otherFinishesLazyLoaded": true
+  },
+  "dependencies": {
+    "blender": "5.2.2 LTS",
+    "three": "0.180.0",
+    "gsap": "3.13.0",
+    "gltf-validator": "2.0.0-dev.3.10"
+  },
+  "credits": "CREDITS.json",
+  "limitations": [
+    "One reference angle confirmed; hidden surfaces are inferred.",
+    "Dimensions and internal construction are illustrative.",
+    "Uniform finish study differs from the mixed decorative cushions in the reference.",
+    "No physical-mobile, Safari or Firefox validation.",
+    "A study asset; artistic and manufacturing approval by Stanza remains pending."
+  ]
+}

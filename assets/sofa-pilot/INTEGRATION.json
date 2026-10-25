@@ -1,0 +1,18 @@
+{
+  "sourcePackage": "stanza-sofa-pilot.zip",
+  "modelId": "stanza-organic-01",
+  "upstreamRevision": "1.0.0",
+  "geometryChanged": false,
+  "modelSha256": {
+    "models/sofa.glb": "c521e18b40c6e25c7383ce67cbd91ffe3d78cc34aeb01f5cb5e70082781723d1",
+    "models/sofa-mobile.glb": "b482875c69f434cc393b7e0902af88721906dbd46579e67c22f0431d4f05dc42"
+  },
+  "viewerChanges": [
+    "Optional backgroundColor and floorColor for site composition."
+  ],
+  "siteAdapters": [
+    "home-opening.js: continuous visible-only camera rotation, initial view and aspect fitting",
+    "sofa-experience.js: manual finish, camera and layer controls; no scroll expansion"
+  ],
+  "upstreamValidationScope": "Original package only. Current site integration is verified separately."
+}

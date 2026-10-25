@@ -1,0 +1,15 @@
+{
+  "modelId": "stanza-organic-01",
+  "revision": "1.0.0",
+  "fabrics": {
+    "boucle": "Bouclé",
+    "linen": "Trama plana",
+    "velvet": "Veludo"
+  },
+  "colors": {
+    "areia": "Areia",
+    "oliva": "Oliva",
+    "terracota": "Terracota",
+    "grafite": "Grafite"
+  }
+}

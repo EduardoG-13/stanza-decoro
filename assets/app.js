@@ -22,15 +22,61 @@ if (filterGrid) {
   const filters = [...document.querySelectorAll('[data-filter]')];
   const items = [...filterGrid.querySelectorAll('[data-family]')];
   const count = document.querySelector('.result-count');
-  filters.forEach(button => button.addEventListener('click', () => {
+  const search = document.querySelector('[data-catalog-search]');
+  const empty = document.querySelector('[data-empty-results]');
+  const normalize = text => text.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  let family = new URLSearchParams(location.search).get('familia') || 'todos';
+  if (!filters.some(button=>button.dataset.filter===family)) family='todos';
+  const applyFilters = () => {
+    const words = normalize(search?.value.trim() || '').split(/\s+/).filter(Boolean);
     let visible = 0;
     items.forEach(item => {
-      item.hidden = button.dataset.filter !== 'todos' && item.dataset.family !== button.dataset.filter;
+      const text = normalize(item.dataset.search || item.textContent);
+      item.hidden = (family !== 'todos' && item.dataset.family !== family) || !words.every(word=>text.includes(word));
       if (!item.hidden) visible++;
     });
-    filters.forEach(peer => peer.setAttribute('aria-pressed', String(peer === button)));
+    filters.forEach(peer => peer.setAttribute('aria-pressed', String(peer.dataset.filter === family)));
     count.textContent = visible + (visible === 1 ? ' referência' : ' referências');
+    if (empty) empty.hidden=visible!==0;
+  };
+  filters.forEach(button => button.addEventListener('click', () => {family=button.dataset.filter;applyFilters();}));
+  search?.addEventListener('input',applyFilters);
+  document.querySelector('[data-clear-filters]')?.addEventListener('click',()=>{family='todos';if(search)search.value='';applyFilters();search?.focus();});
+  applyFilters();
+}
+
+const photoDialog = document.querySelector('#photo-dialog');
+if (photoDialog && typeof photoDialog.showModal === 'function') {
+  const links = [...document.querySelectorAll('[data-photo]')];
+  const image = photoDialog.querySelector('#photo-dialog-image');
+  const caption = photoDialog.querySelector('#photo-dialog-caption');
+  const photoStatus = photoDialog.querySelector('#photo-dialog-status');
+  const previous = photoDialog.querySelector('[aria-label="Foto anterior"]');
+  const next = photoDialog.querySelector('[aria-label="Próxima foto"]');
+  let gallery=[], index=0, opener;
+  const showPhoto = () => {
+    const link=gallery[index];
+    photoStatus.textContent='Carregando foto…';image.hidden=true;
+    caption.textContent=link.dataset.photoCaption;
+    image.alt=link.querySelector('img')?.alt || link.dataset.photoCaption;
+    photoDialog.querySelector('#photo-dialog-count').textContent=`${index+1} / ${gallery.length}`;
+    photoDialog.querySelector('#photo-dialog-quote').href=link.dataset.photoQuote;
+    previous.disabled=next.disabled=gallery.length<2;
+    image.src=link.href;
+  };
+  image.addEventListener('load',()=>{image.hidden=false;photoStatus.textContent='';});
+  image.addEventListener('error',()=>{photoStatus.textContent='Não foi possível carregar a foto. Feche e tente novamente.';});
+  const move = direction => {index=(index+direction+gallery.length)%gallery.length;showPhoto();};
+  links.forEach(link=>link.addEventListener('click',event=>{
+    event.preventDefault();opener=link;
+    gallery=links.filter(peer=>peer.dataset.photoGroup===link.dataset.photoGroup && !peer.closest('[hidden]'));
+    index=gallery.indexOf(link);showPhoto();photoDialog.showModal();document.body.classList.add('photo-open');
   }));
+  previous.addEventListener('click',()=>move(-1));next.addEventListener('click',()=>move(1));
+  photoDialog.querySelector('.photo-close').addEventListener('click',()=>photoDialog.close());
+  photoDialog.addEventListener('click',event=>{if(event.target===photoDialog)photoDialog.close();});
+  photoDialog.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();move(event.key==='ArrowLeft'?-1:1);}});
+  photoDialog.addEventListener('close',()=>{document.body.classList.remove('photo-open');image.removeAttribute('src');opener?.focus({preventScroll:true});});
 }
 
 const form = document.querySelector('#quote-form');
@@ -54,11 +100,21 @@ if (form) {
   document.querySelector('#api-instructions').hidden = !automatic;
   const params = new URLSearchParams(location.search);
   const references = JSON.parse(document.querySelector('#catalog-references').textContent);
-  const selected = references[params.get('referencia')];
+  const option = (map,key) => Object.hasOwn(map,key) ? map[key] : undefined;
+  const selected = option(references,params.get('referencia'));
   if (selected) { field('reference').value = selected.name; field('piece').value = selected.piece; }
   else if (params.get('referencia') === 'outro-projeto') field('reference').value = 'Tenho outro modelo ou projeto';
   else if (params.get('projeto') && /^projeto-\d+$/.test(params.get('projeto'))) field('reference').value = 'Referência do portfólio: ' + params.get('projeto');
   if (params.get('servico') === 'reforma') field('service').value = 'Reforma';
+  const sofaOptions = JSON.parse(document.querySelector('#sofa-options').textContent);
+  const fabric = option(sofaOptions.fabrics,params.get('tecido')), color = option(sofaOptions.colors,params.get('cor'));
+  if (selected && params.get('referencia') === 'sofa-organico' && params.get('estudo') === sofaOptions.modelId && fabric && color) {
+    field('reference').value = selected.name + ' · estudo 3D: ' + fabric + ' / ' + color;
+  }
+  if (selected) {
+    const context=document.querySelector('#quote-selected-reference');
+    context.hidden=false;context.querySelector('strong').textContent=field('reference').value;
+  }
   let photos = [];
   const maxPhotos = 5, maxSize = 8 * 1024 * 1024;
 
@@ -139,4 +195,35 @@ if (form) {
   window.addEventListener('pageshow', event => {
     if (event.persisted) { photos.forEach(photo => { photo.url = URL.createObjectURL(photo.file); }); renderPhotos(); }
   });
+}
+
+
+// Content stays visible without JavaScript; each entrance runs only once.
+if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const arrivals = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {entry.target.classList.add('has-arrived'); arrivals.unobserve(entry.target);}
+    });
+  }, {threshold:.1});
+  document.querySelectorAll('.section-heading,.craft-grid,.service-paths>a,.project-strip>figure').forEach(element => arrivals.observe(element));
+}
+
+
+// This quiet page preference also pauses the decorative 3D opening.
+const motionControl = document.querySelector('#reduce-motion');
+if (motionControl) {
+  const deviceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let pageMotionReduced = false;
+  const applyMotionPreference = () => {
+    const reduced = pageMotionReduced || deviceMotion.matches;
+    document.documentElement.classList.toggle('reduce-motion',reduced);
+    motionControl.disabled = deviceMotion.matches;
+    motionControl.setAttribute('aria-pressed',String(reduced));
+    motionControl.textContent = reduced ? 'Movimentos reduzidos' : 'Reduzir movimentos';
+    motionControl.setAttribute('aria-label',reduced && !deviceMotion.matches ? 'Retomar os movimentos nesta página' : 'Reduzir os movimentos nesta página');
+    document.dispatchEvent(new CustomEvent('stanza:motion'));
+  };
+  motionControl.addEventListener('click', () => {pageMotionReduced = !pageMotionReduced; applyMotionPreference();});
+  deviceMotion.addEventListener('change',applyMotionPreference);
+  applyMotionPreference();
 }

@@ -1,0 +1,117 @@
+{
+  "contract": "stanza-fabric-studies/v1",
+  "note": "Estudos visuais originais, nao catalogo homologado. A tela nao substitui amostra fisica.",
+  "materials": [
+    {
+      "label": "Trama plana",
+      "family": "plain_weave_linen_study",
+      "seed": 501,
+      "normalScale": 0.78,
+      "roughness": 1.0,
+      "sheen": 0.12,
+      "sheenRoughness": 0.85,
+      "description": "Trama plana alternada, fios de aproximadamente 1,25 mm e espessura irregular discreta. Estudo visual sem composicao comercial atribuida.",
+      "id": "linen",
+      "repeatMeters": 0.14,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalColorSpace": "linear-data",
+      "roughnessColorSpace": "linear-data",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "maps": {
+        "baseColor": "materials/linen/basecolor.jpg",
+        "normal": "materials/linen/normal.png",
+        "roughness": "materials/linen/roughness.jpg",
+        "thumbnail": "materials/linen/thumbnail.jpg"
+      },
+      "license": "CC0-1.0",
+      "source": "source/generate_materials.py",
+      "validation": {
+        "baseColorMean": 0.9248817819722591,
+        "roughnessMean": 0.8725013781322526,
+        "normalLengthMaxErrorBeforeQuantization": 2.220446049250313e-16,
+        "periodicity": "periodic Fourier noise, modular weave/loop sampling and wrapped normal derivatives"
+      }
+    },
+    {
+      "label": "Bouclé",
+      "family": "fine_loop_boucle_study",
+      "seed": 502,
+      "normalScale": 0.9,
+      "roughness": 1.0,
+      "sheen": 0.2,
+      "sheenRoughness": 0.9,
+      "description": "Lacos irregulares finos com relevo suave e penugem; distribuicao media de 1,9 mm. Estudo visual, sem codigo comercial.",
+      "id": "boucle",
+      "repeatMeters": 0.14,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalColorSpace": "linear-data",
+      "roughnessColorSpace": "linear-data",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "maps": {
+        "baseColor": "materials/boucle/basecolor.jpg",
+        "normal": "materials/boucle/normal.png",
+        "roughness": "materials/boucle/roughness.jpg",
+        "thumbnail": "materials/boucle/thumbnail.jpg"
+      },
+      "license": "CC0-1.0",
+      "source": "source/generate_materials.py",
+      "validation": {
+        "baseColorMean": 0.9358852962243184,
+        "roughnessMean": 0.9100106722228036,
+        "normalLengthMaxErrorBeforeQuantization": 2.220446049250313e-16,
+        "periodicity": "periodic Fourier noise, modular weave/loop sampling and wrapped normal derivatives"
+      }
+    },
+    {
+      "label": "Veludo",
+      "family": "short_pile_velvet_study",
+      "seed": 503,
+      "normalScale": 0.38,
+      "roughness": 1.0,
+      "sheen": 0.72,
+      "sheenRoughness": 0.55,
+      "fallback": {
+        "normalScale": 0.38,
+        "roughness": 1.0,
+        "metalness": 0,
+        "note": "Metallic-roughness continua funcional sem sheen, com menor resposta a luz rasante."
+      },
+      "description": "Pelo curto denso, microfibras de baixo relevo; sheen descreve a resposta suave a luz rasante, sem brilho metalico.",
+      "id": "velvet",
+      "repeatMeters": 0.14,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalColorSpace": "linear-data",
+      "roughnessColorSpace": "linear-data",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "maps": {
+        "baseColor": "materials/velvet/basecolor.jpg",
+        "normal": "materials/velvet/normal.png",
+        "roughness": "materials/velvet/roughness.jpg",
+        "thumbnail": "materials/velvet/thumbnail.jpg"
+      },
+      "license": "CC0-1.0",
+      "source": "source/generate_materials.py",
+      "validation": {
+        "baseColorMean": 0.9384256480339314,
+        "roughnessMean": 0.7217925367701485,
+        "normalLengthMaxErrorBeforeQuantization": 2.220446049250313e-16,
+        "periodicity": "periodic Fourier noise, modular weave/loop sampling and wrapped normal derivatives"
+      }
+    }
+  ]
+}

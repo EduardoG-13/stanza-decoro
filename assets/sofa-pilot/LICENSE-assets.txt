@@ -1,0 +1,26 @@
+Stanza sofa pilot — original generated assets
+
+The original procedural texture maps, model geometry, previews, and original
+generation/viewer code created for this pilot are offered under CC0 1.0 Universal,
+to the extent that copyright or related rights in these generated outputs exist
+and can be waived. They may be used, adapted and redistributed, including in
+commercial work, without an attribution requirement from this pilot.
+
+CC0 1.0 legal code:
+https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+This dedication does not relicense third-party software, reference photographs,
+brand names, or third-party designs. Reference photographs are not included.
+No rights over third-party marks or referenced products are granted here.
+
+Third-party software retains its own licenses:
+- Three.js 0.180.0: MIT. See viewer/vendor/three/LICENSE.
+- GSAP 3.13.0: Standard "no charge" license, as identified by its package.
+  https://gsap.com/standard-license
+  Preserve the notices in the distributed GSAP source files.
+- Khronos glTF Validator 2.0.0-dev.3.10: Apache-2.0.
+  See vendor/gltf-validator/LICENSE and vendor/gltf-validator/NOTICES.
+
+Assets are visual studies without warranties of physical accuracy, fabric
+performance, catalog availability, or suitability as manufacturing drawings.
+See README.md and CREDITS.json for the scope and provenance of each asset.
