@@ -17,7 +17,7 @@ class Scripts(HTMLParser):
     def handle_endtag(self,tag):
         if tag=='script':self.marker=None
 parser=Scripts();parser.feed((OUT/'orcamento.html').read_text(encoding='utf-8'))
-valid={'Sofá','Poltrona','Cabeceira','Cama','Cadeira','Banco','Puff','Outra peça / projeto'}
+valid={'Sofá','Poltrona','Cabeceira','Cama','Cadeira','Banco','Puff','Cortina','Outra peça / projeto'}
 seen=set()
 for marker,file,title in [('catalog-references','catalog.json','name'),('portfolio-projects','portfolio.json','title')]:
     expected=json.loads((ROOT/'data'/file).read_text(encoding='utf-8'))
@@ -35,5 +35,5 @@ for marker,file,title in [('catalog-references','catalog.json','name'),('portfol
             assert image.width<=480 and image.height<=360 and not image.getexif()
         assert asset.stat().st_size<128*1024
         seen.add(asset)
-print('14 referências de catálogo e 48 do portfólio associadas à foto, nome e tipo corretos.')
+print(f"{len(json.loads((ROOT/'data/catalog.json').read_text(encoding='utf-8')))} referências de catálogo e {len(json.loads((ROOT/'data/portfolio.json').read_text(encoding='utf-8')))} do portfólio associadas à foto, nome e tipo corretos.")
 print(f'{len(seen)} miniaturas; total {sum(p.stat().st_size for p in seen)/1024:.0f} KB; maior {max(p.stat().st_size for p in seen)/1024:.0f} KB. A página utiliza apenas a referência selecionada.')

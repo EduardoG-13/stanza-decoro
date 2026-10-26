@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Explore um estudo de sofá em 3D | Stanza Decoro</title>
   <meta name="description" content="Experimente cores, tecidos e camadas em um estudo interativo. Acabamentos ilustrativos para conversar sobre o seu projeto.">
-  <meta name="robots" content="noindex,nofollow">
+  <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#3e573e">
   <link rel="canonical" href="https://stanzadecoro.com.br/explorar-sofa.html">
   <meta property="og:type" content="website">
@@ -37,24 +37,24 @@
   </header>
   <main id="main"><link rel="stylesheet" href="/assets/sofa-experience.css">
 <nav class="breadcrumb shell" aria-label="Você está aqui"><a href="/index.html">Início</a><span aria-hidden="true">/</span><a href="/modelos/sofa-organico.html">Sofá orgânico</a><span aria-hidden="true">/</span><span aria-current="page">Explorar em 3D</span></nav>
-<section class="shell experience-intro"><div><span class="eyebrow">UM PRIMEIRO ESTUDO INTERATIVO</span><h1>Outra cor.<br>Outro <em>olhar.</em></h1></div><p>Gire a peça, experimente acabamentos e abra suas camadas. Uma forma de começar a imaginar o seu projeto.</p></section>
+<section class="shell experience-intro"><div><h1>Veja o sofá<br>com outro <em>acabamento.</em></h1></div><p>Gire a peça, experimente acabamentos e abra suas camadas. Uma forma de começar a imaginar o seu projeto.</p></section>
 <section class="shell sofa-workspace" id="sofa-workspace" aria-label="Estudo interativo de sofá">
-  <div class="sofa-stage-panel"><div class="sofa-stage-heading"><span>SOFÁ ORGÂNICO</span><span>ESTUDO 01</span></div>
-    <div id="sofa-stage" class="sofa-stage" aria-busy="false"><img src="/assets/sofa-pilot/previews/poster.jpg" alt="Estudo tridimensional de sofá orgânico claro, com almofadas" width="1200" height="900"><div class="sofa-start-overlay"><button class="button" id="start-sofa" type="button">Explorar em 3D <span aria-hidden="true">↗</span></button><span>Carrega ao abrir · cerca de 3 a 5 MB</span></div></div>
+  <div class="sofa-stage-panel">
+    <div id="sofa-stage" class="sofa-stage" aria-busy="false"><img src="/assets/sofa-pilot/previews/poster.jpg" alt="Estudo tridimensional de sofá orgânico claro, com almofadas" width="1200" height="900"><div class="sofa-start-overlay"><button class="button" id="start-sofa" type="button">Explorar em 3D <span aria-hidden="true">↗</span></button></div></div>
     <p class="sofa-status" id="sofa-status" role="status" aria-live="polite">A imagem acima apresenta o estudo. Abra o 3D para interagir.</p>
     <div class="sofa-camera-tools" role="group" aria-label="Ajustar a vista"><button type="button" data-camera="left" disabled aria-label="Girar sofá à esquerda">↶</button><button type="button" data-camera="right" disabled aria-label="Girar sofá à direita">↷</button><span>Arraste para girar</span><button type="button" data-camera="out" disabled aria-label="Afastar sofá">−</button><button type="button" data-camera="in" disabled aria-label="Aproximar sofá">+</button></div>
     <p class="sofa-disclaimer">Piloto visual com proporções estimadas e construção ilustrativa. A foto do acervo continua sendo a referência real da peça.</p><a class="text-link" href="/modelos/sofa-organico.html">Comparar com a foto do acervo →</a>
   </div>
   <div class="sofa-inspector">
-    <fieldset disabled id="sofa-finishes"><legend><span>01</span> Tecido e cor</legend><p class="sofa-help">Veja como a luz responde a cada trama.</p><div class="sofa-fabrics">
+    <fieldset disabled id="sofa-finishes"><legend>Tecido e cor</legend><p class="sofa-help">Veja como a luz responde a cada trama.</p><div class="sofa-fabrics">
       <label><input type="radio" name="sofa-fabric" value="boucle" checked><span><b>Bouclé</b><small>Relevo de laçadas</small></span></label><label><input type="radio" name="sofa-fabric" value="linen"><span><b>Trama plana</b><small>Fios entrelaçados</small></span></label><label><input type="radio" name="sofa-fabric" value="velvet"><span><b>Veludo</b><small>Brilho suave</small></span></label></div>
       <div class="sofa-colors" role="group" aria-label="Cor do estudo"><label><input type="radio" name="sofa-color" value="areia" checked><span style="--swatch:#d8c9b2"></span><b>Areia</b></label><label><input type="radio" name="sofa-color" value="oliva"><span style="--swatch:#72765a"></span><b>Oliva</b></label><label><input type="radio" name="sofa-color" value="terracota"><span style="--swatch:#ae6952"></span><b>Terracota</b></label><label><input type="radio" name="sofa-color" value="grafite"><span style="--swatch:#494b4b"></span><b>Grafite</b></label></div>
       <p class="sofa-help">Cores e tecidos de estudo. A disponibilidade e a amostra física são conferidas no atendimento.</p>
     </fieldset>
-    <fieldset disabled id="sofa-views"><legend><span>02</span> Ponto de vista</legend><div class="sofa-view-options"><button type="button" data-view="threequarter">Perspectiva</button><button type="button" data-view="front">Frente</button><button type="button" data-view="side">Lateral</button><button type="button" data-view="detail">Textura</button></div></fieldset>
-    <fieldset disabled id="sofa-layers"><legend><span>03</span> Por dentro da forma</legend><p class="sofa-help">Uma separação ilustrativa dos componentes, ainda em desenvolvimento.</p><label class="sofa-range-label" for="sofa-progress"><span id="sofa-step">Peça montada</span><output id="sofa-progress-value">0%</output></label><input id="sofa-progress" type="range" min="0" max="1" step=".01" value="0"><div class="sofa-step-options"><button type="button" data-progress="0">Montada</button><button type="button" data-progress=".5">Separar</button><button type="button" data-progress=".7">Estrutura</button><button type="button" data-progress="1">Remontar</button></div><p class="sofa-layer-key">Revestimento · acolchoamento · estrutura · percintas · pés · almofadas</p>
+    <fieldset disabled id="sofa-views"><legend>Ponto de vista</legend><div class="sofa-view-options"><button type="button" data-view="threequarter">Perspectiva</button><button type="button" data-view="front">Frente</button><button type="button" data-view="side">Lateral</button><button type="button" data-view="detail">Textura</button></div></fieldset>
+    <fieldset disabled id="sofa-layers"><legend>Por dentro do sofá</legend><p class="sofa-help">Uma separação ilustrativa dos componentes, ainda em desenvolvimento.</p><label class="sofa-range-label" for="sofa-progress"><span id="sofa-step">Peça montada</span><output id="sofa-progress-value">0%</output></label><input id="sofa-progress" type="range" min="0" max="1" step=".01" value="0"><div class="sofa-step-options"><button type="button" data-progress="0">Montada</button><button type="button" data-progress=".5">Separar</button><button type="button" data-progress=".7">Estrutura</button><button type="button" data-progress="1">Remontar</button></div><p class="sofa-layer-key">Revestimento · acolchoamento · estrutura · percintas · pés · almofadas</p>
     </fieldset>
-    <div class="sofa-selection"><span class="eyebrow">UM PONTO DE PARTIDA PARA CONVERSAR</span><p id="sofa-selection-name">Bouclé · Areia</p><a class="button" id="sofa-quote" href="/orcamento.html?referencia=sofa-organico">Conversar sobre esta ideia <span aria-hidden="true">↗</span></a><p class="sofa-help">A combinação será incluída como estudo no formulário. Medidas, materiais e preço dependem da avaliação.</p></div>
+    <div class="sofa-selection"><p id="sofa-selection-name">Bouclé · Areia</p><a class="button" id="sofa-quote" href="/orcamento.html?referencia=sofa-organico">Conversar sobre esta ideia <span aria-hidden="true">↗</span></a><p class="sofa-help">A combinação será incluída como estudo no formulário. Medidas, materiais e preço dependem da avaliação.</p></div>
   </div>
 </section>
 <noscript><p class="shell">O estudo interativo precisa de JavaScript. Você pode consultar a foto real e pedir orçamento normalmente.</p></noscript>
@@ -78,8 +78,8 @@
 </script></main>
   <footer class="site-footer" id="contato">
     <div class="footer-main shell">
-      <div><span class="eyebrow">VAMOS CONVERSAR SOBRE O SEU ESPAÇO?</span><h2>Começa com<br>uma ideia sua.</h2><p>Fabricação sob medida e reforma de estofados.<br>São Paulo e outras localidades sob avaliação.</p><a class="button button-light" href="/orcamento.html">Preparar meu projeto <span aria-hidden="true">↗</span></a></div>
-      <div class="footer-contact"><span class="eyebrow">FALE COM A STANZA</span><span class="contact-channel">WhatsApp</span><a class="contact-link" href="https://wa.me/5511975563037?text=Ol%C3%A1%2C%20Stanza%21%20Gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer">(11) 97556-3037 <span aria-hidden="true">↗</span></a><a href="mailto:stanzadecoro@gmail.com">stanzadecoro@gmail.com</a><a href="https://www.instagram.com/stanza_decoro/" target="_blank" rel="noopener noreferrer">Instagram · @stanza_decoro ↗</a></div>
+      <div><h2>Vamos conversar<br>sobre a sua peça.</h2><p>Estofados e cortinas sob medida. Reforma de estofados.<br>São Paulo e outras localidades sob avaliação.</p><a class="button button-light" href="/orcamento.html">Preparar meu projeto <span aria-hidden="true">↗</span></a></div>
+      <div class="footer-contact"><span class="contact-channel">WhatsApp</span><a class="contact-link" href="https://wa.me/5511975563037?text=Ol%C3%A1%2C%20Stanza%21%20Gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer">(11) 97556-3037 <span aria-hidden="true">↗</span></a><a href="mailto:stanzadecoro@gmail.com">stanzadecoro@gmail.com</a><a href="https://www.instagram.com/stanza_decoro/" target="_blank" rel="noopener noreferrer">Instagram · @stanza_decoro ↗</a></div>
     </div>
     <div class="footer-bottom shell"><span>© 2026 Stanza Decoro</span><span>Prazo e transporte definidos na proposta.</span><button class="motion-preference" id="reduce-motion" type="button" aria-pressed="false">Reduzir movimentos</button><a href="/privacidade.html">Privacidade</a></div>
   </footer>
