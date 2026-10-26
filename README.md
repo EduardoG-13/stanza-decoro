@@ -18,6 +18,7 @@ A página principal continua local e com `noindex`. O formulário e a consulta p
 
 - Direção editorial, cores da marca, navegação e contrastes revisados.
 - Página “A Stanza”, fabricação e reforma com orientações específicas.
+- Guia de tecidos e acabamentos com fotos reais, ligado à principal e às fichas.
 - 14 referências de catálogo com informações visíveis da peça e decisões para o projeto.
 - 48 fotos de portfólio, busca e ampliação com teclado.
 - Duas novas fotos reais de serviços, sem metadados de localização.
@@ -28,6 +29,8 @@ A página principal continua local e com `noindex`. O formulário e a consulta p
 O formulário tem botão de fotos personalizado, cidades por UF, telefone formatado ao digitar e referências com foto e nome. Depois do registro, o WhatsApp recebe o resumo e o protocolo pelo link, sem copiar e colar. Veja [a revisão do orçamento](docs/ORCAMENTO-UX-2026-10-26.md).
 
 Empreendimentos e integração com cliente/OS continuam para etapas posteriores.
+
+A revisão de acesso identifica a conta conectada e explica a falta de autorização. Consulte [o diagnóstico e a revisão do guia](docs/ACESSO-E-ACABAMENTOS-2026-10-26.md).
 
 ## Estado do recebimento
 

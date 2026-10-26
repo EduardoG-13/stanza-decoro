@@ -192,6 +192,39 @@ figure { margin:0; }
 .service-hero p { max-width:425px; }
 .service-hero img { width:100%; aspect-ratio:1; object-fit:cover; }
 .service-hero figcaption { font-size:.7rem; color:var(--muted); padding-top:12px; }
+.guide-index { display:flex; flex-wrap:wrap; gap:12px 30px; margin-top:32px; font-size:.78rem; }
+.guide-index a { display:flex; align-items:center; min-height:44px; border-bottom:1px solid var(--line); }
+.material-intro p { max-width:570px; }
+.material-story { display:grid; grid-template-columns:1.15fr 1fr; gap:80px; align-items:center; padding-block:24px 60px; }
+.material-story img { width:100%; height:auto; }
+.material-story figcaption { font-size:.68rem; color:var(--muted); padding-top:14px; }
+.material-story p { font-size:.9rem; max-width:440px; }
+.material-questions { display:grid; grid-template-columns:1fr 1.15fr; gap:100px; border-top:1px solid var(--line); }
+.material-questions>div p { max-width:380px; }
+.material-questions dl { margin:0; }
+.material-questions dl>div { padding:24px 0; border-top:1px solid var(--line); }
+.material-questions dt { font:1.55rem var(--serif); margin-bottom:12px; }
+.material-questions dd { margin:0; font-size:.88rem; color:var(--muted); }
+.material-story-reverse figure { grid-column:2; grid-row:1; }
+.material-story-reverse>div { grid-column:1; grid-row:1; }
+.material-next { display:flex; justify-content:space-between; align-items:center; gap:60px; border-top:1px solid var(--line); }
+.material-next p { max-width:540px; }
+.material-next .actions { flex-direction:column; align-items:flex-start; gap:14px; }
+.model-copy>.material-guide-link { font-size:.76rem; margin-block:0 28px; }
+.reform-material-link,.craft-guide-link { margin-left:24px; }
+@media(max-width:900px) {
+  .material-story,.material-questions { gap:36px; }
+  .material-next { display:block; }
+  .material-next .actions { margin-top:28px; }
+  .craft-guide-link { margin-left:0; margin-top:16px; }
+}
+@media(max-width:600px) {
+  .material-story,.material-questions { grid-template-columns:1fr; gap:28px; }
+  .material-story { padding-bottom:36px; }
+  .material-questions dl>div { padding-block:22px; }
+  .material-story-reverse>* { grid-column:auto!important; grid-row:auto!important; }
+  .reform-material-link { margin-left:0; margin-top:18px; display:flex; width:fit-content; }
+}
 .about-hero img { aspect-ratio:4/3; }
 .about-intro { display:grid; grid-template-columns:1fr 1.3fr; gap:100px; }
 .project-decisions { display:grid; grid-template-columns:1fr 1fr; gap:0 72px; margin:0; }

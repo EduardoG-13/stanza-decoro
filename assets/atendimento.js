@@ -7,18 +7,33 @@ const config=await fetch('/assets/atendimento-publico.json',{cache:'no-store'}).
 const app=initializeApp(config.firebase,'stanza-atendimento'),auth=getAuth(app),functions=getFunctions(app,'southamerica-east1');
 await setPersistence(auth,inMemoryPersistence);
 const situations={novo:'Novo',em_atendimento:'Em atendimento',aguardando_cliente:'Aguardando cliente',proposta_preparada:'Proposta preparada',encerrado:'Encerrado'};
+const requestedId=new URLSearchParams(location.search).get('pedido');
+const linkedId=requestedId&&/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i.test(requestedId)?requestedId:null;
 let cursor=null,version=0,photoUrl='',photoTrigger=null;
 const call=async(name,data)=>(await httpsCallable(functions,name)(data)).data;
 function node(tag,text,className){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(className)e.className=className;return e;}
 function error(message=''){$('#erro').textContent=message;$('#erro').hidden=!message;}
 function status(message){$('#status').textContent=message;}
+function accessDenied(){
+ $('#painel').hidden=true;$('#acesso-negado').hidden=false;
+ $('#conta-negada').textContent=auth.currentUser?.email||'Conta conectada';
+ status('');error();$('#acesso-negado h1').focus({preventScroll:true});
+}
 function closePhoto(){if($('#foto').open)$('#foto').close();$('#imagem').removeAttribute('src');if(photoUrl)URL.revokeObjectURL(photoUrl);photoUrl='';if(photoTrigger?.isConnected)photoTrigger.focus();photoTrigger=null;}
 $('#fechar-foto').addEventListener('click',closePhoto);
 $('#foto').addEventListener('cancel',e=>{e.preventDefault();closePhoto();});
 onAuthStateChanged(auth,user=>{
  version++;closePhoto();$('#lista').replaceChildren();$('#detalhe').replaceChildren();$('#detalhe').hidden=true;error();status('');
  $('#login').hidden=!!user;$('#painel').hidden=!user;$('#sair').hidden=!user;
- if(user){$('#pessoa').textContent='ATENDIMENTO · '+(user.displayName||'Stanza');void list(false);}
+ $('#acesso-negado').hidden=true;
+ if(user){
+  $('#pessoa').textContent='ATENDIMENTO · '+(user.displayName||'Stanza');$('#conta-conectada').textContent=user.email||'';
+  void list(false).then(allowed=>{
+   if(!allowed||auth.currentUser?.uid!==user.uid)return;
+   if(linkedId)void detail(linkedId);
+   else if(requestedId)error('O link do projeto está incompleto. Pesquise pelo protocolo recebido.');
+  });
+ }
 });
 $('#login-form').addEventListener('submit',async e=>{
  e.preventDefault();const form=e.currentTarget,button=form.querySelector('button');button.disabled=true;error();status('Verificando acesso…');
@@ -27,6 +42,7 @@ $('#login-form').addEventListener('submit',async e=>{
  finally{button.disabled=false;form.elements.password.value='';}
 });
 $('#sair').addEventListener('click',async()=>{await signOut(auth);});
+$('#trocar-conta').addEventListener('click',async()=>{await signOut(auth);$('#login-form input[name="email"]').focus();});
 async function list(more){
  const current=++version;if(!auth.currentUser)return;error();status('Carregando projetos…');$('#mais').disabled=true;
  if(!more){cursor=null;$('#lista').replaceChildren();$('#mais').hidden=true;}
@@ -39,8 +55,8 @@ async function list(more){
    button.append(node('strong',item.protocolo),node('span',item.nome,'pedido-nome'),node('span',item.servico+' · '+item.peca),node('span',item.cidade+'/'+item.uf),node('span',(situations[item.situacao]||item.situacao)+' · '+new Date(item.criadoEm).toLocaleString('pt-BR')));
    button.addEventListener('click',()=>void detail(item.id));$('#lista').append(button);
   }
-  cursor=response.cursor;$('#mais').hidden=!cursor;status($('#lista').childElementCount?'Selecione um protocolo para ver o projeto e as fotos.':'Nenhum pedido encontrado com este filtro.');
- }catch(e){if(current===version){error(e.code==='functions/permission-denied'?'Este acesso não tem permissão para consultar os pedidos do site.':e.code==='functions/invalid-argument'?'Digite o protocolo completo, por exemplo ST-26-0001.':'Não foi possível carregar. Tente atualizar a lista.');status('');}}
+  cursor=response.cursor;$('#mais').hidden=!cursor;status($('#lista').childElementCount?'Selecione um protocolo para ver o projeto e as fotos.':'Nenhum pedido encontrado com este filtro.');return true;
+ }catch(e){if(current===version){if(e.code==='functions/permission-denied')accessDenied();else{error(e.code==='functions/invalid-argument'?'Digite o protocolo completo, por exemplo ST-26-0001.':'Não foi possível carregar. Tente atualizar a lista.');status('');}}}
  finally{$('#mais').disabled=false;}
 }
 $('#pesquisa').addEventListener('submit',e=>{e.preventDefault();void list(false);});
