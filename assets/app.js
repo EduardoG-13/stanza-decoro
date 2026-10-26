@@ -202,6 +202,8 @@ if (form) {
   window.addEventListener('pageshow', event => {
     if (event.persisted) { photos.forEach(photo => { photo.url = URL.createObjectURL(photo.file); }); renderPhotos(); }
   });
+  // O envio nativo fica bloqueado até a revisão em JavaScript estar pronta.
+  form.querySelector('button[type="submit"]').disabled = false;
 }
 
 

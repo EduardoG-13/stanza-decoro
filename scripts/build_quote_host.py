@@ -21,6 +21,9 @@ for page in ['orcamento.html','privacidade.html']:
         text=text.replace('Este site n\u00e3o registrou nem enviou o pedido.','O pedido s\u00f3 \u00e9 registrado ap\u00f3s a confirma\u00e7\u00e3o do envio.')
     else:
         text=text.replace('<h2>Contato</h2>','<h2>Prote\u00e7\u00e3o do envio</h2><p>Este formul\u00e1rio utiliza o reCAPTCHA Enterprise do Google para reduzir envios automatizados. Consulte a <a href="https://policies.google.com/privacy">Pol\u00edtica de Privacidade</a> e os <a href="https://policies.google.com/terms">Termos de Servi\u00e7o do Google</a>.</p><h2>Contato</h2>')
+    if page=='orcamento.html':
+        assert 'method="post" action="/orcamento.html"' in text
+        assert 'type="submit" disabled' in text
     (out/page).write_text(text,encoding='utf-8')
 (out/'assets/images').mkdir(parents=True,exist_ok=True)
 for file in ['site.css','app.js','quote-api.js','atendimento.js','atendimento.css']:
