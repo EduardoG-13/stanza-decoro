@@ -1,0 +1,13 @@
+dist/
+assets/images/
+__pycache__/
+.preview/
+*.local
+site.config.local.json
+
+.firebase/
+
+.quote-build/
+
+dist-formulario/
+dist-producao/

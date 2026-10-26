@@ -1,0 +1,253 @@
+{
+  "contract": "stanza-sofa-credits/v1",
+  "modelId": "stanza-organic-01",
+  "revision": "1.0.0",
+  "researchedOn": "2026-10-25",
+  "note": "Referências visuais são distintas dos arquivos incorporados. Nenhuma fotografia de referência ou mapa PBR de terceiros foi redistribuído.",
+  "referencesConsulted": [
+    {
+      "id": "stanza-sofa-2",
+      "title": "Sofá Orgânico em Design Feijão — SOFA-2.jpg",
+      "author": "Stanza Decoro; fotógrafo não identificado no repositório",
+      "url": "https://github.com/EduardoG-13/stanza-decoro/blob/main/sofas/SOFA-2.jpg",
+      "alternateUrl": "https://stanzadecoro.com.br/portfolio",
+      "purpose": "Única referência de forma do sofá. Arquivo local inspecionado visualmente; título confirmado no portfólio oficial.",
+      "incorporated": false,
+      "license": "Licença específica da fotografia não identificada; referência fornecida pelo usuário. Foto não redistribuída neste pacote.",
+      "observations": "Assento/base contínuos em feijão; lado direito livre e arredondado; encosto contínuo com final antes da chaise; braço esquerdo baixo; cinco almofadas soltas (três claras e duas oliva de trama grossa). Tecido claro parece bouclé fino, inferência visual, sem identificação comercial.",
+      "additionalAngleSearch": "Consultados portfólio oficial, lista local sofas e busca por Stanza Decoro + sofá orgânico / design feijão. Nenhum outro ângulo da mesma peça foi confirmado. Costas, vista lateral oposta e estrutura continuam estimadas; nenhum outro sofá usado como molde."
+    },
+    {
+      "id": "kvadrat-nara",
+      "title": "Nara — tecido para estofamento",
+      "author": "Sahco / Kvadrat; designer individual não creditado na página consultada",
+      "url": "https://www.kvadrat.dk/en/products/upholstery/600699-nara",
+      "purpose": "Referência de trama plana têxtil com fios irregulares. Fotografia de detalhe e descrição oficial examinadas no navegador.",
+      "incorporated": false,
+      "license": "Copyright Kvadrat A/S, all rights reserved, conforme rodapé. Não presumida autorização de redistribuição; nenhuma imagem ou mapa incorporado.",
+      "observations": "Descrição oficial distingue a trama plana e a textura natural de fios com linho. Usado apenas para observar comportamento visual; nosso estudo não reproduz nem especifica composição, cor ou código Nara."
+    },
+    {
+      "id": "kvadrat-vidar-4",
+      "title": "Vidar 4 — tecido para estofamento",
+      "author": "Fanny Aronsen; recoloração por Raf Simons; Kvadrat",
+      "url": "https://www.kvadrat.dk/en/products/upholstery/8484-vidar-4",
+      "purpose": "Referência visual de bouclé denso. Fotografia ampliada de tecido dobrado e descrição oficial examinadas no navegador.",
+      "incorporated": false,
+      "license": "Copyright Kvadrat A/S, all rights reserved, conforme rodapé. Não presumida autorização de redistribuição; nenhuma imagem ou mapa incorporado.",
+      "observations": "O relevo fino e denso modifica a luz nas dobras; laços e profundidade distinguem o bouclé da trama plana. Nosso material é um estudo independente, sem correspondência comercial prometida.",
+      "pbrCandidate": {
+        "pageLinkLabel": "PBR materials - Vidar 0582",
+        "url": "https://kvadratimageresizer.blob.core.windows.net/bynderresources/C1247D95-DFAC-48EE-B9F946C935D84E02.zip",
+        "tileableCandidate": "https://kvadrat-imageresizer.azureedge.net/iri/C9F6F0AF-366D-43B9-BF03E4147C3EE9B6",
+        "status": "Links de PBR e imagem repetível encontrados no catálogo oficial. Não baixados nem redistribuídos porque não foi confirmada licença para entregar os mapas em ZIP de terceiros. Mapas próprios usados no piloto."
+      }
+    },
+    {
+      "id": "kvadrat-harald-3",
+      "title": "Harald 3 — veludo de pelo curto",
+      "author": "Fanny Aronsen; recoloração por Raf Simons; Kvadrat",
+      "url": "https://www.kvadrat.dk/en/products/upholstery/8555-harald-3",
+      "purpose": "Referência de veludo fosco de pelo curto. Fotografia de tecido dobrado e descrição oficial examinadas no navegador.",
+      "incorporated": false,
+      "license": "Copyright Kvadrat A/S, all rights reserved, conforme rodapé. Não presumida autorização de redistribuição; nenhuma imagem ou mapa incorporado.",
+      "observations": "Dobras exibem transições suaves sob luz rasante e pelo de relevo pequeno. Nosso veludo usa microfibras procedurais de baixo relevo e sheen; é estudo de família, não cópia homologada de Harald."
+    }
+  ],
+  "incorporatedAssets": [
+    {
+      "id": "original-fabric-maps",
+      "author": "Gerados por Codex para o piloto Stanza, por algoritmo original reproduzível",
+      "url": null,
+      "source": "source/generate_materials.py",
+      "paths": [
+        "materials/linen/",
+        "materials/boucle/",
+        "materials/velvet/",
+        "source/embedded-boucle-areia.jpg",
+        "source/embedded-boucle-roughness.jpg",
+        "source/mobile-boucle/"
+      ],
+      "license": "CC0-1.0, na medida em que direitos possam existir",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "purpose": "Base color, normal, roughness e miniaturas dos três acabamentos de estudo.",
+      "generation": "NumPy 2.5.2 e Pillow 12.3.0; sementes 501/502/503; mapas 1024 x 1024. Ruído periódico de Fourier, entrelaçamento modular, carimbos de laços periódicos e derivadas normais com wrap. Nenhuma fotografia, mapa ou pixel de terceiro usado.",
+      "restrictions": "Não representam estoque, fabricante, desempenho ou composição homologada. As miniaturas são amostras iluminadas calculadas dos próprios mapas; não aplicar como base color.",
+      "embeddedVariants": {
+        "colorTintSrgbBytes": [
+          216,
+          201,
+          178
+        ],
+        "method": "Multiplicação dos bytes sRGB neutros pela cor areia/255, JPEG qualidade 92. Mapas originais permanecem neutros.",
+        "main": "Base color 512; normal 1024 original; roughness derivado 512.",
+        "mobile": "Base color, normal e roughness 512. Redução 2x2 por média; normais decodificadas em vetores, médias e renormalizadas antes da quantização.",
+        "repeatMeters": 0.14,
+        "license": "CC0-1.0, na medida em que direitos possam existir"
+      }
+    },
+    {
+      "id": "original-sofa-geometry",
+      "title": "Geometria do sofá orgânico, principal e móvel",
+      "author": "Gerada por Codex para este piloto, a partir de perfis e malhas paramétricos próprios",
+      "url": null,
+      "source": "source/build_sofa.py",
+      "paths": [
+        "models/sofa.glb",
+        "models/sofa-mobile.glb",
+        "source/sofa.blend"
+      ],
+      "purpose": "Geometria 3D editável e reutilizável, com hierarquia e UVs",
+      "license": "CC0-1.0, na medida em que direitos nos arquivos gerados possam existir",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "limitations": "Forma interpretada da referência fornecida; dimensões estimadas e construção interna ilustrativa. A licença dos arquivos gerados não concede direitos sobre marcas, fotos ou designs de terceiros."
+    },
+    {
+      "id": "original-viewer-and-generation-code",
+      "title": "Código próprio de geração, exportação, demonstração e validação",
+      "author": "Codex para o piloto Stanza",
+      "url": null,
+      "paths": [
+        "source/",
+        "viewer/sofa-viewer.js",
+        "viewer/demo.js",
+        "viewer/scroll.js",
+        "viewer/index.html",
+        "viewer/style.css",
+        "viewer/serve.mjs",
+        "viewer/vendor.mjs"
+      ],
+      "purpose": "Gerar os ativos e demonstrar seu uso sem framework",
+      "license": "CC0-1.0, na medida em que direitos possam existir",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "excludes": [
+        "viewer/vendor/",
+        "vendor/gltf-validator/"
+      ]
+    },
+    {
+      "id": "exported-model-previews",
+      "title": "Prévias da geometria realmente exportada",
+      "author": "Capturadas e renderizadas por Codex a partir dos GLBs deste pacote",
+      "url": null,
+      "paths": [
+        "previews/"
+      ],
+      "purpose": "Conferência de silhueta, detalhe, tecidos, camadas e apresentação alternativa",
+      "license": "CC0-1.0, na medida em que direitos possam existir",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "method": "Capturas WebGL 2 do visualizador Three.js. studio-export.png é um render complementar Cycles que importa models/sofa.glb; não é imagem de outra geometria nem fotografia gerada separadamente."
+    },
+    {
+      "id": "threejs",
+      "title": "Three.js e addons GLTFLoader, OrbitControls, RoomEnvironment e BufferGeometryUtils",
+      "version": "0.180.0",
+      "author": "Three.js authors",
+      "url": "https://github.com/mrdoob/three.js/tree/r180",
+      "paths": [
+        "viewer/vendor/three/"
+      ],
+      "purpose": "Carregamento glTF, renderização WebGL 2, iluminação de ambiente e exploração",
+      "license": "MIT",
+      "licenseFile": "viewer/vendor/three/LICENSE",
+      "licenseUrl": "https://github.com/mrdoob/three.js/blob/r180/LICENSE"
+    },
+    {
+      "id": "gsap-scrolltrigger",
+      "title": "GSAP e ScrollTrigger",
+      "version": "3.13.0",
+      "author": "GreenSock / Jack Doyle",
+      "url": "https://github.com/greensock/GSAP/tree/3.13.0",
+      "paths": [
+        "viewer/vendor/gsap/"
+      ],
+      "purpose": "Adaptador opcional de progresso da rolagem, carregado sob demanda",
+      "license": "Standard 'no charge' license, conforme package.json distribuído",
+      "licenseUrl": "https://gsap.com/standard-license",
+      "licenseNotice": "Metadados de licença em viewer/vendor/gsap/package.json; avisos preservados nos cabeçalhos dos arquivos-fonte."
+    },
+    {
+      "id": "gltf-validator",
+      "title": "Khronos glTF Validator",
+      "version": "2.0.0-dev.3.10",
+      "author": "The Khronos Group",
+      "url": "https://github.com/KhronosGroup/glTF-Validator",
+      "paths": [
+        "vendor/gltf-validator/"
+      ],
+      "purpose": "Validação reproduzível dos bytes dos GLBs exportados",
+      "license": "Apache-2.0",
+      "licenseFile": "vendor/gltf-validator/LICENSE",
+      "noticesFile": "vendor/gltf-validator/NOTICES",
+      "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "technicalReferences": [
+    {
+      "title": "glTF 2.0 specification",
+      "author": "The Khronos Group",
+      "url": "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html",
+      "purpose": "Formato de entrega solicitado e contrato de materiais",
+      "incorporated": false
+    },
+    {
+      "title": "Three.js WebGLRenderer",
+      "author": "Three.js authors",
+      "url": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "purpose": "WebGL 2 e ciclo de vida do renderizador",
+      "incorporated": false
+    },
+    {
+      "title": "Three.js GLTFLoader",
+      "author": "Three.js authors",
+      "url": "https://threejs.org/docs/pages/GLTFLoader.html",
+      "purpose": "Carregamento do modelo exportado",
+      "incorporated": false
+    },
+    {
+      "title": "GSAP ScrollTrigger",
+      "author": "GreenSock",
+      "url": "https://gsap.com/docs/v3/Plugins/ScrollTrigger/",
+      "purpose": "Vinculação opcional e reversível do progresso à rolagem",
+      "incorporated": false
+    }
+  ],
+  "authoringTools": [
+    {
+      "name": "Blender",
+      "version": "5.2.2 LTS",
+      "url": "https://www.blender.org/",
+      "purpose": "Modelagem editável, exportação glTF e render complementar; executável não incluído"
+    },
+    {
+      "name": "Python",
+      "version": "3.12.10",
+      "url": "https://www.python.org/",
+      "purpose": "Geração dos mapas e preparação de arquivos; runtime não incluído"
+    },
+    {
+      "name": "NumPy",
+      "version": "2.5.2",
+      "url": "https://numpy.org/",
+      "purpose": "Cálculo dos mapas procedurais próprios; pacote não incluído"
+    },
+    {
+      "name": "Pillow",
+      "version": "12.3.0",
+      "url": "https://python-pillow.github.io/",
+      "purpose": "Codificação e redução dos mapas; pacote não incluído"
+    },
+    {
+      "name": "Node.js",
+      "version": "24.19.0",
+      "url": "https://nodejs.org/",
+      "purpose": "Servidor local e execução da validação; runtime não incluído"
+    }
+  ],
+  "distribution": {
+    "purchasedAssets": false,
+    "paidServicesRequired": false,
+    "thirdPartyPhotosIncluded": false,
+    "specialModelDecodersRequired": false
+  }
+}

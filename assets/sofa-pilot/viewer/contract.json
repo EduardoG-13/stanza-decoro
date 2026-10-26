@@ -1,0 +1,346 @@
+{
+  "IDENTITY": {
+    "modelId": "stanza-organic-01",
+    "revision": "1.0.0"
+  },
+  "CAMERAS": {
+    "threequarter": {
+      "position": [
+        2.6,
+        1.65,
+        3.1
+      ],
+      "target": [
+        0,
+        0.5,
+        0
+      ]
+    },
+    "front": {
+      "position": [
+        0,
+        1.15,
+        4.5
+      ],
+      "target": [
+        0,
+        0.48,
+        0
+      ]
+    },
+    "side": {
+      "position": [
+        4.4,
+        1.2,
+        0
+      ],
+      "target": [
+        0,
+        0.48,
+        0
+      ]
+    },
+    "detail": {
+      "position": [
+        0.55,
+        0.63,
+        1
+      ],
+      "target": [
+        0.5,
+        0.43,
+        0.35
+      ]
+    },
+    "layers": {
+      "position": [
+        3.5,
+        2.7,
+        4.5
+      ],
+      "target": [
+        0,
+        1,
+        0
+      ]
+    }
+  },
+  "LAYER_STAGES": [
+    {
+      "progress": 0,
+      "label": "Peça montada",
+      "offsets": {
+        "upholstery": [
+          0,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          0
+        ],
+        "frame": [
+          0,
+          0,
+          0
+        ],
+        "legs": [
+          0,
+          0,
+          0
+        ],
+        "cushions": [
+          0,
+          0,
+          0
+        ],
+        "suspension": [
+          0,
+          0,
+          0
+        ]
+      },
+      "camera": {
+        "position": [
+          2.6,
+          1.65,
+          3.1
+        ],
+        "target": [
+          0,
+          0.5,
+          0
+        ]
+      }
+    },
+    {
+      "progress": 0.2,
+      "label": "Aproximação do revestimento",
+      "offsets": {
+        "upholstery": [
+          0,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          0
+        ],
+        "frame": [
+          0,
+          0,
+          0
+        ],
+        "legs": [
+          0,
+          0,
+          0
+        ],
+        "cushions": [
+          0,
+          0,
+          0
+        ],
+        "suspension": [
+          0,
+          0,
+          0
+        ]
+      },
+      "camera": {
+        "position": [
+          2.1,
+          1.5,
+          2.6
+        ],
+        "target": [
+          0,
+          0.6,
+          0.15
+        ]
+      }
+    },
+    {
+      "progress": 0.5,
+      "label": "Revestimento e acolchoamento separados",
+      "offsets": {
+        "upholstery": [
+          0,
+          0.8,
+          0.3
+        ],
+        "padding": [
+          0,
+          0.3,
+          0
+        ],
+        "frame": [
+          0,
+          0,
+          0
+        ],
+        "legs": [
+          0,
+          0,
+          0
+        ],
+        "cushions": [
+          0,
+          0.9,
+          0.65
+        ],
+        "suspension": [
+          0,
+          0.08,
+          0
+        ]
+      },
+      "camera": {
+        "position": [
+          3.5,
+          2.7,
+          4.5
+        ],
+        "target": [
+          0,
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "progress": 0.7,
+      "label": "Estrutura exposta · construção ilustrativa",
+      "offsets": {
+        "upholstery": [
+          0,
+          1.3,
+          0.5
+        ],
+        "padding": [
+          0,
+          0.65,
+          0
+        ],
+        "frame": [
+          0,
+          0,
+          0
+        ],
+        "legs": [
+          0,
+          0,
+          0
+        ],
+        "cushions": [
+          0,
+          1.45,
+          0.85
+        ],
+        "suspension": [
+          0,
+          0.22,
+          0
+        ]
+      },
+      "camera": {
+        "position": [
+          3.5,
+          2.7,
+          4.5
+        ],
+        "target": [
+          0,
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "progress": 1,
+      "label": "Retorno à peça montada",
+      "offsets": {
+        "upholstery": [
+          0,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          0
+        ],
+        "frame": [
+          0,
+          0,
+          0
+        ],
+        "legs": [
+          0,
+          0,
+          0
+        ],
+        "cushions": [
+          0,
+          0,
+          0
+        ],
+        "suspension": [
+          0,
+          0,
+          0
+        ]
+      },
+      "camera": {
+        "position": [
+          2.6,
+          1.65,
+          3.1
+        ],
+        "target": [
+          0,
+          0.5,
+          0
+        ]
+      }
+    }
+  ],
+  "COLORS": {
+    "areia": "#d8c9b2",
+    "oliva": "#72765a",
+    "terracota": "#ae6952",
+    "grafite": "#494b4b"
+  },
+  "FABRICS": {
+    "linen": {
+      "label": "Trama plana",
+      "roughness": 1,
+      "normalStrength": 0.78,
+      "sheen": 0.12,
+      "sheenRoughness": 0.85
+    },
+    "boucle": {
+      "label": "Bouclé",
+      "roughness": 1,
+      "normalStrength": 0.9,
+      "sheen": 0.2,
+      "sheenRoughness": 0.9
+    },
+    "velvet": {
+      "label": "Veludo",
+      "roughness": 1,
+      "normalStrength": 0.38,
+      "sheen": 0.72,
+      "sheenRoughness": 0.55
+    }
+  },
+  "DIMENSIONS": {
+    "width": 2.487,
+    "height": 1.007,
+    "depth": 1.084,
+    "unit": "m",
+    "estimated": true
+  }
+}

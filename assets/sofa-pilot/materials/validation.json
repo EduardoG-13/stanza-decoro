@@ -1,0 +1,162 @@
+{
+  "status": "maps_verified",
+  "method": "Decode all delivered maps; compare wrap edge adjacent differences to interior adjacent differences. Edge ratio near 1 indicates no exceptional seam. Check quantized normal lengths. Visual swatches inspected. UV mapping and full-object lighting require model review.",
+  "results": [
+    {
+      "family": "linen",
+      "map": "basecolor.jpg",
+      "size": [
+        1024,
+        1024,
+        3
+      ],
+      "bytes": 115011,
+      "range": [
+        0.8784313725490196,
+        0.9725490196078431
+      ],
+      "seamMeanDifference": 0.005978094362745102,
+      "interiorMeanDifference": 0.004481829083050624,
+      "edgeContinuityRatio": 1.3338514816089377
+    },
+    {
+      "family": "linen",
+      "map": "normal.png",
+      "size": [
+        1024,
+        1024,
+        3
+      ],
+      "bytes": 1309581,
+      "range": [
+        0.30980392156862746,
+        1.0
+      ],
+      "seamMeanDifference": 0.03768765318627451,
+      "interiorMeanDifference": 0.023129345518754917,
+      "edgeContinuityRatio": 1.6294301607330257,
+      "quantizedNormalMaxLengthError": 0.005536278670188022
+    },
+    {
+      "family": "linen",
+      "map": "roughness.jpg",
+      "size": [
+        1024,
+        1024,
+        3
+      ],
+      "bytes": 284310,
+      "range": [
+        0.7450980392156863,
+        0.9882352941176471
+      ],
+      "seamMeanDifference": 0.01758003982843137,
+      "interiorMeanDifference": 0.016825399018050524,
+      "edgeContinuityRatio": 1.0448512876022291
+    },
+    {
+      "family": "boucle",
+      "map": "basecolor.jpg",
+      "size": [
+        1024,
+        1024,
+        3
+      ],
+      "bytes": 127655,
+      "range": [
+        0.8901960784313725,
+        0.9803921568627451
+      ],
+      "seamMeanDifference": 0.006257659313725483,
+      "interiorMeanDifference": 0.004549886914687669,
+      "edgeContinuityRatio": 1.3753439219609802
+    },
+    {
+      "family": "boucle",
+      "map": "normal.png",
+      "size": [
+        1024,
+        1024,
+        3
+      ],
+      "bytes": 2125341,
+      "range": [
+        0.11372549019607843,
+        1.0
+      ],
+      "seamMeanDifference": 0.035671977124183005,
+      "interiorMeanDifference": 0.03866589903821581,
+      "edgeContinuityRatio": 0.9225694477949747,
+      "quantizedNormalMaxLengthError": 0.006278843038372006
+    },
+    {
+      "family": "boucle",
+      "map": "roughness.jpg",
+      "size": [
+        1024,
+        1024,
+        3
+      ],
+      "bytes": 255995,
+      "range": [
+        0.803921568627451,
+        1.0
+      ],
+      "seamMeanDifference": 0.01466375612745098,
+      "interiorMeanDifference": 0.013655998582839782,
+      "edgeContinuityRatio": 1.0737959614229569
+    },
+    {
+      "family": "velvet",
+      "map": "basecolor.jpg",
+      "size": [
+        1024,
+        1024,
+        3
+      ],
+      "bytes": 77077,
+      "range": [
+        0.9058823529411765,
+        0.9647058823529412
+      ],
+      "seamMeanDifference": 0.0040039062499999875,
+      "interiorMeanDifference": 0.002456706159675495,
+      "edgeContinuityRatio": 1.6297863845991503
+    },
+    {
+      "family": "velvet",
+      "map": "normal.png",
+      "size": [
+        1024,
+        1024,
+        3
+      ],
+      "bytes": 1012384,
+      "range": [
+        0.39215686274509803,
+        1.0
+      ],
+      "seamMeanDifference": 0.007081035539215683,
+      "interiorMeanDifference": 0.007094477397712098,
+      "edgeContinuityRatio": 0.998105306741727,
+      "quantizedNormalMaxLengthError": 0.004495852899795372
+    },
+    {
+      "family": "velvet",
+      "map": "roughness.jpg",
+      "size": [
+        1024,
+        1024,
+        3
+      ],
+      "bytes": 203769,
+      "range": [
+        0.5647058823529412,
+        0.8627450980392157
+      ],
+      "seamMeanDifference": 0.015674785539215686,
+      "interiorMeanDifference": 0.013364615228422746,
+      "edgeContinuityRatio": 1.1728572256895105
+    }
+  ]
+}
