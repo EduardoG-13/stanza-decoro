@@ -34,11 +34,11 @@ A revisão de acesso identifica a conta conectada e explica a falta de autoriza�
 
 ## Estado do recebimento
 
-As seis funções de recebimento, consulta, atualização e limpeza foram publicadas em um módulo separado. Os testes locais validam fotos, repetição, permissões, protocolo, conflitos e limpeza.
+As funções de recebimento, consulta, atualização, limpeza e aviso por e-mail estão publicadas em um módulo separado. Os testes locais validam fotos, repetição, permissões, protocolo, conflitos e limpeza.
 
 O envio real foi confirmado com uma foto e protocolo ST-26-0001. O registro e a foto ficaram privados, com acesso anônimo recusado. A ativação incluiu habilitar a API pública do App Check e configurar sua identidade oficial. Veja [a validação do recebimento](docs/RECEBIMENTO-VALIDADO-2026-10-26.md).
 
-Os avisos de Gmail foram adiados pelo usuário. O cadastro de Pedro, com o e-mail da Stanza, foi criado inativo e aguarda definição da senha pelo próprio usuário. Senhas não pertencem ao repositório.
+Pedro está ativo, após definir a senha diretamente. O Gmail foi configurado e o processador de avisos está ativo a cada cinco minutos. O aviso ST-26-0002 foi aceito pelo servidor na primeira tentativa; a chegada à caixa ainda aguarda confirmação do titular. Veja [Gmail e acesso do proprietário](docs/GMAIL-ATIVO-2026-10-26.md). Senhas não pertencem ao repositório.
 
 ## Fontes e geração
 

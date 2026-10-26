@@ -1,5 +1,8 @@
 # Recebimento validado — 26/10/2026
 
+> Atualização posterior nesta data: Pedro foi ativado pelo titular e os avisos do Gmail estão ativos. O ST-26-0002 foi aceito pelo servidor SMTP em uma tentativa; a chegada à caixa ainda depende de confirmação. Consulte [o estado atual](GMAIL-ATIVO-2026-10-26.md). Os registros abaixo descrevem a etapa original.
+
+
 O formulário de orçamento está em https://stanza-atendimento-820e4.web.app/orcamento.html. O site principal segue em revisão local.
 
 ## Prova de funcionamento

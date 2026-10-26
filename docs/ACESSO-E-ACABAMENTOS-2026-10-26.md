@@ -1,5 +1,8 @@
 # Acesso e acabamentos — 26/10/2026
 
+> Atualização posterior nesta data: Pedro foi ativado pelo titular e os avisos do Gmail estão ativos. O ST-26-0002 foi aceito pelo servidor SMTP em uma tentativa; a chegada à caixa ainda depende de confirmação. Consulte [o estado atual](GMAIL-ATIVO-2026-10-26.md). Os registros abaixo descrevem a etapa original.
+
+
 ## Diagnóstico do atendimento
 
 O protocolo ST-26-0002 foi confirmado na página do usuário e consultado diretamente no servidor. Existe exatamente um registro, com situação novo e sem fotos. Ele foi preservado e não foi marcado como teste nem encerrado.

@@ -1,5 +1,8 @@
 # Revisão do orçamento — 26/10/2026
 
+> Atualização posterior nesta data: Pedro foi ativado pelo titular e os avisos do Gmail estão ativos. O ST-26-0002 foi aceito pelo servidor SMTP em uma tentativa; a chegada à caixa ainda depende de confirmação. Consulte [o estado atual](GMAIL-ATIVO-2026-10-26.md). Os registros abaixo descrevem a etapa original.
+
+
 ## Comportamento
 
 O formulário HTTPS registra dados e fotos no atendimento privado antes de oferecer a continuação no WhatsApp. O link leva o resumo completo e o protocolo preenchidos. A pessoa confirma a mensagem no WhatsApp; as fotos já recebidas ficam no painel e não são anexadas pelo link.
