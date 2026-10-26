@@ -50,6 +50,8 @@ for file in pages:
         if ref not in page.ids: errors.append((str(file),'Referência sem alvo: '+ref))
     for link in page.links:
         parsed=urlsplit(link)
+        if parsed.path.rstrip('/')=='/pedidos-site' or parsed.hostname=='gestao.stanzadecoro.com.br':
+            errors.append((str(file),'Entrada da equipe não deve ficar nas páginas públicas: '+link))
         if parsed.scheme or parsed.netloc: continue
         if not parsed.path:
             if parsed.fragment and parsed.fragment not in page.ids: errors.append((str(file),'Âncora sem alvo: '+link))
@@ -64,7 +66,8 @@ for file in pages:
                 assert (int(image['width']),int(image['height']))==actual.size, (file,image['src'])
         if not image.get('alt') or not image.get('width') or not image.get('height'): errors.append((str(file),'Imagem sem descrição/dimensões'))
     if '551197556-3037' in text or 'Nova pasta/' in text: errors.append((str(file),'Contato ou ícone legado inválido'))
-    if f'name="robots" content="{expected_robots}"' not in text: errors.append((str(file),'Indexação não corresponde à configuração'))
+    page_robots='noindex,nofollow' if file.name=='404.html' else expected_robots
+    if f'name="robots" content="{page_robots}"' not in text: errors.append((str(file),'Indexação não corresponde à configuração'))
     if file.name=='portfolio.html':
         assert Counter(page.families)==Counter(item['family'] for item in portfolio),Counter(page.families)
     if file.name=='modelos.html': assert len(page.families)==len(catalog)

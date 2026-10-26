@@ -196,6 +196,9 @@ def main():
         render('model',path,item['name']+' | Stanza Decoro',item['description'],content,image_url(item['source']))
         paths.append(path)
     # Preserva também o acesso divulgado sem extensão: /portfolio.
+    render('notfound','404.html','Página não encontrada | Stanza Decoro','Explore as referências da Stanza Decoro.',(ROOT/'pages/not-found.html').read_text(encoding='utf-8'))
+    error_page=OUT/'404.html'
+    error_page.write_text(error_page.read_text(encoding='utf-8').replace('content="index,follow"','content="noindex,nofollow"'),encoding='utf-8')
     (OUT / 'portfolio').mkdir(exist_ok=True)
     shutil.copy2(OUT / 'portfolio.html', OUT / 'portfolio/index.html')
     (OUT / 'robots.txt').write_text('User-agent: *\n' + ('Allow: /\n' if CONFIG['production'] else 'Disallow: /\n') + 'Sitemap: '+CONFIG['url']+'/sitemap.xml\n',encoding='utf-8')
