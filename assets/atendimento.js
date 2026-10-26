@@ -75,7 +75,7 @@ async function detail(id){
     finally{button.disabled=false;}
    });photos.append(button);
   });container.append(photos);
-  const email={pendente:'Aviso por e-mail na fila.',aceito_pelo_servidor:'Aviso aceito pelo servidor de e-mail.',falha:'O aviso por e-mail falhou. O pedido continua registrado.'};
+  const email={cancelado_teste:'Registro de teste; aviso por e-mail cancelado.',pendente:'Aviso por e-mail na fila.',aceito_pelo_servidor:'Aviso aceito pelo servidor de e-mail.',falha:'O aviso por e-mail falhou. O pedido continua registrado.'};
   container.append(node('p',email[p.aviso]||'Aviso por e-mail aguardando processamento.','field-note'));
   container.hidden=false;container.focus();container.scrollIntoView({behavior:'instant',block:'start'});status('');
  }catch{if(current===version){error('Não foi possível abrir o projeto. Atualize a lista e tente novamente.');status('');}}

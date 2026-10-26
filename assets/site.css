@@ -440,3 +440,5 @@ figure { margin:0; }
 .motion-preference:hover {border-bottom-color:currentColor}
 .reduce-motion *, .reduce-motion *::before, .reduce-motion *::after {animation:none!important;transition:none!important;scroll-behavior:auto!important}
 .reduce-motion .reference-link:hover .reference-image img {transform:none}
+
+.quote-received { padding:18px 22px; border-left:2px solid var(--olive); background:var(--soft); color:var(--ink); font-size:1rem; font-weight:600; margin-block:24px; }

@@ -31,7 +31,7 @@ Empreendimentos e integração com cliente/OS continuam para etapas posteriores.
 
 As seis funções de recebimento, consulta, atualização e limpeza foram publicadas em um módulo separado. Os testes locais validam fotos, repetição, permissões, protocolo, conflitos e limpeza.
 
-A validação do envio real encontrou bloqueio do App Check. A identidade do serviço do Google foi configurada, mas o recebimento real só deve ser considerado concluído após um teste com confirmação e conferência do registro. A proteção permanece ativa.
+O envio real foi confirmado com uma foto e protocolo ST-26-0001. O registro e a foto ficaram privados, com acesso anônimo recusado. A ativação incluiu habilitar a API pública do App Check e configurar sua identidade oficial. Veja [a validação do recebimento](docs/RECEBIMENTO-VALIDADO-2026-10-26.md).
 
 Os avisos de Gmail foram adiados pelo usuário. O cadastro de Pedro, com o e-mail da Stanza, foi criado inativo e aguarda definição da senha pelo próprio usuário. Senhas não pertencem ao repositório.
 

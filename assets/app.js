@@ -181,6 +181,11 @@ if (form) {
       if (!api.protocoloValido(received.protocolo)) throw new Error('O recebimento ainda não pôde ser confirmado. Tente novamente.');
       sendStatus.textContent = (quoteConfig.mode === 'emulator' ? 'Registrado somente na demonstração local. ' : 'Projeto recebido para avaliação. ') + 'Protocolo: ' + received.protocolo;
       sendButton.textContent = 'Projeto registrado';
+      sendButton.hidden = true; editButton.hidden = true;
+      sendStatus.classList.add('quote-received');
+      const instructions = document.querySelectorAll('#api-instructions>p:not([id])');
+      instructions[0].textContent = photos.length ? 'Os dados e as fotos do seu projeto foram recebidos pela Stanza.' : 'Os dados do seu projeto foram recebidos pela Stanza.';
+      instructions[1].textContent = 'A equipe vai avaliar as informações para o atendimento. Se quiser, continue pelo WhatsApp com o protocolo abaixo.';
       document.querySelector('#continue-whatsapp').href = 'https://wa.me/' + document.body.dataset.whatsapp + '?text=' + encodeURIComponent('Olá, Stanza! Enviei o projeto pelo site. Meu protocolo é ' + received.protocolo + '.');
       document.querySelector('#review-title').textContent = quoteConfig.mode === 'emulator' ? 'Recebido na demonstração.' : 'Seu projeto chegou.';
       submission.confirmacaoIniciada = true;
