@@ -286,5 +286,47 @@
       "Acabamento claro no contorno"
     ],
     "originalGallery": true
+  },
+  {
+    "id": "cortina-clara",
+    "name": "Cortina do teto ao piso",
+    "family": "cortinas",
+    "label": "Cortina sob medida",
+    "description": "Tecido claro com caimento em pregas, cobrindo o vão do teto ao piso.",
+    "source": "cortinas/cortinas-7.jpg",
+    "alt": "Cortina clara do teto ao piso em uma sala, com luz entrando pela janela",
+    "featured": false,
+    "piece": "Cortina",
+    "projectNotes": [
+      "Largura e altura do vão, com foto da janela e do ambiente.",
+      "Caimento, transparência e tecido, conforme amostra e opções disponíveis.",
+      "Fixação, abertura e condições de instalação a avaliar."
+    ],
+    "visibleDetails": [
+      "Tecido claro",
+      "Comprimento até o piso",
+      "Caimento em pregas"
+    ]
+  },
+  {
+    "id": "cortina-com-lambrequim",
+    "name": "Cortina com lambrequim",
+    "family": "cortinas",
+    "label": "Cortina sob medida",
+    "description": "Tecido listrado com acabamento superior reto, acompanhando a cortina.",
+    "source": "cortinas/cortinas-6.jpg",
+    "alt": "Cortina listrada em verde e bege com acabamento superior reto junto à janela",
+    "featured": false,
+    "piece": "Cortina",
+    "projectNotes": [
+      "Medidas da janela e do espaço para a cortina.",
+      "Desenho do acabamento superior, tecido e combinação de cores.",
+      "Abertura, fixação e instalação após avaliação do ambiente."
+    ],
+    "visibleDetails": [
+      "Tecido listrado",
+      "Acabamento superior reto",
+      "Combinação de dois tons"
+    ]
   }
 ]

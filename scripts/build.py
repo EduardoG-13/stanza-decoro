@@ -35,7 +35,7 @@ assert CONFIG['quote']['mode'] in ['manual','emulator','firebase']
 assert not (CONFIG['production'] and CONFIG['quote']['mode'] == 'emulator'), 'Demonstração local não pode ser publicada.'
 CATALOG = json.loads((ROOT / 'data/catalog.json').read_text(encoding='utf-8'))
 PORTFOLIO = json.loads((ROOT / 'data/portfolio.json').read_text(encoding='utf-8'))
-FAMILIES = {'sofas':'Sofás','assentos':'Poltronas e assentos','complementos':'Cabeceiras e puffs','revestimentos':'Capas e cortinas'}
+FAMILIES = {'sofas':'Sofás','assentos':'Poltronas e assentos','complementos':'Cabeceiras e puffs','revestimentos':'Capas e cortinas','cortinas':'Cortinas'}
 images = {}
 image_sizes = {}
 reference_thumbnails = {}
@@ -80,8 +80,8 @@ def quote_reference(item, portfolio=False):
 
 def reference(item):
     url = '/modelos/' + item['id'] + '.html'
-    search = escape(' '.join([item['name'],item['description'],item['label'],item['piece']]),quote=True)
-    return f'''<article class="reference" data-family="{escape(item['family'])}" data-search="{search}"><a class="reference-link" href="{url}" aria-label="Conhecer {escape(item['name'])}"><div class="reference-image"><img src="{image_url(item['source'])}" alt="{escape(item['alt'])}" width="800" height="1000" loading="lazy" decoding="async"><span class="reference-open" aria-hidden="true">↗</span></div><div class="reference-copy"><span class="eyebrow">{escape(item['label'])}</span><h3>{escape(item['name'])}</h3><p>{escape(item['description'])}</p><span class="text-link">Conhecer a peça <span aria-hidden="true">→</span></span></div></a></article>'''
+    search = escape(' '.join([item['name'],item['description'],item['piece']]),quote=True)
+    return f'''<article class="reference" data-family="{escape(item['family'])}" data-search="{search}"><a class="reference-link" href="{url}" aria-label="Conhecer {escape(item['name'])}"><div class="reference-image"><img src="{image_url(item['source'])}" alt="{escape(item['alt'])}" width="800" height="1000" loading="lazy" decoding="async"><span class="reference-open" aria-hidden="true">↗</span></div><div class="reference-copy"><h3>{escape(item['name'])}</h3><p>{escape(item['description'])}</p><span class="text-link">Conhecer a peça <span aria-hidden="true">→</span></span></div></a></article>'''
 
 
 def project(item, compact=False):
@@ -196,7 +196,7 @@ def main():
         gallery_label = 'Registro original' if item.get('originalGallery') else 'Outro enquadramento'
         gallery = ''.join(f'<a class="model-thumbnail" href="{image_url(source)}" data-photo data-photo-group="model" data-photo-caption="{escape(item["name"],quote=True)} — {gallery_label.lower()}" data-photo-quote="/orcamento.html?referencia={item["id"]}" aria-label="Ampliar {gallery_label.lower()} de {escape(item["name"],quote=True)}"><img src="{image_url(source)}" alt="{gallery_label} de {escape(item["name"])}" width="240" height="180" loading="lazy"></a>' for source in item.get('gallery',[]))
         notes = ''.join('<li>'+escape(note)+'</li>' for note in item['projectNotes'])
-        content = replace((ROOT / 'pages/model.html').read_text(encoding='utf-8'),{'MODEL_IMAGE':model_image,'MODEL_IMAGE_WIDTH':model_width,'MODEL_IMAGE_HEIGHT':model_height,'MODEL_ALT':escape(item['alt']),'MODEL_LABEL':escape(item['label']),'MODEL_NAME':escape(item['name']),'MODEL_DESCRIPTION':escape(item['description']),'MODEL_ID':item['id'],'RELATED':''.join(reference(other) for other in related),'MODEL_GALLERY':gallery,'MODEL_NOTES':notes,'MODEL_VISIBLE_DETAILS':''.join('<li>'+escape(detail)+'</li>' for detail in item['visibleDetails']),'MODEL_PHOTO_NOTE':escape(item.get('photoNote','Referência do acervo Stanza.')),'MODEL_EXPERIENCE':('<a class="text-link model-experience-link" href="/explorar-sofa.html">Explorar o estudo desta forma em 3D ↗</a>' if item['id']=='sofa-organico' else '')})
+        content = replace((ROOT / 'pages/model.html').read_text(encoding='utf-8'),{'MODEL_IMAGE':model_image,'MODEL_IMAGE_WIDTH':model_width,'MODEL_IMAGE_HEIGHT':model_height,'MODEL_ALT':escape(item['alt']),'MODEL_NAME':escape(item['name']),'MODEL_DESCRIPTION':escape(item['description']),'MODEL_ID':item['id'],'RELATED':''.join(reference(other) for other in related),'MODEL_GALLERY':gallery,'MODEL_NOTES':notes,'MODEL_VISIBLE_DETAILS':''.join('<li>'+escape(detail)+'</li>' for detail in item['visibleDetails']),'MODEL_PHOTO_NOTE':('<figcaption class="model-photo-note">'+escape(item['photoNote'])+'</figcaption>' if item.get('photoNote') else ''),'MODEL_EXPERIENCE':('<a class="text-link model-experience-link" href="/explorar-sofa.html">Experimentar cores e tecidos em 3D ↗</a>' if item['id']=='sofa-organico' else '')})
         path = 'modelos/' + item['id'] + '.html'
         render('model',path,item['name']+' | Stanza Decoro',item['description'],content,image_url(item['source']))
         paths.append(path)

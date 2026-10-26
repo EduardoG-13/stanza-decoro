@@ -1,6 +1,5 @@
 // Ambient motion exists only while the product is visible and the tab is active.
 const host = document.querySelector('#home-sofa');
-const label = document.querySelector('#home-scene-label');
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const connection = navigator.connection;
 let viewer, frame = 0, initialized = false, disposed = false, visible = false;
@@ -49,7 +48,6 @@ async function initialize() {
     const canvas = host.querySelector('canvas');
     canvas.tabIndex = -1; canvas.setAttribute('aria-hidden','true'); canvas.style.pointerEvents = 'none';
     host.dataset.scene = 'ready';
-    label.textContent = '01 / ESTUDO DE FORMA · 3D';
     reconcile();
   } catch {host.dataset.scene = 'poster';}
 }
