@@ -25,6 +25,8 @@ A página principal continua local e com `noindex`. O formulário e a consulta p
 - Abertura 3D com movimento somente enquanto visível e preferência por movimento reduzido. O modelo continua ilustrativo e ainda precisa de revisão.
 - Orçamento HTTPS separado, com fotos privadas e protocolo curto. Na prévia, a referência segue ao formulário sem transportar dados pessoais pela URL.
 
+O formulário tem botão de fotos personalizado, cidades por UF, telefone formatado ao digitar e referências com foto e nome. Depois do registro, o WhatsApp recebe o resumo e o protocolo pelo link, sem copiar e colar. Veja [a revisão do orçamento](docs/ORCAMENTO-UX-2026-10-26.md).
+
 Empreendimentos e integração com cliente/OS continuam para etapas posteriores.
 
 ## Estado do recebimento
@@ -41,6 +43,8 @@ Os avisos de Gmail foram adiados pelo usuário. O cadastro de Pedro, com o e-mai
 - `data/catalog.json` e `data/portfolio.json`: peças e fotos.
 - `assets/site.css` e `assets/app.js`: visual e interações.
 - `assets/quote-redirect.js`: encaminhamento de referências ao formulário HTTPS.
+- `assets/quote-fields.js` e `assets/quote-message.js`: campos e mensagem preenchida no WhatsApp.
+- `data/cities-br.json`: lista pública do IBGE; atualização explícita com `scripts/update_cities.py`.
 - `data/quote-host.json`: configuração pública do formulário, sem senha ou segredo.
 - `scripts/build_quote_host.py`: pacote limitado a orçamento, privacidade e consulta privada.
 - `firebase.formulario.json`: publicação somente no endereço separado.

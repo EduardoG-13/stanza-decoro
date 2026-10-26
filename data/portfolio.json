@@ -4,335 +4,383 @@
     "family": "sofas",
     "source": "sofas/SOFA-1.jpg",
     "alt": "Sofá bordô em L com encosto dividido por linhas verticais",
-    "title": "Sofá de canto bordô"
+    "title": "Sofá de canto bordô",
+    "piece": "Sofá"
   },
   {
     "id": "projeto-2",
     "family": "sofas",
     "source": "sofas/SOFA-2.jpg",
     "alt": "Sofá claro de base curva e almofadas soltas junto a uma janela",
-    "title": "Sofá orgânico claro"
+    "title": "Sofá orgânico claro",
+    "piece": "Sofá"
   },
   {
     "id": "projeto-3",
     "family": "sofas",
     "source": "sofas/SOFA-3.jpg",
     "alt": "Sofá cinza de assentos amplos com almofadas claras em uma sala",
-    "title": "Sofá modular cinza"
+    "title": "Sofá modular cinza",
+    "piece": "Sofá"
   },
   {
     "id": "projeto-4",
     "family": "sofas",
     "source": "sofas/SOFA-4.jpg",
     "alt": "Sofá cinza em L com encosto de linhas verticais",
-    "title": "Sofá em L com encosto marcado"
+    "title": "Sofá em L com encosto marcado",
+    "piece": "Sofá"
   },
   {
     "id": "projeto-5",
     "family": "sofas",
     "source": "sofas/SOFA-5.jpg",
     "alt": "Sofá cinza com dois assentos, almofadas soltas e base escura",
-    "title": "Sofá cinza de linhas retas"
+    "title": "Sofá cinza de linhas retas",
+    "piece": "Sofá"
   },
   {
     "id": "projeto-6",
     "family": "sofas",
     "source": "sofas/SOFA-6.jpg",
     "alt": "Sofá azul-marinho com tachas claras contornando braços e encosto",
-    "title": "Sofá azul com tachas aparentes"
+    "title": "Sofá azul com tachas aparentes",
+    "piece": "Sofá"
   },
   {
     "id": "projeto-7",
     "family": "sofas",
     "source": "sofas/SOFA-7.jpg",
     "alt": "Banco de canto com almofadas cinza em uma varanda",
-    "title": "Assentos sob medida para varanda"
+    "title": "Assentos sob medida para varanda",
+    "piece": "Banco"
   },
   {
     "id": "projeto-8",
     "family": "sofas",
     "source": "sofas/SOFA-8.jpg",
     "alt": "Banco estofado marrom em L com encosto dividido em painéis",
-    "title": "Banco de canto marrom"
+    "title": "Banco de canto marrom",
+    "piece": "Banco"
   },
   {
     "id": "projeto-9",
     "family": "sofas",
     "source": "sofas/SOFA-9.png",
     "alt": "Sofá verde com braços arredondados, almofadas e pés de madeira",
-    "title": "Sofá verde de braços curvos"
+    "title": "Sofá verde de braços curvos",
+    "piece": "Sofá"
   },
   {
     "id": "projeto-10",
     "family": "sofas",
     "source": "sofas/SOFA-10.jpg",
     "alt": "Sofá claro em composição de canto em uma sala com cortinas",
-    "title": "Sofá de canto em uma sala"
+    "title": "Sofá de canto em uma sala",
+    "piece": "Sofá"
   },
   {
     "id": "projeto-11",
     "family": "complementos",
     "source": "pufs/pufs-7.jpg",
     "alt": "Puff retangular verde com tampa acolchoada dividida em quadrados",
-    "title": "Puff retangular verde"
+    "title": "Puff retangular verde",
+    "piece": "Puff"
   },
   {
     "id": "projeto-12",
     "family": "complementos",
     "source": "pufs/pufs-8.jpg",
     "alt": "Conjunto de puffs hexagonais cinza e rosa",
-    "title": "Puffs hexagonais"
+    "title": "Puffs hexagonais",
+    "piece": "Puff"
   },
   {
     "id": "projeto-13",
     "family": "complementos",
     "source": "pufs/pufs-9.jpg",
     "alt": "Quatro puffs quadrados bege com bases aparentes",
-    "title": "Puffs quadrados em conjunto"
+    "title": "Puffs quadrados em conjunto",
+    "piece": "Puff"
   },
   {
     "id": "projeto-14",
     "family": "complementos",
     "source": "pufs/pufs-10.jpg",
     "alt": "Puffs cúbicos amarelos e cinza em uma sala de TV",
-    "title": "Puffs para uma sala de TV"
+    "title": "Puffs para uma sala de TV",
+    "piece": "Puff"
   },
   {
     "id": "projeto-15",
     "family": "complementos",
     "source": "pufs/pufs-11.jpg",
     "alt": "Conjunto de puffs vermelhos com formatos e alturas diferentes",
-    "title": "Puffs vermelhos"
+    "title": "Puffs vermelhos",
+    "piece": "Puff"
   },
   {
     "id": "projeto-16",
     "family": "complementos",
     "source": "pufs/pufs-12.jpg",
     "alt": "Puffs quadrados com tampos lisos e laterais estampadas",
-    "title": "Puffs com estampas variadas"
+    "title": "Puffs com estampas variadas",
+    "piece": "Puff"
   },
   {
     "id": "projeto-17",
     "family": "complementos",
     "source": "cabeceiras/cabeceiras-2.jpg",
     "alt": "Cabeceira azul-escura com borda marcada e contorno curvo",
-    "title": "Cabeceira azul de contorno curvo"
+    "title": "Cabeceira azul de contorno curvo",
+    "piece": "Cabeceira"
   },
   {
     "id": "projeto-18",
     "family": "complementos",
     "source": "cabeceiras/cabeceiras-3.jpg",
     "alt": "Cabeceira estofada em tom neutro com painéis verticais",
-    "title": "Cabeceira de painéis verticais"
+    "title": "Cabeceira de painéis verticais",
+    "piece": "Cabeceira"
   },
   {
     "id": "projeto-19",
     "family": "complementos",
     "source": "cabeceiras/cabeceiras-4.jpg",
     "alt": "Cabeceira marrom dividida em painéis retangulares",
-    "title": "Cabeceira marrom em painéis"
+    "title": "Cabeceira marrom em painéis",
+    "piece": "Cabeceira"
   },
   {
     "id": "projeto-20",
     "family": "complementos",
     "source": "cabeceiras/cabeceiras-5.jpg",
     "alt": "Cabeceira azul que acompanha duas camas dispostas em L",
-    "title": "Cabeceira de canto para duas camas"
+    "title": "Cabeceira de canto para duas camas",
+    "piece": "Cabeceira"
   },
   {
     "id": "projeto-21",
     "family": "complementos",
     "source": "cabeceiras/cabeceiras-6.jpg",
     "alt": "Cabeceira clara de painéis horizontais entre duas mesas de cabeceira",
-    "title": "Cabeceira com painéis horizontais"
+    "title": "Cabeceira com painéis horizontais",
+    "piece": "Cabeceira"
   },
   {
     "id": "projeto-22",
     "family": "complementos",
     "source": "cabeceiras/cabeceiras-7.jpg",
     "alt": "Cama com cabeceira de contorno curvo e recamier aos pés",
-    "title": "Cabeceira e recamier no quarto"
+    "title": "Cabeceira e recamier no quarto",
+    "piece": "Cabeceira"
   },
   {
     "id": "projeto-23",
     "family": "assentos",
     "source": "poltronas/poltronas-10.jpg",
     "alt": "Poltrona acolchoada e puff em tom verde-acinzentado junto ao jardim",
-    "title": "Poltrona com puff verde-acinzentado"
+    "title": "Poltrona com puff verde-acinzentado",
+    "piece": "Poltrona"
   },
   {
     "id": "projeto-24",
     "family": "assentos",
     "source": "poltronas/poltronas-11.jpg",
     "alt": "Duas poltronas azuis de braços curvos e puff capitonê em uma sala",
-    "title": "Poltronas azuis e puff capitonê"
+    "title": "Poltronas azuis e puff capitonê",
+    "piece": "Poltrona"
   },
   {
     "id": "projeto-25",
     "family": "assentos",
     "source": "poltronas/poltronas-12.jpg",
     "alt": "Poltrona marrom de encosto envolvente e pés aparentes",
-    "title": "Poltrona marrom de encosto curvo"
+    "title": "Poltrona marrom de encosto curvo",
+    "piece": "Poltrona"
   },
   {
     "id": "projeto-26",
     "family": "assentos",
     "source": "poltronas/poltronas-13.jpg",
     "alt": "Poltrona de volumes arredondados com revestimento azul e cinza",
-    "title": "Poltrona de volumes arredondados"
+    "title": "Poltrona de volumes arredondados",
+    "piece": "Poltrona"
   },
   {
     "id": "projeto-27",
     "family": "assentos",
     "source": "poltronas/poltronas-14.jpg",
     "alt": "Cadeira cinza com estrutura dourada e faixas no encosto",
-    "title": "Cadeira cinza com estrutura dourada"
+    "title": "Cadeira cinza com estrutura dourada",
+    "piece": "Cadeira"
   },
   {
     "id": "projeto-28",
     "family": "assentos",
     "source": "poltronas/poltronas-15.jpg",
     "alt": "Poltrona caramelo com braços curvos e costuras geométricas no encosto",
-    "title": "Poltrona caramelo com encosto marcado"
+    "title": "Poltrona caramelo com encosto marcado",
+    "piece": "Poltrona"
   },
   {
     "id": "projeto-29",
     "family": "assentos",
     "source": "poltronas/poltronas-16.jpg",
     "alt": "Poltrona de braços retos com estampa em zigue-zague",
-    "title": "Poltrona de estampa geométrica"
+    "title": "Poltrona de estampa geométrica",
+    "piece": "Poltrona"
   },
   {
     "id": "projeto-30",
     "family": "assentos",
     "source": "poltronas/poltronas-17.jpg",
     "alt": "Poltrona de madeira escura entalhada com estampa floral cinza",
-    "title": "Poltrona com madeira entalhada"
+    "title": "Poltrona com madeira entalhada",
+    "piece": "Poltrona"
   },
   {
     "id": "projeto-31",
     "family": "assentos",
     "source": "poltronas/poltronas-18.jpg",
     "alt": "Cadeira de madeira escura com assento amarelo e encosto vazado",
-    "title": "Cadeira com assento amarelo"
+    "title": "Cadeira com assento amarelo",
+    "piece": "Cadeira"
   },
   {
     "id": "projeto-32",
     "family": "assentos",
     "source": "poltronas/poltronas-19.jpg",
     "alt": "Cadeira de estrutura curva clara com almofadas brancas",
-    "title": "Cadeira clara com almofadas"
+    "title": "Cadeira clara com almofadas",
+    "piece": "Cadeira"
   },
   {
     "id": "projeto-33",
     "family": "assentos",
     "source": "poltronas/poltronas-20.jpg",
     "alt": "Poltrona azul com braços retos, encosto marcado e pés de madeira",
-    "title": "Poltrona azul de braços retos"
+    "title": "Poltrona azul de braços retos",
+    "piece": "Poltrona"
   },
   {
     "id": "projeto-34",
     "family": "assentos",
     "source": "poltronas/poltronas-21.jpg",
     "alt": "Poltrona de encosto curvo e puff redondo bege com estrutura escura",
-    "title": "Poltrona e puff bege"
+    "title": "Poltrona e puff bege",
+    "piece": "Poltrona"
   },
   {
     "id": "projeto-35",
     "family": "assentos",
     "source": "poltronas/poltronas-22.jpg",
     "alt": "Poltrona vermelha com contorno de madeira escura",
-    "title": "Poltrona vermelha com madeira aparente"
+    "title": "Poltrona vermelha com madeira aparente",
+    "piece": "Poltrona"
   },
   {
     "id": "projeto-36",
     "family": "assentos",
     "source": "poltronas/poltronas-23.jpg",
     "alt": "Duas poltronas cinza-esverdeadas com estrutura de madeira",
-    "title": "Poltronas de estrutura aparente"
+    "title": "Poltronas de estrutura aparente",
+    "piece": "Poltrona"
   },
   {
     "id": "projeto-37",
     "family": "revestimentos",
     "source": "capas/capas-1.jpg",
     "alt": "Cadeiras de mesa de jantar com capas brancas até o piso",
-    "title": "Capas para cadeiras"
+    "title": "Capas para cadeiras",
+    "piece": "Outra peça / projeto"
   },
   {
     "id": "projeto-38",
     "family": "revestimentos",
     "source": "capas/capas-2.jpg",
     "alt": "Sofás com capas claras e almofadas em uma sala",
-    "title": "Capas para sofás"
+    "title": "Capas para sofás",
+    "piece": "Outra peça / projeto"
   },
   {
     "id": "projeto-39",
     "family": "revestimentos",
     "source": "capas/capas-3.jpg",
     "alt": "Poltrona com capa branca e detalhe de amarração lateral",
-    "title": "Capa para poltrona"
+    "title": "Capa para poltrona",
+    "piece": "Outra peça / projeto"
   },
   {
     "id": "projeto-40",
     "family": "revestimentos",
     "source": "capas/capas-4.jpg",
     "alt": "Duas poltronas com puffs revestidos por capas brancas",
-    "title": "Capas para poltronas e puffs"
+    "title": "Capas para poltronas e puffs",
+    "piece": "Outra peça / projeto"
   },
   {
     "id": "projeto-41",
     "family": "revestimentos",
     "source": "cortinas/cortinas-1.jpg",
     "alt": "Cortina clara e franzida cobrindo uma janela larga",
-    "title": "Cortina clara para janela ampla"
+    "title": "Cortina clara para janela ampla",
+    "piece": "Outra peça / projeto"
   },
   {
     "id": "projeto-42",
     "family": "revestimentos",
     "source": "cortinas/cortinas-2.PNG",
     "alt": "Faixas de tecido marrom suspensas no teto de um restaurante",
-    "title": "Tecido no teto de restaurante"
+    "title": "Tecido no teto de restaurante",
+    "piece": "Outra peça / projeto"
   },
   {
     "id": "projeto-43",
     "family": "revestimentos",
     "source": "cortinas/cortinas-3.jpg",
     "alt": "Faixas claras de tecido suspensas junto a uma janela alta",
-    "title": "Tecido claro no teto"
+    "title": "Tecido claro no teto",
+    "piece": "Outra peça / projeto"
   },
   {
     "id": "projeto-44",
     "family": "revestimentos",
     "source": "cortinas/cortinas-5.jpg",
     "alt": "Cortinas claras do teto ao piso em um ambiente comercial",
-    "title": "Cortinas em ambiente comercial"
+    "title": "Cortinas em ambiente comercial",
+    "piece": "Outra peça / projeto"
   },
   {
     "id": "projeto-45",
     "family": "revestimentos",
     "source": "cortinas/cortinas-6.jpg",
     "alt": "Cortina listrada em verde e bege com lambrequim reto",
-    "title": "Cortina listrada com lambrequim"
+    "title": "Cortina listrada com lambrequim",
+    "piece": "Outra peça / projeto"
   },
   {
     "id": "projeto-46",
     "family": "revestimentos",
     "source": "cortinas/cortinas-8.jpg",
     "alt": "Faixas de tecido claro suspensas entre vigas de madeira",
-    "title": "Tecido suspenso entre vigas"
+    "title": "Tecido suspenso entre vigas",
+    "piece": "Outra peça / projeto"
   },
   {
     "id": "projeto-47",
     "family": "sofas",
     "source": "acervo/sofa-dois-assentos.webp",
     "alt": "Sofá claro de dois assentos, braços retos e almofada estampada em uma sala",
-    "title": "Sofá claro de dois assentos"
+    "title": "Sofá claro de dois assentos",
+    "piece": "Sofá"
   },
   {
     "id": "projeto-48",
     "family": "sofas",
     "source": "acervo/sofa-com-vivo.webp",
     "alt": "Sofá cinza com dois assentos, almofadas de encosto e vivo claro junto a uma janela",
-    "title": "Sofá cinza com vivo claro"
+    "title": "Sofá cinza com vivo claro",
+    "piece": "Sofá"
   }
 ]

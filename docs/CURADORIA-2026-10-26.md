@@ -29,7 +29,7 @@ A revisão individual resultou em conservar fotografias quando a troca de fundo 
 | projeto-17 | cabeceiras/cabeceiras-2.jpg | 1024 x 965 | Marca de captura visível. Manter endereço anterior; sem destaque na principal. |
 | projeto-18 | cabeceiras/cabeceiras-3.jpg | 1600 x 1200 | Quarto e painéis verticais legíveis. Manter sem inferir medidas. |
 | projeto-19 | cabeceiras/cabeceiras-4.jpg | 1076 x 608 | Enquadramento parcial da cama. Manter como referência de painéis, sem reconstruir laterais. |
-| projeto-20 | cabeceiras/cabeceiras-5.jpg | 1280 x 960 | Assento em L; descrição deve tratar como banco, apesar da pasta. Conferido. |
+| projeto-20 | cabeceiras/cabeceiras-5.jpg | 1280 x 960 | Cabeceira de canto junto a duas camas com grades. A identificação do portfólio está correta; não se trata de banco. |
 | projeto-21 | cabeceiras/cabeceiras-6.jpg | 899 x 899 | Cabeceira clara em ambiente. Manter em destaque. |
 | projeto-22 | cabeceiras/cabeceiras-7.jpg | 1280 x 960 | Quarto decorado e cama legíveis. Manter sem atribuir materiais não confirmados. |
 | projeto-23 | poltronas/poltronas-10.jpg | 1280 x 960 | Poltrona com apoio em ambiente real. Manter, sem recorte que elimine os pés. |
@@ -58,3 +58,7 @@ A revisão individual resultou em conservar fotografias quando a troca de fundo 
 | projeto-46 | cortinas/cortinas-8.jpg | 1040 x 780 | Tecido suspenso e estrutura do ambiente legíveis. Manter. |
 | projeto-47 | acervo/sofa-dois-assentos.webp | 2560 x 1920 | Nova foto real de pasta de serviços, sem pessoas. Cópia sem perda e sem EXIF; adotada. |
 | projeto-48 | acervo/sofa-com-vivo.webp | 2560 x 1920 | Nova foto real de pasta de serviços, sem pessoas. Luz de janela forte preservada; adotada sem retoque. |
+
+Correção de leitura nesta revisão: a imagem cabeceiras-5 foi conferida em tamanho completo. Mostra duas camas e uma cabeceira em L. A nota anterior a confundia com banco; o nome no site já estava correto.
+
+Fotos em ambientes bem apresentados permanecem originais. Por orientação explícita do usuário em 26/10/2026, o cenário do sofá verde (sofas/SOFA-9.png e sofas/SOFA-9.2.png) deve ser preservado. Ajustar a exibição para mostrar a foto inteira não significa trocar o fundo ou redesenhar o móvel.

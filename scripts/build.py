@@ -32,6 +32,8 @@ CATALOG = json.loads((ROOT / 'data/catalog.json').read_text(encoding='utf-8'))
 PORTFOLIO = json.loads((ROOT / 'data/portfolio.json').read_text(encoding='utf-8'))
 FAMILIES = {'sofas':'Sofás','assentos':'Poltronas e assentos','complementos':'Cabeceiras e puffs','revestimentos':'Capas e cortinas'}
 images = {}
+image_sizes = {}
+reference_thumbnails = {}
 
 def image_url(source):
     if source in images:
@@ -45,8 +47,31 @@ def image_url(source):
             image = ImageOps.exif_transpose(original).convert('RGB')
             image.thumbnail((1280,1280))
             image.save(target, 'WEBP', quality=84, method=6)
+    with Image.open(target) as exported:
+        image_sizes[source] = exported.size
     images[source] = '/assets/images/' + target.name
     return images[source]
+
+
+def reference_thumbnail(source):
+    if source in reference_thumbnails:
+        return reference_thumbnails[source]
+    path = (ROOT / source).resolve()
+    assert path.is_relative_to(ROOT) and path.is_file(), source
+    digest = hashlib.sha256(path.read_bytes()).hexdigest()[:12]
+    target = OUT / 'assets/images' / (digest + '-ref480.webp')
+    if not target.exists():
+        with Image.open(path) as original:
+            thumb = ImageOps.exif_transpose(original).convert('RGB')
+            thumb.thumbnail((480,360))
+            thumb.save(target,'WEBP',quality=82,method=6)
+    reference_thumbnails[source] = '/assets/images/' + target.name
+    return reference_thumbnails[source]
+
+def quote_reference(item, portfolio=False):
+    return {'name':item['title'] if portfolio else item['name'],'piece':item['piece'],
+            'image':reference_thumbnail(item['source']),'alt':item['alt']}
+
 
 def reference(item):
     url = '/modelos/' + item['id'] + '.html'
@@ -95,8 +120,14 @@ def main():
     (OUT / 'assets/images').mkdir(parents=True,exist_ok=True)
     assert len({item['id'] for item in CATALOG}) == len(CATALOG)
     assert len({item['id'] for item in PORTFOLIO}) == len(PORTFOLIO)
-    for file in ['site.css','app.js','quote-api.js','quote-redirect.js','sofa-experience.css','sofa-experience.js','home-opening.js']:
+    for file in ['site.css','app.js','quote-api.js','quote-fields.js','quote-message.js','quote-redirect.js','sofa-experience.css','sofa-experience.js','home-opening.js']:
         shutil.copy2(ROOT / 'assets' / file, OUT / 'assets' / file)
+    cities = json.loads((ROOT/'data/cities-br.json').read_text(encoding='utf-8'))['states']
+    assert len(cities) == 27
+    (OUT/'assets/cities').mkdir(exist_ok=True)
+    for uf, data in cities.items():
+        assert len(uf) == 2 and uf.isalpha() and uf.isupper() and data['cities']
+        (OUT/'assets/cities'/f'{uf}.json').write_text(json.dumps(data['cities'],ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
     shutil.copy2(ROOT / 'icon/Logo Stanza Decoro Grande.png', OUT / 'assets/images/stanza-logo.png')
     shutil.copytree(ROOT / 'icon', OUT / 'icon', dirs_exist_ok=True)
     shutil.copytree(ROOT / 'assets/sofa-pilot', OUT / 'assets/sofa-pilot', dirs_exist_ok=True)
@@ -139,17 +170,23 @@ def main():
             content = replace(content,{'QUOTE_PRIVACY':('O formulário prepara o resumo no seu navegador. O site não grava os dados de contato e não recebe as fotos selecionadas.' if (CONFIG['quote']['mode']=='manual' and not CONFIG['quote'].get('hostedUrl')) else 'Após você confirmar o envio, os dados e fotos ficam registrados no atendimento privado da Stanza. O protocolo confirma o registro; preço e prazo dependem de avaliação.'),'PHOTO_PRIVACY':('As fotos precisam ser anexadas na conversa.' if (CONFIG['quote']['mode']=='manual' and not CONFIG['quote'].get('hostedUrl')) else 'As fotos enviadas são preparadas para avaliação, com redução de tamanho e remoção de metadados como localização. Os originais não são conservados por este formulário.'),'STORAGE_PRIVACY':('O registro pelo site está desativado nesta versão.' if (CONFIG['quote']['mode']=='manual' and not CONFIG['quote'].get('hostedUrl')) else 'O registro utiliza Firebase/Google Cloud para armazenamento privado e proteção de envio. Somente administrador ou secretária autorizados consultam o atendimento. Um aviso com o resumo pode ser enviado ao e-mail da Stanza; as fotos ficam fora desse aviso. Rascunhos expiram após uma hora; a limpeza é agendada. Pedidos concluídos permanecem no atendimento até a revisão da conservação pela empresa. Para solicitar correção ou exclusão, use o contato abaixo. O envio não autoriza publicidade.')})
         if page == 'quote':
             lookup = {item['id']:{'name':item['name'],'piece':item['piece']} for item in CATALOG}
+            if not CONFIG['quote'].get('hostedUrl'):
+                lookup = {item['id']:quote_reference(item) for item in CATALOG}
+                projects = {item['id']:quote_reference(item,True) for item in PORTFOLIO}
+                content += '<script type="application/json" id="portfolio-projects">' + json.dumps(projects,ensure_ascii=False).replace('<','\\u003c') + '</script>'
             content += '<script type="application/json" id="catalog-references">' + json.dumps(lookup,ensure_ascii=False).replace('<','\\u003c') + '</script>'
         if page == 'quote' and CONFIG['quote'].get('hostedUrl'):
             content += '<script type="application/json" id="portfolio-references">' + json.dumps([p['id'] for p in PORTFOLIO]) + '</script>'
         render(page,path,title,description,content)
         paths.append(path)
     for item in CATALOG:
+        model_image = image_url(item['source'])
+        model_width, model_height = image_sizes[item['source']]
         related = sorted([other for other in CATALOG if other['id'] != item['id']],key=lambda other:other['family']!=item['family'])[:4]
         gallery_label = 'Registro original' if item.get('originalGallery') else 'Outro enquadramento'
         gallery = ''.join(f'<a class="model-thumbnail" href="{image_url(source)}" data-photo data-photo-group="model" data-photo-caption="{escape(item["name"],quote=True)} — {gallery_label.lower()}" data-photo-quote="/orcamento.html?referencia={item["id"]}" aria-label="Ampliar {gallery_label.lower()} de {escape(item["name"],quote=True)}"><img src="{image_url(source)}" alt="{gallery_label} de {escape(item["name"])}" width="240" height="180" loading="lazy"></a>' for source in item.get('gallery',[]))
         notes = ''.join('<li>'+escape(note)+'</li>' for note in item['projectNotes'])
-        content = replace((ROOT / 'pages/model.html').read_text(encoding='utf-8'),{'MODEL_IMAGE':image_url(item['source']),'MODEL_ALT':escape(item['alt']),'MODEL_LABEL':escape(item['label']),'MODEL_NAME':escape(item['name']),'MODEL_DESCRIPTION':escape(item['description']),'MODEL_ID':item['id'],'RELATED':''.join(reference(other) for other in related),'MODEL_GALLERY':gallery,'MODEL_NOTES':notes,'MODEL_VISIBLE_DETAILS':''.join('<li>'+escape(detail)+'</li>' for detail in item['visibleDetails']),'MODEL_PHOTO_NOTE':escape(item.get('photoNote','Referência do acervo Stanza.')),'MODEL_EXPERIENCE':('<a class="text-link model-experience-link" href="/explorar-sofa.html">Explorar o estudo desta forma em 3D ↗</a>' if item['id']=='sofa-organico' else '')})
+        content = replace((ROOT / 'pages/model.html').read_text(encoding='utf-8'),{'MODEL_IMAGE':model_image,'MODEL_IMAGE_WIDTH':model_width,'MODEL_IMAGE_HEIGHT':model_height,'MODEL_ALT':escape(item['alt']),'MODEL_LABEL':escape(item['label']),'MODEL_NAME':escape(item['name']),'MODEL_DESCRIPTION':escape(item['description']),'MODEL_ID':item['id'],'RELATED':''.join(reference(other) for other in related),'MODEL_GALLERY':gallery,'MODEL_NOTES':notes,'MODEL_VISIBLE_DETAILS':''.join('<li>'+escape(detail)+'</li>' for detail in item['visibleDetails']),'MODEL_PHOTO_NOTE':escape(item.get('photoNote','Referência do acervo Stanza.')),'MODEL_EXPERIENCE':('<a class="text-link model-experience-link" href="/explorar-sofa.html">Explorar o estudo desta forma em 3D ↗</a>' if item['id']=='sofa-organico' else '')})
         path = 'modelos/' + item['id'] + '.html'
         render('model',path,item['name']+' | Stanza Decoro',item['description'],content,image_url(item['source']))
         paths.append(path)

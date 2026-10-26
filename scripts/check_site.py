@@ -1,5 +1,6 @@
 """Verificações do pacote público: páginas, arquivos, contatos e conteúdo."""
 from pathlib import Path
+from PIL import Image
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 from collections import Counter
@@ -48,6 +49,9 @@ for file in pages:
         path=(OUT/unquote(parsed.path).lstrip('/')) if parsed.path.startswith('/') else (file.parent/unquote(parsed.path))
         if not path.exists(): errors.append((str(file),'Arquivo ausente: '+link))
     for image in page.images:
+        if 'data-model-image' in image:
+            with Image.open(OUT/image['src'].lstrip('/')) as actual:
+                assert (int(image['width']),int(image['height']))==actual.size, (file,image['src'])
         if not image.get('alt') or not image.get('width') or not image.get('height'): errors.append((str(file),'Imagem sem descrição/dimensões'))
     if '551197556-3037' in text or 'Nova pasta/' in text: errors.append((str(file),'Contato ou ícone legado inválido'))
     if f'name="robots" content="{expected_robots}"' not in text: errors.append((str(file),'Indexação não corresponde à configuração'))
@@ -61,7 +65,9 @@ manifest=json.loads((OUT/'icon/site.webmanifest').read_text(encoding='utf-8'))
 for icon in manifest['icons']: assert (OUT/icon['src'].lstrip('/')).exists()
 script=(OUT/'assets/app.js').read_text(encoding='utf-8')
 assert 'localStorage' not in script and 'sessionStorage' not in script
-assert 'navigator.clipboard.writeText(summary.textContent)' in script
+assert 'clipboard.writeText' not in script
+assert (OUT/'assets/quote-message.js').is_file() and (OUT/'assets/quote-fields.js').is_file()
+assert len(list((OUT/'assets/cities').glob('*.json'))) == 27
 pilot=OUT/'assets/sofa-pilot'
 integration=json.loads((pilot/'INTEGRATION.json').read_text(encoding='utf-8'))
 for relative,digest in integration['modelSha256'].items():

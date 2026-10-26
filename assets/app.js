@@ -88,38 +88,67 @@ if (form) {
   const photoError = document.querySelector('#photo-error');
   const photoInput = document.querySelector('#quote-photos');
   const previews = document.querySelector('#photo-previews');
-  const copyStatus = document.querySelector('#copy-status');
+  // Paginas antigas abertas antes da atualizacao tambem deixam de exigir copia.
+  document.querySelector('#copy-summary')?.remove();
+  document.querySelector('#copy-status')?.remove();
   const quoteConfig = JSON.parse(document.querySelector('#quote-config').textContent);
   const automatic = quoteConfig.mode !== 'manual';
   const sendButton = document.querySelector('#send-quote');
   const sendStatus = document.querySelector('#send-status');
   const sendError = document.querySelector('#send-error');
   const editButton = document.querySelector('#edit-quote');
+  const whatsappButton = document.querySelector('#continue-whatsapp');
+  let whatsappUrl;
   let reviewedData, submission, sending = false;
   document.querySelector('#manual-instructions').hidden = automatic;
   document.querySelector('#api-instructions').hidden = !automatic;
+  document.querySelector('#manual-instructions p').textContent = 'Abra o WhatsApp com o resumo já preenchido. Nesta prévia sem registro, as fotos precisam ser anexadas na conversa.';
   const params = new URLSearchParams(location.search);
   const references = JSON.parse(document.querySelector('#catalog-references').textContent);
   const option = (map,key) => Object.hasOwn(map,key) ? map[key] : undefined;
-  const selected = option(references,params.get('referencia'));
+  const projects = JSON.parse(document.querySelector('#portfolio-projects')?.textContent || '{}');
+  const catalogSelection = option(references,params.get('referencia'));
+  const selected = catalogSelection || option(projects,params.get('projeto'));
+  const clearReference = document.querySelector('#clear-quote-reference');
   if (selected) { field('reference').value = selected.name; field('piece').value = selected.piece; }
   else if (params.get('referencia') === 'outro-projeto') field('reference').value = 'Tenho outro modelo ou projeto';
-  else if (params.get('projeto') && /^projeto-\d+$/.test(params.get('projeto'))) field('reference').value = 'Referência do portfólio: ' + params.get('projeto');
   if (params.get('servico') === 'reforma') field('service').value = 'Reforma';
   const sofaOptions = JSON.parse(document.querySelector('#sofa-options').textContent);
   const fabric = option(sofaOptions.fabrics,params.get('tecido')), color = option(sofaOptions.colors,params.get('cor'));
-  if (selected && params.get('referencia') === 'sofa-organico' && params.get('estudo') === sofaOptions.modelId && fabric && color) {
+  if (catalogSelection && params.get('referencia') === 'sofa-organico' && params.get('estudo') === sofaOptions.modelId && fabric && color) {
     field('reference').value = selected.name + ' · estudo 3D: ' + fabric + ' / ' + color;
   }
+  const context = document.querySelector('#quote-selected-reference');
+  const contextImage = document.querySelector('#quote-context-image');
   if (selected) {
-    const context=document.querySelector('#quote-selected-reference');
-    context.hidden=false;context.querySelector('strong').textContent=field('reference').value;
+    context.hidden=false;
+    (document.querySelector('#quote-context-name') || context.querySelector('strong')).textContent=field('reference').value;
+    const contextLabel=document.querySelector('#quote-context-label');
+    if(contextLabel) contextLabel.textContent=catalogSelection ? 'Referência do catálogo' : 'Referência do portfólio';
+    if (selected.image && contextImage) {
+      contextImage.src=selected.image;contextImage.alt=selected.alt || selected.name;contextImage.hidden=false;
+      contextImage.addEventListener('error',()=>{contextImage.hidden=true;context.classList.add('quote-selected-no-image');},{once:true});
+    } else context.classList.add('quote-selected-no-image');
+    if (catalogSelection && params.get('estudo')===sofaOptions.modelId && fabric && color) {
+      const contextNote=document.querySelector('#quote-context-note');
+      if(contextNote) contextNote.textContent='A foto mostra o modelo de referência. Sua combinação de cor e tecido será avaliada no atendimento.';
+    }
   }
+  clearReference?.addEventListener('click',()=>{
+    if (sending || form.hidden) return;
+    context.hidden=true;contextImage?.removeAttribute('src');if(contextImage)contextImage.hidden=true;field('reference').value='';
+    const address=new URL(location.href);
+    for(const key of ['referencia','projeto','estudo','tecido','cor']) address.searchParams.delete(key);
+    history.replaceState(null,'',address.pathname+address.search+address.hash);
+    field('reference').focus();
+  });
   let photos = [];
   const maxPhotos = 5, maxSize = 8 * 1024 * 1024;
 
   function renderPhotos() {
     previews.replaceChildren();
+    const count = document.querySelector('#photo-count');
+    if(count) count.textContent = photos.length ? photos.length + (photos.length === 1 ? ' foto selecionada' : ' fotos selecionadas') : 'Nenhuma foto selecionada';
     photos.forEach(photo => {
       const figure = document.createElement('figure');
       const image = document.createElement('img'); image.src = photo.url; image.alt = 'Prévia local de ' + photo.file.name; image.width = 180; image.height = 180;
@@ -144,19 +173,20 @@ if (form) {
   const value = name => String(field(name).value).trim();
   form.addEventListener('submit', event => {
     event.preventDefault(); quoteError.hidden = true;
+    if (!whatsappUrl) return;
     const digits = value('phone').replace(/\D/g, '');
-    field('phone').setCustomValidity(digits.length >= 10 && digits.length <= 13 ? '' : 'Informe um WhatsApp com DDD.');
+    field('phone').setCustomValidity(digits.length === 10 || digits.length === 11 ? '' : 'Informe um telefone com DDD: 10 ou 11 dígitos.');
     for (const name of ['name', 'city']) field(name).setCustomValidity(value(name) ? '' : 'Preencha este campo.');
     if (!form.reportValidity()) { quoteError.textContent = 'Confira os campos obrigatórios antes de continuar.'; quoteError.hidden = false; return; }
-    const lines = ['Olá, Stanza! Gostaria de avaliar meu projeto.', '', 'Serviço: ' + value('service'), 'Peça: ' + value('piece'), 'Referência: ' + (value('reference') || 'A definir'), 'Medidas aproximadas: ' + (value('dimensions') || 'Ainda não informadas'), 'Observações: ' + (value('details') || 'Não informadas'), '', 'Nome: ' + value('name'), 'WhatsApp: ' + value('phone'), 'E-mail: ' + value('email'), 'Cidade/UF: ' + value('city') + ' / ' + value('state'), 'Período desejado: ' + (value('period') || 'A avaliar'), 'Fotos: ' + (photos.length ? photos.length + ' selecionada(s), a anexar na conversa' : 'Não selecionadas'), '', 'Viabilidade, prazo e transporte após avaliação.'];
+    const lines = ['Olá, Stanza! Gostaria de avaliar meu projeto.', '', 'Serviço: ' + value('service'), 'Peça: ' + value('piece'), 'Referência: ' + (value('reference') || 'A definir'), 'Medidas aproximadas: ' + (value('dimensions') || 'Ainda não informadas'), 'Observações: ' + (value('details') || 'Não informadas'), '', 'Nome: ' + value('name'), 'WhatsApp: ' + value('phone'), 'E-mail: ' + value('email'), 'Cidade/UF: ' + value('city') + ' / ' + value('state'), 'Período desejado: ' + (value('period') || 'A avaliar'), 'Fotos: ' + (photos.length ? photos.length + (photos.length === 1 ? ' foto selecionada' : ' fotos selecionadas') + (automatic ? ', a enviar com o projeto' : ', para anexar no WhatsApp') : 'Nenhuma foto anexada'), '', 'Viabilidade, prazo e transporte após avaliação.'];
     summary.textContent = lines.join('\n');
     reviewedData = Object.fromEntries(['service','piece','reference','dimensions','details','name','phone','email','city','state','period'].map(name=>[name,value(name)]));
-    if (automatic) summary.textContent = summary.textContent.replace('selecionada(s), a anexar na conversa','selecionada(s), a enviar com o projeto');
     submission = undefined; sendStatus.textContent = ''; sendError.hidden = true; sendButton.disabled = false;
-    // A URL abre só uma mensagem inicial. Dados pessoais permanecem no resumo local.
-    const initial = 'Olá, Stanza! Gostaria de conversar sobre ' + (value('service') === 'Reforma' ? 'a reforma de uma peça' : 'uma peça sob medida') + '. Preparei um resumo do projeto para enviar na conversa.';
-    document.querySelector('#continue-whatsapp').href = 'https://wa.me/' + document.body.dataset.whatsapp + '?text=' + encodeURIComponent(initial);
-    form.hidden = true; document.querySelector('.quote-aside').hidden = true; review.hidden = false; copyStatus.textContent = '';
+    // O WhatsApp recebe o resumo somente quando a pessoa abre seu link de contato.
+    whatsappButton.href = whatsappUrl(document.body.dataset.whatsapp,summary.textContent);
+    whatsappButton.hidden = automatic;
+    whatsappButton.textContent = 'Abrir WhatsApp com o resumo ↗';
+    if(clearReference)clearReference.hidden = true; form.hidden = true; document.querySelector('.quote-aside').hidden = true; review.hidden = false;
     const title = review.querySelector('h2'); title.tabIndex = -1; title.focus({preventScroll:true});
     review.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches ? 'instant' : 'smooth', block:'start'});
   });
@@ -164,12 +194,8 @@ if (form) {
   document.querySelector('#edit-quote').addEventListener('click', () => {
     if (sending || submission?.confirmacaoIniciada) return;
     submission = undefined;
-    review.hidden = true; form.hidden = false; document.querySelector('.quote-aside').hidden = false;
+    review.hidden = true; form.hidden = false; if(clearReference)clearReference.hidden = false; document.querySelector('.quote-aside').hidden = false;
     field('reference').focus({preventScroll:true}); form.scrollIntoView({behavior:'instant',block:'start'});
-  });
-  document.querySelector('#copy-summary').addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(summary.textContent); copyStatus.textContent = automatic ? 'Resumo copiado.' : 'Resumo copiado. Cole na conversa e anexe as fotos.'; }
-    catch { const range = document.createRange(); range.selectNodeContents(summary); const selection = window.getSelection(); selection.removeAllRanges(); selection.addRange(range); copyStatus.textContent = 'Selecionei o resumo. Use Copiar no seu dispositivo.'; }
   });
   sendButton.addEventListener('click', async () => {
     if (sending || !automatic) return;
@@ -185,16 +211,23 @@ if (form) {
       sendStatus.classList.add('quote-received');
       const instructions = document.querySelectorAll('#api-instructions>p:not([id])');
       instructions[0].textContent = photos.length ? 'Os dados e as fotos do seu projeto foram recebidos pela Stanza.' : 'Os dados do seu projeto foram recebidos pela Stanza.';
-      instructions[1].textContent = 'A equipe vai avaliar as informações para o atendimento. Se quiser, continue pelo WhatsApp com o protocolo abaixo.';
-      document.querySelector('#continue-whatsapp').href = 'https://wa.me/' + document.body.dataset.whatsapp + '?text=' + encodeURIComponent('Olá, Stanza! Enviei o projeto pelo site. Meu protocolo é ' + received.protocolo + '.');
+      instructions[1].textContent = 'Seu projeto fica registrado mesmo que você não abra o WhatsApp. Para continuar a conversa, o botão abaixo leva o resumo e o protocolo já preenchidos; basta enviar a mensagem.';
+      summary.textContent = summary.textContent.replace(/^Fotos:.*$/m, 'Fotos: ' + (photos.length ? photos.length + (photos.length === 1 ? ' foto recebida' : ' fotos recebidas') + ' pela Stanza' : 'Nenhuma foto enviada'));
+      whatsappButton.href = whatsappUrl(document.body.dataset.whatsapp,summary.textContent,received.protocolo);
+      whatsappButton.textContent = 'Continuar no WhatsApp ↗';
+      whatsappButton.hidden = false;
       document.querySelector('#review-title').textContent = quoteConfig.mode === 'emulator' ? 'Recebido na demonstração.' : 'Seu projeto chegou.';
       submission.confirmacaoIniciada = true;
+      document.querySelector('#review-title').focus({preventScroll:true});
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Não foi possível confirmar o envio.';
       const securityError = /AppCheck|reCAPTCHA|appCheck\//i.test(message);
-      sendError.textContent = (securityError ? 'A verificação de segurança não pôde ser concluída agora.' : message) + ' Use Tentar novamente para conferir o mesmo envio, sem criar outro pedido. Você também pode conversar pelo WhatsApp.';
+      const networkError = error instanceof TypeError || error?.name === 'AbortError';
+      sendError.textContent = (securityError ? 'A verificação de segurança não pôde ser concluída agora.' : networkError ? 'Não foi possível confirmar a conexão com o servidor.' : message) + ' Use Tentar novamente para conferir o mesmo envio, sem criar outro pedido. Você também pode conversar pelo WhatsApp.';
       sendError.hidden = false; sendStatus.textContent = 'Recebimento ainda não confirmado.';
       sendButton.textContent = 'Tentar novamente'; sendButton.disabled = false;
+      whatsappButton.href = whatsappUrl(document.body.dataset.whatsapp,'Ainda não consegui confirmar o envio do site. Podem me ajudar?\n\n'+summary.textContent);
+      whatsappButton.textContent = 'Pedir ajuda pelo WhatsApp ↗'; whatsappButton.hidden = false;
       editButton.disabled = !!submission?.confirmacaoIniciada;
     } finally {sending = false;}
   });
@@ -203,7 +236,12 @@ if (form) {
     if (event.persisted) { photos.forEach(photo => { photo.url = URL.createObjectURL(photo.file); }); renderPhotos(); }
   });
   // O envio nativo fica bloqueado até a revisão em JavaScript estar pronta.
-  form.querySelector('button[type="submit"]').disabled = false;
+  Promise.all([import('/assets/quote-fields.js'),import('/assets/quote-message.js')]).then(([fields,message])=>{
+    fields.initializeQuoteFields(form); whatsappUrl=message.whatsappQuoteUrl;
+    form.querySelector('button[type="submit"]').disabled = false;
+  }).catch(()=>{
+    quoteError.textContent='Não foi possível preparar o formulário. Atualize a página ou use o contato de WhatsApp.';quoteError.hidden=false;
+  });
 }
 
 

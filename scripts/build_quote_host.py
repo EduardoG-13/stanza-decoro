@@ -26,10 +26,31 @@ for page in ['orcamento.html','privacidade.html']:
         assert 'type="submit" disabled' in text
     (out/page).write_text(text,encoding='utf-8')
 (out/'assets/images').mkdir(parents=True,exist_ok=True)
-for file in ['site.css','app.js','quote-api.js','atendimento.js','atendimento.css']:
+for file in ['site.css','app.js','quote-api.js','quote-fields.js','quote-message.js','atendimento.js','atendimento.css']:
     shutil.copy2(ROOT/'assets'/file,out/'assets'/file)
+shutil.copytree(source/'assets/cities',out/'assets/cities',dirs_exist_ok=True)
 shutil.copy2(ROOT/'pages/atendimento.html',out/'atendimento.html')
 shutil.copy2(source/'assets/images/stanza-logo.png',out/'assets/images/stanza-logo.png')
+# Publicar apenas as miniaturas exigidas pelo contexto, sem copiar o acervo completo.
+quote=(source/'orcamento.html').read_text(encoding='utf-8')
+thumbnails=set()
+for marker in ['catalog-references','portfolio-projects']:
+    raw=re.search('<script type="application/json" id="'+marker+'">(.*?)</script>',quote,re.S)
+    assert raw,marker
+    for item in json.loads(raw.group(1)).values():
+        relative=item['image'].lstrip('/')
+        assert re.fullmatch(r'assets/images/[a-f0-9]{12}-ref480\.webp',relative),relative
+        assert (source/relative).is_file(),relative
+        assert item['name'] and item['alt'] and item['piece']
+        thumbnails.add(relative)
+for relative in thumbnails:
+    shutil.copy2(source/relative,out/relative)
+for stale in (out/'assets/images').glob('*-ref480.webp'):
+    assert stale.resolve().is_relative_to(out.resolve())
+    if str(stale.relative_to(out)).replace('\\','/') not in thumbnails:
+        stale.unlink()
+print(f'{len(thumbnails)} miniaturas de referências; somente a selecionada é pedida pela página.')
+
 shutil.copytree(source/'icon',out/'icon',dirs_exist_ok=True)
 (out/'assets/atendimento-publico.json').write_text(json.dumps({'firebase':firebase},indent=2)+'\n',encoding='utf-8')
 (out/'robots.txt').write_text('User-agent: *\nDisallow: /\n',encoding='utf-8')
