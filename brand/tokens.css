@@ -1,0 +1,25 @@
+:root {
+  --stanza-ink: #27332B;
+  --stanza-olive: #40573E;
+  --stanza-oliveDark: #293E2D;
+  --stanza-paper: #F4F1E9;
+  --stanza-surface: #FFFDFA;
+  --stanza-soft: #E6E8DC;
+  --stanza-muted: #5E665C;
+  --stanza-line: #D6D7CB;
+  --stanza-gold: #B39566;
+  --stanza-logoGold: #CA9659;
+  --stanza-serif: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  --stanza-sans: "Segoe UI", Arial, sans-serif;
+  --stanza-space-4: 4px;
+  --stanza-space-8: 8px;
+  --stanza-space-12: 12px;
+  --stanza-space-16: 16px;
+  --stanza-space-24: 24px;
+  --stanza-space-32: 32px;
+  --stanza-space-48: 48px;
+  --stanza-space-64: 64px;
+  --stanza-space-96: 96px;
+  --stanza-radius: 2px;
+  --stanza-touch: 44px;
+}
