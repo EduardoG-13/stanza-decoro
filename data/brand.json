@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "updatedAt": "2026-10-26",
+  "name": "Stanza Decoro",
+  "descriptor": "Estofados sob medida e reformas",
+  "headline": "Feito para o seu jeito de morar.",
+  "logo": "icon/Logo Stanza Decoro Grande.png",
+  "colors": {
+    "ink": "#27332B",
+    "olive": "#40573E",
+    "oliveDark": "#293E2D",
+    "paper": "#F4F1E9",
+    "surface": "#FFFDFA",
+    "soft": "#E6E8DC",
+    "muted": "#5E665C",
+    "line": "#D6D7CB",
+    "gold": "#B39566",
+    "logoGold": "#CA9659"
+  },
+  "fonts": {
+    "heading": "Palatino Linotype, Book Antiqua, Palatino, Georgia, serif",
+    "body": "Segoe UI, Arial, sans-serif",
+    "emailHeading": "Georgia, Times New Roman, serif",
+    "emailBody": "Arial, Helvetica, sans-serif"
+  },
+  "contact": {
+    "email": "stanzadecoro@gmail.com",
+    "phone": "(11) 97556-3037",
+    "whatsapp": "5511975563037",
+    "website": "https://stanzadecoro.com.br",
+    "instagram": "https://www.instagram.com/stanza_decoro/"
+  }
+}

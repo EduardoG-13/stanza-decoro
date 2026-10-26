@@ -16,7 +16,7 @@ O aviso passou a aceito_pelo_servidor, com uma tentativa, em 2026-10-26T14:03:26
 
 O destino é somente stanzadecoro@gmail.com. O aviso contém o resumo e um link autenticado para o pedido. As fotos permanecem privadas, sem anexos ou links públicos no e-mail.
 
-Aceitação SMTP não comprova chegada à caixa de entrada. Foi solicitada a confirmação do titular, incluindo a pasta de spam. A chegada ainda depende dessa confirmação; não foi acessada a caixa de e-mail.
+Aceitação SMTP, por si só, não comprova chegada à caixa de entrada. Após essa verificação, o titular confirmou na conversa que recebeu o e-mail ST-26-0002 e pediu uma apresentação mais bem cuidada. A caixa de e-mail não foi acessada pelo agente.
 
 ## Validação e limites
 
@@ -26,9 +26,13 @@ Aceitação SMTP não comprova chegada à caixa de entrada. Foi solicitada a con
 - Aviso real aceito em uma tentativa, sem novo pedido.
 - As outras 45 funções foram comparadas antes/depois e não mudaram.
 - Nenhuma regra do banco, módulo da oficina ou página principal foi implantada nesta ativação.
-- Login real de Pedro pela interface e chegada à caixa ainda exigem confirmação do usuário.
+- A chegada à caixa foi confirmada pelo titular. O login real de Pedro pela interface permanece uma verificação independente.
 - Os 18 testes locais do módulo foram concluídos em etapa anterior; não representam teste da entrega ao Gmail.
 
 ## Próximas etapas
 
-Conferir o aviso recebido e abrir o pedido no painel com o acesso de Pedro. Depois, concluir a revisão em celular real e a aprovação comercial/visual do site principal para publicação. CMS, conversão em cliente/OS, empreendimentos e aprimoramento 3D seguem separados.
+Abrir o pedido no painel com o acesso de Pedro e conferir a experiência em celular real. A publicação do site principal na main foi autorizada pelo usuário. CMS, conversão em cliente/OS, empreendimentos e aprimoramento 3D seguem separados.
+
+## Revisão da identidade
+
+O kit `brand/` documenta logo, paleta, tipografia, fotografia e linguagem. O aviso passa a ter HTML com logo incorporado por CID, resumo organizado, botão autenticado e contatos; a versão em texto permanece disponível. Fotos de clientes continuam privadas no painel. Modelos de confirmação e acompanhamento são bases editáveis, sem novo envio automático ao cliente.

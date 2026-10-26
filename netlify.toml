@@ -1,0 +1,40 @@
+[build]
+  command = "python3 scripts/build.py --ignore-local-config --production --no-source-entries && python3 scripts/check_site.py --production"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  PYTHON_VERSION = "3.12"
+
+[build.processing.html]
+  pretty_urls = false
+
+[[redirects]]
+  from = "/portfolio"
+  to = "/portfolio.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/portfolio/"
+  to = "/portfolio.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pedidos-site"
+  to = "https://stanza-atendimento-820e4.web.app/pedidos-site"
+  status = 302
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

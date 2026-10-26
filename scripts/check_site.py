@@ -7,9 +7,15 @@ from collections import Counter
 import json
 import hashlib
 import sys
+import argparse
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'dist'
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--output',default='dist')
+parser.add_argument('--production',action='store_true')
+ARGS=parser.parse_args()
+OUT = (ROOT / ARGS.output).resolve()
+assert OUT.is_relative_to(ROOT) and OUT!=ROOT
 sys.stdout.reconfigure(encoding='utf-8')
 
 class Page(HTMLParser):
@@ -28,10 +34,12 @@ class Page(HTMLParser):
 
 errors=[]
 config=json.loads((ROOT/'site.config.json').read_text(encoding='utf-8'))
+if ARGS.production:config['production']=True
 catalog=json.loads((ROOT/'data/catalog.json').read_text(encoding='utf-8'))
 portfolio=json.loads((ROOT/'data/portfolio.json').read_text(encoding='utf-8'))
 expected_robots='index,follow' if config['production'] else 'noindex,nofollow'
 pages=sorted(OUT.rglob('*.html'))
+exact_paths={p.relative_to(OUT).as_posix() for p in OUT.rglob('*')}
 assert pages, 'Execute build.py primeiro.'
 for file in pages:
     text=file.read_text(encoding='utf-8')
@@ -48,6 +56,8 @@ for file in pages:
             continue
         path=(OUT/unquote(parsed.path).lstrip('/')) if parsed.path.startswith('/') else (file.parent/unquote(parsed.path))
         if not path.exists(): errors.append((str(file),'Arquivo ausente: '+link))
+        elif path.is_relative_to(OUT) and path.relative_to(OUT).as_posix() not in exact_paths:
+            errors.append((str(file),'Maiúsculas/minúsculas incompatíveis com a hospedagem: '+link))
     for image in page.images:
         if 'data-model-image' in image:
             with Image.open(OUT/image['src'].lstrip('/')) as actual:

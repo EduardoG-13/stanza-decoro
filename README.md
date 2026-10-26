@@ -1,6 +1,6 @@
-# Stanza Decoro — versão em revisão
+# Stanza Decoro — site e atendimento
 
-Branch: `codex/site-v2`. Revisão de 26/10/2026. A `main` permanece na versão original.
+Desenvolvimento: `codex/site-v2`. Publicação: `main`, ligada ao projeto Netlify `stanzadecoro` e ao domínio https://stanzadecoro.com.br. Revisão de 26/10/2026. A versão original está preservada em um marcador fixo.
 
 ## Abrir a prévia
 
@@ -12,7 +12,7 @@ python scripts/check_site.py
 npm test
 ```
 
-A página principal continua local e com `noindex`. O formulário e a consulta privada têm publicação separada em https://stanza-atendimento-820e4.web.app.
+A prévia local usa `noindex`. O Netlify gera `dist/` com `--production`, habilita a indexação e verifica os arquivos antes de publicar. O formulário e a consulta privada têm publicação separada em https://stanza-atendimento-820e4.web.app.
 
 ## O que esta versão contém
 
@@ -38,7 +38,13 @@ As funções de recebimento, consulta, atualização, limpeza e aviso por e-mail
 
 O envio real foi confirmado com uma foto e protocolo ST-26-0001. O registro e a foto ficaram privados, com acesso anônimo recusado. A ativação incluiu habilitar a API pública do App Check e configurar sua identidade oficial. Veja [a validação do recebimento](docs/RECEBIMENTO-VALIDADO-2026-10-26.md).
 
-Pedro está ativo, após definir a senha diretamente. O Gmail foi configurado e o processador de avisos está ativo a cada cinco minutos. O aviso ST-26-0002 foi aceito pelo servidor na primeira tentativa; a chegada à caixa ainda aguarda confirmação do titular. Veja [Gmail e acesso do proprietário](docs/GMAIL-ATIVO-2026-10-26.md). Senhas não pertencem ao repositório.
+Pedro está ativo, após definir a senha diretamente. O Gmail foi configurado e o processador de avisos está ativo a cada cinco minutos. O aviso ST-26-0002 foi aceito pelo servidor na primeira tentativa e o titular confirmou o recebimento. Veja [Gmail e acesso do proprietário](docs/GMAIL-ATIVO-2026-10-26.md). Senhas não pertencem ao repositório.
+
+## Identidade e comunicação
+
+O [kit de marca](brand/README.md) inclui manual em PDF e Markdown, cores e fontes, modelos de e-mail e assinatura para inserir no Gmail. O logo original preto e dourado foi preservado. `data/brand.json` concentra a referência de identidade e contatos.
+
+O aviso interno possui HTML com logo incorporado e versão em texto. Confirmação ao cliente e acompanhamento são modelos editáveis; não ativam novos envios automáticos. A assinatura não é instalada automaticamente na conta do Gmail.
 
 ## Fontes e geração
 
@@ -53,10 +59,10 @@ Pedro está ativo, após definir a senha diretamente. O Gmail foi configurado e 
 - `firebase.formulario.json`: publicação somente no endereço separado.
 - `assets/sofa-pilot/`: piloto recebido, com GLBs preservados e licenças.
 
-Os HTML da raiz são gerados. `dist/`, `.quote-build/` e `dist-formulario/` não são versionados. O build separado não altera as páginas da prévia.
+Os HTML da raiz são gerados. `dist/`, `dist-producao/`, `.quote-build/` e `dist-formulario/` não são versionados. O build separado não altera as páginas da prévia. `netlify.toml` define o build oficial, redirecionamentos e cabeçalhos.
 
 ## Histórico e revisão
 
 Consulte [como voltar a uma versão anterior](docs/VERSOES-E-RETORNO.md) e [a revisão individual das imagens](docs/CURADORIA-2026-10-26.md).
 
-Celular físico, Safari e Firefox continuam pendentes. A confirmação de medidas, materiais, autorização das fotos e disponibilidade comercial cabe à Stanza antes do lançamento.
+Celular físico, Safari e Firefox continuam pendentes. Medidas, materiais e disponibilidade comercial são confirmados no atendimento; as imagens do catálogo são referências para encomenda.

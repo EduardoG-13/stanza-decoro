@@ -15,7 +15,8 @@ for page in ['orcamento.html','privacidade.html']:
     text=(source/page).read_text(encoding='utf-8')
     text=re.sub(r'      <button class="menu-toggle".*?</button>\n','',text)
     text=re.sub(r'      <nav class="site-nav".*?</nav>\n','',text,flags=re.S)
-    text=text.replace('href="/index.html"','href="/orcamento.html"')
+    text=text.replace('href="/index.html"','href="https://stanzadecoro.com.br/"')
+    text=text.replace('class="button button-compact header-quote" href="/orcamento.html">Pedir orçamento','class="button button-compact header-quote" href="https://stanzadecoro.com.br/">Voltar ao site')
     if page=='orcamento.html':
         text=text.replace('Ao continuar, voc\u00ea prepara uma conversa.','Ao enviar, voc\u00ea registra seu projeto para avalia\u00e7\u00e3o.')
         text=text.replace('Este site n\u00e3o registrou nem enviou o pedido.','O pedido s\u00f3 \u00e9 registrado ap\u00f3s a confirma\u00e7\u00e3o do envio.')
@@ -25,6 +26,7 @@ for page in ['orcamento.html','privacidade.html']:
         assert 'method="post" action="/orcamento.html"' in text
         assert 'type="submit" disabled' in text
     (out/page).write_text(text,encoding='utf-8')
+    assert 'href="https://stanzadecoro.com.br/"' in text
 (out/'assets/images').mkdir(parents=True,exist_ok=True)
 for file in ['site.css','app.js','quote-api.js','quote-fields.js','quote-message.js','atendimento.js','atendimento.css']:
     shutil.copy2(ROOT/'assets'/file,out/'assets'/file)

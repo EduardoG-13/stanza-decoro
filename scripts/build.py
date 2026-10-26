@@ -8,6 +8,7 @@ import json
 import shutil
 import sys
 import argparse
+import os
 from PIL import Image, ImageOps
 
 parser = argparse.ArgumentParser(description=__doc__)
@@ -15,6 +16,7 @@ parser.add_argument('--ignore-local-config', action='store_true', help='Gerar a 
 parser.add_argument('--config-file', help='Arquivo de configuração para uma geração separada.')
 parser.add_argument('--output', default='dist', help='Pasta de saída dentro do projeto.')
 parser.add_argument('--no-source-entries', action='store_true', help='Não atualizar as páginas de entrada do projeto.')
+parser.add_argument('--production', action='store_true', help='Gerar a publicação oficial com indexação habilitada.')
 ARGS = parser.parse_args()
 sys.stdout.reconfigure(encoding='utf-8')
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,6 +28,8 @@ if LOCAL_CONFIG.exists() and not ARGS.ignore_local_config and not ARGS.config_fi
     local = json.loads(LOCAL_CONFIG.read_text(encoding='utf-8'))
     assert set(local).issubset({'quote'}), 'A configuração local aceita apenas quote.'
     CONFIG.update(local)
+if ARGS.production:
+    CONFIG['production'] = True
 assert CONFIG['quote']['mode'] in ['manual','emulator','firebase']
 assert not (CONFIG['production'] and CONFIG['quote']['mode'] == 'emulator'), 'Demonstração local não pode ser publicada.'
 CATALOG = json.loads((ROOT / 'data/catalog.json').read_text(encoding='utf-8'))
@@ -196,7 +200,7 @@ def main():
     shutil.copy2(OUT / 'portfolio.html', OUT / 'portfolio/index.html')
     (OUT / 'robots.txt').write_text('User-agent: *\n' + ('Allow: /\n' if CONFIG['production'] else 'Disallow: /\n') + 'Sitemap: '+CONFIG['url']+'/sitemap.xml\n',encoding='utf-8')
     (OUT / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+CONFIG['url']+'/'+path+'</loc></url>' for path in paths)+'</urlset>\n',encoding='utf-8')
-    (OUT / 'assets/build-info.json').write_text(json.dumps({'catalogCount':len(CATALOG),'portfolioCount':len(PORTFOLIO),'production':CONFIG['production'],'date':date.today().isoformat()},indent=2),encoding='utf-8')
+    (OUT / 'assets/build-info.json').write_text(json.dumps({'catalogCount':len(CATALOG),'portfolioCount':len(PORTFOLIO),'production':CONFIG['production'],'date':date.today().isoformat(),'revision':os.environ.get('COMMIT_REF','')[:12]},indent=2),encoding='utf-8')
     # Permite prévia na raiz, além da pasta de publicação dist.
     if not ARGS.no_source_entries:
         shutil.copytree(OUT / 'assets/images', ROOT / 'assets/images', dirs_exist_ok=True)
