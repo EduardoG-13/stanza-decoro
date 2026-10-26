@@ -21,12 +21,6 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "/pedidos-site"
-  to = "https://stanza-atendimento-820e4.web.app/pedidos-site"
-  status = 302
-  force = true
-
 [[headers]]
   for = "/*"
   [headers.values]
