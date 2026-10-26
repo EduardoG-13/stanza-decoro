@@ -320,5 +320,19 @@
     "source": "cortinas/cortinas-8.jpg",
     "alt": "Faixas de tecido claro suspensas entre vigas de madeira",
     "title": "Tecido suspenso entre vigas"
+  },
+  {
+    "id": "projeto-47",
+    "family": "sofas",
+    "source": "acervo/sofa-dois-assentos.webp",
+    "alt": "Sofá claro de dois assentos, braços retos e almofada estampada em uma sala",
+    "title": "Sofá claro de dois assentos"
+  },
+  {
+    "id": "projeto-48",
+    "family": "sofas",
+    "source": "acervo/sofa-com-vivo.webp",
+    "alt": "Sofá cinza com dois assentos, almofadas de encosto e vivo claro junto a uma janela",
+    "title": "Sofá cinza com vivo claro"
   }
 ]

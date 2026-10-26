@@ -12,6 +12,11 @@
     "projectNotes": [
       "Largura, profundidade e circulação ao redor da peça.",
       "Formato das curvas, tecido e composição das almofadas."
+    ],
+    "visibleDetails": [
+      "Base de contorno curvo",
+      "Encosto arredondado",
+      "Almofadas soltas"
     ]
   },
   {
@@ -27,6 +32,11 @@
     "projectNotes": [
       "Composição dos assentos e espaço de circulação.",
       "Proporções dos módulos, apoio e acabamento."
+    ],
+    "visibleDetails": [
+      "Assentos amplos",
+      "Braços retos",
+      "Almofadas de diferentes tamanhos"
     ]
   },
   {
@@ -42,6 +52,11 @@
     "projectNotes": [
       "Lados da composição e medidas de cada parede.",
       "Altura do encosto, assento e circulação."
+    ],
+    "visibleDetails": [
+      "Composição em L",
+      "Encosto com linhas verticais",
+      "Assento dividido em seções"
     ]
   },
   {
@@ -57,6 +72,11 @@
     "projectNotes": [
       "Largura total, altura do assento e dos braços.",
       "Desenho dos pés, almofadas e acabamento."
+    ],
+    "visibleDetails": [
+      "Dois assentos",
+      "Almofadas soltas no encosto",
+      "Base e pés escuros aparentes"
     ]
   },
   {
@@ -72,6 +92,11 @@
     "projectNotes": [
       "Espaço necessário para a peça aberta e fechada.",
       "Configuração e mecanismo, sujeitos à avaliação."
+    ],
+    "visibleDetails": [
+      "Composição de canto",
+      "Assentos estendidos em parte da peça",
+      "Almofadas retangulares no encosto"
     ]
   },
   {
@@ -87,6 +112,11 @@
     "projectNotes": [
       "Tamanho da peça e posição no ambiente.",
       "Formato dos braços, pés e tecido."
+    ],
+    "visibleDetails": [
+      "Braços estofados",
+      "Encosto de contorno arredondado",
+      "Composição com puff na foto"
     ]
   },
   {
@@ -102,6 +132,11 @@
     "projectNotes": [
       "Largura da cama e proporção com a parede.",
       "Contorno, fixação e acabamento da borda."
+    ],
+    "visibleDetails": [
+      "Contorno curvo",
+      "Borda clara marcada",
+      "Superfície estofada azul"
     ]
   },
   {
@@ -117,6 +152,11 @@
     "projectNotes": [
       "Uso como assento ou apoio e medidas desejadas.",
       "Quantidade de peças, tecido e cores."
+    ],
+    "visibleDetails": [
+      "Formato quadrado",
+      "Peças sem encosto",
+      "Cores diferentes na composição"
     ]
   },
   {
@@ -135,6 +175,11 @@
     "projectNotes": [
       "Desenho dos braços, largura e profundidade.",
       "Composição das almofadas, pés e tecido."
+    ],
+    "visibleDetails": [
+      "Braços arredondados",
+      "Pés aparentes de madeira",
+      "Almofadas soltas"
     ]
   },
   {
@@ -150,6 +195,11 @@
     "projectNotes": [
       "Formato da composição e medidas de cada lado.",
       "Altura da mesa, profundidade e acesso ao assento."
+    ],
+    "visibleDetails": [
+      "Composição de canto",
+      "Encosto marcado em divisões",
+      "Pés aparentes"
     ]
   },
   {
@@ -165,6 +215,76 @@
     "projectNotes": [
       "Largura da cama, altura da cabeceira e posição das tomadas.",
       "Divisão dos painéis, fixação e acabamento."
+    ],
+    "visibleDetails": [
+      "Painéis horizontais",
+      "Contorno reto",
+      "Acabamento claro"
     ]
+  },
+  {
+    "id": "sofa-dois-assentos",
+    "name": "Sofá de dois assentos",
+    "family": "sofas",
+    "label": "Proporção e presença",
+    "description": "Braços retos, dois assentos e almofadas de encosto em uma sala real.",
+    "source": "acervo/sofa-dois-assentos.webp",
+    "alt": "Sofá claro de dois assentos, braços retos e almofada estampada em uma sala",
+    "featured": false,
+    "piece": "Sofá",
+    "projectNotes": [
+      "Largura total, profundidade e espaço para circular.",
+      "Altura dos braços, desenho das almofadas e acabamento."
+    ],
+    "visibleDetails": [
+      "Dois assentos",
+      "Duas almofadas de encosto",
+      "Braços retos e amplos"
+    ]
+  },
+  {
+    "id": "sofa-com-vivo",
+    "name": "Sofá com vivo",
+    "family": "sofas",
+    "label": "O contorno faz parte",
+    "description": "O vivo claro acompanha o desenho dos braços e das almofadas desta referência cinza.",
+    "source": "acervo/sofa-com-vivo.webp",
+    "alt": "Sofá cinza com dois assentos, almofadas de encosto e vivo claro junto a uma janela",
+    "featured": false,
+    "piece": "Sofá",
+    "projectNotes": [
+      "Proporção dos assentos, altura dos braços e do encosto.",
+      "Cor do revestimento e do vivo, com conferência de amostra física."
+    ],
+    "visibleDetails": [
+      "Dois assentos",
+      "Vivo claro no contorno",
+      "Almofadas soltas no encosto"
+    ]
+  },
+  {
+    "id": "sofa-contorno-marcado",
+    "name": "Sofá de contorno marcado",
+    "family": "sofas",
+    "label": "Um traço de contraste",
+    "description": "Acabamento claro destaca o contorno dos braços, dos assentos e das almofadas azuis.",
+    "source": "acervo/sofa-azul-fundo-claro.png",
+    "gallery": [
+      "sofas/SOFA-6.jpg"
+    ],
+    "alt": "Sofá azul de braços retos e acabamento claro no contorno, com fundo ajustado",
+    "featured": false,
+    "piece": "Sofá",
+    "photoNote": "Foto do acervo com fundo ajustado. A segunda foto mostra o registro original.",
+    "projectNotes": [
+      "Largura dos braços e proporção do assento e do encosto.",
+      "Cor e acabamento do contorno, com avaliação do desenho desejado."
+    ],
+    "visibleDetails": [
+      "Braços retos",
+      "Duas almofadas de encosto",
+      "Acabamento claro no contorno"
+    ],
+    "originalGallery": true
   }
 ]

@@ -185,7 +185,9 @@ if (form) {
       document.querySelector('#review-title').textContent = quoteConfig.mode === 'emulator' ? 'Recebido na demonstração.' : 'Seu projeto chegou.';
       submission.confirmacaoIniciada = true;
     } catch (error) {
-      sendError.textContent = (error instanceof Error ? error.message : 'Não foi possível confirmar o envio.') + ' Use Tentar novamente para conferir o mesmo envio, sem criar outro pedido. Você também pode conversar pelo WhatsApp.';
+      const message = error instanceof Error ? error.message : 'Não foi possível confirmar o envio.';
+      const securityError = /AppCheck|reCAPTCHA|appCheck\//i.test(message);
+      sendError.textContent = (securityError ? 'A verificação de segurança não pôde ser concluída agora.' : message) + ' Use Tentar novamente para conferir o mesmo envio, sem criar outro pedido. Você também pode conversar pelo WhatsApp.';
       sendError.hidden = false; sendStatus.textContent = 'Recebimento ainda não confirmado.';
       sendButton.textContent = 'Tentar novamente'; sendButton.disabled = false;
       editButton.disabled = !!submission?.confirmacaoIniciada;

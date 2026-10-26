@@ -12,13 +12,17 @@ from PIL import Image, ImageOps
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--ignore-local-config', action='store_true', help='Gerar a versão padrão sem alterar a configuração local da demonstração.')
+parser.add_argument('--config-file', help='Arquivo de configuração para uma geração separada.')
+parser.add_argument('--output', default='dist', help='Pasta de saída dentro do projeto.')
+parser.add_argument('--no-source-entries', action='store_true', help='Não atualizar as páginas de entrada do projeto.')
 ARGS = parser.parse_args()
 sys.stdout.reconfigure(encoding='utf-8')
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'dist'
-CONFIG = json.loads((ROOT / 'site.config.json').read_text(encoding='utf-8'))
+OUT = (ROOT / ARGS.output).resolve()
+assert OUT.is_relative_to(ROOT) and OUT != ROOT, 'A saída deve ficar dentro do projeto.'
+CONFIG = json.loads((ROOT / (ARGS.config_file or 'site.config.json')).read_text(encoding='utf-8'))
 LOCAL_CONFIG = ROOT / 'site.config.local.json'
-if LOCAL_CONFIG.exists() and not ARGS.ignore_local_config:
+if LOCAL_CONFIG.exists() and not ARGS.ignore_local_config and not ARGS.config_file:
     local = json.loads(LOCAL_CONFIG.read_text(encoding='utf-8'))
     assert set(local).issubset({'quote'}), 'A configuração local aceita apenas quote.'
     CONFIG.update(local)
@@ -69,8 +73,8 @@ def availability():
 
 def render(page, path, title, description, content, image=None):
     layout = (ROOT / 'templates/layout.html').read_text(encoding='utf-8')
-    defaults = {key:'' for key in ['NAV_CUSTOM','NAV_REFORM','NAV_MODELS','NAV_PORTFOLIO']}
-    active = {'custom':'NAV_CUSTOM','reform':'NAV_REFORM','models':'NAV_MODELS','model':'NAV_MODELS','portfolio':'NAV_PORTFOLIO'}
+    defaults = {key:'' for key in ['NAV_CUSTOM','NAV_REFORM','NAV_MODELS','NAV_PORTFOLIO','NAV_ABOUT']}
+    active = {'about':'NAV_ABOUT','custom':'NAV_CUSTOM','reform':'NAV_REFORM','models':'NAV_MODELS','model':'NAV_MODELS','portfolio':'NAV_PORTFOLIO'}
     if page in active:
         defaults[active[page]] = 'aria-current="page"'
     rendered = replace(layout, {**defaults,'TITLE':escape(title),'DESCRIPTION':escape(description),'ROBOTS':'index,follow' if CONFIG['production'] else 'noindex,nofollow','CANONICAL':CONFIG['url'] + '/' + path,'OG_IMAGE':CONFIG['url'] + (image or image_url('sofas/SOFA-2.jpg')),'PAGE':page,'WHATSAPP':CONFIG['whatsapp'],'NOTICE':availability(),'WHATSAPP_URL':'https://wa.me/' + CONFIG['whatsapp'] + '?text=' + quote('Olá, Stanza! Gostaria de conversar sobre um projeto.'),'PHONE':escape(CONFIG['phoneDisplay']),'EMAIL':escape(CONFIG['email']),'YEAR':date.today().year,'CONTENT':content})
@@ -81,16 +85,17 @@ def render(page, path, title, description, content, image=None):
     target.parent.mkdir(parents=True,exist_ok=True)
     target.write_text(rendered,encoding='utf-8')
     # O repositório original é estático: manter seus pontos de entrada utilizáveis.
-    source_entry = ROOT / path
-    source_entry.parent.mkdir(parents=True,exist_ok=True)
-    source_entry.write_text(rendered,encoding='utf-8')
+    if not ARGS.no_source_entries:
+        source_entry = ROOT / path
+        source_entry.parent.mkdir(parents=True,exist_ok=True)
+        source_entry.write_text(rendered,encoding='utf-8')
 
 def main():
     OUT.mkdir(exist_ok=True)
     (OUT / 'assets/images').mkdir(parents=True,exist_ok=True)
     assert len({item['id'] for item in CATALOG}) == len(CATALOG)
     assert len({item['id'] for item in PORTFOLIO}) == len(PORTFOLIO)
-    for file in ['site.css','app.js','quote-api.js','sofa-experience.css','sofa-experience.js','home-opening.js']:
+    for file in ['site.css','app.js','quote-api.js','quote-redirect.js','sofa-experience.css','sofa-experience.js','home-opening.js']:
         shutil.copy2(ROOT / 'assets' / file, OUT / 'assets' / file)
     shutil.copy2(ROOT / 'icon/Logo Stanza Decoro Grande.png', OUT / 'assets/images/stanza-logo.png')
     shutil.copytree(ROOT / 'icon', OUT / 'icon', dirs_exist_ok=True)
@@ -100,44 +105,51 @@ def main():
     for icon in manifest['icons']:
         assert (ROOT / icon['src'].lstrip('/')).exists(),icon['src']
     (OUT / 'icon/site.webmanifest').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
-    (ROOT / 'icon/site.webmanifest').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
-    common = {'HERO_IMAGE':image_url('sofas/SOFA-2.jpg'),'DETAIL_IMAGE':image_url('sofas/SOFA-9.2.png'),'REFORM_IMAGE':image_url('poltronas/poltronas-11.jpg'),'FEATURED':''.join(reference(item) for item in CATALOG if item['featured']),'CATALOG':''.join(reference(item) for item in CATALOG),'PORTFOLIO':''.join(project(item) for item in PORTFOLIO),'HOME_PROJECTS':''.join(project(item,True) for item in [PORTFOLIO[2],PORTFOLIO[20],PORTFOLIO[30]]),'CATALOG_COUNT':len(CATALOG),'PORTFOLIO_COUNT':len(PORTFOLIO)}
+    if not ARGS.no_source_entries:
+        (ROOT / 'icon/site.webmanifest').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
+    common = {'ABOUT_IMAGE':image_url('acervo/sofa-dois-assentos.webp'),'HERO_IMAGE':image_url('sofas/SOFA-2.jpg'),'DETAIL_IMAGE':image_url('sofas/SOFA-9.2.png'),'REFORM_IMAGE':image_url('poltronas/poltronas-11.jpg'),'FEATURED':''.join(reference(item) for item in CATALOG if item['featured']),'CATALOG':''.join(reference(item) for item in CATALOG),'PORTFOLIO':''.join(project(item) for item in PORTFOLIO),'HOME_PROJECTS':''.join(project(item,True) for item in [next(p for p in PORTFOLIO if p['id']==key) for key in ['projeto-3','projeto-21','projeto-48']]),'CATALOG_COUNT':len(CATALOG),'PORTFOLIO_COUNT':len(PORTFOLIO)}
     states = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO']
     common['STATES'] = '<option value="">Selecione</option>' + ''.join(f'<option>{state}</option>' for state in states)
     pages = [
       ('home','index.html','home.html','Stanza Decoro — estofados sob medida e reformas','Estofados feitos para o seu espaço. Explore referências de sofás, poltronas e cabeceiras e converse sobre fabricação ou reforma.'),
+      ('about','a-stanza.html','about.html','A Stanza Decoro | Sob medida e reformas','Conheça como a Stanza organiza projetos de fabricação sob medida e reforma, da ideia ao acabamento e ao transporte.'),
       ('models','modelos.html','models.html','Modelos e referências | Stanza Decoro','Sofás, poltronas, cabeceiras e puffs como referências para o seu projeto. Medidas e acabamentos sob avaliação.'),
       ('custom','sob-medida.html','custom.html','Estofados sob medida | Stanza Decoro','Conte sua ideia de sofá, poltrona, cabeceira ou outro estofado. Modelos e medidas especiais sujeitos à avaliação técnica.'),
       ('reform','reformas.html','reform.html','Reforma de estofados | Stanza Decoro','Converse sobre a reforma da sua peça. Fotos, referências e informações de acesso ajudam na avaliação.'),
-      ('portfolio','portfolio.html','portfolio.html','Portfólio de peças e ambientes | Stanza Decoro','Explore as 46 referências do acervo Stanza, entre sofás, assentos, complementos e revestimentos.'),
+      ('portfolio','portfolio.html','portfolio.html','Portfólio de peças e ambientes | Stanza Decoro','Explore referências do acervo Stanza, entre sofás, assentos, complementos e revestimentos.'),
       ('explore','explorar-sofa.html','explore.html','Explore um estudo de sofá em 3D | Stanza Decoro','Experimente cores, tecidos e camadas em um estudo interativo. Acabamentos ilustrativos para conversar sobre o seu projeto.'),
       ('quote','orcamento.html','quote.html','Planejar meu projeto | Stanza Decoro','Prepare as informações de fabricação ou reforma e continue o atendimento da Stanza no WhatsApp.'),
       ('privacy','privacidade.html','privacy.html','Privacidade | Stanza Decoro','Entenda como funciona a preparação do resumo e o atendimento pelos canais da Stanza.')
     ]
     paths = []
     for page,path,source,title,description in pages:
-        content = replace((ROOT / 'pages' / source).read_text(encoding='utf-8'),common)
+        if page == 'quote' and CONFIG['quote'].get('hostedUrl'):
+            source='quote-handoff.html'
+        content = replace((ROOT / 'pages' / source).read_text(encoding='utf-8'),{**common,'QUOTE_HOSTED_URL':escape(CONFIG['quote'].get('hostedUrl',''),quote=True)})
         if page in ['quote','explore']:
             content += '<script type="application/json" id="sofa-options">' + (ROOT / 'data/sofa-pilot.json').read_text(encoding='utf-8').replace('<','\\u003c') + '</script>'
         if page == 'quote':
             content += '<script type="application/json" id="quote-config">' + json.dumps(CONFIG['quote'],ensure_ascii=False).replace('<','\\u003c') + '</script>'
-            if CONFIG['quote']['mode'] != 'manual':
+            if CONFIG['quote']['mode'] != 'manual' or CONFIG['quote'].get('hostedUrl'):
                 content = content.replace('Prepare as informações do projeto e continue a conversa com a Stanza no WhatsApp.', 'Envie seu projeto e suas fotos para a equipe avaliar. Depois, continue a conversa pelo WhatsApp.')
                 content = content.replace('As fotos ficam neste dispositivo. Você poderá anexá-las diretamente na conversa do WhatsApp.', 'As fotos ficam no dispositivo até você confirmar o envio. Depois, a equipe da Stanza poderá consultá-las no atendimento privado.')
             if CONFIG['quote']['mode'] == 'emulator':
                 content = '<div class="availability">Demonstração local: use dados fictícios. Nenhum e-mail será enviado à Stanza.</div>' + content
         if page == 'privacy':
-            content = replace(content,{'QUOTE_PRIVACY':('O formulário prepara o resumo no seu navegador. O site não grava os dados de contato e não recebe as fotos selecionadas.' if CONFIG['quote']['mode']=='manual' else 'Após você confirmar o envio, os dados e fotos ficam registrados no atendimento privado da Stanza. O protocolo confirma o registro; preço e prazo dependem de avaliação.'),'PHOTO_PRIVACY':('As fotos precisam ser anexadas na conversa.' if CONFIG['quote']['mode']=='manual' else 'As fotos enviadas são preparadas para avaliação, com redução de tamanho e remoção de metadados como localização. Os originais não são conservados por este formulário.'),'STORAGE_PRIVACY':('O registro pelo site está desativado nesta versão.' if CONFIG['quote']['mode']=='manual' else 'O registro utiliza Firebase/Google Cloud para armazenamento privado e proteção de envio. Somente administrador ou secretária autorizados consultam o atendimento. Um aviso com o resumo pode ser enviado ao e-mail da Stanza; as fotos ficam fora desse aviso. Rascunhos expiram após uma hora; a limpeza é agendada. Pedidos concluídos permanecem no atendimento até a revisão da conservação pela empresa. Para solicitar correção ou exclusão, use o contato abaixo. O envio não autoriza publicidade.')})
+            content = replace(content,{'QUOTE_PRIVACY':('O formulário prepara o resumo no seu navegador. O site não grava os dados de contato e não recebe as fotos selecionadas.' if (CONFIG['quote']['mode']=='manual' and not CONFIG['quote'].get('hostedUrl')) else 'Após você confirmar o envio, os dados e fotos ficam registrados no atendimento privado da Stanza. O protocolo confirma o registro; preço e prazo dependem de avaliação.'),'PHOTO_PRIVACY':('As fotos precisam ser anexadas na conversa.' if (CONFIG['quote']['mode']=='manual' and not CONFIG['quote'].get('hostedUrl')) else 'As fotos enviadas são preparadas para avaliação, com redução de tamanho e remoção de metadados como localização. Os originais não são conservados por este formulário.'),'STORAGE_PRIVACY':('O registro pelo site está desativado nesta versão.' if (CONFIG['quote']['mode']=='manual' and not CONFIG['quote'].get('hostedUrl')) else 'O registro utiliza Firebase/Google Cloud para armazenamento privado e proteção de envio. Somente administrador ou secretária autorizados consultam o atendimento. Um aviso com o resumo pode ser enviado ao e-mail da Stanza; as fotos ficam fora desse aviso. Rascunhos expiram após uma hora; a limpeza é agendada. Pedidos concluídos permanecem no atendimento até a revisão da conservação pela empresa. Para solicitar correção ou exclusão, use o contato abaixo. O envio não autoriza publicidade.')})
         if page == 'quote':
             lookup = {item['id']:{'name':item['name'],'piece':item['piece']} for item in CATALOG}
             content += '<script type="application/json" id="catalog-references">' + json.dumps(lookup,ensure_ascii=False).replace('<','\\u003c') + '</script>'
+        if page == 'quote' and CONFIG['quote'].get('hostedUrl'):
+            content += '<script type="application/json" id="portfolio-references">' + json.dumps([p['id'] for p in PORTFOLIO]) + '</script>'
         render(page,path,title,description,content)
         paths.append(path)
     for item in CATALOG:
         related = sorted([other for other in CATALOG if other['id'] != item['id']],key=lambda other:other['family']!=item['family'])[:4]
-        gallery = ''.join(f'<a class="model-thumbnail" href="{image_url(source)}" data-photo data-photo-group="model" data-photo-caption="{escape(item["name"],quote=True)} — outro enquadramento" data-photo-quote="/orcamento.html?referencia={item["id"]}" aria-label="Ampliar outro enquadramento de {escape(item["name"],quote=True)}"><img src="{image_url(source)}" alt="Outro enquadramento de {escape(item["name"])}" width="240" height="180" loading="lazy"></a>' for source in item.get('gallery',[]))
+        gallery_label = 'Registro original' if item.get('originalGallery') else 'Outro enquadramento'
+        gallery = ''.join(f'<a class="model-thumbnail" href="{image_url(source)}" data-photo data-photo-group="model" data-photo-caption="{escape(item["name"],quote=True)} — {gallery_label.lower()}" data-photo-quote="/orcamento.html?referencia={item["id"]}" aria-label="Ampliar {gallery_label.lower()} de {escape(item["name"],quote=True)}"><img src="{image_url(source)}" alt="{gallery_label} de {escape(item["name"])}" width="240" height="180" loading="lazy"></a>' for source in item.get('gallery',[]))
         notes = ''.join('<li>'+escape(note)+'</li>' for note in item['projectNotes'])
-        content = replace((ROOT / 'pages/model.html').read_text(encoding='utf-8'),{'MODEL_IMAGE':image_url(item['source']),'MODEL_ALT':escape(item['alt']),'MODEL_LABEL':escape(item['label']),'MODEL_NAME':escape(item['name']),'MODEL_DESCRIPTION':escape(item['description']),'MODEL_ID':item['id'],'RELATED':''.join(reference(other) for other in related),'MODEL_GALLERY':gallery,'MODEL_NOTES':notes,'MODEL_EXPERIENCE':('<a class="text-link model-experience-link" href="/explorar-sofa.html">Explorar o estudo desta forma em 3D ↗</a>' if item['id']=='sofa-organico' else '')})
+        content = replace((ROOT / 'pages/model.html').read_text(encoding='utf-8'),{'MODEL_IMAGE':image_url(item['source']),'MODEL_ALT':escape(item['alt']),'MODEL_LABEL':escape(item['label']),'MODEL_NAME':escape(item['name']),'MODEL_DESCRIPTION':escape(item['description']),'MODEL_ID':item['id'],'RELATED':''.join(reference(other) for other in related),'MODEL_GALLERY':gallery,'MODEL_NOTES':notes,'MODEL_VISIBLE_DETAILS':''.join('<li>'+escape(detail)+'</li>' for detail in item['visibleDetails']),'MODEL_PHOTO_NOTE':escape(item.get('photoNote','Referência do acervo Stanza.')),'MODEL_EXPERIENCE':('<a class="text-link model-experience-link" href="/explorar-sofa.html">Explorar o estudo desta forma em 3D ↗</a>' if item['id']=='sofa-organico' else '')})
         path = 'modelos/' + item['id'] + '.html'
         render('model',path,item['name']+' | Stanza Decoro',item['description'],content,image_url(item['source']))
         paths.append(path)
@@ -148,7 +160,8 @@ def main():
     (OUT / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+CONFIG['url']+'/'+path+'</loc></url>' for path in paths)+'</urlset>\n',encoding='utf-8')
     (OUT / 'assets/build-info.json').write_text(json.dumps({'catalogCount':len(CATALOG),'portfolioCount':len(PORTFOLIO),'production':CONFIG['production'],'date':date.today().isoformat()},indent=2),encoding='utf-8')
     # Permite prévia na raiz, além da pasta de publicação dist.
-    shutil.copytree(OUT / 'assets/images', ROOT / 'assets/images', dirs_exist_ok=True)
+    if not ARGS.no_source_entries:
+        shutil.copytree(OUT / 'assets/images', ROOT / 'assets/images', dirs_exist_ok=True)
     totals = sum(p.stat().st_size for p in (OUT/'assets/images').glob('*'))
     print(f'{len(paths)} páginas, {len(CATALOG)} modelos e {len(PORTFOLIO)} referências. Imagens web: {totals/1024/1024:.2f} MB.')
 

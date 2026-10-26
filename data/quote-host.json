@@ -1,0 +1,27 @@
+{
+  "name": "Stanza Decoro",
+  "url": "https://stanza-atendimento-820e4.web.app",
+  "production": false,
+  "whatsapp": "5511975563037",
+  "phoneDisplay": "(11) 97556-3037",
+  "email": "stanzadecoro@gmail.com",
+  "quote": {
+    "mode": "firebase",
+    "endpoint": "https://southamerica-east1-cadastro-820e4.cloudfunctions.net/receberPedidoSite",
+    "firebase": {
+      "apiKey": "AIzaSyCTF7UZdNij6P4zUBwuZClFkF0l4NCYy-8",
+      "authDomain": "cadastro-820e4.firebaseapp.com",
+      "projectId": "cadastro-820e4",
+      "storageBucket": "cadastro-820e4.firebasestorage.app",
+      "messagingSenderId": "409054993061",
+      "appId": "1:409054993061:web:3423ede9f1566997a90b4c"
+    },
+    "recaptchaSiteKey": "6LfZ9_8tAAAAAE-c1HJ4D7MMiXS4T5USSjzyx6Ue"
+  },
+  "availability": {
+    "enabled": false,
+    "text": "Conte seu projeto. Prazo e transporte após avaliação.",
+    "startsOn": null,
+    "endsOn": null
+  }
+}

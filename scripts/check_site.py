@@ -28,6 +28,7 @@ class Page(HTMLParser):
 errors=[]
 config=json.loads((ROOT/'site.config.json').read_text(encoding='utf-8'))
 catalog=json.loads((ROOT/'data/catalog.json').read_text(encoding='utf-8'))
+portfolio=json.loads((ROOT/'data/portfolio.json').read_text(encoding='utf-8'))
 expected_robots='index,follow' if config['production'] else 'noindex,nofollow'
 pages=sorted(OUT.rglob('*.html'))
 assert pages, 'Execute build.py primeiro.'
@@ -51,7 +52,7 @@ for file in pages:
     if '551197556-3037' in text or 'Nova pasta/' in text: errors.append((str(file),'Contato ou ícone legado inválido'))
     if f'name="robots" content="{expected_robots}"' not in text: errors.append((str(file),'Indexação não corresponde à configuração'))
     if file.name=='portfolio.html':
-        assert Counter(page.families)=={'sofas':10,'assentos':14,'complementos':12,'revestimentos':10},Counter(page.families)
+        assert Counter(page.families)==Counter(item['family'] for item in portfolio),Counter(page.families)
     if file.name=='modelos.html': assert len(page.families)==len(catalog)
 
 home=(OUT/'index.html').read_text(encoding='utf-8').lower()
@@ -72,6 +73,6 @@ for relative,digest in integration['modelSha256'].items():
 assert (pilot/'viewer/vendor/three/LICENSE').exists()
 assert not errors,errors
 print(f'{len(pages)} páginas conferidas; links/arquivos, IDs, formulários, manifesto e contatos válidos.')
-print(f'Portfólio: 46 referências; catálogo: {len(catalog)}; empreendimentos ausentes da principal.')
+print(f'Portfólio: {len(portfolio)} referências; catálogo: {len(catalog)}; empreendimentos ausentes da principal.')
 print('Dados do formulário sem armazenamento persistente no navegador; registro opcional por servidor configurável.')
 print('Esta verificação não substitui navegação visual ou testes de interação em navegador.')

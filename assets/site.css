@@ -192,6 +192,35 @@ figure { margin:0; }
 .service-hero p { max-width:425px; }
 .service-hero img { width:100%; aspect-ratio:1; object-fit:cover; }
 .service-hero figcaption { font-size:.7rem; color:var(--muted); padding-top:12px; }
+.about-hero img { aspect-ratio:4/3; }
+.about-intro { display:grid; grid-template-columns:1fr 1.3fr; gap:100px; }
+.project-decisions { display:grid; grid-template-columns:1fr 1fr; gap:0 72px; margin:0; }
+.project-decisions>div { padding:28px 0; border-top:1px solid var(--line); }
+.project-decisions dt { font:1.6rem var(--serif); margin-bottom:14px; }
+.project-decisions dt span { font:.7rem var(--sans); color:var(--muted); margin-right:18px; }
+.project-decisions dd { margin:0; color:var(--muted); font-size:.88rem; max-width:440px; }
+.photo-guide { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); list-style:none; gap:36px; padding:0; margin:0; }
+.photo-guide li { padding-top:24px; border-top:1px solid var(--line); }
+.photo-guide li>span { display:block; font-size:.7rem; color:var(--muted); margin-bottom:24px; }
+.photo-guide h3 { font-size:1.8rem; }
+.photo-guide p { font-size:.86rem; }
+.model-visible { border-top:1px solid var(--line); padding-top:22px; margin-top:24px; }
+.model-visible .eyebrow { font-size:.6rem; margin-bottom:12px; }
+.model-visible ul { display:flex; flex-wrap:wrap; gap:8px 22px; list-style:none; padding:0; margin:0; font-size:.78rem; color:var(--muted); }
+.model-visible li::before { content:'·'; color:var(--olive); margin-right:8px; }
+.model-photo-note { font-size:.68rem; color:var(--muted); padding-top:12px; }
+@media(max-width:900px) {
+  .about-intro { gap:40px; }
+  .project-decisions { gap:0 36px; }
+  .photo-guide { gap:24px; }
+}
+@media(max-width:600px) {
+  .about-intro,.project-decisions,.photo-guide { grid-template-columns:1fr; gap:0; }
+  .about-intro>div+div { margin-top:12px; }
+  .project-decisions>div { padding-block:24px; }
+  .photo-guide li { padding-top:20px; }
+  .photo-guide li>span { margin-bottom:12px; }
+}
 .split-content { display:grid; grid-template-columns:1fr 1.3fr; gap:100px; border-top:1px solid var(--line); }
 .plain-list { padding-left:22px; color:var(--muted); margin:0 0 28px; }
 .plain-list li { padding-block:8px; }

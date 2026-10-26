@@ -1,0 +1,52 @@
+{
+  "hosting": {
+    "site": "stanza-atendimento-820e4",
+    "public": "dist-formulario",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "**/*.map"
+    ],
+    "redirects": [
+      {
+        "source": "/",
+        "destination": "/orcamento.html",
+        "type": 302
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/pedidos-site",
+        "destination": "/atendimento.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "DENY"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-store"
+          },
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex, nofollow"
+          }
+        ]
+      }
+    ]
+  }
+}

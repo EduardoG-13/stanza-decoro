@@ -9,7 +9,8 @@
     "mode": "manual",
     "endpoint": "",
     "firebase": null,
-    "recaptchaSiteKey": ""
+    "recaptchaSiteKey": "",
+    "hostedUrl": "https://stanza-atendimento-820e4.web.app/orcamento.html"
   },
   "availability": {
     "enabled": false,
