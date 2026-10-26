@@ -9,6 +9,7 @@ import shutil
 import sys
 import argparse
 import os
+import tomllib
 from PIL import Image, ImageOps
 
 parser = argparse.ArgumentParser(description=__doc__)
@@ -121,6 +122,10 @@ def render(page, path, title, description, content, image=None):
 
 def main():
     OUT.mkdir(exist_ok=True)
+    # Inclui as regras no próprio pacote, inclusive em publicação de arquivos pré-compilados.
+    hosting=tomllib.loads((ROOT/'netlify.toml').read_text(encoding='utf-8'))
+    redirects=[f"{r['from']} {r['to']} {r['status']}{'!' if r.get('force') else ''}" for r in hosting.get('redirects',[])]
+    (OUT/'_redirects').write_text('\n'.join(redirects)+'\n',encoding='utf-8')
     (OUT / 'assets/images').mkdir(parents=True,exist_ok=True)
     assert len({item['id'] for item in CATALOG}) == len(CATALOG)
     assert len({item['id'] for item in PORTFOLIO}) == len(PORTFOLIO)

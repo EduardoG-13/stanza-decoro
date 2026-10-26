@@ -41,6 +41,8 @@ expected_robots='index,follow' if config['production'] else 'noindex,nofollow'
 pages=sorted(OUT.rglob('*.html'))
 exact_paths={p.relative_to(OUT).as_posix() for p in OUT.rglob('*')}
 assert pages, 'Execute build.py primeiro.'
+published_redirects=(OUT/'_redirects').read_text(encoding='utf-8').splitlines()
+assert published_redirects[:2]==['/pedidos-site /404.html 404!','/pedidos-site/* /404.html 404!'], 'O pacote público não deve encaminhar ao atendimento.'
 for file in pages:
     text=file.read_text(encoding='utf-8')
     page=Page(); page.feed(text)
