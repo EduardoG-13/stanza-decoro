@@ -146,6 +146,18 @@ externas) em [`validation/feat002-rev2/`](validation/feat002-rev2/).
 
 ![Configurador e hero (mobile)](images/final_framing_consumers_mobile.png)
 
+## Encerramento do lote (créditos limitados)
+
+Este lote termina aqui. Os créditos são limitados, então nada além do que está listado abaixo foi feito.
+
+- **Correção de almofadas:** EXT-005 `stanza-piped-01` → **1.1.0** (almofadas cheias), ver [cushions-fix-2026-10.md](cushions-fix-2026-10.md).
+- **EXT-001 e EXT-003 avaliados e mantidos sem mudança:**
+  - EXT-001 2.1.0: nenhuma almofada flutua ou atravessa outra peça (penetração ≤ 1,6 mm, contato em área). Uma pose nova exigiria reconstruir antes o cálculo de apoio da 2.1.0, que não se reproduz.
+  - EXT-003 1.0.0: contatos ≤ 3,7 mm (há um vértice oculto a 6,4 mm). A diferença para a foto é de composição; mudar seria remodelar.
+- **Peças novas** (tecnicamente validadas – revisão visual pendente): EXT-014 `stanza-armchair-01`, EXT-040 `stanza-headboard-panels-01`, EXT-007 `stanza-curved-arm-01`.
+- **Todos os demais itens da fila continuam pendentes e NÃO devem ser retomados automaticamente.** Cada um só começa com um pedido explícito.
+- **EXT-034 (puff capitonê da foto do EXT-014) continua pendente.**
+
 ## Relatórios
 
 - [EXT-001 r2 — refino de fidelidade à foto, revisão 2.1.0](ext001-r2-refinement.md) — **atual**
