@@ -83,7 +83,7 @@ def model_experience(item):
     model = VERIFIED_3D.get(item['id'])
     if not model: return ''
     href = '/explorar-sofa.html' if model['modelId'] == MODELS_3D['defaultModelId'] else '/explorar-sofa.html?modelo=' + quote(model['modelId'])
-    return f'<a class="text-link model-experience-link" href="{escape(href,quote=True)}" data-model-3d="{escape(model["modelId"],quote=True)}">Ver em 3D e experimentar cores e tecidos ↗</a>'
+    return f'<a class="button button-outline button-compact model-experience-link" href="{escape(href,quote=True)}" data-model-3d="{escape(model["modelId"],quote=True)}">Ver em 3D e experimentar cores e tecidos <span aria-hidden="true">↗</span></a>'
 FAMILIES = {'sofas':'Sofás','assentos':'Poltronas e assentos','complementos':'Cabeceiras e puffs','revestimentos':'Capas e cortinas','cortinas':'Cortinas'}
 images = {}
 image_sizes = {}

@@ -56,6 +56,7 @@ function showSelection(selection) {
 async function initialize() {
   if (viewer || loading || !model) return;
   loading = true; start.disabled = true; stage.setAttribute('aria-busy','true');
+  start.firstChild.textContent = 'Carregando o 3D… ';
   report('Preparando a visualização 3D…');
   try {
     const {createSofaViewer} = await import('./sofa-pilot/viewer/sofa-viewer.js');
@@ -66,10 +67,12 @@ async function initialize() {
     });
     document.querySelectorAll('.sofa-inspector fieldset, [data-camera]').forEach(control => control.disabled = false);
     stage.classList.add('is-ready');
+    // The viewer's generic canvas label names a sofa; say which piece this is.
+    stage.querySelector('canvas')?.setAttribute('aria-label', `${model.title} em 3D. Arraste para girar. Setas giram; mais e menos aproximam; Home restaura a vista. A rolagem continua livre.`);
     report('Pronto. Arraste para girar ou use os controles.');
   } catch {
     report('O 3D não abriu neste navegador. A imagem e o orçamento continuam disponíveis. Você pode tentar novamente.', true);
-    start.textContent = 'Tentar abrir o 3D'; start.disabled = false;
+    start.firstChild.textContent = 'Tentar abrir o 3D '; start.disabled = false;
   } finally { loading = false; stage.setAttribute('aria-busy','false'); }
 }
 applyModel();

@@ -456,7 +456,7 @@ figure { margin:0; }
   .reference-image:hover img { transform:none; }
 }
 
-.model-experience-link {display:flex;width:fit-content;margin-bottom:24px}
+.model-experience-link {display:flex;width:fit-content;margin-bottom:16px}
 .quote-form input::placeholder,.quote-form textarea::placeholder {color:var(--muted);opacity:1}
 
 .contact-channel {font-size:.875rem;color:#d4ddcc}
