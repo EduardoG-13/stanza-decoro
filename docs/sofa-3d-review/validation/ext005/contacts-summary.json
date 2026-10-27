@@ -1,0 +1,116 @@
+{
+ "main": {
+  "body->body": {
+   "maxPenetration_mm": 49.94,
+   "pair": "base_band:back_panel",
+   "pairs": 42,
+   "verts_inside": 789
+  },
+  "welt->body": {
+   "maxPenetration_mm": 4.96,
+   "pair": "back_cushion_2_welt_ny:back_cushion_2_cover",
+   "pairs": 23,
+   "verts_inside": 427
+  },
+  "backCushionRests": {
+   "back_cushion_1_cover:back_panel": {
+    "penetration_mm": 3.0,
+    "verts_inside": 11,
+    "gap_mm": 1.5
+   },
+   "back_cushion_1_cover:seat_cushion_1": {
+    "penetration_mm": 2.96,
+    "verts_inside": 16,
+    "gap_mm": 0.24
+   },
+   "back_cushion_2_cover:back_panel": {
+    "penetration_mm": 3.0,
+    "verts_inside": 11,
+    "gap_mm": 0.65
+   },
+   "back_cushion_2_cover:seat_cushion_2": {
+    "penetration_mm": 2.86,
+    "verts_inside": 20,
+    "gap_mm": 0.02
+   },
+   "back_panel:back_cushion_1_cover": {
+    "penetration_mm": 3.94,
+    "verts_inside": 24,
+    "gap_mm": 0.01
+   },
+   "back_panel:back_cushion_2_cover": {
+    "penetration_mm": 3.79,
+    "verts_inside": 22,
+    "gap_mm": 0.03
+   },
+   "seat_cushion_1:back_cushion_1_cover": {
+    "penetration_mm": 0.07,
+    "verts_inside": 1,
+    "gap_mm": 0.12
+   },
+   "seat_cushion_2:back_cushion_2_cover": {
+    "penetration_mm": 0.08,
+    "verts_inside": 1,
+    "gap_mm": 0.11
+   }
+  },
+  "note": "body->body max = hidden overlap of the base band under the back panel (intentional, like EXT-002); welts sit half-sunk on their own cover (tube centred on the surface)."
+ },
+ "mobile": {
+  "body->body": {
+   "maxPenetration_mm": 49.92,
+   "pair": "base_band:back_panel",
+   "pairs": 42,
+   "verts_inside": 378
+  },
+  "welt->body": {
+   "maxPenetration_mm": 3.66,
+   "pair": "back_cushion_1_welt_ny:back_cushion_1_cover",
+   "pairs": 22,
+   "verts_inside": 233
+  },
+  "backCushionRests": {
+   "back_cushion_1_cover:back_panel": {
+    "penetration_mm": 3.0,
+    "verts_inside": 6,
+    "gap_mm": 0.99
+   },
+   "back_cushion_1_cover:seat_cushion_1": {
+    "penetration_mm": 2.73,
+    "verts_inside": 9,
+    "gap_mm": 0.03
+   },
+   "back_cushion_2_cover:back_panel": {
+    "penetration_mm": 3.0,
+    "verts_inside": 6,
+    "gap_mm": 1.2
+   },
+   "back_cushion_2_cover:seat_cushion_2": {
+    "penetration_mm": 2.81,
+    "verts_inside": 13,
+    "gap_mm": 0.01
+   },
+   "back_panel:back_cushion_1_cover": {
+    "penetration_mm": 3.49,
+    "verts_inside": 11,
+    "gap_mm": 0.02
+   },
+   "back_panel:back_cushion_2_cover": {
+    "penetration_mm": 3.72,
+    "verts_inside": 12,
+    "gap_mm": 0.58
+   },
+   "seat_cushion_1:back_cushion_1_cover": {
+    "penetration_mm": 2.64,
+    "verts_inside": 4,
+    "gap_mm": 0.09
+   },
+   "seat_cushion_2:back_cushion_2_cover": {
+    "penetration_mm": 2.85,
+    "verts_inside": 6,
+    "gap_mm": 0.06
+   }
+  },
+  "note": "body->body max = hidden overlap of the base band under the back panel (intentional, like EXT-002); welts sit half-sunk on their own cover (tube centred on the surface)."
+ }
+}

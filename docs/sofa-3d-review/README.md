@@ -1,4 +1,4 @@
-# Revisão dos estudos 3D (stanza-organic-01, stanza-straight-01, stanza-modular-01… e fila)
+# Revisão dos estudos 3D (stanza-organic-01, stanza-straight-01, stanza-modular-01, stanza-two-seat-01, stanza-piped-01 e fila)
 
 Esta pasta reúne, de forma **versionada e visível no PR**, o material de revisão do aprimoramento
 do sofá 3D (branch `work/sofa-3d-inspection`). Os caminhos internos do sandbox (`.agents/`,
@@ -29,6 +29,11 @@ Infraestrutura multi-modelo (biblioteca Blender, biblioteca de acabamentos, regi
 [ext004-sofa-dois-assentos.md](ext004-sofa-dois-assentos.md) · prévia `/explorar-sofa.html?modelo=stanza-two-seat-01`.
 
 ![EXT-004: foto × render](images/ext004_photo_vs_render.jpg)
+
+**EXT-005 — Sofá cinza com vivo claro** (`stanza-piped-01` 1.0.0, catálogo `sofa-com-vivo`; vivo = contraste fixo):
+[ext005-sofa-com-vivo.md](ext005-sofa-com-vivo.md) · prévia `/explorar-sofa.html?modelo=stanza-piped-01`.
+
+![EXT-005: foto × render](images/ext005_photo_vs_render.jpg)
 
 ## EXT-001 r2, revisão 2.1.0 (refino de fidelidade à foto)
 

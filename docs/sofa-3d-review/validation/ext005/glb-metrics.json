@@ -1,0 +1,194 @@
+{
+  "assets/models-3d/stanza-piped-01/models/stanza-piped-01.glb": {
+    "bytes": 3011884,
+    "sha256": "f4958e112278ca029c3218c269ed60fb22127c9bc3b1aaa4146a71338d1f4f74",
+    "triangles": 49896,
+    "boundsMeters": {
+      "min": [
+        -1.734,
+        -0.00108,
+        -0.50101
+      ],
+      "max": [
+        1.734,
+        1.12717,
+        0.536
+      ],
+      "dimensions": [
+        3.468,
+        1.12824,
+        1.03701
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal",
+        "mimeType": "image/png",
+        "bytes": 1051240,
+        "usedBy": [
+          "fabric_main",
+          "piping_light"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "basecolor-cinza-malva-1024",
+        "mimeType": "image/jpeg",
+        "bytes": 111821,
+        "usedBy": [
+          "fabric_main"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 60813,
+        "usedBy": [
+          "fabric_main",
+          "piping_light"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "fabric_main",
+        "region": "body"
+      },
+      {
+        "name": "piping_light",
+        "region": "contrast"
+      }
+    ],
+    "meshes": [
+      "arm_l",
+      "arm_l_front_welt",
+      "arm_r",
+      "arm_r_front_welt",
+      "back_cushion_1_cover",
+      "back_cushion_1_welt_ny",
+      "back_cushion_1_welt_py",
+      "back_cushion_2_cover",
+      "back_cushion_2_welt_ny",
+      "back_cushion_2_welt_py",
+      "back_panel",
+      "base_band",
+      "seat_cushion_1",
+      "seat_cushion_1_welt_bottom",
+      "seat_cushion_1_welt_top",
+      "seat_cushion_2",
+      "seat_cushion_2_welt_bottom",
+      "seat_cushion_2_welt_top"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-piped-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "acervo/sofa-com-vivo.webp",
+      "catalogId": "sofa-com-vivo",
+      "queue": "EXT-005",
+      "materialRegions": "{\"body\": [\"fabric_main\"], \"contrast\": [\"piping_light\"]}",
+      "embeddedFinish": "{\"fabricId\": \"sarja\", \"colorId\": \"cinza-malva\"}",
+      "bodyUvMeters": 0.3
+    }
+  },
+  "assets/models-3d/stanza-piped-01/models/stanza-piped-01-mobile.glb": {
+    "bytes": 983004,
+    "sha256": "e85352912d755bd7449b766827d1db49d2af38ef9b8331e461fbf67d329a4b90",
+    "triangles": 22120,
+    "boundsMeters": {
+      "min": [
+        -1.73395,
+        -0.00088,
+        -0.50101
+      ],
+      "max": [
+        1.73395,
+        1.12613,
+        0.52117
+      ],
+      "dimensions": [
+        3.4679,
+        1.12702,
+        1.02218
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal-256",
+        "mimeType": "image/png",
+        "bytes": 52516,
+        "usedBy": [
+          "fabric_main",
+          "piping_light"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "basecolor-cinza-malva-512",
+        "mimeType": "image/jpeg",
+        "bytes": 24695,
+        "usedBy": [
+          "fabric_main"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 60813,
+        "usedBy": [
+          "fabric_main",
+          "piping_light"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "fabric_main",
+        "region": "body"
+      },
+      {
+        "name": "piping_light",
+        "region": "contrast"
+      }
+    ],
+    "meshes": [
+      "arm_l",
+      "arm_l_front_welt",
+      "arm_r",
+      "arm_r_front_welt",
+      "back_cushion_1_cover",
+      "back_cushion_1_welt_ny",
+      "back_cushion_1_welt_py",
+      "back_cushion_2_cover",
+      "back_cushion_2_welt_ny",
+      "back_cushion_2_welt_py",
+      "back_panel",
+      "base_band",
+      "seat_cushion_1",
+      "seat_cushion_1_welt_bottom",
+      "seat_cushion_1_welt_top",
+      "seat_cushion_2",
+      "seat_cushion_2_welt_bottom",
+      "seat_cushion_2_welt_top"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-piped-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "acervo/sofa-com-vivo.webp",
+      "catalogId": "sofa-com-vivo",
+      "queue": "EXT-005",
+      "materialRegions": "{\"body\": [\"fabric_main\"], \"contrast\": [\"piping_light\"]}",
+      "embeddedFinish": "{\"fabricId\": \"sarja\", \"colorId\": \"cinza-malva\"}",
+      "bodyUvMeters": 0.3
+    }
+  }
+}

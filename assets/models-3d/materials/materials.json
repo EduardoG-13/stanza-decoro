@@ -87,7 +87,7 @@
       "sheen": 0.1,
       "sheenRoughness": 0.8,
       "description": "Sarja 2/2 de trama fechada e fosca (fios de ~1,2 mm, diagonal suave). Estudo visual próprio a partir de SOFA-3.jpg; sem código comercial.",
-      "createdFor": "EXT-003 (sofas/SOFA-3.jpg)",
+      "createdFor": "EXT-003 (sofas/SOFA-3.jpg); reutilizada no EXT-005 (acervo/sofa-com-vivo.webp)",
       "id": "sarja",
       "repeatMeters": 0.3,
       "textureSize": [
@@ -113,6 +113,10 @@
         "grafite-quente": [
           "basecolor-grafite-quente-1024.jpg",
           "basecolor-grafite-quente-512.jpg"
+        ],
+        "cinza-malva": [
+          "basecolor-cinza-malva-1024.jpg",
+          "basecolor-cinza-malva-512.jpg"
         ],
         "normal": [
           "embedded/normal-512.png",
@@ -239,6 +243,7 @@
   "tints": {
     "gelo": "#babcc0",
     "grafite-quente": "#545050",
-    "cru": "#e2ddd2"
+    "cru": "#e2ddd2",
+    "cinza-malva": "#8a8286"
   }
 }

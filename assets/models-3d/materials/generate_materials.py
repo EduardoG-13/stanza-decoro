@@ -27,7 +27,7 @@ from PIL import Image
 HERE = Path(__file__).resolve().parent
 N = 1024
 # Tints used for embedded initial finishes. MUST equal COLORS in assets/sofa-pilot/viewer/sofa-viewer.js.
-TINTS = {'gelo': (186, 188, 192), 'grafite-quente': (84, 80, 80), 'cru': (226, 221, 210)}
+TINTS = {'gelo': (186, 188, 192), 'grafite-quente': (84, 80, 80), 'cru': (226, 221, 210), 'cinza-malva': (138, 130, 134)}
 
 
 def noise(rng, sx, sy=None, n=N):
@@ -229,9 +229,9 @@ def sarja():
     meta = {'label': 'Sarja', 'family': 'flat_twill_upholstery_study', 'seed': 707, 'normalScale': .9,
             'roughness': 1.0, 'sheen': .10, 'sheenRoughness': .8,
             'description': 'Sarja 2/2 de trama fechada e fosca (fios de ~1,2 mm, diagonal suave). Estudo visual próprio a partir de SOFA-3.jpg; sem código comercial.',
-            'createdFor': 'EXT-003 (sofas/SOFA-3.jpg)'}
+            'createdFor': 'EXT-003 (sofas/SOFA-3.jpg); reutilizada no EXT-005 (acervo/sofa-com-vivo.webp)'}
     meta, col, _ = write_family('sarja', height, color, rough, repeat_m, meta)
-    meta['embedded'] = {t: tinted('sarja', col, t) for t in ('grafite-quente',)}
+    meta['embedded'] = {t: tinted('sarja', col, t) for t in ('grafite-quente', 'cinza-malva')}
     meta['embedded'].update({'normal': ['embedded/normal-512.png', 'embedded/normal-256.png'],
                              'roughness': ['embedded/roughness-512.jpg', 'embedded/roughness-256.jpg']})
     return meta

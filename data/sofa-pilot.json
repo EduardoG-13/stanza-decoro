@@ -16,12 +16,14 @@
     "grafite": "Grafite",
     "gelo": "Cinza gelo",
     "grafite-quente": "Grafite quente",
-    "cru": "Cru"
+    "cru": "Cru",
+    "cinza-malva": "Cinza malva"
   },
   "studies": {
     "stanza-organic-01": "sofa-organico",
     "stanza-straight-01": "sofa-reto",
     "stanza-modular-01": "sofa-modular",
-    "stanza-two-seat-01": "sofa-dois-assentos"
+    "stanza-two-seat-01": "sofa-dois-assentos",
+    "stanza-piped-01": "sofa-com-vivo"
   }
 }

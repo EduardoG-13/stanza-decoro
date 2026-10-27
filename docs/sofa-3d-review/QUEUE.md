@@ -78,15 +78,16 @@ Em caso de dúvida, o material fica **fixo** e a dúvida é registrada em “Lim
 
 ### EXT-005 — Sofá cinza com vivo claro
 
-- **Estado:** pendente
+- **Estado:** tecnicamente validado – revisão visual pendente
 - **Fontes:** [`acervo/sofa-com-vivo.webp`](../../acervo/sofa-com-vivo.webp)
-- **Relação:** catálogo `sofa-com-vivo`; portfólio `projeto-48`
-- **Arquivos:** —
-- **Revisão:** —
-- **Opções reais:** a definir (aplicar a regra de regiões acima)
-- **Evidências:** —
-- **Limitações:** Vivo claro = contraste fixo.
-- **Próxima ação:** ler a foto, definir regiões e proporções, gerar fonte paramétrica e GLBs, registrar em `data/models-3d.json`.
+- **Relação:** catálogo `sofa-com-vivo`; portfólio `projeto-48` (a mesma foto ilustra a página de tecidos e um card da home; mesma peça, sem entrada nova; IDs preservados)
+- **Arquivos:** `assets/models-3d/stanza-piped-01/` — `source/build.py`, `source/stanza-piped-01.blend`, `models/stanza-piped-01.glb`, `models/stanza-piped-01-mobile.glb`, `previews/poster.jpg`, `manifest.json`; mapas `assets/models-3d/materials/sarja/` (tinta `cinza-malva`); registro `data/models-3d.json` (`stanza-piped-01`)
+- **Revisão:** 1.0.0 (somente exterior) · principal 49 896 tri / 3,01 MB · móvel 22 120 tri / 0,98 MB
+- **Opções reais:** corpo (braços, base, encosto, almofadas de assento e encosto) — tecidos `sarja` (inicial), `linen`, `velvet`, `boucle` × cores `cinza-malva` (inicial, nova), `grafite`, `gelo`, `areia`, `oliva`, `terracota`. Vivo claro (`piping_light`, região `contrast`): fixo. Sem decorativas nem estrutura visível.
+- **Evidências:** [ext005-sofa-com-vivo.md](ext005-sofa-com-vivo.md), imagens `images/ext005_*.jpg`, validação `validation/ext005/` (glTF-Validator 0/0/0/0, comportamento 76/76, máscara do vivo 0 px, contatos ≤ 3,9 mm)
+- **Prévia:** `/explorar-sofa.html?modelo=stanza-piped-01`; produto `/modelos/sofa-com-vivo.html` com "Ver em 3D"
+- **Limitações:** vista única grande-angular com rolagem; assento fixado em 0,45 m e profundidade restrita a 1,0 m (largura 3,46 m é a mais incerta do lote); `cinza-malva` (`#8a8286`) estimado sob sol forte; encostos rígidos com coroa (caimento real mais mole); sem pés confirmados; validação só headless.
+- **Próxima ação:** revisão visual pela Stanza; confirmar largura/profundidade reais e se há pés rebaixados; ajustes prováveis: caimento dos encostos.
 
 ### EXT-006 — Sofá azul com tachas aparentes
 

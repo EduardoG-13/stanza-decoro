@@ -9,7 +9,8 @@ export const DIMENSIONS = Object.freeze({ width:2.503, height:1.132, depth:1.098
 // gelo (EXT-002): cool light grey of the bouclé in SOFA-5.jpg (visual estimate).
 // grafite-quente (EXT-003): warm dark grey of the twill in SOFA-3.jpg (visual estimate).
 // cru (EXT-004): warm off-white of the linen-look cloth in sofa-dois-assentos.webp (visual estimate).
-export const COLORS = Object.freeze({ areia: '#b6b0a8', oliva: '#72765a', terracota: '#ae6952', grafite: '#494b4b', gelo: '#babcc0', 'grafite-quente': '#545050', cru: '#e2ddd2' });
+// cinza-malva (EXT-005): mauve-tinted mid grey of sofa-com-vivo.webp (visual estimate).
+export const COLORS = Object.freeze({ areia: '#b6b0a8', oliva: '#72765a', terracota: '#ae6952', grafite: '#494b4b', gelo: '#babcc0', 'grafite-quente': '#545050', cru: '#e2ddd2', 'cinza-malva': '#8a8286' });
 export const FABRICS = Object.freeze({
   linen: { label:'Trama plana', roughness: 1, normalStrength: .78, sheen: .12, sheenRoughness: .85, repeatMeters: .14 },
   boucle: { label:'Bouclé', roughness: 1, normalStrength: 1.8, sheen: .12, sheenRoughness: .95, repeatMeters: .30 },

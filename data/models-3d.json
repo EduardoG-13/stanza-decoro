@@ -283,6 +283,77 @@
           "note": "fitted to sofa-dois-assentos.webp (12 hand-picked correspondences on the 1280x960 downscale, rms ~9 px, roll 0)"
         }
       }
+    },
+    {
+      "modelId": "stanza-piped-01",
+      "catalogId": "sofa-com-vivo",
+      "portfolioId": "projeto-48",
+      "queue": "EXT-005",
+      "title": "Sofá cinza com vivo claro",
+      "revision": "1.0.0",
+      "status": "technical-validated-visual-review-pending",
+      "statusLabel": "tecnicamente validado – revisão visual pendente",
+      "construction": "exterior-only",
+      "reference": "acervo/sofa-com-vivo.webp",
+      "page": "/explorar-sofa.html?modelo=stanza-piped-01",
+      "productPage": "/modelos/sofa-com-vivo.html",
+      "posterAlt": "Estudo tridimensional do sofá cinza com vivo claro nas almofadas e nos braços",
+      "assets": {
+        "viewerBase": "/assets/sofa-pilot/",
+        "main": "/assets/models-3d/stanza-piped-01/models/stanza-piped-01.glb",
+        "mobile": "/assets/models-3d/stanza-piped-01/models/stanza-piped-01-mobile.glb",
+        "poster": "/assets/models-3d/stanza-piped-01/previews/poster.jpg",
+        "manifest": "/assets/models-3d/stanza-piped-01/manifest.json"
+      },
+      "materialRegions": {
+        "body": [
+          "fabric_main"
+        ],
+        "contrast": [
+          "piping_light"
+        ]
+      },
+      "options": {
+        "appliesTo": "body",
+        "fabrics": [
+          "sarja",
+          "linen",
+          "velvet",
+          "boucle"
+        ],
+        "colors": [
+          "cinza-malva",
+          "grafite",
+          "gelo",
+          "areia",
+          "oliva",
+          "terracota"
+        ],
+        "default": {
+          "fabricId": "sarja",
+          "colorId": "cinza-malva"
+        },
+        "embedded": {
+          "fabricId": "sarja",
+          "colorId": "cinza-malva"
+        }
+      },
+      "cameras": {
+        "photo": {
+          "position": [
+            -1.836,
+            1.51,
+            2.984
+          ],
+          "target": [
+            -0.144,
+            0.28,
+            -0.032
+          ],
+          "fov": 45.7,
+          "note": "fitted to sofa-com-vivo.webp (9 correspondences on the 1280x960 downscale, roll fixed at 0, rms ~20 px: the wide-angle phone photo has ~2.6 deg roll and a seat front that does not fit a straight edge)"
+        }
+      }
     }
   ],
   "verifiedStatuses": [
