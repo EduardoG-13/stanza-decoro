@@ -1,0 +1,103 @@
+{
+  "runs": [
+    {
+      "label": "stages_before_main",
+      "variant": "main",
+      "model": "/cmp/before/sofa.glb",
+      "ready": true,
+      "shots": [
+        "stages_before_main__st_p000.png",
+        "stages_before_main__st_p020.png",
+        "stages_before_main__st_p035.png",
+        "stages_before_main__st_p050.png",
+        "stages_before_main__st_p060.png",
+        "stages_before_main__st_p070.png",
+        "stages_before_main__st_p085.png",
+        "stages_before_main__st_p100.png"
+      ],
+      "selection": {
+        "modelId": "stanza-organic-01",
+        "revision": "1.2.0",
+        "fabricId": "boucle",
+        "colorId": "areia"
+      },
+      "inspect": {
+        "revision": "1.2.0",
+        "variant": "main",
+        "bounds": [
+          2.4866939783096313,
+          1.0424261266140802,
+          1.0842711329460144
+        ],
+        "renders": 10
+      },
+      "errors": []
+    },
+    {
+      "label": "stages_after_main",
+      "variant": "main",
+      "model": "default",
+      "ready": true,
+      "shots": [
+        "stages_after_main__st_p000.png",
+        "stages_after_main__st_p020.png",
+        "stages_after_main__st_p035.png",
+        "stages_after_main__st_p050.png",
+        "stages_after_main__st_p060.png",
+        "stages_after_main__st_p070.png",
+        "stages_after_main__st_p085.png",
+        "stages_after_main__st_p100.png"
+      ],
+      "selection": {
+        "modelId": "stanza-organic-01",
+        "revision": "1.2.0",
+        "fabricId": "boucle",
+        "colorId": "areia"
+      },
+      "inspect": {
+        "revision": "1.2.0",
+        "variant": "main",
+        "bounds": [
+          2.4866939783096313,
+          0.993347696023303,
+          1.0842711329460144
+        ],
+        "renders": 10
+      },
+      "errors": []
+    },
+    {
+      "label": "stages_after_mobile",
+      "variant": "mobile",
+      "model": "default",
+      "ready": true,
+      "shots": [
+        "stages_after_mobile__st_p000.png",
+        "stages_after_mobile__st_p020.png",
+        "stages_after_mobile__st_p035.png",
+        "stages_after_mobile__st_p050.png",
+        "stages_after_mobile__st_p060.png",
+        "stages_after_mobile__st_p070.png",
+        "stages_after_mobile__st_p085.png",
+        "stages_after_mobile__st_p100.png"
+      ],
+      "selection": {
+        "modelId": "stanza-organic-01",
+        "revision": "1.2.0",
+        "fabricId": "boucle",
+        "colorId": "areia"
+      },
+      "inspect": {
+        "revision": "1.2.0",
+        "variant": "mobile",
+        "bounds": [
+          2.486400008201599,
+          0.9933474682012964,
+          1.083982527256012
+        ],
+        "renders": 10
+      },
+      "errors": []
+    }
+  ]
+}

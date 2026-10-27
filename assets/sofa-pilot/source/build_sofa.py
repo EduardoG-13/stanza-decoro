@@ -11,17 +11,26 @@ ROOT = Path(__file__).resolve().parents[1]
 TILE = .14
 OUTLINE = [(-1.16,-.39),(-.91,-.56),(-.50,-.57),(-.13,-.47),(.21,-.44),(.60,-.48),(1.02,-.39),(1.23,-.16),(1.24,.12),(1.05,.37),(.73,.47),(.29,.44),(-.18,.43),(-.66,.44),(-1.04,.32),(-1.22,.04)]
 BACK = [(-1.05,-.29,.61),(-1.10,-.07,.70),(-1.02,.20,.84),(-.82,.34,.91),(-.46,.37,.92),(-.06,.38,.92),(.32,.38,.91),(.62,.34,.89)]
-# Loose seat cushions. pos/rot/size keep the photographed composition (three light + two
-# olive-weave) and asymmetry; neighbours are nudged slightly apart along X to relieve the
-# confirmed mesh interpenetration (01-02..04-05) without large vertical moves that would
-# flatten the silhouette. `flatten` adds the soft contact compression on each cushion's
-# underside (FEAT-002) so the thin contact band with the seat reads as foam, not clipping.
+# Loose seat cushions (FEAT-002 rev2). Each tuple: name, pos, rot (deg, XYZ), half size
+# (a=width, b=height), loft (max fill per face, m). Pillow axes: local X = width, local Z =
+# height (v=-1 is the LOWER edge), local Y = thickness; side=+1 is the REAR face (it maps to
+# world +Y = towards the backrest for every cushion), side=-1 the front face.
+# Composition follows SOFA-2.jpg: cushions stand fairly upright, lean back and rest their lower
+# edge on the rear of the seat; staggered in depth (02 and 04 against the backrest, 01 in the
+# low left arm/back corner, 03 - the tallest - and 05 one row forward leaning on their
+# neighbours), three light + two olive positions, all ending before the chaise (back ends at
+# x~.62). pos (y,z) were SOLVED, not eyeballed: each cushion is translated until its
+# undeformed shell overlaps the seat by ~1 cm and its rear face overlaps what it leans on
+# by ~1-1.5 cm (.agents-only solver, see docs/sofa-3d-review/feat002-rev2-cushions.md); the
+# generator then turns that overlap into localized soft compression (settle_contacts()).
 CUSHIONS = [
-  ('cushion_01',(-.912,-.11,.648),(-12,-17,-6),(.193,.235),.70),
-  ('cushion_02',(-.582,-.188,.651),(-18,14,4),(.191,.245),.68),
-  ('cushion_03',(-.235,-.092,.702),(-15,-11,-4),(.214,.275),.66),
-  ('cushion_04',(.152,-.108,.662),(-17,-17,4),(.181,.235),.68),
-  ('cushion_05',(.462,-.233,.623),(-22,-28,-10),(.178,.195),.70)]
+  ('cushion_01',(-0.8,-0.016,0.6707),(-14,-6,18),(0.19,0.19),0.08),
+  ('cushion_02',(-0.5,0.1567,0.7112),(-16,14,3),(0.182,0.21),0.082),
+  ('cushion_03',(-0.16,0.0626,0.7177),(-14,-10,-3),(0.2,0.222),0.084),
+  ('cushion_04',(0.17,0.1773,0.6909),(-17,-15,4),(0.166,0.19),0.08),
+  ('cushion_05',(0.45,0.0348,0.6703),(-15,-24,-12),(0.156,0.152),0.072)]
+# Contact solve order: what each cushion rests on is built before it.
+SETTLE_ORDER = ['cushion_02','cushion_04','cushion_03','cushion_01','cushion_05']
 
 def catmull(points, t, closed=True):
     n=len(points); total=n if closed else n-1; f=min(t, .999999999)*total; i=int(f); a=f-i
@@ -78,6 +87,15 @@ def fabric(name, mobile=False):
     bs.inputs['Sheen Weight'].default_value=.2; bs.inputs['Sheen Roughness'].default_value=.9
     return m
 
+def seat_dimple(x,y):
+    """Soft foam dimple under each cushion's real footprint (FEAT-002 rev2): the cushions
+    lean back, so the lower edge rests ~5 cm forward of the holder centre; the dimple is a
+    band along the cushion width there, shallow (<=16 mm), so the seat reads as cradling."""
+    d=0
+    for _cn,cp,_cr,cs,_cl in CUSHIONS:
+        d+=.011*exp(-((x-cp[0])/(cs[0]+.07))**2-((y-cp[1]+.05)/.13)**2)
+    return min(d,.016)
+
 def seat(name, parent, mat, n=144, foam=False, batting=False):
     pts=[catmull(OUTLINE,i/n) for i in range(n)]
     # A continuous upholstered bean, with a restrained crown and softened underside.
@@ -95,14 +113,8 @@ def seat(name, parent, mat, n=144, foam=False, batting=False):
         for i,p in enumerate(pts):
             x,y=p.x*s,p.y*s
             ripple=.0013*sin(i/n*2*pi*17+.8)*sin(pi*r/(len(profile)-1))
-            # Soft foam dimple under each loose cushion so its underside is cradled by the
-            # seat crown (FEAT-002) instead of the cushion belly clipping through a flat top.
-            # A shallow Gaussian per cushion footprint; crest stays restrained, no central dome.
-            depression=0
-            if z>.4:
-                for _cn,_cp,_cr,_cs,_cf in CUSHIONS:
-                    depression+=.019*exp(-((x-_cp[0])/(_cs[0]+.11))**2-((y-_cp[1])/(_cs[1]+.10))**2)
-                depression=min(depression,.026)
+            # Shallow foam dimple under each cushion footprint (see seat_dimple()).
+            depression=seat_dimple(x,y) if z>.4 else 0
             vs.append((x,y,z+ripple-depression))
             uv.append((x/TILE,y/TILE) if r>=8 else (i/n*6.28*.80/TILE,z/TILE))
     fs=[]
@@ -171,7 +183,8 @@ def tube(name,pts,radius,parent,mat,sides=5,closed=True):
         for j in range(sides):fs.append((i*sides+j,i*sides+(j+1)%sides,((i+1)%len(pts))*sides+(j+1)%sides,((i+1)%len(pts))*sides+j))
     return mesh(name,vs,fs,parent,mat,uv)
 
-def pillow(name,parent,mat,seam,n,pos,rot,size,seed,flatten=0):
+def pillow_shape(n,size,seed,loft):
+    """Undeformed knife-edge cushion in its local frame (X width, Z height, Y thickness)."""
     vs=[];uv=[];fs=[];a,b=size
     for side in (-1,1):
         for j in range(n+1):
@@ -183,13 +196,7 @@ def pillow(name,parent,mat,seam,n,pos,rot,size,seed,flatten=0):
                 belly=max(0,(1-u*u)*(1-v*v))**.55
                 edge=min(1-abs(u),1-abs(v))
                 gathers=.0055*sin(34*u+9*v+seed)*exp(-edge*9)*sin(pi*max(0,edge)/.28)
-                d=.008+.112*belly+gathers
-                # Soft contact compression (FEAT-002): the underside (side=+1 rests on the
-                # seat) develops a broad flattened patch, as foam does under load, instead of a
-                # round belly poking through the seat shell. The tapered knife edge is kept.
-                if side>0 and flatten:
-                    contact=max(0,(1-(u/.9)**2)*(1-(v/.9)**2))**.75
-                    d-=flatten*contact*(.112*belly)
+                d=.008+loft*belly+gathers
                 vs.append((x,side*d,z));uv.append((x/TILE,z/TILE))
     block=(n+1)**2
     for s in range(2):
@@ -198,9 +205,102 @@ def pillow(name,parent,mat,seam,n,pos,rot,size,seed,flatten=0):
                 k=s*block+j*(n+1)+i;fs.append((k,k+1,k+n+2,k+n+1))
     perimeter=list(range(n+1))+[j*(n+1)+n for j in range(1,n+1)]+[n*(n+1)+i for i in range(n-1,-1,-1)]+[j*(n+1) for j in range(n-1,0,-1)]
     for i,k in enumerate(perimeter):k2=perimeter[(i+1)%len(perimeter)];fs.append((k,k2,k2+block,k+block))
+    return vs,uv,fs,perimeter
+
+def cushion_matrix(pos,rot):
+    from mathutils import Matrix, Euler
+    return Matrix.Translation(Vector(pos)) @ Euler(tuple(math.radians(r) for r in rot),'XYZ').to_matrix().to_4x4()
+
+def collider(verts,faces):
+    """BVH of a closed shell with face normals recalculated OUTWARD (signed distances)."""
+    import bmesh
+    from mathutils.bvhtree import BVHTree
+    bm=bmesh.new(); bv=[bm.verts.new(Vector(v)) for v in verts]
+    for f in faces: bm.faces.new([bv[k] for k in f])
+    bmesh.ops.recalc_face_normals(bm,faces=bm.faces); bm.normal_update()
+    t=BVHTree.FromBMesh(bm); bm.free()
+    return t
+
+def _signed(bvh,p,reach=.12):
+    loc,nrm,_i,dist=bvh.find_nearest(p,reach)
+    if loc is None: return None,None
+    return (p-loc).dot(nrm),nrm
+
+def settle_contacts(pts,faces,colliders,radius=.045,bulge=.45):
+    """FEAT-002 rev2 localized contact deformation of one cushion (world space).
+    colliders: [(bvh, clearance)]; clearance<0 = allowed soft compression depth (m).
+    Penetrating vertices are pushed out along the collider normal; the displacement field
+    is then Gaussian-smoothed over the cushion surface (radius) so the compression spreads
+    as a soft falloff PATCH around the real contact (lower-edge band on the seat, rear-face
+    patch on the backrest/arm or neighbour) instead of a whole-face thinning or a hard
+    facet. A small difference-of-Gaussians ring bulges the fabric outward around each patch
+    (displaced fill), and a last projection pass guarantees no vertex passes the allowance."""
+    import bmesh
+    from mathutils.kdtree import KDTree
+    V=len(pts); P0=[Vector(p) for p in pts]
+    bm=bmesh.new(); bv=[bm.verts.new(p) for p in P0]
+    for f in faces: bm.faces.new([bv[k] for k in f])
+    bmesh.ops.recalc_face_normals(bm,faces=bm.faces); bm.normal_update()
+    N=[v.normal.copy() for v in bm.verts]; bm.free()
+    kd=KDTree(V)
+    for k,p in enumerate(P0): kd.insert(p,k)
+    kd.balance()
+    near=[kd.find_range(p,radius) for p in P0]
+    s2=(radius/2)**2
+    W=[[(idx,exp(-d*d/(2*s2))) for _c,idx,d in nb] for nb in near]
+    def smooth(D):
+        out=[]
+        for k in range(V):
+            acc=Vector(); ws=0
+            for idx,w in W[k]: acc+=D[idx]*w; ws+=w
+            out.append(acc/ws)
+        return out
+    def project(D):
+        hit=False
+        for k in range(V):
+            p=P0[k]+D[k]
+            for bvh,clr in colliders:
+                s,nrm=_signed(bvh,p)
+                if s is not None and s<clr:
+                    D[k]=D[k]+nrm*(clr-s); p=P0[k]+D[k]; hit=True
+        return hit
+    D=[Vector() for _ in range(V)]
+    for _it in range(10):
+        if not project(D) and _it: break
+        D=smooth(D)
+    # displaced fill: ring bulge just outside the compressed patch, along the cushion normal
+    M=[d.length for d in D]
+    wide=[sum(M[idx]*w for idx,w in W[k])/sum(w for _i,w in W[k]) for k in range(V)]
+    wide=[sum(wide[idx]*w for idx,w in W[k])/sum(w for _i,w in W[k]) for k in range(V)]
+    for k in range(V):
+        ring=max(0,wide[k]-M[k])
+        D[k]=D[k]+N[k]*(bulge*ring)
+    for _ in range(3): project(D)
+    return [P0[k]+D[k] for k in range(V)]
+
+def cushion_geometry(n,pos,rot,size,seed,loft,colliders):
+    """Settled cushion: returns local cover verts, uv, faces, perimeter, welt line (local)
+    and the world-space verts (used as a collider by cushions that lean on this one)."""
+    vs,uv,fs,perimeter=pillow_shape(n,size,seed,loft)
+    M=cushion_matrix(pos,rot); Mi=M.inverted()
+    world=settle_contacts([M@Vector(v) for v in vs],fs,colliders)
+    block=(n+1)**2
+    # Welt follows the deformed knife edge (midpoint of front/rear perimeter rows) and is kept
+    # just proud of anything it touches so the seam never vanishes into seat, back or neighbour.
+    line=[]
+    for k in perimeter:
+        p=(world[k]+world[k+block])/2
+        for _ in range(2):
+            for bvh,_clr in colliders:
+                s,nrm=_signed(bvh,p,.03)
+                if s is not None and s<.0008: p=p+nrm*(.0008-s)
+        line.append(tuple(Mi@p))
+    return [tuple(Mi@p) for p in world],uv,fs,perimeter,line,world
+
+def pillow(name,parent,mat,seam,geo,pos,rot):
+    vs,uv,fs,perimeter,line,_world=geo
     holder=empty(name,parent);holder.location=pos;holder.rotation_euler=tuple(math.radians(r) for r in rot)
     ob=mesh(name+'_cover',vs,fs,holder,mat,uv)
-    line=[(vs[k][0],0,vs[k][2]) for k in perimeter]
     tube(name+'_welt',line,.0015,holder,seam,sides=4)
     return ob
 
@@ -250,7 +350,7 @@ def box(name,location,scale,parent,mat,bevel=.008):
 def build(mobile=False):
     bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
     for m in list(bpy.data.materials):bpy.data.materials.remove(m)
-    root=empty('sofa_root');root['modelId']='stanza-organic-01';root['revision']='1.2.0';root['dimensions_estimated']=True;root['construction']='illustrative'
+    root=empty('sofa_root');root['modelId']='stanza-organic-01';root['revision']='1.3.0';root['dimensions_estimated']=True;root['construction']='illustrative'
     groups={name:empty(name,root) for name in ['upholstery','padding','frame','legs','cushions','suspension']}
     cloth=fabric('fabric_main',mobile); seam=cloth.copy();seam.name='fabric_seam'
     foam=material('padding_illustrative',(.72,.62,.43),.97)
@@ -271,7 +371,7 @@ def build(mobile=False):
         t=i/(100 if mobile else 160);p=catmull(OUTLINE,t)
         x,y=p.x*.9655,p.y*.9655
         ripple=.0013*sin(t*2*pi*17+.8)*sin(pi*8/14)
-        depression=min(sum(.019*exp(-((x-cp[0])/(cs[0]+.11))**2-((y-cp[1])/(cs[1]+.10))**2) for _cn,cp,_cr,cs,_cf in CUSHIONS),.026)
+        depression=seat_dimple(x,y)
         pts.append((x,y,.4385+ripple-depression))
     tube('seat_panel_seam',pts,.0011,groups['upholstery'],seam,sides=5 if not mobile else 4)
     # FEAT-003 padding by components: a firm FOAM core plus a thin BATTING loft wrapping it.
@@ -293,14 +393,26 @@ def build(mobile=False):
     tube('perimeter_support',framepts,.043,groups['frame'],frame,sides=4)
     # Front and rear seat rails that the webbing is tensioned between, plus lateral tie rails
     # at the ends; these run with the contour so no bar is left functionless when exposed.
-    FRONT_Y=-.50; REAR_Y=.46
+    # Rails and webbing anchors are fitted INSIDE the upholstered contour (rev2 fix: the
+    # FEAT-003 straight rails at y=-.50/.46 and the strap ends poked up to ~15 cm through the
+    # seat cover where the bean outline swings inward). The seat cover's band at rail height
+    # (z .17-.24) sits at ~99% of OUTLINE; FIT_S/FIT_M keep a clear margin inside it.
     STRAP_X=[-.86,-.58,-.30,-.02,.26,.54,.84]   # anchor columns across the width
-    def contour_y(x,base):                       # keep rails inside the contour at a given x
-        return base*(1-.12*(x/1.2)**2)
-    box('front_rail',(0,contour_y(0,FRONT_Y),.205),(1.98,.05,.07),groups['frame'],frame)
-    box('rear_rail',(-.1,REAR_Y,.205),(1.9,.05,.07),groups['frame'],frame)
+    FIT_S=.99; FIT_M=.035
+    ring=[catmull(OUTLINE,i/720) for i in range(720)]
+    def edge_y(x,front):
+        ys=[p.y*FIT_S for p in ring if abs(p.x*FIT_S-x)<.012]
+        return min(ys) if front else max(ys)
+    def span_y(x0,x1,front):
+        xs=[x0+(x1-x0)*k/24 for k in range(25)]
+        return max(edge_y(x,True) for x in xs)+FIT_M+.025 if front else min(edge_y(x,False) for x in xs)-FIT_M-.025
+    FR_X=(-.95,.95); RR_X=(-.90,.88)
+    FRONT_Y=span_y(*FR_X,True); REAR_Y=span_y(*RR_X,False)
+    box('front_rail',((FR_X[0]+FR_X[1])/2,FRONT_Y,.205),(FR_X[1]-FR_X[0],.05,.07),groups['frame'],frame)
+    box('rear_rail',((RR_X[0]+RR_X[1])/2,REAR_Y,.205),(RR_X[1]-RR_X[0],.05,.07),groups['frame'],frame)
     for k,x in enumerate([-.9,.92]):
-        box('side_rail_'+str(k),(x,-.02,.205),(.05,.86,.07),groups['frame'],frame)
+        y0=max(edge_y(x+d,True) for d in (-.025,0,.025))+FIT_M; y1=min(edge_y(x+d,False) for d in (-.025,0,.025))-FIT_M
+        box('side_rail_'+str(k),(x,(y0+y1)/2,.205),(.05,y1-y0,.07),groups['frame'],frame)
     # Two cross braces under the widest span keep the perimeter from racking (corner-block idea).
     for k,x in enumerate([-.4,.42]):
         box('cross_support_'+str(k),(x,0,.17),(.05,.80,.06),groups['frame'],frame)
@@ -311,10 +423,12 @@ def build(mobile=False):
     # central spans get two lateral straps woven over/under them for the quality cue the
     # references describe; the outer/short spans stay single-direction, as a real maker would
     # not waste webbing where the span is short. Straps sit just above the rails (z~.225).
+    def contour_y(x,base):                       # lateral strap rows stay inside the contour
+        return base*(1-.12*(x/1.2)**2)
     WZ=.225; sb=0
     anchors={}
     for k,x in enumerate(STRAP_X):
-        fa=(x,contour_y(x,FRONT_Y)-.01,WZ); ra=(x,contour_y(x,REAR_Y)+.01,WZ)
+        fa=(x,FRONT_Y,WZ); ra=(x,REAR_Y,WZ)
         anchors[k]=(fa,ra)
         # central columns (2,3,4) are interlaced -> their longitudinal straps ride a touch low
         central = k in (2,3,4)
@@ -337,7 +451,17 @@ def build(mobile=False):
         for p in ob.data.polygons:p.use_smooth=True
         # Mount block tying the foot top to the frame rail so the connection reads coherently.
         box('foot_mount_'+str(k+1),(x,y,FOOT_H+.012),(.09,.09,.03),groups['legs'],feet,bevel=.006)
-    for k,(name,pos,rot,sz,flat) in enumerate(CUSHIONS):pillow(name,groups['cushions'],cloth,seam,12 if mobile else 20,pos,rot,sz,k,flatten=flat)
+    # FEAT-002 rev2: cushions settle against the OUTER cover shells (raw mesh data; the 1.5 mm
+    # solidify grows inward) and against the cushions they lean on, in SETTLE_ORDER.
+    # Groups are still at the origin here, so mesh coordinates are world coordinates.
+    def shell(ob): return [tuple(v.co) for v in ob.data.vertices],[tuple(p.vertices) for p in ob.data.polygons]
+    rigid=[(collider(*shell(seatob)),-.0012),(collider(*shell(backob)),-.0012)]
+    spec={c[0]:(k,c) for k,c in enumerate(CUSHIONS)}; geos={}
+    for name in SETTLE_ORDER:
+        k,(_n,pos,rot,sz,loft)=spec[name]
+        others=[(collider(geos[o][5],geos[o][2]),-.0008) for o in geos]
+        geos[name]=cushion_geometry(12 if mobile else 20,pos,rot,sz,k,loft,rigid+others)
+    for name,pos,rot,sz,loft in CUSHIONS: pillow(name,groups['cushions'],cloth,seam,geos[name],pos,rot)
     bpy.context.view_layer.update()
     points=[o.matrix_world @ Vector(c) for o in bpy.context.scene.objects if o.type=='MESH' for c in o.bound_box]
     cx=(min(p.x for p in points)+max(p.x for p in points))/2

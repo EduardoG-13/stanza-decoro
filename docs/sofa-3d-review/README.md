@@ -14,7 +14,32 @@ As imagens abaixo são compostas lado a lado (antes | depois), rotuladas, gerada
 de capturas **reais do visualizador WebGL** (`createSofaViewer`, Chrome for Testing / SwiftShader),
 e reduzidas para manter o repositório leve. Não são renders de Blender.
 
-### Almofadas (FEAT-002) — contato suave
+### Almofadas (FEAT-002 rev2, revisão 1.3.0) — reassentamento real
+
+Relatório: [feat002-rev2-cushions.md](feat002-rev2-cushions.md). Métrica corrigida (penetração assinada real contra as cascas
+externas) em [`validation/feat002-rev2/`](validation/feat002-rev2/).
+
+![Vistas globais antes/depois](images/feat002rev2_global_main.jpg)
+
+![Pares vizinhos 01-02 / 02-03 / 03-04 / 04-05](images/feat002rev2_pairs_main.jpg)
+
+![Cada almofada contra encosto/braço (de cima)](images/feat002rev2_backrest_main.jpg)
+
+![Cada almofada contra encosto/vizinha (lateral)](images/feat002rev2_backrest_side_main.jpg)
+
+![Borda inferior sobre o assento](images/feat002rev2_seat_main.jpg)
+
+![Mobile: vistas-chave](images/feat002rev2_mobile.jpg)
+
+![Mobile: close-ups](images/feat002rev2_mobile_closeups.jpg)
+
+![Veludo-grafite](images/feat002rev2_velvet_grafite_main.jpg)
+
+![Abertura em camadas com a nova geometria](images/feat002rev2_layers_stages.jpg)
+
+![DIAGNÓSTICO: cores por almofada e cortes (não é render de aceitação)](images/feat002rev2_diagnostics_main.jpg)
+
+### Almofadas (FEAT-002, 1ª versão) — SUPERADA pela rev2 (mantida como histórico)
 
 ![Almofadas antes/depois, detalhe (desktop)](images/cushions_before_after_detail_main.png)
 
@@ -51,7 +76,8 @@ e reduzidas para manter o repositório leve. Não são renders de Blender.
 ## Relatórios
 
 - [Gate de fidelidade do gerador (pré-FEAT-002)](gate-comparison_feat002.md)
-- [FEAT-002 — almofadas: contato suave](feat002-before-after.md)
+- [FEAT-002 rev2 — almofadas reassentadas, métrica corrigida (revisão 1.3.0)](feat002-rev2-cushions.md)
+- [FEAT-002 — almofadas: contato suave](feat002-before-after.md) — **superado** pela rev2
 - [FEAT-003 — interior por componentes](feat003-before-after.md)
 - [FEAT-004 — abertura em camadas reversível](feat004-before-after.md)
 - [FEAT-005 — tecidos, cores e iluminação](feat005-before-after.md)

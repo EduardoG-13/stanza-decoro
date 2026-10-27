@@ -41,7 +41,7 @@ Inclua controles e mensagens de erro adequados à sua página. A demonstração 
 `getSelection()` retorna, por exemplo:
 
 ```json
-{"modelId":"stanza-organic-01","revision":"1.2.0","fabricId":"boucle","colorId":"areia"}
+{"modelId":"stanza-organic-01","revision":"1.3.0","fabricId":"boucle","colorId":"areia"}
 ```
 
 Tecidos: `linen`, `boucle`, `velvet`. Cores: `areia`, `oliva`, `terracota`, `grafite`. São estudos visuais. Não correspondem a catálogo, disponibilidade ou amostra física homologada.

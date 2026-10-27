@@ -1,3 +1,5 @@
+> **SUPERSEDED by [feat002-rev2-cushions.md](feat002-rev2-cushions.md) (revision 1.3.0).** The fix described here was rejected visually and its acceptance metric was invalid: the "~0% embedded" figure came from ray parity against the solidified (double-shell) seat, which misclassifies deep points as outside; corrected, the cushions were 67-89 mm inside the seat and neighbours overlapped 46-72 mm. The `flatten` term also acted on the cushion REAR face (side=+1 maps to world +Y/back), not the base. Kept for history only.
+
 # FEAT-002 — Assembled piece + five cushions: soft contact, cradle, neighbour separation
 
 Parametric edits to `assets/sofa-pilot/source/build_sofa.py`, re-exported to both GLBs and the
