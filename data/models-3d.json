@@ -423,6 +423,116 @@
           "note": "fitted to poltronas-11.jpg (12 correspondences, f 760 px, roll 0, rms ~11 px), then re-aimed at the chair centre (pure rotation + zoom about the camera centre; the reference is warped by the same homography for the overlay)"
         }
       }
+    },
+    {
+      "modelId": "stanza-headboard-panels-01",
+      "catalogId": "cabeceira-paineis",
+      "portfolioId": "projeto-21",
+      "queue": "EXT-040",
+      "title": "Cabeceira de painéis horizontais",
+      "revision": "1.0.0",
+      "status": "technical-validated-visual-review-pending",
+      "statusLabel": "tecnicamente validado – revisão visual pendente",
+      "construction": "exterior-only",
+      "reference": "cabeceiras/cabeceiras-6.jpg",
+      "page": "/explorar-sofa.html?modelo=stanza-headboard-panels-01",
+      "productPage": "/modelos/cabeceira-paineis.html",
+      "posterAlt": "Estudo tridimensional da cabeceira estofada de painéis horizontais em veludo claro",
+      "assets": {
+        "viewerBase": "/assets/sofa-pilot/",
+        "main": "/assets/models-3d/stanza-headboard-panels-01/models/stanza-headboard-panels-01.glb",
+        "mobile": "/assets/models-3d/stanza-headboard-panels-01/models/stanza-headboard-panels-01-mobile.glb",
+        "poster": "/assets/models-3d/stanza-headboard-panels-01/previews/poster.jpg",
+        "manifest": "/assets/models-3d/stanza-headboard-panels-01/manifest.json"
+      },
+      "materialRegions": {
+        "body": [
+          "fabric_main"
+        ]
+      },
+      "options": {
+        "appliesTo": "body",
+        "fabrics": [
+          "velvet",
+          "linen",
+          "sarja",
+          "boucle"
+        ],
+        "colors": [
+          "areia",
+          "cru",
+          "gelo",
+          "grafite",
+          "oliva",
+          "terracota"
+        ],
+        "default": {
+          "fabricId": "velvet",
+          "colorId": "areia"
+        },
+        "embedded": {
+          "fabricId": "velvet",
+          "colorId": "areia"
+        }
+      },
+      "cameras": {
+        "photo": {
+          "position": [
+            -1.776,
+            1.495,
+            2.43
+          ],
+          "target": [
+            0.1,
+            0.6,
+            0.0
+          ],
+          "fov": 65.47,
+          "note": "fitted to cabeceiras-6.jpg (13 correspondences, central width fixed 1.60 m, f 851 px, roll 1.2 deg dropped, rms ~6 px), re-aimed at the composition (pure rotation + zoom; the reference is warped by the same homography for the overlay)"
+        },
+        "front": {
+          "position": [
+            0,
+            1.0,
+            4.7
+          ],
+          "target": [
+            0,
+            0.6,
+            0
+          ],
+          "fov": 36,
+          "note": "wall-mounted piece: frontal at standing eye height, framing the full 3.6 m composition"
+        },
+        "side": {
+          "position": [
+            3.9,
+            1.35,
+            2.1
+          ],
+          "target": [
+            0.25,
+            0.6,
+            0.0
+          ],
+          "fov": 36,
+          "note": "wall-mounted piece: oblique from the right instead of the edge-on bounds side view"
+        },
+        "detail": {
+          "position": [
+            -0.2,
+            1.02,
+            0.78
+          ],
+          "target": [
+            -0.62,
+            0.8,
+            0.08
+          ],
+          "fov": 36,
+          "note": "close-up of the central channels and the strip joint"
+        }
+      }
     }
   ],
   "verifiedStatuses": [

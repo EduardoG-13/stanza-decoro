@@ -1,0 +1,1445 @@
+{
+  "modelId": "stanza-headboard-panels-01",
+  "checks": [
+    {
+      "name": "stanza-headboard-panels-01/main: poster/identity before intent",
+      "ok": true,
+      "detail": {
+        "poster": "/assets/models-3d/stanza-headboard-panels-01/previews/poster.jpg",
+        "stage": "stanza-headboard-panels-01",
+        "crumb": "Cabeceira de painéis horizontais",
+        "product": "/modelos/cabeceira-paineis.html",
+        "fabrics": [
+          "sarja",
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "gelo",
+          "cru",
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "velvet",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=cabeceira-paineis&estudo=stanza-headboard-panels-01&tecido=velvet&cor=areia",
+        "layers": 0
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/main: only the model's options are offered, default checked",
+      "ok": true,
+      "detail": {
+        "poster": "/assets/models-3d/stanza-headboard-panels-01/previews/poster.jpg",
+        "stage": "stanza-headboard-panels-01",
+        "crumb": "Cabeceira de painéis horizontais",
+        "product": "/modelos/cabeceira-paineis.html",
+        "fabrics": [
+          "sarja",
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "gelo",
+          "cru",
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "velvet",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=cabeceira-paineis&estudo=stanza-headboard-panels-01&tecido=velvet&cor=areia",
+        "layers": 0
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/main: quote referencia before intent",
+      "ok": true,
+      "detail": "/orcamento.html?referencia=cabeceira-paineis&estudo=stanza-headboard-panels-01&tecido=velvet&cor=areia"
+    },
+    {
+      "name": "stanza-headboard-panels-01/main: no layer controls",
+      "ok": true,
+      "detail": 0
+    },
+    {
+      "name": "stanza-headboard-panels-01/main: no GLB before user intent",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "stanza-headboard-panels-01/main: only this model's main GLB is loaded",
+      "ok": true,
+      "detail": [
+        "/assets/models-3d/stanza-headboard-panels-01/models/stanza-headboard-panels-01.glb"
+      ]
+    },
+    {
+      "name": "stanza-headboard-panels-01/main: colour change updates selection + quote",
+      "ok": true,
+      "detail": {
+        "name": "Veludo · Grafite",
+        "quote": "/orcamento.html?referencia=cabeceira-paineis&estudo=stanza-headboard-panels-01&tecido=velvet&cor=grafite"
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/main: fast switch keeps the last request",
+      "ok": true,
+      "detail": {
+        "seq": [
+          "areia",
+          "cru",
+          "gelo"
+        ],
+        "last": "/orcamento.html?referencia=cabeceira-paineis&estudo=stanza-headboard-panels-01&tecido=velvet&cor=gelo"
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/main: failed texture keeps the last good selection",
+      "ok": true,
+      "detail": {
+        "status": "Este acabamento não carregou. Mantivemos a última combinação disponível.",
+        "checked": "velvet",
+        "quote": "/orcamento.html?referencia=cabeceira-paineis&estudo=stanza-headboard-panels-01&tecido=velvet&cor=gelo"
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/main: retry after failure works",
+      "ok": true,
+      "detail": "/orcamento.html?referencia=cabeceira-paineis&estudo=stanza-headboard-panels-01&tecido=linen&cor=gelo"
+    },
+    {
+      "name": "stanza-headboard-panels-01/main: return to the initial finish is pixel-identical",
+      "ok": true,
+      "detail": {
+        "bytes": [
+          55499,
+          55499
+        ]
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/main: canvas follows resize",
+      "ok": true,
+      "detail": {
+        "c0": [
+          700,
+          539
+        ],
+        "c1": [
+          513,
+          395
+        ]
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/main: console errors = 0 (besides the 1 intentional aborted texture)",
+      "ok": true,
+      "detail": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "name": "stanza-headboard-panels-01/mobile: poster/identity before intent",
+      "ok": true,
+      "detail": {
+        "poster": "/assets/models-3d/stanza-headboard-panels-01/previews/poster.jpg",
+        "stage": "stanza-headboard-panels-01",
+        "crumb": "Cabeceira de painéis horizontais",
+        "product": "/modelos/cabeceira-paineis.html",
+        "fabrics": [
+          "sarja",
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "gelo",
+          "cru",
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "velvet",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=cabeceira-paineis&estudo=stanza-headboard-panels-01&tecido=velvet&cor=areia",
+        "layers": 0
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/mobile: only the model's options are offered, default checked",
+      "ok": true,
+      "detail": {
+        "poster": "/assets/models-3d/stanza-headboard-panels-01/previews/poster.jpg",
+        "stage": "stanza-headboard-panels-01",
+        "crumb": "Cabeceira de painéis horizontais",
+        "product": "/modelos/cabeceira-paineis.html",
+        "fabrics": [
+          "sarja",
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "gelo",
+          "cru",
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "velvet",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=cabeceira-paineis&estudo=stanza-headboard-panels-01&tecido=velvet&cor=areia",
+        "layers": 0
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/mobile: quote referencia before intent",
+      "ok": true,
+      "detail": "/orcamento.html?referencia=cabeceira-paineis&estudo=stanza-headboard-panels-01&tecido=velvet&cor=areia"
+    },
+    {
+      "name": "stanza-headboard-panels-01/mobile: no layer controls",
+      "ok": true,
+      "detail": 0
+    },
+    {
+      "name": "stanza-headboard-panels-01/mobile: no GLB before user intent",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "stanza-headboard-panels-01/mobile: only this model's mobile GLB is loaded",
+      "ok": true,
+      "detail": [
+        "/assets/models-3d/stanza-headboard-panels-01/models/stanza-headboard-panels-01-mobile.glb"
+      ]
+    },
+    {
+      "name": "stanza-headboard-panels-01/mobile: colour change updates selection + quote",
+      "ok": true,
+      "detail": {
+        "name": "Veludo · Grafite",
+        "quote": "/orcamento.html?referencia=cabeceira-paineis&estudo=stanza-headboard-panels-01&tecido=velvet&cor=grafite"
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/mobile: fast switch keeps the last request",
+      "ok": true,
+      "detail": {
+        "seq": [
+          "areia",
+          "cru",
+          "gelo"
+        ],
+        "last": "/orcamento.html?referencia=cabeceira-paineis&estudo=stanza-headboard-panels-01&tecido=velvet&cor=gelo"
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/mobile: failed texture keeps the last good selection",
+      "ok": true,
+      "detail": {
+        "status": "Este acabamento não carregou. Mantivemos a última combinação disponível.",
+        "checked": "velvet",
+        "quote": "/orcamento.html?referencia=cabeceira-paineis&estudo=stanza-headboard-panels-01&tecido=velvet&cor=gelo"
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/mobile: retry after failure works",
+      "ok": true,
+      "detail": "/orcamento.html?referencia=cabeceira-paineis&estudo=stanza-headboard-panels-01&tecido=linen&cor=gelo"
+    },
+    {
+      "name": "stanza-headboard-panels-01/mobile: return to the initial finish is pixel-identical",
+      "ok": true,
+      "detail": {
+        "bytes": [
+          16007,
+          16007
+        ]
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/mobile: canvas follows resize",
+      "ok": true,
+      "detail": {
+        "c0": [
+          350,
+          318
+        ],
+        "c1": [
+          328,
+          298
+        ]
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/mobile: console errors = 0 (besides the 1 intentional aborted texture)",
+      "ok": true,
+      "detail": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "name": "stanza-headboard-panels-01/api: identity matches registry",
+      "ok": true,
+      "detail": [
+        "stanza-headboard-panels-01",
+        "1.0.0"
+      ]
+    },
+    {
+      "name": "stanza-headboard-panels-01/api: exterior-only + body materials",
+      "ok": true,
+      "detail": {
+        "c": "exterior-only",
+        "body": [
+          "fabric_main"
+        ]
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/api: presets",
+      "ok": true,
+      "detail": [
+        "threequarter",
+        "front",
+        "side",
+        "back",
+        "detail",
+        "photo"
+      ]
+    },
+    {
+      "name": "stanza-headboard-panels-01/api: last request wins",
+      "ok": true,
+      "detail": {
+        "final": {
+          "modelId": "stanza-headboard-panels-01",
+          "revision": "1.0.0",
+          "fabricId": "velvet",
+          "colorId": "terracota"
+        },
+        "results": [
+          {
+            "modelId": "stanza-headboard-panels-01",
+            "revision": "1.0.0",
+            "fabricId": "velvet",
+            "colorId": "areia"
+          },
+          {
+            "modelId": "stanza-headboard-panels-01",
+            "revision": "1.0.0",
+            "fabricId": "velvet",
+            "colorId": "terracota"
+          },
+          {
+            "modelId": "stanza-headboard-panels-01",
+            "revision": "1.0.0",
+            "fabricId": "velvet",
+            "colorId": "terracota"
+          }
+        ]
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/api: decorative/structure materials untouched by setFinish",
+      "ok": true,
+      "detail": {
+        "fixed0": []
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/api: invalid / non-exposed option rejected",
+      "ok": true,
+      "detail": {
+        "invalid": "RangeError",
+        "foreign": "RangeError"
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/api: dispose idempotent, canvas removed, API closed",
+      "ok": true,
+      "detail": {
+        "identity": [
+          "stanza-headboard-panels-01",
+          "1.0.0"
+        ],
+        "views": [
+          "threequarter",
+          "front",
+          "side",
+          "back",
+          "detail",
+          "photo"
+        ],
+        "options": {
+          "fabrics": [
+            "velvet",
+            "linen",
+            "sarja",
+            "boucle"
+          ],
+          "colors": [
+            "areia",
+            "cru",
+            "gelo",
+            "grafite",
+            "oliva",
+            "terracota"
+          ],
+          "embedded": {
+            "fabricId": "velvet",
+            "colorId": "areia"
+          }
+        },
+        "construction": "exterior-only",
+        "fixed0": [],
+        "body": [
+          "fabric_main"
+        ],
+        "results": [
+          {
+            "modelId": "stanza-headboard-panels-01",
+            "revision": "1.0.0",
+            "fabricId": "velvet",
+            "colorId": "areia"
+          },
+          {
+            "modelId": "stanza-headboard-panels-01",
+            "revision": "1.0.0",
+            "fabricId": "velvet",
+            "colorId": "terracota"
+          },
+          {
+            "modelId": "stanza-headboard-panels-01",
+            "revision": "1.0.0",
+            "fabricId": "velvet",
+            "colorId": "terracota"
+          }
+        ],
+        "final": {
+          "modelId": "stanza-headboard-panels-01",
+          "revision": "1.0.0",
+          "fabricId": "velvet",
+          "colorId": "terracota"
+        },
+        "fixed1": [],
+        "invalid": "RangeError",
+        "foreign": "RangeError",
+        "disposed": true,
+        "canvasLeft": 0,
+        "afterDispose": "Visualizador já desmontado."
+      }
+    },
+    {
+      "name": "stanza-headboard-panels-01/api: console errors = 0",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "stanza-organic-01/main: poster/identity before intent",
+      "ok": true,
+      "detail": {
+        "poster": "/assets/sofa-pilot/previews/poster.jpg",
+        "stage": "stanza-organic-01",
+        "crumb": "Sofá orgânico claro",
+        "product": "/modelos/sofa-organico.html",
+        "fabrics": [
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "boucle",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia",
+        "layers": 0
+      }
+    },
+    {
+      "name": "stanza-organic-01/main: only the model's options are offered, default checked",
+      "ok": true,
+      "detail": {
+        "poster": "/assets/sofa-pilot/previews/poster.jpg",
+        "stage": "stanza-organic-01",
+        "crumb": "Sofá orgânico claro",
+        "product": "/modelos/sofa-organico.html",
+        "fabrics": [
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "boucle",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia",
+        "layers": 0
+      }
+    },
+    {
+      "name": "stanza-organic-01/main: quote referencia before intent",
+      "ok": true,
+      "detail": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia"
+    },
+    {
+      "name": "stanza-organic-01/main: no layer controls",
+      "ok": true,
+      "detail": 0
+    },
+    {
+      "name": "stanza-organic-01/main: no GLB before user intent",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "stanza-organic-01/main: only this model's main GLB is loaded",
+      "ok": true,
+      "detail": [
+        "/assets/sofa-pilot/models/sofa.glb"
+      ]
+    },
+    {
+      "name": "stanza-organic-01/main: colour change updates selection + quote",
+      "ok": true,
+      "detail": {
+        "name": "Bouclé · Grafite",
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=grafite"
+      }
+    },
+    {
+      "name": "stanza-organic-01/main: fast switch keeps the last request",
+      "ok": true,
+      "detail": {
+        "seq": [
+          "areia",
+          "oliva",
+          "terracota"
+        ],
+        "last": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=terracota"
+      }
+    },
+    {
+      "name": "stanza-organic-01/main: failed texture keeps the last good selection",
+      "ok": true,
+      "detail": {
+        "status": "Este acabamento não carregou. Mantivemos a última combinação disponível.",
+        "checked": "boucle",
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=terracota"
+      }
+    },
+    {
+      "name": "stanza-organic-01/main: retry after failure works",
+      "ok": true,
+      "detail": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=linen&cor=terracota"
+    },
+    {
+      "name": "stanza-organic-01/main: return to the initial finish is pixel-identical",
+      "ok": true,
+      "detail": {
+        "bytes": [
+          364843,
+          364843
+        ]
+      }
+    },
+    {
+      "name": "stanza-organic-01/main: canvas follows resize",
+      "ok": true,
+      "detail": {
+        "c0": [
+          700,
+          539
+        ],
+        "c1": [
+          513,
+          395
+        ]
+      }
+    },
+    {
+      "name": "stanza-organic-01/main: console errors = 0 (besides the 1 intentional aborted texture)",
+      "ok": true,
+      "detail": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "name": "stanza-organic-01/mobile: poster/identity before intent",
+      "ok": true,
+      "detail": {
+        "poster": "/assets/sofa-pilot/previews/poster.jpg",
+        "stage": "stanza-organic-01",
+        "crumb": "Sofá orgânico claro",
+        "product": "/modelos/sofa-organico.html",
+        "fabrics": [
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "boucle",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia",
+        "layers": 0
+      }
+    },
+    {
+      "name": "stanza-organic-01/mobile: only the model's options are offered, default checked",
+      "ok": true,
+      "detail": {
+        "poster": "/assets/sofa-pilot/previews/poster.jpg",
+        "stage": "stanza-organic-01",
+        "crumb": "Sofá orgânico claro",
+        "product": "/modelos/sofa-organico.html",
+        "fabrics": [
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "boucle",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia",
+        "layers": 0
+      }
+    },
+    {
+      "name": "stanza-organic-01/mobile: quote referencia before intent",
+      "ok": true,
+      "detail": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia"
+    },
+    {
+      "name": "stanza-organic-01/mobile: no layer controls",
+      "ok": true,
+      "detail": 0
+    },
+    {
+      "name": "stanza-organic-01/mobile: no GLB before user intent",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "stanza-organic-01/mobile: only this model's mobile GLB is loaded",
+      "ok": true,
+      "detail": [
+        "/assets/sofa-pilot/models/sofa-mobile.glb"
+      ]
+    },
+    {
+      "name": "stanza-organic-01/mobile: colour change updates selection + quote",
+      "ok": true,
+      "detail": {
+        "name": "Bouclé · Grafite",
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=grafite"
+      }
+    },
+    {
+      "name": "stanza-organic-01/mobile: fast switch keeps the last request",
+      "ok": true,
+      "detail": {
+        "seq": [
+          "areia",
+          "oliva",
+          "terracota"
+        ],
+        "last": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=terracota"
+      }
+    },
+    {
+      "name": "stanza-organic-01/mobile: failed texture keeps the last good selection",
+      "ok": true,
+      "detail": {
+        "status": "Este acabamento não carregou. Mantivemos a última combinação disponível.",
+        "checked": "boucle",
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=terracota"
+      }
+    },
+    {
+      "name": "stanza-organic-01/mobile: retry after failure works",
+      "ok": true,
+      "detail": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=linen&cor=terracota"
+    },
+    {
+      "name": "stanza-organic-01/mobile: return to the initial finish is pixel-identical",
+      "ok": true,
+      "detail": {
+        "bytes": [
+          102879,
+          102879
+        ]
+      }
+    },
+    {
+      "name": "stanza-organic-01/mobile: canvas follows resize",
+      "ok": true,
+      "detail": {
+        "c0": [
+          350,
+          318
+        ],
+        "c1": [
+          328,
+          298
+        ]
+      }
+    },
+    {
+      "name": "stanza-organic-01/mobile: console errors = 0 (besides the 1 intentional aborted texture)",
+      "ok": true,
+      "detail": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "name": "stanza-organic-01/api: identity matches registry",
+      "ok": true,
+      "detail": [
+        "stanza-organic-01",
+        "2.1.0"
+      ]
+    },
+    {
+      "name": "stanza-organic-01/api: exterior-only + body materials",
+      "ok": true,
+      "detail": {
+        "c": "exterior-only",
+        "body": [
+          "fabric_main",
+          "fabric_seam"
+        ]
+      }
+    },
+    {
+      "name": "stanza-organic-01/api: presets",
+      "ok": true,
+      "detail": [
+        "threequarter",
+        "front",
+        "side",
+        "detail",
+        "photo"
+      ]
+    },
+    {
+      "name": "stanza-organic-01/api: last request wins",
+      "ok": true,
+      "detail": {
+        "final": {
+          "modelId": "stanza-organic-01",
+          "revision": "2.1.0",
+          "fabricId": "boucle",
+          "colorId": "grafite"
+        },
+        "results": [
+          {
+            "modelId": "stanza-organic-01",
+            "revision": "2.1.0",
+            "fabricId": "boucle",
+            "colorId": "areia"
+          },
+          {
+            "modelId": "stanza-organic-01",
+            "revision": "2.1.0",
+            "fabricId": "boucle",
+            "colorId": "grafite"
+          },
+          {
+            "modelId": "stanza-organic-01",
+            "revision": "2.1.0",
+            "fabricId": "boucle",
+            "colorId": "grafite"
+          }
+        ]
+      }
+    },
+    {
+      "name": "stanza-organic-01/api: decorative/structure materials untouched by setFinish",
+      "ok": true,
+      "detail": {
+        "fixed0": [
+          [
+            "cushion_olive_weave",
+            "ffffff",
+            "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+            false
+          ],
+          [
+            "cushion_olive_reverse",
+            "ffffff",
+            "3eac38ab-5079-4000-ba65-243579bd7e0c",
+            false
+          ],
+          [
+            "cushion_olive_seam",
+            "ffffff",
+            "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+            false
+          ],
+          [
+            "cushion_light_boucle",
+            "ffffff",
+            "a703ba42-ca6d-46a0-873f-054a58cef7af",
+            false
+          ],
+          [
+            "cushion_light_seam",
+            "ffffff",
+            "a703ba42-ca6d-46a0-873f-054a58cef7af",
+            false
+          ],
+          [
+            "legs_dark",
+            "2d2c29",
+            null,
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "name": "stanza-organic-01/api: invalid / non-exposed option rejected",
+      "ok": true,
+      "detail": {
+        "invalid": "RangeError",
+        "foreign": "RangeError"
+      }
+    },
+    {
+      "name": "stanza-organic-01/api: dispose idempotent, canvas removed, API closed",
+      "ok": true,
+      "detail": {
+        "identity": [
+          "stanza-organic-01",
+          "2.1.0"
+        ],
+        "views": [
+          "threequarter",
+          "front",
+          "side",
+          "detail",
+          "photo"
+        ],
+        "options": {
+          "fabrics": [
+            "boucle",
+            "linen",
+            "velvet"
+          ],
+          "colors": [
+            "areia",
+            "oliva",
+            "terracota",
+            "grafite"
+          ],
+          "embedded": {
+            "fabricId": "boucle",
+            "colorId": "areia"
+          }
+        },
+        "construction": "exterior-only",
+        "fixed0": [
+          [
+            "cushion_olive_weave",
+            "ffffff",
+            "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+            false
+          ],
+          [
+            "cushion_olive_reverse",
+            "ffffff",
+            "3eac38ab-5079-4000-ba65-243579bd7e0c",
+            false
+          ],
+          [
+            "cushion_olive_seam",
+            "ffffff",
+            "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+            false
+          ],
+          [
+            "cushion_light_boucle",
+            "ffffff",
+            "a703ba42-ca6d-46a0-873f-054a58cef7af",
+            false
+          ],
+          [
+            "cushion_light_seam",
+            "ffffff",
+            "a703ba42-ca6d-46a0-873f-054a58cef7af",
+            false
+          ],
+          [
+            "legs_dark",
+            "2d2c29",
+            null,
+            false
+          ]
+        ],
+        "body": [
+          "fabric_main",
+          "fabric_seam"
+        ],
+        "results": [
+          {
+            "modelId": "stanza-organic-01",
+            "revision": "2.1.0",
+            "fabricId": "boucle",
+            "colorId": "areia"
+          },
+          {
+            "modelId": "stanza-organic-01",
+            "revision": "2.1.0",
+            "fabricId": "boucle",
+            "colorId": "grafite"
+          },
+          {
+            "modelId": "stanza-organic-01",
+            "revision": "2.1.0",
+            "fabricId": "boucle",
+            "colorId": "grafite"
+          }
+        ],
+        "final": {
+          "modelId": "stanza-organic-01",
+          "revision": "2.1.0",
+          "fabricId": "boucle",
+          "colorId": "grafite"
+        },
+        "fixed1": [
+          [
+            "cushion_olive_weave",
+            "ffffff",
+            "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+            false
+          ],
+          [
+            "cushion_olive_reverse",
+            "ffffff",
+            "3eac38ab-5079-4000-ba65-243579bd7e0c",
+            false
+          ],
+          [
+            "cushion_olive_seam",
+            "ffffff",
+            "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+            false
+          ],
+          [
+            "cushion_light_boucle",
+            "ffffff",
+            "a703ba42-ca6d-46a0-873f-054a58cef7af",
+            false
+          ],
+          [
+            "cushion_light_seam",
+            "ffffff",
+            "a703ba42-ca6d-46a0-873f-054a58cef7af",
+            false
+          ],
+          [
+            "legs_dark",
+            "2d2c29",
+            null,
+            false
+          ]
+        ],
+        "invalid": "RangeError",
+        "foreign": "RangeError",
+        "disposed": true,
+        "canvasLeft": 0,
+        "afterDispose": "Visualizador já desmontado."
+      }
+    },
+    {
+      "name": "stanza-organic-01/api: console errors = 0",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "product page sofa-organico: \"Ver em 3D\" -> /explorar-sofa.html, photo kept",
+      "ok": true,
+      "detail": [
+        [
+          null,
+          "/explorar-sofa.html",
+          "Ver em 3D e experimentar cores e tecidos ↗"
+        ]
+      ]
+    },
+    {
+      "name": "product page sofa-reto: \"Ver em 3D\" -> /explorar-sofa.html?modelo=stanza-straight-01, photo kept",
+      "ok": true,
+      "detail": [
+        [
+          null,
+          "/explorar-sofa.html?modelo=stanza-straight-01",
+          "Ver em 3D e experimentar cores e tecidos ↗"
+        ]
+      ]
+    },
+    {
+      "name": "product page sofa-modular: \"Ver em 3D\" -> /explorar-sofa.html?modelo=stanza-modular-01, photo kept",
+      "ok": true,
+      "detail": [
+        [
+          null,
+          "/explorar-sofa.html?modelo=stanza-modular-01",
+          "Ver em 3D e experimentar cores e tecidos ↗"
+        ]
+      ]
+    },
+    {
+      "name": "product page sofa-dois-assentos: \"Ver em 3D\" -> /explorar-sofa.html?modelo=stanza-two-seat-01, photo kept",
+      "ok": true,
+      "detail": [
+        [
+          null,
+          "/explorar-sofa.html?modelo=stanza-two-seat-01",
+          "Ver em 3D e experimentar cores e tecidos ↗"
+        ]
+      ]
+    },
+    {
+      "name": "product page sofa-com-vivo: \"Ver em 3D\" -> /explorar-sofa.html?modelo=stanza-piped-01, photo kept",
+      "ok": true,
+      "detail": [
+        [
+          null,
+          "/explorar-sofa.html?modelo=stanza-piped-01",
+          "Ver em 3D e experimentar cores e tecidos ↗"
+        ]
+      ]
+    },
+    {
+      "name": "product page poltrona-bracos: \"Ver em 3D\" -> /explorar-sofa.html?modelo=stanza-armchair-01, photo kept",
+      "ok": true,
+      "detail": [
+        [
+          null,
+          "/explorar-sofa.html?modelo=stanza-armchair-01",
+          "Ver em 3D e experimentar cores e tecidos ↗"
+        ]
+      ]
+    },
+    {
+      "name": "product page cabeceira-paineis: \"Ver em 3D\" -> /explorar-sofa.html?modelo=stanza-headboard-panels-01, photo kept",
+      "ok": true,
+      "detail": [
+        [
+          null,
+          "/explorar-sofa.html?modelo=stanza-headboard-panels-01",
+          "Ver em 3D e experimentar cores e tecidos ↗"
+        ]
+      ]
+    },
+    {
+      "name": "product page sofa-chaise: no 3D entry (not registered)",
+      "ok": true
+    },
+    {
+      "name": "unknown model: no 3D, no other piece, no GLB",
+      "ok": true,
+      "detail": {
+        "st": {
+          "start": true,
+          "status": "Este estudo 3D não está disponível. As fotos das peças continuam no catálogo.",
+          "poster": true,
+          "quote": "/orcamento.html"
+        },
+        "errors": []
+      }
+    },
+    {
+      "name": "home: never requests the 3D collection; only the organic sofa",
+      "ok": true,
+      "detail": {
+        "r3": [],
+        "glb": [
+          "/assets/sofa-pilot/models/sofa-mobile.glb"
+        ]
+      }
+    }
+  ],
+  "runs": {
+    "stanza-headboard-panels-01/main": {
+      "before": {
+        "poster": "/assets/models-3d/stanza-headboard-panels-01/previews/poster.jpg",
+        "stage": "stanza-headboard-panels-01",
+        "crumb": "Cabeceira de painéis horizontais",
+        "product": "/modelos/cabeceira-paineis.html",
+        "fabrics": [
+          "sarja",
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "gelo",
+          "cru",
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "velvet",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=cabeceira-paineis&estudo=stanza-headboard-panels-01&tecido=velvet&cor=areia",
+        "layers": 0
+      },
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    "stanza-headboard-panels-01/mobile": {
+      "before": {
+        "poster": "/assets/models-3d/stanza-headboard-panels-01/previews/poster.jpg",
+        "stage": "stanza-headboard-panels-01",
+        "crumb": "Cabeceira de painéis horizontais",
+        "product": "/modelos/cabeceira-paineis.html",
+        "fabrics": [
+          "sarja",
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "gelo",
+          "cru",
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "velvet",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=cabeceira-paineis&estudo=stanza-headboard-panels-01&tecido=velvet&cor=areia",
+        "layers": 0
+      },
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    "stanza-headboard-panels-01/api": {
+      "identity": [
+        "stanza-headboard-panels-01",
+        "1.0.0"
+      ],
+      "views": [
+        "threequarter",
+        "front",
+        "side",
+        "back",
+        "detail",
+        "photo"
+      ],
+      "options": {
+        "fabrics": [
+          "velvet",
+          "linen",
+          "sarja",
+          "boucle"
+        ],
+        "colors": [
+          "areia",
+          "cru",
+          "gelo",
+          "grafite",
+          "oliva",
+          "terracota"
+        ],
+        "embedded": {
+          "fabricId": "velvet",
+          "colorId": "areia"
+        }
+      },
+      "construction": "exterior-only",
+      "fixed0": [],
+      "body": [
+        "fabric_main"
+      ],
+      "results": [
+        {
+          "modelId": "stanza-headboard-panels-01",
+          "revision": "1.0.0",
+          "fabricId": "velvet",
+          "colorId": "areia"
+        },
+        {
+          "modelId": "stanza-headboard-panels-01",
+          "revision": "1.0.0",
+          "fabricId": "velvet",
+          "colorId": "terracota"
+        },
+        {
+          "modelId": "stanza-headboard-panels-01",
+          "revision": "1.0.0",
+          "fabricId": "velvet",
+          "colorId": "terracota"
+        }
+      ],
+      "final": {
+        "modelId": "stanza-headboard-panels-01",
+        "revision": "1.0.0",
+        "fabricId": "velvet",
+        "colorId": "terracota"
+      },
+      "fixed1": [],
+      "invalid": "RangeError",
+      "foreign": "RangeError",
+      "disposed": true,
+      "canvasLeft": 0,
+      "afterDispose": "Visualizador já desmontado."
+    },
+    "stanza-organic-01/main": {
+      "before": {
+        "poster": "/assets/sofa-pilot/previews/poster.jpg",
+        "stage": "stanza-organic-01",
+        "crumb": "Sofá orgânico claro",
+        "product": "/modelos/sofa-organico.html",
+        "fabrics": [
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "boucle",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia",
+        "layers": 0
+      },
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    "stanza-organic-01/mobile": {
+      "before": {
+        "poster": "/assets/sofa-pilot/previews/poster.jpg",
+        "stage": "stanza-organic-01",
+        "crumb": "Sofá orgânico claro",
+        "product": "/modelos/sofa-organico.html",
+        "fabrics": [
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "boucle",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia",
+        "layers": 0
+      },
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    "stanza-organic-01/api": {
+      "identity": [
+        "stanza-organic-01",
+        "2.1.0"
+      ],
+      "views": [
+        "threequarter",
+        "front",
+        "side",
+        "detail",
+        "photo"
+      ],
+      "options": {
+        "fabrics": [
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "embedded": {
+          "fabricId": "boucle",
+          "colorId": "areia"
+        }
+      },
+      "construction": "exterior-only",
+      "fixed0": [
+        [
+          "cushion_olive_weave",
+          "ffffff",
+          "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+          false
+        ],
+        [
+          "cushion_olive_reverse",
+          "ffffff",
+          "3eac38ab-5079-4000-ba65-243579bd7e0c",
+          false
+        ],
+        [
+          "cushion_olive_seam",
+          "ffffff",
+          "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+          false
+        ],
+        [
+          "cushion_light_boucle",
+          "ffffff",
+          "a703ba42-ca6d-46a0-873f-054a58cef7af",
+          false
+        ],
+        [
+          "cushion_light_seam",
+          "ffffff",
+          "a703ba42-ca6d-46a0-873f-054a58cef7af",
+          false
+        ],
+        [
+          "legs_dark",
+          "2d2c29",
+          null,
+          false
+        ]
+      ],
+      "body": [
+        "fabric_main",
+        "fabric_seam"
+      ],
+      "results": [
+        {
+          "modelId": "stanza-organic-01",
+          "revision": "2.1.0",
+          "fabricId": "boucle",
+          "colorId": "areia"
+        },
+        {
+          "modelId": "stanza-organic-01",
+          "revision": "2.1.0",
+          "fabricId": "boucle",
+          "colorId": "grafite"
+        },
+        {
+          "modelId": "stanza-organic-01",
+          "revision": "2.1.0",
+          "fabricId": "boucle",
+          "colorId": "grafite"
+        }
+      ],
+      "final": {
+        "modelId": "stanza-organic-01",
+        "revision": "2.1.0",
+        "fabricId": "boucle",
+        "colorId": "grafite"
+      },
+      "fixed1": [
+        [
+          "cushion_olive_weave",
+          "ffffff",
+          "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+          false
+        ],
+        [
+          "cushion_olive_reverse",
+          "ffffff",
+          "3eac38ab-5079-4000-ba65-243579bd7e0c",
+          false
+        ],
+        [
+          "cushion_olive_seam",
+          "ffffff",
+          "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+          false
+        ],
+        [
+          "cushion_light_boucle",
+          "ffffff",
+          "a703ba42-ca6d-46a0-873f-054a58cef7af",
+          false
+        ],
+        [
+          "cushion_light_seam",
+          "ffffff",
+          "a703ba42-ca6d-46a0-873f-054a58cef7af",
+          false
+        ],
+        [
+          "legs_dark",
+          "2d2c29",
+          null,
+          false
+        ]
+      ],
+      "invalid": "RangeError",
+      "foreign": "RangeError",
+      "disposed": true,
+      "canvasLeft": 0,
+      "afterDispose": "Visualizador já desmontado."
+    }
+  },
+  "passed": true,
+  "summary": {
+    "total": 78,
+    "failed": 0
+  }
+}

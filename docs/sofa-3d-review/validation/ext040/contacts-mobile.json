@@ -1,0 +1,165 @@
+{
+ "glb": "assets/models-3d/stanza-headboard-panels-01/models/stanza-headboard-panels-01-mobile.glb",
+ "pairs": {
+  "center_panel_bottom:center_panel_middle": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.0
+  },
+  "center_panel_bottom:strip_left_inner": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.83
+  },
+  "center_panel_bottom:strip_right_inner": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.6
+  },
+  "center_panel_middle:center_panel_bottom": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.0
+  },
+  "center_panel_middle:center_panel_top": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.0
+  },
+  "center_panel_middle:strip_left_inner": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.91
+  },
+  "center_panel_middle:strip_right_inner": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.95
+  },
+  "center_panel_top:center_panel_middle": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.99
+  },
+  "center_panel_top:strip_left_inner": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.92
+  },
+  "center_panel_top:strip_right_inner": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.76
+  },
+  "side_left_bottom:side_left_top": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.99
+  },
+  "side_left_bottom:strip_left_outer": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 2.51
+  },
+  "side_left_top:side_left_bottom": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.97
+  },
+  "side_left_top:strip_left_outer": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 2.98
+  },
+  "side_right_bottom:side_right_top": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.97
+  },
+  "side_right_bottom:strip_right_outer": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 2.65
+  },
+  "side_right_top:side_right_bottom": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.93
+  },
+  "side_right_top:strip_right_outer": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 2.84
+  },
+  "strip_left_inner:center_panel_bottom": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.66
+  },
+  "strip_left_inner:center_panel_middle": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.46
+  },
+  "strip_left_inner:center_panel_top": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.04
+  },
+  "strip_left_inner:strip_left_outer": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 2.03
+  },
+  "strip_left_outer:side_left_bottom": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 3.09
+  },
+  "strip_left_outer:side_left_top": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 3.92
+  },
+  "strip_left_outer:strip_left_inner": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 2.03
+  },
+  "strip_right_inner:center_panel_bottom": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.66
+  },
+  "strip_right_inner:center_panel_middle": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.46
+  },
+  "strip_right_inner:center_panel_top": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.87
+  },
+  "strip_right_inner:strip_right_outer": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 2.02
+  },
+  "strip_right_outer:side_right_bottom": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 3.37
+  },
+  "strip_right_outer:side_right_top": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 3.66
+  },
+  "strip_right_outer:strip_right_inner": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 2.04
+  }
+ }
+}

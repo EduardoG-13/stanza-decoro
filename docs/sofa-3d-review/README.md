@@ -1,4 +1,4 @@
-# Revisão dos estudos 3D (stanza-organic-01, stanza-straight-01, stanza-modular-01, stanza-two-seat-01, stanza-piped-01, stanza-armchair-01 e fila)
+# Revisão dos estudos 3D (stanza-organic-01, stanza-straight-01, stanza-modular-01, stanza-two-seat-01, stanza-piped-01, stanza-armchair-01, stanza-headboard-panels-01 e fila)
 
 Esta pasta reúne, de forma **versionada e visível no PR**, o material de revisão do aprimoramento
 do sofá 3D (branch `work/sofa-3d-inspection`). Os caminhos internos do sandbox (`.agents/`,
@@ -39,6 +39,11 @@ Infraestrutura multi-modelo (biblioteca Blender, biblioteca de acabamentos, regi
 [ext014-poltrona-bracos.md](ext014-poltrona-bracos.md) · prévia `/explorar-sofa.html?modelo=stanza-armchair-01`.
 
 ![EXT-014: foto × render](images/ext014_photo_vs_render.jpg)
+
+**EXT-040 — Cabeceira de painéis horizontais** (`stanza-headboard-panels-01` 1.0.0, catálogo `cabeceira-paineis`; só a composição estofada de parede):
+[ext040-cabeceira-paineis.md](ext040-cabeceira-paineis.md) · prévia `/explorar-sofa.html?modelo=stanza-headboard-panels-01`.
+
+![EXT-040: foto × render](images/ext040_photo_vs_render.jpg)
 
 ## EXT-001 r2, revisão 2.1.0 (refino de fidelidade à foto)
 

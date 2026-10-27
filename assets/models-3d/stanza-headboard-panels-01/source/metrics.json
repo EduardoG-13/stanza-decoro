@@ -1,0 +1,200 @@
+{
+  "main": {
+    "triangles_blender": 42928,
+    "trianglesByObject": {
+      "center_panel_bottom": 7664,
+      "center_panel_middle": 5648,
+      "center_panel_top": 5648,
+      "strip_left_inner": 3032,
+      "strip_left_outer": 3032,
+      "side_left_bottom": 2960,
+      "side_left_top": 2960,
+      "strip_right_inner": 3032,
+      "strip_right_outer": 3032,
+      "side_right_bottom": 2960,
+      "side_right_top": 2960
+    },
+    "bytes": 2087684,
+    "sha256": "1d8826ad72d1b6c446b09e7b337ed5843cd6affa6c52d252b52e4e79215ec882",
+    "triangles": 42928,
+    "boundsMeters": {
+      "min": [
+        -1.801,
+        -0.001,
+        -0.00073
+      ],
+      "max": [
+        1.801,
+        1.212,
+        0.10199
+      ],
+      "dimensions": [
+        3.602,
+        1.213,
+        0.10273
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal-1024",
+        "mimeType": "image/png",
+        "bytes": 564972,
+        "usedBy": [
+          "fabric_main"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "basecolor-areia-1024",
+        "mimeType": "image/jpeg",
+        "bytes": 46922,
+        "usedBy": [
+          "fabric_main"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 32969,
+        "usedBy": [
+          "fabric_main"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "fabric_main",
+        "region": "body"
+      }
+    ],
+    "meshes": [
+      "center_panel_bottom",
+      "center_panel_middle",
+      "center_panel_top",
+      "side_left_bottom",
+      "side_left_top",
+      "side_right_bottom",
+      "side_right_top",
+      "strip_left_inner",
+      "strip_left_outer",
+      "strip_right_inner",
+      "strip_right_outer"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-headboard-panels-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "cabeceiras/cabeceiras-6.jpg",
+      "catalogId": "cabeceira-paineis",
+      "queue": "EXT-040",
+      "mounting": "wall",
+      "materialRegions": "{\"body\": [\"fabric_main\"]}",
+      "embeddedFinish": "{\"fabricId\": \"velvet\", \"colorId\": \"areia\"}",
+      "embeddedTiles": 2,
+      "bodyUvMeters": 0.3
+    }
+  },
+  "mobile": {
+    "triangles_blender": 17136,
+    "trianglesByObject": {
+      "center_panel_bottom": 2768,
+      "center_panel_middle": 2192,
+      "center_panel_top": 2192,
+      "strip_left_inner": 1256,
+      "strip_left_outer": 1256,
+      "side_left_bottom": 1240,
+      "side_left_top": 1240,
+      "strip_right_inner": 1256,
+      "strip_right_outer": 1256,
+      "side_right_bottom": 1240,
+      "side_right_top": 1240
+    },
+    "bytes": 685856,
+    "sha256": "a0c172f359c90210f665f39d368000554decabab94a7fb4ad468027211f80876",
+    "triangles": 17136,
+    "boundsMeters": {
+      "min": [
+        -1.80089,
+        -0.001,
+        -0.00073
+      ],
+      "max": [
+        1.80089,
+        1.212,
+        0.10176
+      ],
+      "dimensions": [
+        3.60178,
+        1.213,
+        0.10248
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal-256",
+        "mimeType": "image/png",
+        "bytes": 29499,
+        "usedBy": [
+          "fabric_main"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "basecolor-areia-512",
+        "mimeType": "image/jpeg",
+        "bytes": 11080,
+        "usedBy": [
+          "fabric_main"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 32969,
+        "usedBy": [
+          "fabric_main"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "fabric_main",
+        "region": "body"
+      }
+    ],
+    "meshes": [
+      "center_panel_bottom",
+      "center_panel_middle",
+      "center_panel_top",
+      "side_left_bottom",
+      "side_left_top",
+      "side_right_bottom",
+      "side_right_top",
+      "strip_left_inner",
+      "strip_left_outer",
+      "strip_right_inner",
+      "strip_right_outer"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-headboard-panels-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "cabeceiras/cabeceiras-6.jpg",
+      "catalogId": "cabeceira-paineis",
+      "queue": "EXT-040",
+      "mounting": "wall",
+      "materialRegions": "{\"body\": [\"fabric_main\"]}",
+      "embeddedFinish": "{\"fabricId\": \"velvet\", \"colorId\": \"areia\"}",
+      "embeddedTiles": 2,
+      "bodyUvMeters": 0.3
+    }
+  }
+}

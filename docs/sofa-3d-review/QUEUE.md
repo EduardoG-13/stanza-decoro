@@ -500,15 +500,16 @@ Em caso de dúvida, o material fica **fixo** e a dúvida é registrada em “Lim
 
 ### EXT-040 — Cabeceira com painéis horizontais
 
-- **Estado:** pendente
+- **Estado:** tecnicamente validado – revisão visual pendente
 - **Fontes:** [`cabeceiras/cabeceiras-6.jpg`](../../cabeceiras/cabeceiras-6.jpg)
-- **Relação:** catálogo `cabeceira-paineis`; portfólio `projeto-21`
-- **Arquivos:** —
-- **Revisão:** —
-- **Opções reais:** a definir (aplicar a regra de regiões acima)
-- **Evidências:** —
-- **Limitações:** —
-- **Próxima ação:** ler a foto, definir regiões e proporções, gerar fonte paramétrica e GLBs, registrar em `data/models-3d.json`.
+- **Relação:** catálogo `cabeceira-paineis`; portfólio `projeto-21` (mesma foto; IDs preservados)
+- **Arquivos:** `assets/models-3d/stanza-headboard-panels-01/` — `source/build.py` (fonte de verdade), `source/stanza-headboard-panels-01.blend`, `models/stanza-headboard-panels-01.glb`, `models/stanza-headboard-panels-01-mobile.glb`, `previews/poster.jpg`, `manifest.json`; mapas `assets/sofa-pilot/materials/velvet/` (por referência); registro `data/models-3d.json` (`stanza-headboard-panels-01`, câmeras photo/front/side/detail próprias)
+- **Revisão:** 1.0.0 (somente exterior; só a composição estofada de parede: cabeceira central de 3 painéis, 4 faixas verticais, 4 painéis laterais) · principal 42 928 tri / 2,09 MB · móvel 17 136 tri / 0,69 MB
+- **Opções reais:** corpo (todos os painéis) — tecidos `velvet` (inicial), `linen`, `sarja`, `boucle` × cores `areia` (inicial, reutilizada), `cru`, `gelo`, `grafite`, `oliva`, `terracota`. Sem decorativas, contrastes ou estrutura visível.
+- **Evidências:** [ext040-cabeceira-paineis.md](ext040-cabeceira-paineis.md), imagens `images/ext040_*.jpg`, validação `validation/ext040/` (glTF-Validator 0/0/0/0, comportamento 78/78, máscaras, contatos)
+- **Prévia:** `/explorar-sofa.html?modelo=stanza-headboard-panels-01`; produto `/modelos/cabeceira-paineis.html` com "Ver em 3D"
+- **Limitações:** um único ângulo; escala pela cabeceira central fixada em 1,60 m (queen, premissa); composição tratada como simétrica, painéis laterais de 0,60 m estimados; recortes de interruptores não modelados; canais um pouco mais abertos que na foto; sem parede no visualizador; validação só headless.
+- **Próxima ação:** revisão visual pela Stanza; se aprovado, marcar `approved`.
 
 ### EXT-041 — Cabeceira e recamier no quarto
 
