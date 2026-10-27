@@ -1,4 +1,4 @@
-# EXT-040 — Cabeceira de painéis horizontais (`stanza-headboard-panels-01` 1.0.0)
+# EXT-040 — Cabeceira de painéis horizontais (`stanza-headboard-panels-01` 1.0.1)
 
 **Estado:** tecnicamente validado – revisão visual pendente · prévia `/explorar-sofa.html?modelo=stanza-headboard-panels-01` · produto `/modelos/cabeceira-paineis.html` ("Ver em 3D").
 
@@ -70,7 +70,7 @@ Na sobreposição de 50%, a composição coincide com a foto: cantos e os dois c
 
 Diferenças que continuam:
 
-- Os canais da foto são linhas mais finas e escuras; no render ficam um pouco mais abertos.
+- Os canais da foto são linhas mais finas e escuras. Na 1.0.0 ficavam um pouco mais abertos; a **1.0.1** apertou os raios das bordas (central 24→17 mm, faixas 22→16 mm, laterais 20→15 mm) e a junta (4→3 mm). Os canais ficaram mais finos e a divisão, as medidas e as opções continuam as mesmas. Pôster, glTF-Validator (0/0/0/0) e comportamento (80/80) foram refeitos. Antes × depois: [ext040_r101_channels.jpg](images/ext040_r101_channels.jpg) (vista photo, closeup e recorte central; 1.0.0 à esquerda de cada par).
 - O abaulamento das frentes é mais uniforme que o da foto.
 - O tecido da foto parece um suede mais fosco que o veludo.
 - No visualizador não há parede, então os painéis laterais aparecem soltos no ar.

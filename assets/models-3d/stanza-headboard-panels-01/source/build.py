@@ -30,7 +30,7 @@ from PIL import Image
 import stanza3d as S
 
 MODEL_ID = 'stanza-headboard-panels-01'
-REVISION = '1.0.0'
+REVISION = '1.0.1'
 EMBEDDED = {'fabricId': 'velvet', 'colorId': 'areia'}
 _hex = json.loads((REPO/'assets'/'models-3d'/'materials'/'materials.json').read_text())['tints']['areia']
 TINT = tuple(int(_hex[i:i+2], 16) for i in (1, 3, 5))   # = COLORS.areia in sofa-viewer.js (#b6b0a8)
@@ -47,7 +47,9 @@ WP = .60           # side panel width (right one ends near the room corner; left
 HP = .67           # side panel bottom (fit .669; sits just above the nightstand)
 HPM = .94          # side panel channel (fit .926, aligned with the central upper channel)
 TC, TS, TP = .09, .07, .05   # depths: central panels / strips / side panels (from the visible side faces)
-GAP = .004         # joint between neighbouring panels (each panel is a separate upholstered board)
+GAP = .003         # joint between neighbouring panels (each panel is a separate upholstered board)
+# 1.0.1: tighter edge radii (central .024->.017, strips .022->.016, sides .020->.015) and joint 4->3 mm:
+# the photo's channels are thin dark lines, 1.0.0 read slightly too open (light refinement, same layout).
 
 def velvet_maps(tmp, base, normal, rough):
     """Embedded maps of the shared velvet family (by reference): base colour pre-tinted with TINT
@@ -91,20 +93,20 @@ def build(mobile=False):
 
     g = GAP/2
     # ------------------------------------------------------------ central headboard: 3 horizontal panels
-    panel('center_panel_bottom', -WC/2, WC/2, 0, H1-g, TC, .024, .012, 1, (28, 22))
-    panel('center_panel_middle', -WC/2, WC/2, H1+g, H2-g, TC, .024, .009, 2, (28, 22))
-    panel('center_panel_top', -WC/2, WC/2, H2+g, H, TC, .024, .009, 3, (28, 22))
+    panel('center_panel_bottom', -WC/2, WC/2, 0, H1-g, TC, .017, .012, 1, (28, 22))
+    panel('center_panel_middle', -WC/2, WC/2, H1+g, H2-g, TC, .017, .009, 2, (28, 22))
+    panel('center_panel_top', -WC/2, WC/2, H2+g, H, TC, .017, .009, 3, (28, 22))
     # ------------------------------------------------------------ vertical strips, 2 per side, floor to top
     for sg, side in ((-1, 'left'), (1, 'right')):
         for k in range(2):
             a = WC/2+k*WS+g; b = WC/2+(k+1)*WS-g
             x0, x1 = (a, b) if sg > 0 else (-b, -a)
-            panel(f'strip_{side}_{"inner" if k == 0 else "outer"}', x0, x1, 0, H, TS, .022, .006, 10+k+(2 if sg > 0 else 0), (40, 12))
+            panel(f'strip_{side}_{"inner" if k == 0 else "outer"}', x0, x1, 0, H, TS, .016, .006, 10+k+(2 if sg > 0 else 0), (40, 12))
         # -------------------------------------------------------- side panels: 2 horizontal boards above the nightstand
         a = WC/2+2*WS+g; b = a+WP-g
         x0, x1 = (a, b) if sg > 0 else (-b, -a)
-        panel(f'side_{side}_bottom', x0, x1, HP, HPM-g, TP, .02, .006, 20+(2 if sg > 0 else 0), (28, 22))
-        panel(f'side_{side}_top', x0, x1, HPM+g, H, TP, .02, .006, 21+(2 if sg > 0 else 0), (28, 22))
+        panel(f'side_{side}_bottom', x0, x1, HP, HPM-g, TP, .015, .006, 20+(2 if sg > 0 else 0), (28, 22))
+        panel(f'side_{side}_top', x0, x1, HPM+g, H, TP, .015, .006, 21+(2 if sg > 0 else 0), (28, 22))
     # ------------------------------------------------------------ export
     bpy.context.view_layer.update()
     tris, per = S.triangle_count(True)

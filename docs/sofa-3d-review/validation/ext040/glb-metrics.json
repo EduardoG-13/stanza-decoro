@@ -1,13 +1,13 @@
 {
   "assets/models-3d/stanza-headboard-panels-01/models/stanza-headboard-panels-01.glb": {
-    "bytes": 2087684,
-    "sha256": "1d8826ad72d1b6c446b09e7b337ed5843cd6affa6c52d252b52e4e79215ec882",
+    "bytes": 2092964,
+    "sha256": "4fa0da06f2d4c852c16b7298deb639b9ba055e9d95c57508a663ef1614426fe2",
     "triangles": 42928,
     "boundsMeters": {
       "min": [
         -1.801,
         -0.001,
-        -0.00073
+        -0.00074
       ],
       "max": [
         1.801,
@@ -71,7 +71,7 @@
     "rootExtras": {
       "asset_id": "model_root",
       "modelId": "stanza-headboard-panels-01",
-      "revision": "1.0.0",
+      "revision": "1.0.1",
       "construction": "exterior-only",
       "dimensions_estimated": true,
       "reference": "cabeceiras/cabeceiras-6.jpg",
@@ -85,14 +85,14 @@
     }
   },
   "assets/models-3d/stanza-headboard-panels-01/models/stanza-headboard-panels-01-mobile.glb": {
-    "bytes": 685856,
-    "sha256": "a0c172f359c90210f665f39d368000554decabab94a7fb4ad468027211f80876",
+    "bytes": 689060,
+    "sha256": "fed840139c418a9fb25a05c8eb1ed62cbd406e2f5b7da7fb3444173e0c49afa3",
     "triangles": 17136,
     "boundsMeters": {
       "min": [
         -1.80089,
         -0.001,
-        -0.00073
+        -0.0007
       ],
       "max": [
         1.80089,
@@ -102,7 +102,7 @@
       "dimensions": [
         3.60178,
         1.213,
-        0.10248
+        0.10246
       ]
     },
     "textures": [
@@ -156,7 +156,7 @@
     "rootExtras": {
       "asset_id": "model_root",
       "modelId": "stanza-headboard-panels-01",
-      "revision": "1.0.0",
+      "revision": "1.0.1",
       "construction": "exterior-only",
       "dimensions_estimated": true,
       "reference": "cabeceiras/cabeceiras-6.jpg",

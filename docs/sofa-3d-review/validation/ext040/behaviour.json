@@ -122,8 +122,8 @@
       "ok": true,
       "detail": {
         "bytes": [
-          55499,
-          55499
+          53186,
+          53186
         ]
       }
     },
@@ -269,8 +269,8 @@
       "ok": true,
       "detail": {
         "bytes": [
-          16007,
-          16007
+          15511,
+          15511
         ]
       }
     },
@@ -300,7 +300,7 @@
       "ok": true,
       "detail": [
         "stanza-headboard-panels-01",
-        "1.0.0"
+        "1.0.1"
       ]
     },
     {
@@ -331,26 +331,26 @@
       "detail": {
         "final": {
           "modelId": "stanza-headboard-panels-01",
-          "revision": "1.0.0",
+          "revision": "1.0.1",
           "fabricId": "velvet",
           "colorId": "terracota"
         },
         "results": [
           {
             "modelId": "stanza-headboard-panels-01",
-            "revision": "1.0.0",
+            "revision": "1.0.1",
             "fabricId": "velvet",
             "colorId": "areia"
           },
           {
             "modelId": "stanza-headboard-panels-01",
-            "revision": "1.0.0",
+            "revision": "1.0.1",
             "fabricId": "velvet",
             "colorId": "terracota"
           },
           {
             "modelId": "stanza-headboard-panels-01",
-            "revision": "1.0.0",
+            "revision": "1.0.1",
             "fabricId": "velvet",
             "colorId": "terracota"
           }
@@ -378,7 +378,7 @@
       "detail": {
         "identity": [
           "stanza-headboard-panels-01",
-          "1.0.0"
+          "1.0.1"
         ],
         "views": [
           "threequarter",
@@ -416,26 +416,26 @@
         "results": [
           {
             "modelId": "stanza-headboard-panels-01",
-            "revision": "1.0.0",
+            "revision": "1.0.1",
             "fabricId": "velvet",
             "colorId": "areia"
           },
           {
             "modelId": "stanza-headboard-panels-01",
-            "revision": "1.0.0",
+            "revision": "1.0.1",
             "fabricId": "velvet",
             "colorId": "terracota"
           },
           {
             "modelId": "stanza-headboard-panels-01",
-            "revision": "1.0.0",
+            "revision": "1.0.1",
             "fabricId": "velvet",
             "colorId": "terracota"
           }
         ],
         "final": {
           "modelId": "stanza-headboard-panels-01",
-          "revision": "1.0.0",
+          "revision": "1.0.1",
           "fabricId": "velvet",
           "colorId": "terracota"
         },
@@ -567,8 +567,8 @@
       "ok": true,
       "detail": {
         "bytes": [
-          364843,
-          364843
+          150091,
+          150091
         ]
       }
     },
@@ -708,8 +708,8 @@
       "ok": true,
       "detail": {
         "bytes": [
-          102879,
-          102879
+          38246,
+          38246
         ]
       }
     },
@@ -804,31 +804,31 @@
           [
             "cushion_olive_weave",
             "ffffff",
-            "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+            "53793d04-94be-4369-9a41-c10ac89cdb64",
             false
           ],
           [
             "cushion_olive_reverse",
             "ffffff",
-            "3eac38ab-5079-4000-ba65-243579bd7e0c",
+            "e3eaefdb-3225-4173-86ae-aa00d0f0c6f6",
             false
           ],
           [
             "cushion_olive_seam",
             "ffffff",
-            "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+            "53793d04-94be-4369-9a41-c10ac89cdb64",
             false
           ],
           [
             "cushion_light_boucle",
             "ffffff",
-            "a703ba42-ca6d-46a0-873f-054a58cef7af",
+            "6637843f-d2f8-48d8-bc2b-742433630779",
             false
           ],
           [
             "cushion_light_seam",
             "ffffff",
-            "a703ba42-ca6d-46a0-873f-054a58cef7af",
+            "6637843f-d2f8-48d8-bc2b-742433630779",
             false
           ],
           [
@@ -885,31 +885,31 @@
           [
             "cushion_olive_weave",
             "ffffff",
-            "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+            "53793d04-94be-4369-9a41-c10ac89cdb64",
             false
           ],
           [
             "cushion_olive_reverse",
             "ffffff",
-            "3eac38ab-5079-4000-ba65-243579bd7e0c",
+            "e3eaefdb-3225-4173-86ae-aa00d0f0c6f6",
             false
           ],
           [
             "cushion_olive_seam",
             "ffffff",
-            "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+            "53793d04-94be-4369-9a41-c10ac89cdb64",
             false
           ],
           [
             "cushion_light_boucle",
             "ffffff",
-            "a703ba42-ca6d-46a0-873f-054a58cef7af",
+            "6637843f-d2f8-48d8-bc2b-742433630779",
             false
           ],
           [
             "cushion_light_seam",
             "ffffff",
-            "a703ba42-ca6d-46a0-873f-054a58cef7af",
+            "6637843f-d2f8-48d8-bc2b-742433630779",
             false
           ],
           [
@@ -953,31 +953,31 @@
           [
             "cushion_olive_weave",
             "ffffff",
-            "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+            "53793d04-94be-4369-9a41-c10ac89cdb64",
             false
           ],
           [
             "cushion_olive_reverse",
             "ffffff",
-            "3eac38ab-5079-4000-ba65-243579bd7e0c",
+            "e3eaefdb-3225-4173-86ae-aa00d0f0c6f6",
             false
           ],
           [
             "cushion_olive_seam",
             "ffffff",
-            "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+            "53793d04-94be-4369-9a41-c10ac89cdb64",
             false
           ],
           [
             "cushion_light_boucle",
             "ffffff",
-            "a703ba42-ca6d-46a0-873f-054a58cef7af",
+            "6637843f-d2f8-48d8-bc2b-742433630779",
             false
           ],
           [
             "cushion_light_seam",
             "ffffff",
-            "a703ba42-ca6d-46a0-873f-054a58cef7af",
+            "6637843f-d2f8-48d8-bc2b-742433630779",
             false
           ],
           [
@@ -1077,6 +1077,28 @@
       ]
     },
     {
+      "name": "product page sofa-curvo: \"Ver em 3D\" -> /explorar-sofa.html?modelo=stanza-curved-arm-01, photo kept",
+      "ok": true,
+      "detail": [
+        [
+          null,
+          "/explorar-sofa.html?modelo=stanza-curved-arm-01",
+          "Ver em 3D e experimentar cores e tecidos ↗"
+        ]
+      ]
+    },
+    {
+      "name": "product page puff-quadrado: \"Ver em 3D\" -> /explorar-sofa.html?modelo=stanza-puff-square-01, photo kept",
+      "ok": true,
+      "detail": [
+        [
+          null,
+          "/explorar-sofa.html?modelo=stanza-puff-square-01",
+          "Ver em 3D e experimentar cores e tecidos ↗"
+        ]
+      ]
+    },
+    {
       "name": "product page sofa-chaise: no 3D entry (not registered)",
       "ok": true
     },
@@ -1170,7 +1192,7 @@
     "stanza-headboard-panels-01/api": {
       "identity": [
         "stanza-headboard-panels-01",
-        "1.0.0"
+        "1.0.1"
       ],
       "views": [
         "threequarter",
@@ -1208,26 +1230,26 @@
       "results": [
         {
           "modelId": "stanza-headboard-panels-01",
-          "revision": "1.0.0",
+          "revision": "1.0.1",
           "fabricId": "velvet",
           "colorId": "areia"
         },
         {
           "modelId": "stanza-headboard-panels-01",
-          "revision": "1.0.0",
+          "revision": "1.0.1",
           "fabricId": "velvet",
           "colorId": "terracota"
         },
         {
           "modelId": "stanza-headboard-panels-01",
-          "revision": "1.0.0",
+          "revision": "1.0.1",
           "fabricId": "velvet",
           "colorId": "terracota"
         }
       ],
       "final": {
         "modelId": "stanza-headboard-panels-01",
-        "revision": "1.0.0",
+        "revision": "1.0.1",
         "fabricId": "velvet",
         "colorId": "terracota"
       },
@@ -1328,31 +1350,31 @@
         [
           "cushion_olive_weave",
           "ffffff",
-          "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+          "53793d04-94be-4369-9a41-c10ac89cdb64",
           false
         ],
         [
           "cushion_olive_reverse",
           "ffffff",
-          "3eac38ab-5079-4000-ba65-243579bd7e0c",
+          "e3eaefdb-3225-4173-86ae-aa00d0f0c6f6",
           false
         ],
         [
           "cushion_olive_seam",
           "ffffff",
-          "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+          "53793d04-94be-4369-9a41-c10ac89cdb64",
           false
         ],
         [
           "cushion_light_boucle",
           "ffffff",
-          "a703ba42-ca6d-46a0-873f-054a58cef7af",
+          "6637843f-d2f8-48d8-bc2b-742433630779",
           false
         ],
         [
           "cushion_light_seam",
           "ffffff",
-          "a703ba42-ca6d-46a0-873f-054a58cef7af",
+          "6637843f-d2f8-48d8-bc2b-742433630779",
           false
         ],
         [
@@ -1396,31 +1418,31 @@
         [
           "cushion_olive_weave",
           "ffffff",
-          "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+          "53793d04-94be-4369-9a41-c10ac89cdb64",
           false
         ],
         [
           "cushion_olive_reverse",
           "ffffff",
-          "3eac38ab-5079-4000-ba65-243579bd7e0c",
+          "e3eaefdb-3225-4173-86ae-aa00d0f0c6f6",
           false
         ],
         [
           "cushion_olive_seam",
           "ffffff",
-          "2bd16d5c-9228-483f-ab48-ac4c9bfef729",
+          "53793d04-94be-4369-9a41-c10ac89cdb64",
           false
         ],
         [
           "cushion_light_boucle",
           "ffffff",
-          "a703ba42-ca6d-46a0-873f-054a58cef7af",
+          "6637843f-d2f8-48d8-bc2b-742433630779",
           false
         ],
         [
           "cushion_light_seam",
           "ffffff",
-          "a703ba42-ca6d-46a0-873f-054a58cef7af",
+          "6637843f-d2f8-48d8-bc2b-742433630779",
           false
         ],
         [
@@ -1439,7 +1461,7 @@
   },
   "passed": true,
   "summary": {
-    "total": 78,
+    "total": 80,
     "failed": 0
   }
 }
