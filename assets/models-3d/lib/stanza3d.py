@@ -200,7 +200,50 @@ class RoundedBox:
 
     def collider(self):
         ob = self.object
-        return collider([tuple(v.co) for v in ob.data.vertices], [tuple(p.vertices) for p in ob.data.polygons])
+        M = ob.matrix_world
+        return collider([tuple(M @ v.co) for v in ob.data.vertices], [tuple(p.vertices) for p in ob.data.polygons])
+
+def oriented_box(name, size, radius, pos, rot_deg, parent, mat, welts=(), welt_mat=None, welt_r=.002,
+                 samples=150, lift=.0011, mid=(8, 8, 8), edge=4, crown=None, wrinkle=0.0, seed=0, sides=4):
+    """Boxed (RoundedBox) cushion built in its local frame (centred at the origin) under an
+    empty `name` placed at `pos` with XYZ Euler `rot_deg` (EXT-005: tilted boxed back cushions
+    with piping). welts: faces ('+z', '-y', ...) that get a seam_loop() welt tube in welt_mat.
+    Returns (RoundedBox, holder); RoundedBox.collider() is in WORLD space (matrix applied)."""
+    holder = empty(name, parent); holder.location = tuple(pos); holder.rotation_euler = tuple(math.radians(r) for r in rot_deg)
+    rb = RoundedBox((0, 0, 0), size, radius, mid=mid, edge=edge, crown=crown, wrinkle=wrinkle, seed=seed)
+    rb.build(name+'_cover', holder, mat)
+    for f in welts:
+        tube(f'{name}_welt_{f[0].replace("+", "p").replace("-", "n")}{f[1]}', rb.seam_loop(f, samples=samples, lift=lift), welt_r, holder, welt_mat or mat, sides=sides)
+    bpy.context.view_layer.update()
+    return rb, holder
+
+def rest_rigid(holder, ob, colliders, direction, overlap=.003, travel=.15, samples=2):
+    """Translate `holder` (and everything under it) along `direction` until the deepest
+    penetration of `ob`'s vertices into `colliders` equals `overlap` (bisection; marches back
+    out of a too-deep start). For rigid boxed cushions placed by oriented_box()."""
+    bpy.context.view_layer.update()
+    d = Vector(direction).normalized(); M0 = ob.matrix_world.copy(); base = Vector(holder.location)
+    local = [v.co.copy() for v in ob.data.vertices][::samples]
+    def depth(t):
+        off = d*t; return penetration([M0@p + off for p in local], colliders)
+    lo, hi = None, None; steps = 30; dt = travel/steps
+    if depth(0) < overlap:
+        lo = 0.0
+        for k in range(1, steps+1):
+            if depth(k*dt) >= overlap: hi = k*dt; break
+            lo = k*dt
+    else:
+        hi = 0.0
+        for k in range(1, steps+1):
+            if depth(-k*dt) < overlap: lo = -k*dt; break
+            hi = -k*dt
+    if lo is None or hi is None: return 0.0
+    for _ in range(22):
+        mid = (lo+hi)/2
+        if depth(mid) < overlap: lo = mid
+        else: hi = mid
+    holder.location = tuple(base + d*lo); bpy.context.view_layer.update()
+    return lo
 
 # --------------------------------------------------------------------------- loose cushions (EXT-001 port)
 def pillow_shape(n, size, seed, loft, tile=BODY_UV_METERS, concave=(.075, .07), pinch=.35, gathers=.0045, wrinkle=.0042, base=.007, edge_round=0.0):

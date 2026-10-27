@@ -14,6 +14,9 @@ assets/models-3d/
     generate_materials.py         gera as famílias abaixo + materials.json
     boucle-mescla/                basecolor/normal/roughness 1024 neutros + embedded/ (tintas, 512/256)
     wood-wenge/                   madeira escura para plintos/pés
+    sarja/                        sarja 2/2 fosca (EXT-003, EXT-005)
+    linho-rustico/                tela simples com flamê (EXT-004)
+    decor-losango/, decor-quadrados/  desenhos procedurais das almofadas decorativas (fixas)
   <modelId>/
     source/build.py               fonte paramétrica (verdade); gera GLBs + .blend num passe
     source/<modelId>.blend        derivado (não editar à mão)
@@ -47,6 +50,7 @@ são reutilizadas **por referência** (`materialLibrary` do registro), sem cópi
 |---|---|
 | `RoundedBox(center,size,radius,mid,edge,crown,wrinkle)` | estofados retos: braços, base, painéis, almofadas caixa; `.seam_loop(face)` dá o vivo na linha de 45° da aresta; `.collider()` |
 | `pillow_shape(...)` / `LooseCushion` | almofada de borda faca (porte do EXT-001) com `edge_round` para encostos; `solve()` posiciona por `solve_rest()` (marcha até o contato com sobreposição alvo), `settle()` aplica `settle_contacts()` (compressão local suave + vivo acima do contato) |
+| `oriented_box(name,size,radius,pos,rot,…,welts)` / `rest_rigid(holder,ob,colliders,dir,overlap)` | almofada caixa inclinada no próprio referencial com vivos (`seam_loop`) por face; assentamento rígido por bisseção (desce/recua até a sobreposição alvo). `RoundedBox.collider()` agora aplica `matrix_world` (idêntico para malhas sem transformação) |
 | `block`, `plinth` | blocos chanfrados, plinto (faixa + pés-bloco) com veio da madeira no eixo certo |
 | `material`, `textured`, `library_maps` | materiais com `stanza_region`; mapas da biblioteca nos tamanhos pedidos (rugosidade pequena: o exportador a regrava em PNG) |
 | `export_variant`, `glb_metrics`, `triangle_count` | GLB (+ `.blend` na principal) e métricas |
@@ -82,7 +86,7 @@ ou `PLAYWRIGHT_CORE`/`GLTF_VALIDATOR` com caminho absoluto). WebGL roda em Swift
 | Script | Função |
 |---|---|
 | `capture.mjs <cfg.json>` | capturas pelo visualizador real servindo `dist/` via `page.route`: presets ou câmeras explícitas, acabamentos em sequência, máscaras de região |
-| `mask_check.py <dir> <run> <view> <ref> <passes…>` | diferença de pixels por região (decorativas/estrutura devem ficar em 0) |
+| `mask_check.py <dir> <run> <view> <ref> <passes…>` | diferença de pixels por região (decorativas/contraste/estrutura devem ficar em 0; vivos finos: usar um close-up, a erosão de 2 px apaga linhas de 2 px) |
 | `behaviour.mjs <modelId> <out>` | 73 verificações de comportamento (configurador, API, páginas, home) para o modelo + regressão do padrão |
 | `contacts.py <glb> <out.json> [A:B…]` | penetração/folga assinada entre malhas (bpy) |
 | `validate_gltf.mjs <modelId> <out>` | glTF-Validator nos dois GLBs |
