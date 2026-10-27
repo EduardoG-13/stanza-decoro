@@ -1,7 +1,7 @@
 {
   "contract": "stanza-sofa-credits/v1",
   "modelId": "stanza-organic-01",
-  "revision": "1.0.0",
+  "revision": "1.1.0",
   "researchedOn": "2026-10-25",
   "note": "Referências visuais são distintas dos arquivos incorporados. Nenhuma fotografia de referência ou mapa PBR de terceiros foi redistribuído.",
   "referencesConsulted": [

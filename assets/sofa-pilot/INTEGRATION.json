@@ -1,11 +1,11 @@
 {
   "sourcePackage": "stanza-sofa-pilot.zip",
   "modelId": "stanza-organic-01",
-  "upstreamRevision": "1.0.0",
-  "geometryChanged": false,
+  "upstreamRevision": "1.1.0",
+  "geometryChanged": true,
   "modelSha256": {
-    "models/sofa.glb": "c521e18b40c6e25c7383ce67cbd91ffe3d78cc34aeb01f5cb5e70082781723d1",
-    "models/sofa-mobile.glb": "b482875c69f434cc393b7e0902af88721906dbd46579e67c22f0431d4f05dc42"
+    "models/sofa.glb": "9a8c857e51d979b8524b5f9ca336bcb7fadf8bd623d3f71b5b0070bcd17f51ce",
+    "models/sofa-mobile.glb": "8907ce7bf19b2a14efe0ddc6a07eb2677edfd35497f55dc9a493c7c6db8ea5b1"
   },
   "viewerChanges": [
     "Optional backgroundColor and floorColor for site composition."

@@ -11,6 +11,17 @@ ROOT = Path(__file__).resolve().parents[1]
 TILE = .14
 OUTLINE = [(-1.16,-.39),(-.91,-.56),(-.50,-.57),(-.13,-.47),(.21,-.44),(.60,-.48),(1.02,-.39),(1.23,-.16),(1.24,.12),(1.05,.37),(.73,.47),(.29,.44),(-.18,.43),(-.66,.44),(-1.04,.32),(-1.22,.04)]
 BACK = [(-1.05,-.29,.61),(-1.10,-.07,.70),(-1.02,.20,.84),(-.82,.34,.91),(-.46,.37,.92),(-.06,.38,.92),(.32,.38,.91),(.62,.34,.89)]
+# Loose seat cushions. pos/rot/size keep the photographed composition (three light + two
+# olive-weave) and asymmetry; neighbours are nudged slightly apart along X to relieve the
+# confirmed mesh interpenetration (01-02..04-05) without large vertical moves that would
+# flatten the silhouette. `flatten` adds the soft contact compression on each cushion's
+# underside (FEAT-002) so the thin contact band with the seat reads as foam, not clipping.
+CUSHIONS = [
+  ('cushion_01',(-.912,-.11,.648),(-12,-17,-6),(.193,.235),.70),
+  ('cushion_02',(-.582,-.188,.651),(-18,14,4),(.191,.245),.68),
+  ('cushion_03',(-.235,-.092,.702),(-15,-11,-4),(.214,.275),.66),
+  ('cushion_04',(.152,-.108,.662),(-17,-17,4),(.181,.235),.68),
+  ('cushion_05',(.462,-.233,.623),(-22,-28,-10),(.178,.195),.70)]
 
 def catmull(points, t, closed=True):
     n=len(points); total=n if closed else n-1; f=min(t, .999999999)*total; i=int(f); a=f-i
@@ -77,8 +88,14 @@ def seat(name, parent, mat, n=144, foam=False):
         for i,p in enumerate(pts):
             x,y=p.x*s,p.y*s
             ripple=.0013*sin(i/n*2*pi*17+.8)*sin(pi*r/(len(profile)-1))
-            # Very shallow compression under the loose cushions, no inflated central dome.
-            depression=.009*exp(-((x+.48)/.75)**2-((y-.17)/.27)**2) if z>.4 else 0
+            # Soft foam dimple under each loose cushion so its underside is cradled by the
+            # seat crown (FEAT-002) instead of the cushion belly clipping through a flat top.
+            # A shallow Gaussian per cushion footprint; crest stays restrained, no central dome.
+            depression=0
+            if z>.4:
+                for _cn,_cp,_cr,_cs,_cf in CUSHIONS:
+                    depression+=.019*exp(-((x-_cp[0])/(_cs[0]+.11))**2-((y-_cp[1])/(_cs[1]+.10))**2)
+                depression=min(depression,.026)
             vs.append((x,y,z+ripple-depression))
             uv.append((x/TILE,y/TILE) if r>=8 else (i/n*6.28*.80/TILE,z/TILE))
     fs=[]
@@ -144,7 +161,7 @@ def tube(name,pts,radius,parent,mat,sides=5,closed=True):
         for j in range(sides):fs.append((i*sides+j,i*sides+(j+1)%sides,((i+1)%len(pts))*sides+(j+1)%sides,((i+1)%len(pts))*sides+j))
     return mesh(name,vs,fs,parent,mat,uv)
 
-def pillow(name,parent,mat,seam,n,pos,rot,size,seed):
+def pillow(name,parent,mat,seam,n,pos,rot,size,seed,flatten=0):
     vs=[];uv=[];fs=[];a,b=size
     for side in (-1,1):
         for j in range(n+1):
@@ -157,6 +174,12 @@ def pillow(name,parent,mat,seam,n,pos,rot,size,seed):
                 edge=min(1-abs(u),1-abs(v))
                 gathers=.0055*sin(34*u+9*v+seed)*exp(-edge*9)*sin(pi*max(0,edge)/.28)
                 d=.008+.112*belly+gathers
+                # Soft contact compression (FEAT-002): the underside (side=+1 rests on the
+                # seat) develops a broad flattened patch, as foam does under load, instead of a
+                # round belly poking through the seat shell. The tapered knife edge is kept.
+                if side>0 and flatten:
+                    contact=max(0,(1-(u/.9)**2)*(1-(v/.9)**2))**.75
+                    d-=flatten*contact*(.112*belly)
                 vs.append((x,side*d,z));uv.append((x/TILE,z/TILE))
     block=(n+1)**2
     for s in range(2):
@@ -198,7 +221,7 @@ def build(mobile=False):
         t=i/(100 if mobile else 160);p=catmull(OUTLINE,t)
         x,y=p.x*.9655,p.y*.9655
         ripple=.0013*sin(t*2*pi*17+.8)*sin(pi*8/14)
-        depression=.009*exp(-((x+.48)/.75)**2-((y-.17)/.27)**2)
+        depression=min(sum(.019*exp(-((x-cp[0])/(cs[0]+.11))**2-((y-cp[1])/(cs[1]+.10))**2) for _cn,cp,_cr,cs,_cf in CUSHIONS),.026)
         pts.append((x,y,.4385+ripple-depression))
     tube('seat_panel_seam',pts,.0011,groups['upholstery'],seam,sides=5 if not mobile else 4)
     seat('seat_padding',groups['padding'],foam,n=64 if mobile else 96,foam=True)
@@ -216,13 +239,7 @@ def build(mobile=False):
         bpy.ops.mesh.primitive_cylinder_add(vertices=16 if mobile else 32,radius=.052,depth=.105,location=(x,y,.0525));ob=bpy.context.object;ob.name='foot_'+str(k+1);ob.parent=groups['legs'];ob.data.materials.append(feet)
         bevel=ob.modifiers.new('Foot softened edge','BEVEL');bevel.width=.009;bevel.segments=2;bpy.context.view_layer.objects.active=ob;bpy.ops.object.modifier_apply(modifier=bevel.name)
         for p in ob.data.polygons:p.use_smooth=True
-    pillows=[
-      ('cushion_01',(-.88,-.105,.65),(-12,-17,-6),(.195,.235)),
-      ('cushion_02',(-.57,-.185,.652),(-18,14,4),(.195,.245)),
-      ('cushion_03',(-.225,-.09,.703),(-15,-11,-4),(.218,.275)),
-      ('cushion_04',(.13,-.105,.663),(-17,-17,4),(.185,.235)),
-      ('cushion_05',(.44,-.23,.625),(-22,-28,-10),(.18,.195))]
-    for k,(name,pos,rot,sz) in enumerate(pillows):pillow(name,groups['cushions'],cloth,seam,12 if mobile else 20,pos,rot,sz,k)
+    for k,(name,pos,rot,sz,flat) in enumerate(CUSHIONS):pillow(name,groups['cushions'],cloth,seam,12 if mobile else 20,pos,rot,sz,k,flatten=flat)
     bpy.context.view_layer.update()
     points=[o.matrix_world @ Vector(c) for o in bpy.context.scene.objects if o.type=='MESH' for c in o.bound_box]
     cx=(min(p.x for p in points)+max(p.x for p in points))/2
