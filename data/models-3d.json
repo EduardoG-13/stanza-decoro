@@ -533,6 +533,82 @@
           "note": "close-up of the central channels and the strip joint"
         }
       }
+    },
+    {
+      "modelId": "stanza-curved-arm-01",
+      "catalogId": "sofa-curvo",
+      "portfolioId": "projeto-9",
+      "queue": "EXT-007",
+      "title": "Sofá verde de braços curvos",
+      "revision": "1.0.0",
+      "status": "technical-validated-visual-review-pending",
+      "statusLabel": "tecnicamente validado – revisão visual pendente",
+      "construction": "exterior-only",
+      "reference": "sofas/SOFA-9.png",
+      "page": "/explorar-sofa.html?modelo=stanza-curved-arm-01",
+      "productPage": "/modelos/sofa-curvo.html",
+      "posterAlt": "Estudo tridimensional do sofá verde de braços curvos em veludo, com almofadas soltas e pés de madeira",
+      "assets": {
+        "viewerBase": "/assets/sofa-pilot/",
+        "main": "/assets/models-3d/stanza-curved-arm-01/models/stanza-curved-arm-01.glb",
+        "mobile": "/assets/models-3d/stanza-curved-arm-01/models/stanza-curved-arm-01-mobile.glb",
+        "poster": "/assets/models-3d/stanza-curved-arm-01/previews/poster.jpg",
+        "manifest": "/assets/models-3d/stanza-curved-arm-01/manifest.json"
+      },
+      "materialRegions": {
+        "body": [
+          "fabric_main",
+          "fabric_seam"
+        ],
+        "decorative": [
+          "pillow_velvet",
+          "pillow_seam"
+        ],
+        "exterior-structure": [
+          "base_wood"
+        ]
+      },
+      "options": {
+        "appliesTo": "body",
+        "fabrics": [
+          "velvet",
+          "linen",
+          "boucle",
+          "sarja"
+        ],
+        "colors": [
+          "musgo",
+          "oliva",
+          "grafite",
+          "gelo",
+          "areia",
+          "terracota"
+        ],
+        "default": {
+          "fabricId": "velvet",
+          "colorId": "musgo"
+        },
+        "embedded": {
+          "fabricId": "velvet",
+          "colorId": "musgo"
+        }
+      },
+      "cameras": {
+        "photo": {
+          "position": [
+            0.405,
+            1.816,
+            3.401
+          ],
+          "target": [
+            0.0,
+            0.42,
+            0.0
+          ],
+          "fov": 39.6,
+          "note": "fitted to SOFA-9.png (11 correspondences, f 600 px fixed, roll -2.6 deg, rms ~4.8 px; SOFA-9.2.png is the same viewpoint cropped), then re-aimed at the sofa centre (pure rotation + zoom about the camera centre; the reference is warped by the same homography for the overlay)"
+        }
+      }
     }
   ],
   "verifiedStatuses": [

@@ -103,15 +103,16 @@ Em caso de dúvida, o material fica **fixo** e a dúvida é registrada em “Lim
 
 ### EXT-007 — Sofá verde de braços curvos
 
-- **Estado:** pendente
-- **Fontes:** [`sofas/SOFA-9.png`](../../sofas/SOFA-9.png), [`sofas/SOFA-9.2.png`](../../sofas/SOFA-9.2.png)
-- **Relação:** catálogo `sofa-curvo`; portfólio `projeto-9`
-- **Arquivos:** —
-- **Revisão:** —
-- **Opções reais:** a definir (aplicar a regra de regiões acima)
-- **Evidências:** —
-- **Limitações:** Dois ângulos da mesma peça (único item com segundo ângulo confirmado).
-- **Próxima ação:** ler a foto, definir regiões e proporções, gerar fonte paramétrica e GLBs, registrar em `data/models-3d.json`.
+- **Estado:** tecnicamente validado – revisão visual pendente
+- **Fontes:** [`sofas/SOFA-9.png`](../../sofas/SOFA-9.png), [`sofas/SOFA-9.2.png`](../../sofas/SOFA-9.2.png) (mesmo ponto de vista: SOFA-9.2 = SOFA-9 recortada)
+- **Relação:** catálogo `sofa-curvo`; portfólio `projeto-9` (IDs preservados)
+- **Arquivos:** `assets/models-3d/stanza-curved-arm-01/` — `source/build.py` (fonte de verdade), `source/stanza-curved-arm-01.blend`, `models/stanza-curved-arm-01.glb`, `models/stanza-curved-arm-01-mobile.glb`, `previews/poster.jpg`, `manifest.json`; mapas velvet e wood-wenge por referência; registro `data/models-3d.json` (`stanza-curved-arm-01`)
+- **Revisão:** 1.0.0 (somente exterior) · principal 57 852 tri / 2,81 MB · móvel 21 456 tri / 1,01 MB
+- **Opções reais:** corpo (casco, braços curvos, encosto, colchão matelassê) — tecidos `velvet` (inicial), `linen`, `boucle`, `sarja` × cores `musgo` (inicial, nova), `oliva`, `grafite`, `gelo`, `areia`, `terracota`. Seis almofadas soltas = decoração fixa; pés/travessa de madeira = estrutura fixa; sem contraste.
+- **Evidências:** [ext007-sofa-curvo.md](ext007-sofa-curvo.md), imagens `images/ext007_*.jpg`, validação `validation/ext007/` (glTF-Validator 0/0/0/0, comportamento 79/79, máscaras, contatos)
+- **Prévia:** `/explorar-sofa.html?modelo=stanza-curved-arm-01`; produto `/modelos/sofa-curvo.html` com "Ver em 3D"
+- **Limitações:** um só ponto de vista real; profundidade assumida 0,95 m; `musgo` (`#6b6534`) e veludo estimados; madeira em wood-wenge (foto mais avermelhada); pés recuados ~7 cm; matelassê e almofadas menos estufados que na foto; colchão sobre os braços tratado como corpo (dúvida registrada); validação só headless.
+- **Próxima ação:** revisão visual pela Stanza; se aprovado, marcar `approved`.
 
 ### EXT-008 — Sofá em L com encosto marcado
 

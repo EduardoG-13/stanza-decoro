@@ -1,0 +1,160 @@
+{
+ "glb": "assets/models-3d/stanza-curved-arm-01/models/stanza-curved-arm-01.glb",
+ "pairs": {
+  "seat_pad:hull": {
+   "penetration_mm": 2.5,
+   "verts_inside": 796,
+   "gap_mm": 0.01
+  },
+  "seat_pad:arm_l": {
+   "penetration_mm": 5.78,
+   "verts_inside": 105,
+   "gap_mm": 0.04
+  },
+  "seat_pad:arm_r": {
+   "penetration_mm": 3.89,
+   "verts_inside": 111,
+   "gap_mm": 0.01
+  },
+  "arm_pad_l:arm_l": {
+   "penetration_mm": 7.83,
+   "verts_inside": 788,
+   "gap_mm": 0.0
+  },
+  "arm_pad_r:arm_r": {
+   "penetration_mm": 7.7,
+   "verts_inside": 817,
+   "gap_mm": 0.01
+  },
+  "back_pad:back_panel": {
+   "penetration_mm": 2.5,
+   "verts_inside": 343,
+   "gap_mm": 0.04
+  },
+  "back_pad:seat_pad": {
+   "penetration_mm": 2.0,
+   "verts_inside": 130,
+   "gap_mm": 0.14
+  },
+  "arm_pad_l:seat_pad": {
+   "penetration_mm": 2.22,
+   "verts_inside": 342,
+   "gap_mm": 0.0
+  },
+  "arm_pad_l:back_pad": {
+   "penetration_mm": 2.0,
+   "verts_inside": 58,
+   "gap_mm": 0.14
+  },
+  "pillow_1_cover:seat_pad": {
+   "penetration_mm": 1.51,
+   "verts_inside": 5,
+   "gap_mm": 1.35
+  },
+  "pillow_1_cover:back_pad": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "pillow_2_cover:seat_pad": {
+   "penetration_mm": 1.5,
+   "verts_inside": 14,
+   "gap_mm": 0.32
+  },
+  "pillow_2_cover:back_pad": {
+   "penetration_mm": 1.5,
+   "verts_inside": 26,
+   "gap_mm": 0.25
+  },
+  "pillow_3_cover:seat_pad": {
+   "penetration_mm": 3.62,
+   "verts_inside": 53,
+   "gap_mm": 0.16
+  },
+  "pillow_3_cover:back_pad": {
+   "penetration_mm": 1.51,
+   "verts_inside": 30,
+   "gap_mm": 0.13
+  },
+  "pillow_4_cover:seat_pad": {
+   "penetration_mm": 1.51,
+   "verts_inside": 44,
+   "gap_mm": 0.12
+  },
+  "pillow_4_cover:back_pad": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "pillow_5_cover:seat_pad": {
+   "penetration_mm": 1.51,
+   "verts_inside": 14,
+   "gap_mm": 0.58
+  },
+  "pillow_5_cover:back_pad": {
+   "penetration_mm": 1.51,
+   "verts_inside": 29,
+   "gap_mm": 0.22
+  },
+  "pillow_6_cover:seat_pad": {
+   "penetration_mm": 1.67,
+   "verts_inside": 6,
+   "gap_mm": 1.28
+  },
+  "pillow_6_cover:back_pad": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "pillow_6_cover:arm_pad_r": {
+   "penetration_mm": 1.59,
+   "verts_inside": 104,
+   "gap_mm": 0.73
+  },
+  "pillow_1_cover:pillow_2_cover": {
+   "penetration_mm": 0.8,
+   "verts_inside": 13,
+   "gap_mm": 0.3
+  },
+  "pillow_3_cover:pillow_2_cover": {
+   "penetration_mm": 2.11,
+   "verts_inside": 6,
+   "gap_mm": 12.01
+  },
+  "pillow_3_cover:pillow_4_cover": {
+   "penetration_mm": 1.36,
+   "verts_inside": 8,
+   "gap_mm": 0.05
+  },
+  "pillow_4_cover:pillow_5_cover": {
+   "penetration_mm": 0.8,
+   "verts_inside": 9,
+   "gap_mm": 0.21
+  },
+  "pillow_6_cover:pillow_5_cover": {
+   "penetration_mm": 0.8,
+   "verts_inside": 15,
+   "gap_mm": 0.21
+  },
+  "foot_1:arm_l": {
+   "penetration_mm": 2.1,
+   "verts_inside": 41,
+   "gap_mm": 0.06
+  },
+  "foot_2:arm_r": {
+   "penetration_mm": 1.97,
+   "verts_inside": 40,
+   "gap_mm": 0.02
+  },
+  "foot_3:arm_l": {
+   "penetration_mm": 1.86,
+   "verts_inside": 35,
+   "gap_mm": 0.03
+  },
+  "foot_4:arm_r": {
+   "penetration_mm": 2.33,
+   "verts_inside": 42,
+   "gap_mm": 0.73
+  }
+ }
+}

@@ -1,0 +1,534 @@
+{
+  "main": {
+    "triangles_blender": 57852,
+    "trianglesByObject": {
+      "wood_base_apron_front": 300,
+      "wood_base_apron_back": 300,
+      "wood_base_apron_side_l": 300,
+      "wood_base_apron_side_r": 300,
+      "foot_1": 300,
+      "foot_2": 300,
+      "foot_3": 300,
+      "foot_4": 300,
+      "hull": 2784,
+      "arm_l": 4080,
+      "arm_r": 4080,
+      "back_panel": 2632,
+      "seat_pad": 6800,
+      "seat_pad_seam": 1424,
+      "back_pad": 4468,
+      "back_pad_seam": 1344,
+      "arm_pad_l": 5136,
+      "arm_pad_l_seam": 1584,
+      "arm_pad_r": 5136,
+      "arm_pad_r_seam": 1584,
+      "pillow_1_cover": 1760,
+      "pillow_1_welt": 640,
+      "pillow_2_cover": 1760,
+      "pillow_2_welt": 640,
+      "pillow_3_cover": 1760,
+      "pillow_3_welt": 640,
+      "pillow_4_cover": 1760,
+      "pillow_4_welt": 640,
+      "pillow_5_cover": 1760,
+      "pillow_5_welt": 640,
+      "pillow_6_cover": 1760,
+      "pillow_6_welt": 640
+    },
+    "placements": {
+      "pillow_1": {
+        "pos": [
+          -0.63,
+          0.0578,
+          0.605
+        ],
+        "rot": [
+          -20,
+          -8,
+          7
+        ]
+      },
+      "pillow_2": {
+        "pos": [
+          -0.38,
+          0.1885,
+          0.5906
+        ],
+        "rot": [
+          -17,
+          2,
+          -3
+        ]
+      },
+      "pillow_3": {
+        "pos": [
+          0.0,
+          0.186,
+          0.5832
+        ],
+        "rot": [
+          -20,
+          1,
+          2
+        ]
+      },
+      "pillow_4": {
+        "pos": [
+          0.29,
+          0.0803,
+          0.5847
+        ],
+        "rot": [
+          -20,
+          -2,
+          -4
+        ]
+      },
+      "pillow_5": {
+        "pos": [
+          0.57,
+          0.1901,
+          0.5871
+        ],
+        "rot": [
+          -17,
+          3,
+          5
+        ]
+      },
+      "pillow_6": {
+        "pos": [
+          0.7,
+          0.0086,
+          0.6115
+        ],
+        "rot": [
+          -21,
+          12,
+          -6
+        ]
+      }
+    },
+    "bytes": 2809352,
+    "sha256": "535b669b241c1556f51d37469796c9c1cc33da3a073b8158e23ef76e8e6ff61e",
+    "triangles": 57852,
+    "boundsMeters": {
+      "min": [
+        -1.10249,
+        0.0,
+        -0.50905
+      ],
+      "max": [
+        1.10464,
+        0.83979,
+        0.49035
+      ],
+      "dimensions": [
+        2.20713,
+        0.83979,
+        0.9994
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal-1024",
+        "mimeType": "image/png",
+        "bytes": 564972,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam",
+          "pillow_seam",
+          "pillow_velvet"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "basecolor-musgo-1024",
+        "mimeType": "image/jpeg",
+        "bytes": 32746,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam",
+          "pillow_seam",
+          "pillow_velvet"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 32969,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam",
+          "pillow_seam",
+          "pillow_velvet"
+        ]
+      },
+      {
+        "index": 3,
+        "name": "normal-256",
+        "mimeType": "image/png",
+        "bytes": 35868,
+        "usedBy": [
+          "base_wood"
+        ]
+      },
+      {
+        "index": 4,
+        "name": "basecolor-512",
+        "mimeType": "image/jpeg",
+        "bytes": 21362,
+        "usedBy": [
+          "base_wood"
+        ]
+      },
+      {
+        "index": 5,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 58253,
+        "usedBy": [
+          "base_wood"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "pillow_velvet",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_seam",
+        "region": "decorative"
+      },
+      {
+        "name": "base_wood",
+        "region": "exterior-structure"
+      },
+      {
+        "name": "fabric_main",
+        "region": "body"
+      },
+      {
+        "name": "fabric_seam",
+        "region": "body"
+      }
+    ],
+    "meshes": [
+      "arm_l",
+      "arm_pad_l",
+      "arm_pad_l_seam",
+      "arm_pad_r",
+      "arm_pad_r_seam",
+      "arm_r",
+      "back_pad",
+      "back_pad_seam",
+      "back_panel",
+      "foot_1",
+      "foot_2",
+      "foot_3",
+      "foot_4",
+      "hull",
+      "pillow_1_cover",
+      "pillow_1_welt",
+      "pillow_2_cover",
+      "pillow_2_welt",
+      "pillow_3_cover",
+      "pillow_3_welt",
+      "pillow_4_cover",
+      "pillow_4_welt",
+      "pillow_5_cover",
+      "pillow_5_welt",
+      "pillow_6_cover",
+      "pillow_6_welt",
+      "seat_pad",
+      "seat_pad_seam",
+      "wood_base_apron_back",
+      "wood_base_apron_front",
+      "wood_base_apron_side_l",
+      "wood_base_apron_side_r"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-curved-arm-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "sofas/SOFA-9.png",
+      "catalogId": "sofa-curvo",
+      "queue": "EXT-007",
+      "materialRegions": "{\"body\": [\"fabric_main\", \"fabric_seam\"], \"decorative\": [\"pillow_velvet\", \"pillow_seam\"], \"exterior-structure\": [\"base_wood\"]}",
+      "embeddedFinish": "{\"fabricId\": \"velvet\", \"colorId\": \"musgo\"}",
+      "embeddedTiles": 2,
+      "bodyUvMeters": 0.3
+    }
+  },
+  "mobile": {
+    "triangles_blender": 21456,
+    "trianglesByObject": {
+      "wood_base_apron_front": 300,
+      "wood_base_apron_back": 300,
+      "wood_base_apron_side_l": 300,
+      "wood_base_apron_side_r": 300,
+      "foot_1": 300,
+      "foot_2": 300,
+      "foot_3": 300,
+      "foot_4": 300,
+      "hull": 948,
+      "arm_l": 1104,
+      "arm_r": 1104,
+      "back_panel": 864,
+      "seat_pad": 1844,
+      "seat_pad_seam": 624,
+      "back_pad": 1304,
+      "back_pad_seam": 592,
+      "arm_pad_l": 1464,
+      "arm_pad_l_seam": 704,
+      "arm_pad_r": 1464,
+      "arm_pad_r_seam": 704,
+      "pillow_1_cover": 672,
+      "pillow_1_welt": 384,
+      "pillow_2_cover": 672,
+      "pillow_2_welt": 384,
+      "pillow_3_cover": 672,
+      "pillow_3_welt": 384,
+      "pillow_4_cover": 672,
+      "pillow_4_welt": 384,
+      "pillow_5_cover": 672,
+      "pillow_5_welt": 384,
+      "pillow_6_cover": 672,
+      "pillow_6_welt": 384
+    },
+    "placements": {
+      "pillow_1": {
+        "pos": [
+          -0.63,
+          0.0578,
+          0.605
+        ],
+        "rot": [
+          -20,
+          -8,
+          7
+        ]
+      },
+      "pillow_2": {
+        "pos": [
+          -0.38,
+          0.1885,
+          0.5906
+        ],
+        "rot": [
+          -17,
+          2,
+          -3
+        ]
+      },
+      "pillow_3": {
+        "pos": [
+          0.0,
+          0.186,
+          0.5832
+        ],
+        "rot": [
+          -20,
+          1,
+          2
+        ]
+      },
+      "pillow_4": {
+        "pos": [
+          0.29,
+          0.0803,
+          0.5847
+        ],
+        "rot": [
+          -20,
+          -2,
+          -4
+        ]
+      },
+      "pillow_5": {
+        "pos": [
+          0.57,
+          0.1901,
+          0.5871
+        ],
+        "rot": [
+          -17,
+          3,
+          5
+        ]
+      },
+      "pillow_6": {
+        "pos": [
+          0.7,
+          0.0086,
+          0.6115
+        ],
+        "rot": [
+          -21,
+          12,
+          -6
+        ]
+      }
+    },
+    "bytes": 1009416,
+    "sha256": "bc024930ca6c3da8d5769a83c0656f66e2d5db7673db422d8eb93196168a4468",
+    "triangles": 21456,
+    "boundsMeters": {
+      "min": [
+        -1.10226,
+        0.0,
+        -0.50893
+      ],
+      "max": [
+        1.10367,
+        0.84453,
+        0.49016
+      ],
+      "dimensions": [
+        2.20593,
+        0.84453,
+        0.99909
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal-256",
+        "mimeType": "image/png",
+        "bytes": 29499,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam",
+          "pillow_seam",
+          "pillow_velvet"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "basecolor-musgo-512",
+        "mimeType": "image/jpeg",
+        "bytes": 8300,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam",
+          "pillow_seam",
+          "pillow_velvet"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 32969,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam",
+          "pillow_seam",
+          "pillow_velvet"
+        ]
+      },
+      {
+        "index": 3,
+        "name": "normal-256",
+        "mimeType": "image/png",
+        "bytes": 35868,
+        "usedBy": [
+          "base_wood"
+        ]
+      },
+      {
+        "index": 4,
+        "name": "basecolor-256",
+        "mimeType": "image/jpeg",
+        "bytes": 6086,
+        "usedBy": [
+          "base_wood"
+        ]
+      },
+      {
+        "index": 5,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 58253,
+        "usedBy": [
+          "base_wood"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "pillow_velvet",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_seam",
+        "region": "decorative"
+      },
+      {
+        "name": "base_wood",
+        "region": "exterior-structure"
+      },
+      {
+        "name": "fabric_main",
+        "region": "body"
+      },
+      {
+        "name": "fabric_seam",
+        "region": "body"
+      }
+    ],
+    "meshes": [
+      "arm_l",
+      "arm_pad_l",
+      "arm_pad_l_seam",
+      "arm_pad_r",
+      "arm_pad_r_seam",
+      "arm_r",
+      "back_pad",
+      "back_pad_seam",
+      "back_panel",
+      "foot_1",
+      "foot_2",
+      "foot_3",
+      "foot_4",
+      "hull",
+      "pillow_1_cover",
+      "pillow_1_welt",
+      "pillow_2_cover",
+      "pillow_2_welt",
+      "pillow_3_cover",
+      "pillow_3_welt",
+      "pillow_4_cover",
+      "pillow_4_welt",
+      "pillow_5_cover",
+      "pillow_5_welt",
+      "pillow_6_cover",
+      "pillow_6_welt",
+      "seat_pad",
+      "seat_pad_seam",
+      "wood_base_apron_back",
+      "wood_base_apron_front",
+      "wood_base_apron_side_l",
+      "wood_base_apron_side_r"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-curved-arm-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "sofas/SOFA-9.png",
+      "catalogId": "sofa-curvo",
+      "queue": "EXT-007",
+      "materialRegions": "{\"body\": [\"fabric_main\", \"fabric_seam\"], \"decorative\": [\"pillow_velvet\", \"pillow_seam\"], \"exterior-structure\": [\"base_wood\"]}",
+      "embeddedFinish": "{\"fabricId\": \"velvet\", \"colorId\": \"musgo\"}",
+      "embeddedTiles": 2,
+      "bodyUvMeters": 0.3
+    }
+  }
+}

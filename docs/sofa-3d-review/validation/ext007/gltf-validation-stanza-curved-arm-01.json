@@ -1,0 +1,113 @@
+{
+  "uri": "assets/models-3d/stanza-curved-arm-01/models/stanza-curved-arm-01.glb",
+  "validatorVersion": "2.0.0-dev.3.10",
+  "issues": {
+    "numErrors": 0,
+    "numWarnings": 0,
+    "numInfos": 0,
+    "numHints": 0,
+    "messages": [],
+    "truncated": false
+  },
+  "info": {
+    "version": "2.0",
+    "generator": "Khronos glTF Blender I/O v5.0.21",
+    "extensionsUsed": [
+      "KHR_materials_sheen"
+    ],
+    "resources": [
+      {
+        "pointer": "/buffers/0",
+        "mimeType": "application/gltf-buffer",
+        "storage": "glb",
+        "byteLength": 2772284
+      },
+      {
+        "pointer": "/images/0",
+        "mimeType": "image/png",
+        "storage": "buffer-view",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/1",
+        "mimeType": "image/jpeg",
+        "storage": "buffer-view",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/2",
+        "mimeType": "image/png",
+        "storage": "buffer-view",
+        "image": {
+          "width": 256,
+          "height": 256,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/3",
+        "mimeType": "image/png",
+        "storage": "buffer-view",
+        "image": {
+          "width": 256,
+          "height": 256,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/4",
+        "mimeType": "image/jpeg",
+        "storage": "buffer-view",
+        "image": {
+          "width": 512,
+          "height": 512,
+          "format": "rgb",
+          "bits": 8
+        }
+      },
+      {
+        "pointer": "/images/5",
+        "mimeType": "image/png",
+        "storage": "buffer-view",
+        "image": {
+          "width": 256,
+          "height": 256,
+          "format": "rgb",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      }
+    ],
+    "animationCount": 0,
+    "materialCount": 5,
+    "hasMorphTargets": false,
+    "hasSkins": false,
+    "hasTextures": true,
+    "hasDefaultScene": true,
+    "drawCallCount": 32,
+    "totalVertexCount": 35349,
+    "totalTriangleCount": 57852,
+    "maxUVs": 1,
+    "maxInfluences": 0,
+    "maxAttributes": 4
+  }
+}

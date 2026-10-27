@@ -45,6 +45,11 @@ Infraestrutura multi-modelo (biblioteca Blender, biblioteca de acabamentos, regi
 
 ![EXT-040: foto × render](images/ext040_photo_vs_render.jpg)
 
+**EXT-007 — Sofá verde de braços curvos** (`stanza-curved-arm-01` 1.0.0, catálogo `sofa-curvo`; SOFA-9.2 = mesmo ponto de vista):
+[ext007-sofa-curvo.md](ext007-sofa-curvo.md) · prévia `/explorar-sofa.html?modelo=stanza-curved-arm-01`.
+
+![EXT-007: fotos × render](images/ext007_photo_vs_render.jpg)
+
 ## EXT-001 r2, revisão 2.1.0 (refino de fidelidade à foto)
 
 Encosto alto e espesso de topo arredondado, almofadas cheias com cantos em ponta, trama oliva fina,
