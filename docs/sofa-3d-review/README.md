@@ -8,7 +8,18 @@ essenciais ficam aqui, com caminhos relativos ao repositório, e aparecem render
 > A `main` permanece intacta. Nada foi mesclado nem publicado no site oficial. Este é um estudo
 > visual; dimensões são estimadas, não desenhos de fabricação.
 
-## Atual — EXT-001, revisão 2.0.0 (somente exterior)
+## Atual — EXT-001 r2, revisão 2.1.0 (refino de fidelidade à foto)
+
+Encosto alto e espesso de topo arredondado, almofadas cheias com cantos em ponta, trama oliva fina,
+corpo bouclé cinza-bege legível. Relatório: [ext001-r2-refinement.md](ext001-r2-refinement.md).
+
+![Ângulo da foto 2.1.0: referência × depois × antes](images/ext001r2_photo_angle_vs_reference.jpg)
+
+![Texturas: foto × depois × antes](images/ext001r2_textures_before_after.jpg)
+
+![Cores do corpo com almofadas fixas (2.1.0)](images/ext001r2_body_colours_cushions_fixed.jpg)
+
+## Anterior — EXT-001, revisão 2.0.0 (somente exterior)
 
 **Mudança de escopo:** a construção interna e a abertura em camadas foram abandonadas; a prioridade
 é um exterior realista. Relatório: [ext001-exterior.md](ext001-exterior.md). Fila de todos os
@@ -95,7 +106,8 @@ externas) em [`validation/feat002-rev2/`](validation/feat002-rev2/).
 
 ## Relatórios
 
-- [EXT-001 — exterior realista, revisão 2.0.0](ext001-exterior.md) — **atual**
+- [EXT-001 r2 — refino de fidelidade à foto, revisão 2.1.0](ext001-r2-refinement.md) — **atual**
+- [EXT-001 — exterior realista, revisão 2.0.0](ext001-exterior.md) — base da 2.1.0
 - [Fila de modelos 3D EXT-001 … EXT-054](QUEUE.md)
 
 - [Gate de fidelidade do gerador (pré-FEAT-002)](gate-comparison_feat002.md)

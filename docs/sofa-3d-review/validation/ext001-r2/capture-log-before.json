@@ -1,0 +1,276 @@
+{
+ "runs": [
+  {
+   "label": "before_main",
+   "variant": "main",
+   "model": "default",
+   "ready": true,
+   "selection": {
+    "modelId": "stanza-organic-01",
+    "revision": "2.0.0",
+    "fabricId": "boucle",
+    "colorId": "grafite"
+   },
+   "inspect": {
+    "revision": "2.0.0",
+    "variant": "main",
+    "bounds": [
+     2.4866939783096313,
+     1.106411795877791,
+     1.0842711329460144
+    ],
+    "renders": 20,
+    "construction": "exterior-only",
+    "meshes": [
+     "cushion_01_cover_mesh",
+     "cushion_01_cover_mesh_1",
+     "cushion_01_welt",
+     "cushion_02_cover",
+     "cushion_02_welt",
+     "cushion_03_cover",
+     "cushion_03_welt",
+     "cushion_04_cover",
+     "cushion_04_welt",
+     "cushion_05_cover_mesh",
+     "cushion_05_cover_mesh_1",
+     "cushion_05_welt",
+     "foot_1",
+     "foot_2",
+     "foot_3",
+     "foot_4",
+     "back_cover",
+     "seat_cover",
+     "seat_panel_seam"
+    ],
+    "materialRegions": [
+     {
+      "name": "cushion_olive_weave",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff",
+      "sheen": 0.12,
+      "map": "64ca93eb-271c-477f-8d53-8d612713490a"
+     },
+     {
+      "name": "cushion_olive_reverse",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff",
+      "sheen": 0.15,
+      "map": "ed068937-beef-4107-be4e-d4494f27365f"
+     },
+     {
+      "name": "cushion_olive_seam",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff",
+      "sheen": 0.12,
+      "map": "64ca93eb-271c-477f-8d53-8d612713490a"
+     },
+     {
+      "name": "cushion_light_boucle",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff",
+      "sheen": 0.25,
+      "map": "6b840453-8920-47aa-bb44-ea7c00074790"
+     },
+     {
+      "name": "cushion_light_seam",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff",
+      "sheen": 0.25,
+      "map": "6b840453-8920-47aa-bb44-ea7c00074790"
+     },
+     {
+      "name": "legs_dark",
+      "region": "exterior-structure",
+      "stanzaFabric": false,
+      "type": "MeshStandardMaterial",
+      "color": "2d2c29",
+      "sheen": null,
+      "map": null
+     },
+     {
+      "name": "fabric_main",
+      "region": "body",
+      "stanzaFabric": true,
+      "type": "MeshPhysicalMaterial",
+      "color": "494b4b",
+      "sheen": 0.2,
+      "map": "0c8c9d5f-0e5d-4666-abe6-ac115dbb2120"
+     },
+     {
+      "name": "fabric_seam",
+      "region": "body",
+      "stanzaFabric": true,
+      "type": "MeshPhysicalMaterial",
+      "color": "494b4b",
+      "sheen": 0.2,
+      "map": "0c8c9d5f-0e5d-4666-abe6-ac115dbb2120"
+     }
+    ],
+    "groups": {
+     "upholstery": [
+      -0.01689988374710083,
+      0,
+      -0.03974375128746033
+     ],
+     "legs": [
+      -0.01689988374710083,
+      0,
+      -0.03974375128746033
+     ],
+     "cushions": [
+      -0.01689988374710083,
+      0,
+      -0.03974375128746033
+     ]
+    }
+   },
+   "errors": []
+  },
+  {
+   "label": "before_mobile",
+   "variant": "mobile",
+   "model": "default",
+   "ready": true,
+   "selection": {
+    "modelId": "stanza-organic-01",
+    "revision": "2.0.0",
+    "fabricId": "boucle",
+    "colorId": "areia"
+   },
+   "inspect": {
+    "revision": "2.0.0",
+    "variant": "mobile",
+    "bounds": [
+     2.486400008201599,
+     1.106411795877791,
+     1.083982527256012
+    ],
+    "renders": 6,
+    "construction": "exterior-only",
+    "meshes": [
+     "cushion_01_cover_mesh001",
+     "cushion_01_cover_mesh001_1",
+     "cushion_01_welt",
+     "cushion_02_cover",
+     "cushion_02_welt",
+     "cushion_03_cover",
+     "cushion_03_welt",
+     "cushion_04_cover",
+     "cushion_04_welt",
+     "cushion_05_cover_mesh001",
+     "cushion_05_cover_mesh001_1",
+     "cushion_05_welt",
+     "foot_1",
+     "foot_2",
+     "foot_3",
+     "foot_4",
+     "back_cover",
+     "seat_cover",
+     "seat_panel_seam"
+    ],
+    "materialRegions": [
+     {
+      "name": "cushion_olive_weave",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff",
+      "sheen": 0.12,
+      "map": "36037b04-15ca-4b03-8199-a86c2a70eb73"
+     },
+     {
+      "name": "cushion_olive_reverse",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff",
+      "sheen": 0.15,
+      "map": "55546e39-c27b-46f3-9d2f-09ad2c998a7f"
+     },
+     {
+      "name": "cushion_olive_seam",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff",
+      "sheen": 0.12,
+      "map": "36037b04-15ca-4b03-8199-a86c2a70eb73"
+     },
+     {
+      "name": "cushion_light_boucle",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff",
+      "sheen": 0.25,
+      "map": "8dc920b6-c072-4a75-9383-cff8969f9b22"
+     },
+     {
+      "name": "cushion_light_seam",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff",
+      "sheen": 0.25,
+      "map": "8dc920b6-c072-4a75-9383-cff8969f9b22"
+     },
+     {
+      "name": "legs_dark",
+      "region": "exterior-structure",
+      "stanzaFabric": false,
+      "type": "MeshStandardMaterial",
+      "color": "2d2c29",
+      "sheen": null,
+      "map": null
+     },
+     {
+      "name": "fabric_main",
+      "region": "body",
+      "stanzaFabric": true,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff",
+      "sheen": 0.2,
+      "map": "0208cf76-b83f-4367-b470-20eeee96666a"
+     },
+     {
+      "name": "fabric_seam",
+      "region": "body",
+      "stanzaFabric": true,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff",
+      "sheen": 0.2,
+      "map": "0208cf76-b83f-4367-b470-20eeee96666a"
+     }
+    ],
+    "groups": {
+     "upholstery": [
+      -0.016799986362457275,
+      0,
+      -0.03960874676704407
+     ],
+     "legs": [
+      -0.016799986362457275,
+      0,
+      -0.03960874676704407
+     ],
+     "cushions": [
+      -0.016799986362457275,
+      0,
+      -0.03960874676704407
+     ]
+    }
+   },
+   "errors": []
+  }
+ ]
+}

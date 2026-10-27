@@ -30,12 +30,12 @@ Em caso de dúvida, o material fica **fixo** e a dúvida é registrada em “Lim
 - **Estado:** tecnicamente validado – revisão visual pendente
 - **Fontes:** [`sofas/SOFA-2.jpg`](../../sofas/SOFA-2.jpg)
 - **Relação:** catálogo `sofa-organico`; portfólio `projeto-2`
-- **Arquivos:** `assets/sofa-pilot/source/build_sofa.py` (fonte de verdade), `source/generate_cushion_materials.py`, `models/sofa.glb`, `models/sofa-mobile.glb`, `source/sofa.blend`, `materials/cushions/`, `viewer/sofa-viewer.js`; registro `data/models-3d.json` (`stanza-organic-01`)
-- **Revisão:** 2.0.0 (somente exterior)
+- **Arquivos:** `assets/sofa-pilot/source/build_sofa.py` (fonte de verdade), `source/generate_cushion_materials.py`, `source/generate_embedded_areia.py`, `models/sofa.glb`, `models/sofa-mobile.glb`, `source/sofa.blend`, `materials/cushions/`, `viewer/sofa-viewer.js`; registro `data/models-3d.json` (`stanza-organic-01`)
+- **Revisão:** 2.1.0 (somente exterior; EXT-001 r2 — refino de fidelidade à foto sobre a 2.0.0)
 - **Opções reais:** corpo — tecidos `boucle`/`linen`/`velvet` × cores `areia`/`oliva`/`terracota`/`grafite`. Almofadas (3 bouclé claras, 2 trama oliva com avesso creme) e pés: fixos.
-- **Evidências:** [ext001-exterior.md](ext001-exterior.md); imagens `images/ext001_*.jpg`; validação `validation/ext001/`
-- **Limitações:** um único ângulo de referência (costas e lado oposto inferidos); medidas estimadas; tecido do corpo é estudo visual; validação só em navegador headless (SwiftShader).
-- **Próxima ação:** revisão visual pela Stanza nas imagens de comparação; ajustes finos de composição (ver limitações do relatório) antes de marcar como aprovado.
+- **Evidências:** [ext001-r2-refinement.md](ext001-r2-refinement.md) (2.1.0), imagens `images/ext001r2_*.jpg`, validação `validation/ext001-r2/`; histórico 2.0.0 em [ext001-exterior.md](ext001-exterior.md), `images/ext001_*.jpg`, `validation/ext001/`
+- **Limitações:** um único ângulo de referência (costas e lado oposto inferidos); medidas estimadas; tecido do corpo e cor `areia` (`#b6b0a8`) são estimativas visuais; almofadas claras mais brancas e trama oliva mais clara/menos contrastada que na foto à distância; validação só em navegador headless (SwiftShader).
+- **Próxima ação:** revisão visual pela Stanza nas imagens de comparação da 2.1.0; ajustes finos de tom das almofadas e contraste da trama (ver §4 do relatório r2) antes de marcar como aprovado.
 
 ### EXT-002 — Sofá cinza de linhas retas
 
