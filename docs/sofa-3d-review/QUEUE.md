@@ -65,15 +65,16 @@ Em caso de dúvida, o material fica **fixo** e a dúvida é registrada em “Lim
 
 ### EXT-004 — Sofá claro de dois assentos
 
-- **Estado:** pendente
+- **Estado:** tecnicamente validado – revisão visual pendente
 - **Fontes:** [`acervo/sofa-dois-assentos.webp`](../../acervo/sofa-dois-assentos.webp)
-- **Relação:** catálogo `sofa-dois-assentos`; portfólio `projeto-47`
-- **Arquivos:** —
-- **Revisão:** —
-- **Opções reais:** a definir (aplicar a regra de regiões acima)
-- **Evidências:** —
-- **Limitações:** —
-- **Próxima ação:** ler a foto, definir regiões e proporções, gerar fonte paramétrica e GLBs, registrar em `data/models-3d.json`.
+- **Relação:** catálogo `sofa-dois-assentos`; portfólio `projeto-47` (a mesma foto ilustra a página "Sobre"; mesma peça, sem entrada nova; IDs preservados)
+- **Arquivos:** `assets/models-3d/stanza-two-seat-01/` — `source/build.py`, `source/stanza-two-seat-01.blend`, `models/stanza-two-seat-01.glb`, `models/stanza-two-seat-01-mobile.glb`, `previews/poster.jpg`, `manifest.json`; mapas `assets/models-3d/materials/linho-rustico/` e `decor-quadrados/`; registro `data/models-3d.json` (`stanza-two-seat-01`)
+- **Revisão:** 1.0.0 (somente exterior) · principal 39 188 tri / 3,72 MB · móvel 15 976 tri / 0,95 MB
+- **Opções reais:** corpo (braços, base, encosto, almofadas de assento e encosto) — tecidos `linho-rustico` (inicial, novo), `linen`, `boucle`, `velvet` × cores `cru` (inicial, nova), `gelo`, `areia`, `grafite`, `oliva`, `terracota`. Almofada lombar estampada: fixa. Sem contraste nem estrutura visível.
+- **Evidências:** [ext004-sofa-dois-assentos.md](ext004-sofa-dois-assentos.md), imagens `images/ext004_*.jpg`, validação `validation/ext004/` (glTF-Validator 0/0/0/0, comportamento 75/75, máscaras 0 px, contatos)
+- **Prévia:** `/explorar-sofa.html?modelo=stanza-two-seat-01`; produto `/modelos/sofa-dois-assentos.html` com "Ver em 3D"
+- **Limitações:** vista única; assento fixado em 0,45 m; profundidade apoiada num ponto; `linho-rustico`/`cru` (`#e2ddd2`) estimados; desenho da lombar é releitura procedural; validação só headless.
+- **Próxima ação:** revisão visual pela Stanza; ajustes prováveis: caimento da lombar e enchimento do topo das almofadas de encosto.
 
 ### EXT-005 — Sofá cinza com vivo claro
 

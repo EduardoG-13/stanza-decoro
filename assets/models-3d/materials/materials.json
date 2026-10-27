@@ -153,6 +153,82 @@
         "roughnessMean": 0.899853347820202
       },
       "decorative": true
+    },
+    {
+      "label": "Linho rústico",
+      "family": "slub_plain_weave_study",
+      "seed": 709,
+      "normalScale": 1.0,
+      "roughness": 1.0,
+      "sheen": 0.1,
+      "sheenRoughness": 0.85,
+      "description": "Tela de aspecto linho, trama simples com flamê (engrossamentos alongados dos fios), fosca. Estudo visual próprio a partir de sofa-dois-assentos.webp; sem código comercial.",
+      "createdFor": "EXT-004 (acervo/sofa-dois-assentos.webp)",
+      "id": "linho-rustico",
+      "repeatMeters": 0.3,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "license": "CC0-1.0",
+      "source": "assets/models-3d/materials/generate_materials.py",
+      "maps": {
+        "baseColor": "linho-rustico/basecolor.jpg",
+        "normal": "linho-rustico/normal.png",
+        "roughness": "linho-rustico/roughness.jpg",
+        "thumbnail": "linho-rustico/thumbnail.jpg"
+      },
+      "validation": {
+        "baseColorMean": 0.7964933590945064,
+        "roughnessMean": 0.9224724440422591
+      },
+      "embedded": {
+        "cru": [
+          "basecolor-cru-1024.jpg",
+          "basecolor-cru-512.jpg"
+        ],
+        "normal": [
+          "embedded/normal-512.png",
+          "embedded/normal-256.png"
+        ],
+        "roughness": [
+          "embedded/roughness-512.jpg",
+          "embedded/roughness-256.jpg"
+        ]
+      }
+    },
+    {
+      "label": "Quadrados marrons (decorativa)",
+      "family": "cut_velvet_cushion_design",
+      "seed": 710,
+      "normalScale": 1.0,
+      "description": "Fundo marrom-escuro em relevo (aspecto veludo cortado) com retângulos bege rosado em fileiras desencontradas, procedural a partir da leitura de sofa-dois-assentos.webp (não é a foto). Somente a almofada decorativa fixa.",
+      "createdFor": "EXT-004 (almofada lombar de sofa-dois-assentos.webp)",
+      "id": "decor-quadrados",
+      "repeatMeters": 0.3,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "license": "CC0-1.0",
+      "source": "assets/models-3d/materials/generate_materials.py",
+      "maps": {
+        "baseColor": "decor-quadrados/basecolor.jpg",
+        "normal": "decor-quadrados/normal.png",
+        "roughness": "decor-quadrados/roughness.jpg",
+        "thumbnail": "decor-quadrados/thumbnail.jpg"
+      },
+      "validation": {
+        "baseColorMean": 0.49064438738183563,
+        "roughnessMean": 0.907540317044836
+      },
+      "decorative": true
     }
   ],
   "reusedFamilies": {
@@ -162,6 +238,7 @@
   },
   "tints": {
     "gelo": "#babcc0",
-    "grafite-quente": "#545050"
+    "grafite-quente": "#545050",
+    "cru": "#e2ddd2"
   }
 }

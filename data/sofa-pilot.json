@@ -6,7 +6,8 @@
     "linen": "Trama plana",
     "velvet": "Veludo",
     "boucle-mescla": "Bouclé mescla",
-    "sarja": "Sarja"
+    "sarja": "Sarja",
+    "linho-rustico": "Linho rústico"
   },
   "colors": {
     "areia": "Areia",
@@ -14,11 +15,13 @@
     "terracota": "Terracota",
     "grafite": "Grafite",
     "gelo": "Cinza gelo",
-    "grafite-quente": "Grafite quente"
+    "grafite-quente": "Grafite quente",
+    "cru": "Cru"
   },
   "studies": {
     "stanza-organic-01": "sofa-organico",
     "stanza-straight-01": "sofa-reto",
-    "stanza-modular-01": "sofa-modular"
+    "stanza-modular-01": "sofa-modular",
+    "stanza-two-seat-01": "sofa-dois-assentos"
   }
 }

@@ -1,0 +1,400 @@
+{
+  "contract": "stanza-model-3d/v1",
+  "modelId": "stanza-two-seat-01",
+  "revision": "1.0.0",
+  "queue": "EXT-004",
+  "title": "Sofá claro de dois assentos",
+  "relation": {
+    "catalogId": "sofa-dois-assentos",
+    "catalogName": "Sofá de dois assentos",
+    "portfolioId": "projeto-47",
+    "portfolioTitle": "Sofá claro de dois assentos",
+    "note": "A mesma foto (acervo/sofa-dois-assentos.webp) é a referência do item de catálogo e do item de portfólio; também é usada como imagem da página 'Sobre' (ABOUT_IMAGE em scripts/build.py), mas é a mesma peça: nenhuma entrada nova. IDs existentes preservados."
+  },
+  "references": [
+    {
+      "path": "acervo/sofa-dois-assentos.webp",
+      "size": [
+        2560,
+        1920
+      ],
+      "angle": "frente-direita, câmera elevada (~1,65 m), única vista; a peça recua do braço direito (próximo) para o esquerdo",
+      "use": "forma, proporções, almofadas, acabamento"
+    }
+  ],
+  "status": "technical-validated-visual-review-pending",
+  "construction": "exterior-only",
+  "units": "m",
+  "axes": {
+    "width": "+X",
+    "up": "+Y",
+    "front": "+Z",
+    "origin": "centro da projeção da peça no piso (Y=0)"
+  },
+  "estimatedScale": {
+    "seatHeightAssumed": 0.45,
+    "method": "câmera e proporções ajustadas por mínimos quadrados a 12 correspondências marcadas na foto reduzida a 1280×960 (rms ~9 px, rolagem 0); altura do assento (frente da almofada) fixada em 0,45 m. Profundidade apoiada num único ponto traseiro (1,25 m ajustado → 1,20 m adotado). Altura do painel do encosto lida acima do braço direito (~0,78 m).",
+    "values": {
+      "width": 2.63,
+      "depth": 1.2,
+      "armHeight": 0.65,
+      "armWidth": 0.23,
+      "seatHeight": 0.45,
+      "seatCushionThickness": 0.17,
+      "baseBandTop": 0.28,
+      "backPanelHeight": 0.78,
+      "backPanelThickness": 0.2,
+      "backCushion": [
+        1.05,
+        0.49
+      ],
+      "lumbarPillow": [
+        0.68,
+        0.38
+      ]
+    },
+    "weak": [
+      "profundidade (um ponto traseiro)",
+      "espessura do painel do encosto (invisível, assumida 0,20 m)"
+    ]
+  },
+  "components": [
+    {
+      "name": "braços retos",
+      "meshes": [
+        "arm_l",
+        "arm_r"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "base estofada",
+      "meshes": [
+        "base_band"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "painel do encosto",
+      "meshes": [
+        "back_panel"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "almofadas de assento",
+      "meshes": [
+        "seat_cushion_1",
+        "seat_cushion_2"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "almofadas soltas de encosto",
+      "meshes": [
+        "back_cushion_1_cover",
+        "back_cushion_1_welt",
+        "back_cushion_2_cover",
+        "back_cushion_2_welt"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "almofada lombar decorativa",
+      "meshes": [
+        "pillow_1_cover",
+        "pillow_1_welt"
+      ],
+      "group": "cushions"
+    }
+  ],
+  "materialRegions": {
+    "table": [
+      {
+        "mesh": "arm_l, arm_r, base_band, back_panel, seat_cushion_1/2, back_cushion_1/2_cover, back_cushion_*_welt",
+        "material": "fabric_main",
+        "region": "body"
+      },
+      {
+        "mesh": "pillow_1_cover",
+        "material": "pillow_squares",
+        "region": "decorative"
+      },
+      {
+        "mesh": "pillow_1_welt",
+        "material": "pillow_squares_seam",
+        "region": "decorative"
+      }
+    ],
+    "contrast": [],
+    "exterior-structure": [],
+    "note": "Almofadas de assento e encosto são funcionais e do tecido do corpo (body); a costura da borda das almofadas de encosto é do mesmo tecido e usa fabric_main (segue o corpo). A almofada lombar estampada é decoração fixa. Sem vivo contrastante, tachas ou botões; nenhum pé visível (a base estofada desce até o tapete)."
+  },
+  "options": {
+    "appliesTo": "body",
+    "fabrics": [
+      "linho-rustico",
+      "linen",
+      "boucle",
+      "velvet"
+    ],
+    "colors": [
+      "cru",
+      "gelo",
+      "areia",
+      "grafite",
+      "oliva",
+      "terracota"
+    ],
+    "default": {
+      "fabricId": "linho-rustico",
+      "colorId": "cru"
+    },
+    "embedded": {
+      "fabricId": "linho-rustico",
+      "colorId": "cru"
+    },
+    "note": "linho-rustico (tecido) e cru (cor #e2ddd2) são IDs novos e aditivos: a foto mostra uma tela de aspecto linho com flamê, mais rústica que a trama plana existente, num off-white quente que nem gelo (frio) nem areia (escuro) representam."
+  },
+  "materials": {
+    "library": "assets/models-3d/materials/ (linho-rustico, decor-quadrados; generate_materials.py)",
+    "reused": "assets/sofa-pilot/materials/ (boucle, linen, velvet) por referência",
+    "embedded": {
+      "main": "linho rústico cru basecolor 1024 + normal 1024 + roughness 256; estampa 1024/512/256",
+      "mobile": "linho 512/256/256; estampa 512/256/256"
+    },
+    "decorativeFinishes": {
+      "pillow_squares": "desenho procedural de retângulos bege em fundo marrom-escuro em relevo (decor-quadrados), não é a foto",
+      "pillow_squares_seam": "borda bege rosado #c4b0a4"
+    }
+  },
+  "provenance": {
+    "source": "assets/models-3d/stanza-two-seat-01/source/build.py (paramétrico; importa assets/models-3d/lib/stanza3d.py)",
+    "derived": "source/stanza-two-seat-01.blend, models/*.glb (gerados juntos, um passe)",
+    "tool": "Blender 5.0.1 como módulo Python (bpy, PyPI) em modo headless",
+    "license": "Geometria e mapas originais do projeto Stanza, CC0-1.0 na medida em que direitos possam existir; a foto de referência não é redistribuída no pacote nem usada como textura."
+  },
+  "budgets": {
+    "measured": {
+      "mainBytes": 3716244,
+      "mainTriangles": 39188,
+      "mobileBytes": 951352,
+      "mobileTriangles": 15976
+    },
+    "limits": {
+      "mainBytes": 5000000,
+      "mainTriangles": 60000,
+      "mobileTriangles": 25000
+    },
+    "withinBudget": true
+  },
+  "limitations": [
+    "Um único ângulo (frente-direita): costas, lateral esquerda externa e fundo inferidos.",
+    "Medidas estimadas com o assento fixado em 0,45 m; profundidade apoiada num único ponto traseiro.",
+    "Tecido (linho rústico) e cor (cru #e2ddd2) são estimativas visuais; a foto tem luz azulada de janela.",
+    "Desenho da almofada lombar é releitura procedural; o original tem mais fileiras e caimento mais mole.",
+    "Junções braço/base/encosto por volumes sobrepostos ocultos (até 50 mm, base sob o painel do encosto), lidas como vinco costurado; não há estrutura interna.",
+    "Sem pés visíveis (base estofada até o tapete felpudo); pés ocultos, se existirem, não foram inventados.",
+    "Validado apenas em navegador headless (SwiftShader)."
+  ],
+  "dimensions": {
+    "width": 2.64,
+    "height": 0.95,
+    "depth": 1.222,
+    "unit": "m",
+    "estimated": true,
+    "basis": "single photograph (sofa-dois-assentos.webp); seat height assumed 0.45 m; no measured shop dimensions"
+  },
+  "models": {
+    "main": {
+      "uri": "models/stanza-two-seat-01.glb",
+      "bytes": 3716244,
+      "sha256": "15eb056ab5cbac90abe5fd87c564af3a8befd30437f84b330998435c5a863f45",
+      "triangles": 39188,
+      "boundsMeters": {
+        "min": [
+          -1.32,
+          -0.00098,
+          -0.60109
+        ],
+        "max": [
+          1.32,
+          0.94937,
+          0.62133
+        ],
+        "dimensions": [
+          2.64,
+          0.95035,
+          1.22243
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal-512",
+          "mimeType": "image/png",
+          "bytes": 391471,
+          "usedBy": [
+            "pillow_squares"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "basecolor",
+          "mimeType": "image/jpeg",
+          "bytes": 260705,
+          "usedBy": [
+            "pillow_squares"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 61339,
+          "usedBy": [
+            "pillow_squares"
+          ]
+        },
+        {
+          "index": 3,
+          "name": "normal",
+          "mimeType": "image/png",
+          "bytes": 1459986,
+          "usedBy": [
+            "fabric_main",
+            "pillow_squares_seam"
+          ]
+        },
+        {
+          "index": 4,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 55466,
+          "usedBy": [
+            "fabric_main",
+            "pillow_squares_seam"
+          ]
+        },
+        {
+          "index": 5,
+          "name": "basecolor-cru-1024",
+          "mimeType": "image/jpeg",
+          "bytes": 160236,
+          "usedBy": [
+            "fabric_main"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "pillow_squares",
+          "region": "decorative"
+        },
+        {
+          "name": "pillow_squares_seam",
+          "region": "decorative"
+        },
+        {
+          "name": "fabric_main",
+          "region": "body"
+        }
+      ]
+    },
+    "mobile": {
+      "uri": "models/stanza-two-seat-01-mobile.glb",
+      "bytes": 951352,
+      "sha256": "7e1e39fb3423bc632d5f7b4f8c6f838cc73153fd01e4fc7867d0414399994267",
+      "triangles": 15976,
+      "boundsMeters": {
+        "min": [
+          -1.32,
+          -0.00076,
+          -0.60109
+        ],
+        "max": [
+          1.32,
+          0.94942,
+          0.6237
+        ],
+        "dimensions": [
+          2.64,
+          0.95017,
+          1.2248
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal-256",
+          "mimeType": "image/png",
+          "bytes": 80264,
+          "usedBy": [
+            "pillow_squares"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "basecolor-512",
+          "mimeType": "image/jpeg",
+          "bytes": 67721,
+          "usedBy": [
+            "pillow_squares"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 61339,
+          "usedBy": [
+            "pillow_squares"
+          ]
+        },
+        {
+          "index": 3,
+          "name": "normal-256",
+          "mimeType": "image/png",
+          "bytes": 67937,
+          "usedBy": [
+            "fabric_main",
+            "pillow_squares_seam"
+          ]
+        },
+        {
+          "index": 4,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 55466,
+          "usedBy": [
+            "fabric_main",
+            "pillow_squares_seam"
+          ]
+        },
+        {
+          "index": 5,
+          "name": "basecolor-cru-512",
+          "mimeType": "image/jpeg",
+          "bytes": 40460,
+          "usedBy": [
+            "fabric_main"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "pillow_squares",
+          "region": "decorative"
+        },
+        {
+          "name": "pillow_squares_seam",
+          "region": "decorative"
+        },
+        {
+          "name": "fabric_main",
+          "region": "body"
+        }
+      ]
+    }
+  }
+}

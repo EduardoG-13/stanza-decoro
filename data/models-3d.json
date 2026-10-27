@@ -211,6 +211,78 @@
           "note": "fitted to SOFA-3.jpg (17 hand-picked correspondences, rms ~16 px at 1280x960, camera roll fixed at 0: the photo is rolled ~3 deg, which the viewer does not reproduce)"
         }
       }
+    },
+    {
+      "modelId": "stanza-two-seat-01",
+      "catalogId": "sofa-dois-assentos",
+      "portfolioId": "projeto-47",
+      "queue": "EXT-004",
+      "title": "Sofá claro de dois assentos",
+      "revision": "1.0.0",
+      "status": "technical-validated-visual-review-pending",
+      "statusLabel": "tecnicamente validado – revisão visual pendente",
+      "construction": "exterior-only",
+      "reference": "acervo/sofa-dois-assentos.webp",
+      "page": "/explorar-sofa.html?modelo=stanza-two-seat-01",
+      "productPage": "/modelos/sofa-dois-assentos.html",
+      "posterAlt": "Estudo tridimensional do sofá claro de dois assentos, com almofada lombar estampada",
+      "assets": {
+        "viewerBase": "/assets/sofa-pilot/",
+        "main": "/assets/models-3d/stanza-two-seat-01/models/stanza-two-seat-01.glb",
+        "mobile": "/assets/models-3d/stanza-two-seat-01/models/stanza-two-seat-01-mobile.glb",
+        "poster": "/assets/models-3d/stanza-two-seat-01/previews/poster.jpg",
+        "manifest": "/assets/models-3d/stanza-two-seat-01/manifest.json"
+      },
+      "materialRegions": {
+        "body": [
+          "fabric_main"
+        ],
+        "decorative": [
+          "pillow_squares",
+          "pillow_squares_seam"
+        ]
+      },
+      "options": {
+        "appliesTo": "body",
+        "fabrics": [
+          "linho-rustico",
+          "linen",
+          "boucle",
+          "velvet"
+        ],
+        "colors": [
+          "cru",
+          "gelo",
+          "areia",
+          "grafite",
+          "oliva",
+          "terracota"
+        ],
+        "default": {
+          "fabricId": "linho-rustico",
+          "colorId": "cru"
+        },
+        "embedded": {
+          "fabricId": "linho-rustico",
+          "colorId": "cru"
+        }
+      },
+      "cameras": {
+        "photo": {
+          "position": [
+            2.119,
+            1.656,
+            2.655
+          ],
+          "target": [
+            0.138,
+            0.22,
+            -0.006
+          ],
+          "fov": 40.1,
+          "note": "fitted to sofa-dois-assentos.webp (12 hand-picked correspondences on the 1280x960 downscale, rms ~9 px, roll 0)"
+        }
+      }
     }
   ],
   "verifiedStatuses": [
@@ -222,6 +294,7 @@
     "linen": "/assets/sofa-pilot/materials/linen/",
     "velvet": "/assets/sofa-pilot/materials/velvet/",
     "boucle-mescla": "/assets/models-3d/materials/boucle-mescla/",
-    "sarja": "/assets/models-3d/materials/sarja/"
+    "sarja": "/assets/models-3d/materials/sarja/",
+    "linho-rustico": "/assets/models-3d/materials/linho-rustico/"
   }
 }

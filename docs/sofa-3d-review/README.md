@@ -25,6 +25,11 @@ Infraestrutura multi-modelo (biblioteca Blender, biblioteca de acabamentos, regi
 
 ![EXT-003: foto × render](images/ext003_photo_vs_render.jpg)
 
+**EXT-004 — Sofá claro de dois assentos** (`stanza-two-seat-01` 1.0.0, catálogo `sofa-dois-assentos`):
+[ext004-sofa-dois-assentos.md](ext004-sofa-dois-assentos.md) · prévia `/explorar-sofa.html?modelo=stanza-two-seat-01`.
+
+![EXT-004: foto × render](images/ext004_photo_vs_render.jpg)
+
 ## EXT-001 r2, revisão 2.1.0 (refino de fidelidade à foto)
 
 Encosto alto e espesso de topo arredondado, almofadas cheias com cantos em ponta, trama oliva fina,

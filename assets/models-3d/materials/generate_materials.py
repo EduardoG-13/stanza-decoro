@@ -27,7 +27,7 @@ from PIL import Image
 HERE = Path(__file__).resolve().parent
 N = 1024
 # Tints used for embedded initial finishes. MUST equal COLORS in assets/sofa-pilot/viewer/sofa-viewer.js.
-TINTS = {'gelo': (186, 188, 192), 'grafite-quente': (84, 80, 80)}
+TINTS = {'gelo': (186, 188, 192), 'grafite-quente': (84, 80, 80), 'cru': (226, 221, 210)}
 
 
 def noise(rng, sx, sy=None, n=N):
@@ -266,8 +266,64 @@ def decor_losango():
     return write_decor('decor-losango', rgb, height, rough, repeat_m, meta)
 
 
+def linho_rustico():
+    """Slubbed plain-weave linen-look upholstery (EXT-004, acervo/sofa-dois-assentos.webp):
+    256 yarns per 0.30 m tile, elongated slubs (thicker, slightly lighter yarn swellings) and a
+    faint irregular yarn tone, matte. Neutral maps; the colour comes from the tint."""
+    rng = np.random.default_rng(709)
+    repeat_m = .30
+    h, top, tone = weave(rng, 256, lambda i, j: ((i+j) % 2) == 0, thick=.03, slub=.35, slub_len=40)
+    fuzz = noise(rng, .8)
+    sl = blur(np.clip(h-1.0, 0, None), 1.0)          # where slubs swell above the regular yarn crest
+    height = .00018*h + .00006*sl + .000006*fuzz
+    color = np.clip(.80 + .010*tone + .03*sl + .012*fuzz + .005*noise(rng, 30) - .06*(1-np.clip(h, 0, 1)), 0, 1)
+    rough = np.clip(.92 + .03*(1-np.clip(h, 0, 1)) + .015*noise(rng, 2), 0, 1)
+    meta = {'label': 'Linho rústico', 'family': 'slub_plain_weave_study', 'seed': 709, 'normalScale': 1.0,
+            'roughness': 1.0, 'sheen': .10, 'sheenRoughness': .85,
+            'description': 'Tela de aspecto linho, trama simples com flamê (engrossamentos alongados dos fios), fosca. Estudo visual próprio a partir de sofa-dois-assentos.webp; sem código comercial.',
+            'createdFor': 'EXT-004 (acervo/sofa-dois-assentos.webp)'}
+    meta, col, _ = write_family('linho-rustico', height, color, rough, repeat_m, meta)
+    meta['embedded'] = {'cru': tinted('linho-rustico', col, 'cru'),
+                        'normal': ['embedded/normal-512.png', 'embedded/normal-256.png'],
+                        'roughness': ['embedded/roughness-512.jpg', 'embedded/roughness-256.jpg']}
+    return meta
+
+
+def decor_quadrados():
+    """Cut-velvet style lumbar-pillow design for the fixed decorative pillow of EXT-004: a dark
+    brown pile ground holding staggered rows of light rosy-beige rectangles (some merged into
+    short bars), each with a small darker centre; period 0.05 m (6 per 0.30 m tile). The dark
+    pile is raised."""
+    rng = np.random.default_rng(710)
+    repeat_m = .30
+    n = 6                                    # even row count keeps the half-cell stagger periodic
+    Y, X = np.mgrid[0:N, 0:N].astype(np.float64)
+    cy = (Y/(N/n)); row = np.floor(cy).astype(int) % n
+    cx = X/(N/n) + .5*(row % 2)
+    col = np.floor(cx).astype(int) % n
+    u = (cx % 1)-.5; v = (cy % 1)-.5
+    rs = (.37+.03*rng.standard_normal((n, n))).clip(.32, .42); asp = (1+.10*rng.standard_normal((n, n))).clip(.88, 1.15); bar = rng.uniform(size=(n, n)) < .25
+    hs = rs[row, col]
+    ax = np.where(bar[row, col], .48, np.minimum(hs*asp[row, col], .43)); ay = hs
+    outer = np.maximum(np.abs(u)/ax, np.abs(v)/ay)
+    light = blur((outer < 1.0).astype(float), 1.3)
+    centre = blur((outer < .30).astype(float), 1.3)
+    ground = np.array([214, 196, 186])/255; ink = np.array([46, 30, 27])/255; mid = np.array([128, 96, 84])/255
+    rgb = ink*(1-light[..., None]) + ground*light[..., None]
+    rgb = rgb*(1-.8*centre[..., None]) + mid*(.8*centre[..., None])
+    pile = noise(rng, .7)
+    rgb = np.clip(rgb*(1+.04*pile[..., None]), 0, 1)
+    dark = 1-light
+    height = .0006*dark + .00002*pile
+    rough = np.clip(.95 - .10*dark + .02*noise(rng, 2), 0, 1)
+    meta = {'label': 'Quadrados marrons (decorativa)', 'family': 'cut_velvet_cushion_design', 'seed': 710, 'normalScale': 1.0,
+            'description': 'Fundo marrom-escuro em relevo (aspecto veludo cortado) com retângulos bege rosado em fileiras desencontradas, procedural a partir da leitura de sofa-dois-assentos.webp (não é a foto). Somente a almofada decorativa fixa.',
+            'createdFor': 'EXT-004 (almofada lombar de sofa-dois-assentos.webp)'}
+    return write_decor('decor-quadrados', rgb, height, rough, repeat_m, meta)
+
+
 if __name__ == '__main__':
-    fams = [boucle_mescla(), wood_wenge(), sarja(), decor_losango()]
+    fams = [boucle_mescla(), wood_wenge(), sarja(), decor_losango(), linho_rustico(), decor_quadrados()]
     index = {'contract': 'stanza-material-library/v1',
              'note': 'Biblioteca compartilhada de acabamentos da coleção 3D. Estudos visuais originais (CC0), não catálogo homologado; a tela não substitui amostra física.',
              'bodyUvMeters': .30,

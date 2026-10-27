@@ -106,7 +106,8 @@
     "terracota": "#ae6952",
     "grafite": "#494b4b",
     "gelo": "#babcc0",
-    "grafite-quente": "#545050"
+    "grafite-quente": "#545050",
+    "cru": "#e2ddd2"
   },
   "FABRICS": {
     "linen": {
@@ -147,6 +148,14 @@
       "normalStrength": 0.9,
       "sheen": 0.1,
       "sheenRoughness": 0.8,
+      "repeatMeters": 0.3
+    },
+    "linho-rustico": {
+      "label": "Linho rústico",
+      "roughness": 1,
+      "normalStrength": 1,
+      "sheen": 0.1,
+      "sheenRoughness": 0.85,
       "repeatMeters": 0.3
     }
   },
