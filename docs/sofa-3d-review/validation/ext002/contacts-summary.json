@@ -1,0 +1,46 @@
+{
+ "main": {
+  "contato macio": {
+   "pairs": 55,
+   "maxPenetration_mm": 2.36,
+   "worstPair": "back_panel:back_cushion_1_cover"
+  },
+  "junção do corpo (oculta)": {
+   "pairs": 10,
+   "maxPenetration_mm": 49.96,
+   "worstPair": "base_band:back_panel"
+  },
+  "plinto↔corpo": {
+   "pairs": 44,
+   "maxPenetration_mm": 1.28,
+   "worstPair": "plinth_apron_back:arm_l"
+  },
+  "vivo no próprio estofado": {
+   "pairs": 8,
+   "maxPenetration_mm": 4.3,
+   "worstPair": "back_cushion_1_welt:back_cushion_1_cover"
+  }
+ },
+ "mobile": {
+  "contato macio": {
+   "pairs": 55,
+   "maxPenetration_mm": 5.13,
+   "worstPair": "seat_cushion_1:pillow_1_cover"
+  },
+  "junção do corpo (oculta)": {
+   "pairs": 10,
+   "maxPenetration_mm": 49.99,
+   "worstPair": "base_band:back_panel"
+  },
+  "plinto↔corpo": {
+   "pairs": 44,
+   "maxPenetration_mm": 1.35,
+   "worstPair": "plinth_apron_back:arm_l"
+  },
+  "vivo no próprio estofado": {
+   "pairs": 8,
+   "maxPenetration_mm": 3.91,
+   "worstPair": "seat_cushion_2_welt_bottom:seat_cushion_2"
+  }
+ }
+}

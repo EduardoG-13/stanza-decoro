@@ -1,0 +1,306 @@
+{
+  "assets/models-3d/stanza-straight-01/models/stanza-straight-01.glb": {
+    "bytes": 4154200,
+    "sha256": "2b11e9410a2da464887733c66b75e7ddb2f3c322e26e17a730f72f562b5b6ce7",
+    "triangles": 49384,
+    "boundsMeters": {
+      "min": [
+        -1.165,
+        0.0,
+        -0.4313
+      ],
+      "max": [
+        1.165,
+        0.98786,
+        0.43945
+      ],
+      "dimensions": [
+        2.33,
+        0.98786,
+        0.87074
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal",
+        "mimeType": "image/png",
+        "bytes": 1997957,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam",
+          "pillow_boucle",
+          "pillow_seam"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "basecolor-gelo-1024",
+        "mimeType": "image/jpeg",
+        "bytes": 215269,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam",
+          "pillow_boucle",
+          "pillow_seam"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 67361,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam",
+          "pillow_boucle",
+          "pillow_seam"
+        ]
+      },
+      {
+        "index": 3,
+        "name": "normal-256",
+        "mimeType": "image/png",
+        "bytes": 35868,
+        "usedBy": [
+          "plinth_wood"
+        ]
+      },
+      {
+        "index": 4,
+        "name": "basecolor-512",
+        "mimeType": "image/jpeg",
+        "bytes": 21362,
+        "usedBy": [
+          "plinth_wood"
+        ]
+      },
+      {
+        "index": 5,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 58253,
+        "usedBy": [
+          "plinth_wood"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "pillow_boucle",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_seam",
+        "region": "decorative"
+      },
+      {
+        "name": "plinth_wood",
+        "region": "exterior-structure"
+      },
+      {
+        "name": "fabric_main",
+        "region": "body"
+      },
+      {
+        "name": "fabric_seam",
+        "region": "body"
+      }
+    ],
+    "meshes": [
+      "arm_l",
+      "arm_l_front_welt",
+      "arm_r",
+      "arm_r_front_welt",
+      "back_cushion_1_cover",
+      "back_cushion_1_welt",
+      "back_cushion_2_cover",
+      "back_cushion_2_welt",
+      "back_panel",
+      "base_band",
+      "foot_1",
+      "foot_2",
+      "foot_3",
+      "foot_4",
+      "pillow_1_cover",
+      "pillow_1_welt",
+      "pillow_2_cover",
+      "pillow_2_welt",
+      "plinth_apron_back",
+      "plinth_apron_front",
+      "plinth_apron_side_l",
+      "plinth_apron_side_r",
+      "seat_cushion_1",
+      "seat_cushion_1_welt_bottom",
+      "seat_cushion_1_welt_top",
+      "seat_cushion_2",
+      "seat_cushion_2_welt_bottom",
+      "seat_cushion_2_welt_top"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-straight-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "sofas/SOFA-5.jpg",
+      "catalogId": "sofa-reto",
+      "queue": "EXT-002",
+      "materialRegions": "{\"body\": [\"fabric_main\", \"fabric_seam\"], \"decorative\": [\"pillow_boucle\", \"pillow_seam\"], \"exterior-structure\": [\"plinth_wood\"]}",
+      "embeddedFinish": "{\"fabricId\": \"boucle-mescla\", \"colorId\": \"gelo\"}",
+      "bodyUvMeters": 0.3
+    }
+  },
+  "assets/models-3d/stanza-straight-01/models/stanza-straight-01-mobile.glb": {
+    "bytes": 1220660,
+    "sha256": "9274cf995d3e6edf1bcacbe3c9c867b2a58b7286ce6b0a1861ecc0b400fba244",
+    "triangles": 21996,
+    "boundsMeters": {
+      "min": [
+        -1.16494,
+        0.0,
+        -0.4313
+      ],
+      "max": [
+        1.16494,
+        0.98781,
+        0.44083
+      ],
+      "dimensions": [
+        2.32988,
+        0.98781,
+        0.87212
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal-256",
+        "mimeType": "image/png",
+        "bytes": 146763,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam",
+          "pillow_boucle",
+          "pillow_seam"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "basecolor-gelo-512",
+        "mimeType": "image/jpeg",
+        "bytes": 64370,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam",
+          "pillow_boucle",
+          "pillow_seam"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 67361,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam",
+          "pillow_boucle",
+          "pillow_seam"
+        ]
+      },
+      {
+        "index": 3,
+        "name": "normal-256",
+        "mimeType": "image/png",
+        "bytes": 35868,
+        "usedBy": [
+          "plinth_wood"
+        ]
+      },
+      {
+        "index": 4,
+        "name": "basecolor-256",
+        "mimeType": "image/jpeg",
+        "bytes": 6086,
+        "usedBy": [
+          "plinth_wood"
+        ]
+      },
+      {
+        "index": 5,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 58253,
+        "usedBy": [
+          "plinth_wood"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "pillow_boucle",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_seam",
+        "region": "decorative"
+      },
+      {
+        "name": "plinth_wood",
+        "region": "exterior-structure"
+      },
+      {
+        "name": "fabric_main",
+        "region": "body"
+      },
+      {
+        "name": "fabric_seam",
+        "region": "body"
+      }
+    ],
+    "meshes": [
+      "arm_l",
+      "arm_l_front_welt",
+      "arm_r",
+      "arm_r_front_welt",
+      "back_cushion_1_cover",
+      "back_cushion_1_welt",
+      "back_cushion_2_cover",
+      "back_cushion_2_welt",
+      "back_panel",
+      "base_band",
+      "foot_1",
+      "foot_2",
+      "foot_3",
+      "foot_4",
+      "pillow_1_cover",
+      "pillow_1_welt",
+      "pillow_2_cover",
+      "pillow_2_welt",
+      "plinth_apron_back",
+      "plinth_apron_front",
+      "plinth_apron_side_l",
+      "plinth_apron_side_r",
+      "seat_cushion_1",
+      "seat_cushion_1_welt_bottom",
+      "seat_cushion_1_welt_top",
+      "seat_cushion_2",
+      "seat_cushion_2_welt_bottom",
+      "seat_cushion_2_welt_top"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-straight-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "sofas/SOFA-5.jpg",
+      "catalogId": "sofa-reto",
+      "queue": "EXT-002",
+      "materialRegions": "{\"body\": [\"fabric_main\", \"fabric_seam\"], \"decorative\": [\"pillow_boucle\", \"pillow_seam\"], \"exterior-structure\": [\"plinth_wood\"]}",
+      "embeddedFinish": "{\"fabricId\": \"boucle-mescla\", \"colorId\": \"gelo\"}",
+      "bodyUvMeters": 0.3
+    }
+  }
+}

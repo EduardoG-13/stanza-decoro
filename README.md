@@ -23,7 +23,7 @@ A prévia local usa `noindex`. O Netlify gera `dist/` com `--production`, habili
 - 48 fotos de portfólio, busca e ampliação com teclado.
 - Duas novas fotos reais de serviços, sem metadados de localização.
 - Sofá azul com fundo ajustado aprovado visualmente pelo usuário; original acessível na ficha.
-- Rotação 3D decorativa do exterior do sofá na página inicial, somente enquanto visível e respeitando movimento reduzido. Sem abertura de camadas ou estrutura interna desde a revisão 2.0.0. Fila de modelos 3D: `docs/sofa-3d-review/QUEUE.md`.
+- Rotação 3D decorativa do exterior do sofá na página inicial, somente enquanto visível e respeitando movimento reduzido. Sem abertura de camadas ou estrutura interna desde a revisão 2.0.0. Fila de modelos 3D: `docs/sofa-3d-review/QUEUE.md`. Pipeline dos modelos da coleção (registro `data/models-3d.json`, `assets/models-3d/`, `scripts/models3d/`): `docs/sofa-3d-review/models3d-pipeline.md`; estudo EXT-002 em `/explorar-sofa.html?modelo=stanza-straight-01`.
 - Orçamento HTTPS separado, com fotos privadas e protocolo curto. Na prévia, a referência segue ao formulário sem transportar dados pessoais pela URL.
 
 O formulário tem botão de fotos personalizado, cidades por UF, telefone formatado ao digitar e referências com foto e nome. Depois do registro, o WhatsApp recebe o resumo e o protocolo pelo link, sem copiar e colar. Veja [a revisão do orçamento](docs/ORCAMENTO-UX-2026-10-26.md).

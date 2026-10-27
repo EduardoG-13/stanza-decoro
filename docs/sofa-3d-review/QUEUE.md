@@ -1,6 +1,6 @@
 # Fila de modelos 3D (EXT-001 … EXT-054)
 
-Arquivo persistente da fila. Os códigos EXT são itens da fila, **não** IDs de catálogo; a coluna
+Arquivo persistente da fila. Infraestrutura comum dos modelos novos: [models3d-pipeline.md](models3d-pipeline.md). Os códigos EXT são itens da fila, **não** IDs de catálogo; a coluna
 “Relação” aponta o item de `data/catalog.json` / `data/portfolio.json` correspondente. Modelos com
 ativos reais entram também no registro `data/models-3d.json`, lido pelo configurador.
 
@@ -39,15 +39,16 @@ Em caso de dúvida, o material fica **fixo** e a dúvida é registrada em “Lim
 
 ### EXT-002 — Sofá cinza de linhas retas
 
-- **Estado:** pendente
+- **Estado:** tecnicamente validado – revisão visual pendente
 - **Fontes:** [`sofas/SOFA-5.jpg`](../../sofas/SOFA-5.jpg)
-- **Relação:** catálogo `sofa-reto`; portfólio `projeto-5`
-- **Arquivos:** —
-- **Revisão:** —
-- **Opções reais:** a definir (aplicar a regra de regiões acima)
-- **Evidências:** —
-- **Limitações:** —
-- **Próxima ação:** ler a foto, definir regiões e proporções, gerar fonte paramétrica e GLBs, registrar em `data/models-3d.json`.
+- **Relação:** catálogo `sofa-reto`; portfólio `projeto-5` (única peça com esta foto; IDs preservados)
+- **Arquivos:** `assets/models-3d/stanza-straight-01/` — `source/build.py` (fonte de verdade, usa `assets/models-3d/lib/stanza3d.py`), `source/stanza-straight-01.blend`, `models/stanza-straight-01.glb`, `models/stanza-straight-01-mobile.glb`, `previews/poster.jpg`, `manifest.json`; mapas `assets/models-3d/materials/boucle-mescla/` e `wood-wenge/`; registro `data/models-3d.json` (`stanza-straight-01`)
+- **Revisão:** 1.0.0 (somente exterior) · principal 49 384 tri / 4,15 MB · móvel 21 996 tri / 1,22 MB
+- **Opções reais:** corpo (braços, base, encosto, almofadas de assento e encosto) — tecidos `boucle-mescla` (inicial, novo), `boucle`, `linen`, `velvet` × cores `gelo` (inicial, nova), `areia`, `grafite`, `oliva`, `terracota`. Duas almofadas decorativas (bouclé) e plinto de madeira escura: fixos.
+- **Evidências:** [ext002-sofa-reto.md](ext002-sofa-reto.md), imagens `images/ext002_*.jpg`, validação `validation/ext002/` (glTF-Validator 0/0/0/0, comportamento 73/73, máscaras 0 px nas decorativas, contatos, regressão EXT-001 0 px)
+- **Prévia:** `/explorar-sofa.html?modelo=stanza-straight-01`; produto `/modelos/sofa-reto.html` com "Ver em 3D"
+- **Limitações:** um único ângulo (costas, lateral externa direita e topo inferidos); medidas estimadas com assento fixado em 0,44 m e profundidade pouco determinada (0,75–0,95 m → 0,86 m); bouclé mescla e `gelo` (`#babcc0`) são estimativas visuais; decorativas menos cheias/caídas que na foto; contato móvel até 5 mm oculto sob a decorativa esquerda; validação só headless.
+- **Próxima ação:** revisão visual pela Stanza das comparações (ângulo da foto, cores, close-ups); se aprovado, marcar `approved`; ajustes prováveis: enchimento das decorativas e abaulado dos encostos.
 
 ### EXT-003 — Sofá modular cinza
 

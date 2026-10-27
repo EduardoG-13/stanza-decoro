@@ -1,4 +1,4 @@
-# Revisão do estudo 3D do sofá orgânico (stanza-organic-01)
+# Revisão dos estudos 3D (stanza-organic-01, stanza-straight-01 e fila)
 
 Esta pasta reúne, de forma **versionada e visível no PR**, o material de revisão do aprimoramento
 do sofá 3D (branch `work/sofa-3d-inspection`). Os caminhos internos do sandbox (`.agents/`,
@@ -8,7 +8,19 @@ essenciais ficam aqui, com caminhos relativos ao repositório, e aparecem render
 > A `main` permanece intacta. Nada foi mesclado nem publicado no site oficial. Este é um estudo
 > visual; dimensões são estimadas, não desenhos de fabricação.
 
-## Atual — EXT-001 r2, revisão 2.1.0 (refino de fidelidade à foto)
+## Coleção — pipeline models3d e EXT-002
+
+Infraestrutura multi-modelo (biblioteca Blender, biblioteca de acabamentos, registro, visualizador
+único, scripts de captura/validação): [models3d-pipeline.md](models3d-pipeline.md).
+
+**EXT-002 — Sofá cinza de linhas retas** (`stanza-straight-01` 1.0.0, catálogo `sofa-reto`):
+[ext002-sofa-reto.md](ext002-sofa-reto.md) · prévia `/explorar-sofa.html?modelo=stanza-straight-01`.
+
+![EXT-002: foto × render](images/ext002_photo_vs_render.jpg)
+
+![EXT-002: cores do corpo com decoração fixa](images/ext002_body_colours.jpg)
+
+## EXT-001 r2, revisão 2.1.0 (refino de fidelidade à foto)
 
 Encosto alto e espesso de topo arredondado, almofadas cheias com cantos em ponta, trama oliva fina,
 corpo bouclé cinza-bege legível. Relatório: [ext001-r2-refinement.md](ext001-r2-refinement.md).

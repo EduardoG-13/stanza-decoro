@@ -1,0 +1,275 @@
+[
+ {
+  "view": "photo",
+  "reference": "initial",
+  "pixels": {
+   "body": 316506,
+   "decorative": 52962,
+   "exterior-structure": 17765
+  },
+  "passes": {
+   "areia": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 18.16,
+     "max": 22
+    },
+    "decorative": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "exterior-structure": {
+     "meanAbs": 0.0,
+     "max": 0
+    }
+   },
+   "grafite": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 111.445,
+     "max": 123
+    },
+    "decorative": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "exterior-structure": {
+     "meanAbs": 0.0,
+     "max": 0
+    }
+   },
+   "oliva": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 93.39,
+     "max": 101
+    },
+    "decorative": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "exterior-structure": {
+     "meanAbs": 0.0,
+     "max": 0
+    }
+   },
+   "terracota": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 99.138,
+     "max": 108
+    },
+    "decorative": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "exterior-structure": {
+     "meanAbs": 0.0,
+     "max": 0
+    }
+   },
+   "linen_gelo": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 12.777,
+     "max": 75
+    },
+    "decorative": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "exterior-structure": {
+     "meanAbs": 0.0,
+     "max": 0
+    }
+   },
+   "velvet_grafite": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 83.939,
+     "max": 127
+    },
+    "decorative": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "exterior-structure": {
+     "meanAbs": 0.0,
+     "max": 0
+    }
+   },
+   "boucle_areia": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 13.594,
+     "max": 81
+    },
+    "decorative": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "exterior-structure": {
+     "meanAbs": 0.0,
+     "max": 0
+    }
+   },
+   "back_initial": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "decorative": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "exterior-structure": {
+     "meanAbs": 0.0,
+     "max": 0
+    }
+   }
+  },
+  "run": "main"
+ },
+ {
+  "view": "tq_right",
+  "reference": "initial",
+  "pixels": {
+   "body": 173620,
+   "decorative": 33649,
+   "exterior-structure": 6685
+  },
+  "passes": {
+   "areia": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 18.311,
+     "max": 22
+    },
+    "decorative": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "exterior-structure": {
+     "meanAbs": 0.0,
+     "max": 0
+    }
+   },
+   "grafite": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 109.709,
+     "max": 122
+    },
+    "decorative": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "exterior-structure": {
+     "meanAbs": 0.0,
+     "max": 0
+    }
+   },
+   "back_initial": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "decorative": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "exterior-structure": {
+     "meanAbs": 0.0,
+     "max": 0
+    }
+   }
+  },
+  "run": "main"
+ },
+ {
+  "view": "photo",
+  "reference": "initial",
+  "pixels": {
+   "body": 131558,
+   "decorative": 21309,
+   "exterior-structure": 6285
+  },
+  "passes": {
+   "grafite": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 112.112,
+     "max": 123
+    },
+    "decorative": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "exterior-structure": {
+     "meanAbs": 0.0,
+     "max": 0
+    }
+   },
+   "back_initial": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "decorative": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "exterior-structure": {
+     "meanAbs": 0.0,
+     "max": 0
+    }
+   }
+  },
+  "run": "mobile"
+ },
+ {
+  "view": "tq_right",
+  "reference": "initial",
+  "pixels": {
+   "body": 103570,
+   "decorative": 19733,
+   "exterior-structure": 3362
+  },
+  "passes": {
+   "grafite": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 110.097,
+     "max": 122
+    },
+    "decorative": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "exterior-structure": {
+     "meanAbs": 0.0,
+     "max": 0
+    }
+   },
+   "back_initial": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "decorative": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "exterior-structure": {
+     "meanAbs": 0.0,
+     "max": 0
+    }
+   }
+  },
+  "run": "mobile"
+ }
+]
