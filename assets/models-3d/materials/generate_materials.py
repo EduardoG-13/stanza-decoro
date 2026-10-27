@@ -28,7 +28,8 @@ HERE = Path(__file__).resolve().parent
 N = 1024
 # Tints used for embedded initial finishes. MUST equal COLORS in assets/sofa-pilot/viewer/sofa-viewer.js.
 TINTS = {'gelo': (186, 188, 192), 'grafite-quente': (84, 80, 80), 'cru': (226, 221, 210), 'cinza-malva': (138, 130, 134), 'petroleo': (14, 86, 104),
-         'areia': (182, 176, 168)}   # EXT-040: = COLORS.areia (#b6b0a8), tint of the embedded velvet (no new colour)
+         'areia': (182, 176, 168),   # EXT-040: = COLORS.areia (#b6b0a8), tint of the embedded velvet (no new colour)
+         'musgo': (107, 101, 52)}    # EXT-007: = COLORS.musgo (#6b6534), new additive colour (moss velvet of SOFA-9)
 
 
 def noise(rng, sx, sy=None, n=N):

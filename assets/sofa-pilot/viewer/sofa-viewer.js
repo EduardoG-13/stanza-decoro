@@ -11,7 +11,8 @@ export const DIMENSIONS = Object.freeze({ width:2.503, height:1.132, depth:1.098
 // cru (EXT-004): warm off-white of the linen-look cloth in sofa-dois-assentos.webp (visual estimate).
 // cinza-malva (EXT-005): mauve-tinted mid grey of sofa-com-vivo.webp (visual estimate).
 // petroleo (EXT-014): deep teal-blue velvet of poltronas-11.jpg (visual estimate).
-export const COLORS = Object.freeze({ areia: '#b6b0a8', oliva: '#72765a', terracota: '#ae6952', grafite: '#494b4b', gelo: '#babcc0', 'grafite-quente': '#545050', cru: '#e2ddd2', 'cinza-malva': '#8a8286', petroleo: '#0e5668' });
+// musgo (EXT-007): saturated moss/olive-green velvet of SOFA-9.png / SOFA-9.2.png (visual estimate; oliva is a grey sage).
+export const COLORS = Object.freeze({ areia: '#b6b0a8', oliva: '#72765a', terracota: '#ae6952', grafite: '#494b4b', gelo: '#babcc0', 'grafite-quente': '#545050', cru: '#e2ddd2', 'cinza-malva': '#8a8286', petroleo: '#0e5668', musgo: '#6b6534' });
 export const FABRICS = Object.freeze({
   linen: { label:'Trama plana', roughness: 1, normalStrength: .78, sheen: .12, sheenRoughness: .85, repeatMeters: .14 },
   boucle: { label:'Bouclé', roughness: 1, normalStrength: 1.8, sheen: .12, sheenRoughness: .95, repeatMeters: .30 },
