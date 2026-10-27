@@ -25,15 +25,17 @@ console.log(viewer.getSelection());
 
 Inclua controles e mensagens de erro adequados à sua página (o site usa `assets/sofa-experience.js` como exemplo de botões, teclado, seletores e fallback). O elemento hospedeiro precisa ter altura e largura diferentes de zero. Preserve o import map antes do primeiro módulo. Se a página já usa Three.js, utilize uma única versão 0.180.0 para evitar instâncias incompatíveis.
 
-## Contrato público (revisão 2.0.0 — somente exterior)
+## Contrato público (revisão 2.1.0 — somente exterior)
 
 A partir da 2.0.0 (EXT-001) o GLB contém apenas o exterior visível: grupos `upholstery` (corpo), `cushions` (cinco almofadas decorativas) e `legs` (pés). Os grupos internos `padding`, `frame` e `suspension`, a câmera `layers`, a abertura em camadas e o adaptador de rolagem `scroll.js` (GSAP) foram removidos. **Mudança incompatível**: quem dependia da abertura deve remover esses controles.
+
+A 2.1.0 (EXT-001 r2) é compatível com a 2.0.0 na API. Mudam a forma (encosto mais alto e espesso, almofadas mais cheias), a cor visual de `areia` (`#d8c9b2` → `#b6b0a8`, mantendo o ID), a escala UV do corpo (`BODY_UV_METERS`) e a câmera `photo`.
 
 | Função | Comportamento |
 |---|---|
 | `createSofaViewer(element, options?)` | Retorna `Promise<viewer>` quando GLB e acabamento inicial estão prontos. Falhas rejeitam a Promise e restauram o poster. |
 | `setFinish({fabricId, colorId})` | Retorna `Promise<selection>`. Aceita os dois identificadores ou uma alteração parcial. A última solicitação vence. Altera **somente** os materiais da região `body` (`fabric_main`, `fabric_seam`); almofadas decorativas e pés mantêm o acabamento fixo. Preserva a câmera. |
-| `setView(viewId)` | Aplica a câmera documentada. IDs: `threequarter`, `front`, `side`, `detail`, `photo` (ângulo aproximado de SOFA-2.jpg). |
+| `setView(viewId)` | Aplica a câmera documentada. IDs: `threequarter`, `front`, `side`, `detail`, `photo` (ângulo de SOFA-2.jpg, reajustado na 2.1.0). |
 | `setProgress(number)` | **Obsoleto desde 2.0.0.** Mantido por compatibilidade: valida o número e não faz nada além de manter a peça montada (chama `onProgress(0,'Peça montada')`). `LAYER_STAGES` exporta um único estágio montado. |
 | `getSelection()` | Retorna uma cópia com somente `modelId`, `revision`, `fabricId` e `colorId`. Não envia dados. |
 | `dispose()` | Idempotente. Cancela render pendente, eventos e observação de tamanho; libera geometria, materiais, texturas, bitmaps, sombras e contexto WebGL. Remove o canvas e restaura os filhos originais. |
@@ -41,7 +43,7 @@ A partir da 2.0.0 (EXT-001) o GLB contém apenas o exterior visível: grupos `up
 `getSelection()` retorna, por exemplo:
 
 ```json
-{"modelId":"stanza-organic-01","revision":"2.0.0","fabricId":"boucle","colorId":"areia"}
+{"modelId":"stanza-organic-01","revision":"2.1.0","fabricId":"boucle","colorId":"areia"}
 ```
 
 Tecidos: `linen`, `boucle`, `velvet`. Cores: `areia`, `oliva`, `terracota`, `grafite`. São estudos visuais. Não correspondem a catálogo, disponibilidade ou amostra física homologada.
@@ -52,7 +54,7 @@ Extensões pequenas: `zoom(factor)` requer fator positivo (.85 aproxima, 1.18 af
 
 ## Carga e materiais
 
-O GLB inicial já contém bouclé areia. Nesse estado a base color embutida recebe multiplicador branco, evitando tingimento duplicado. As outras escolhas carregam os três mapas neutros da família sob demanda e os reutilizam. Voltar a bouclé areia restaura os mapas embutidos. `fabric_main` e `fabric_seam` são os bindings estáveis do corpo.
+O GLB inicial já contém bouclé areia. Nesse estado a base color embutida recebe multiplicador branco, evitando tingimento duplicado. A base embutida é a base neutra × `COLORS.areia` (mesma regra do caminho externo; ver `source/generate_embedded_areia.py`). As outras escolhas carregam os três mapas neutros da família sob demanda e os reutilizam. Voltar a bouclé areia restaura os mapas embutidos. `fabric_main` e `fabric_seam` são os bindings estáveis do corpo.
 
 Regiões de material (extras `stanza_region` no GLB, com nomes como reserva):
 
@@ -64,7 +66,7 @@ Regiões de material (extras `stanza_region` no GLB, com nomes como reserva):
 
 A conversão é feita por instância de material (cache), nunca por malha, e a classificação vem da região do material: uma instância de corpo não pode ser compartilhada com uma almofada.
 
-Base color usa sRGB, normal e roughness são dados sem conversão sRGB. UVs do modelo definem a escala física, com repetição de 140 mm. Veludo usa sheen de `MeshPhysicalMaterial`, mantendo metallic-roughness como base compatível. A versão móvel reduz geometria e mapas embutidos; ao personalizar, usa os mesmos mapas externos até 2K para preservar a definição do acabamento.
+Base color usa sRGB, normal e roughness são dados sem conversão sRGB. Desde a 2.1.0 uma unidade UV do corpo vale `BODY_UV_METERS` = 0,30 m: o bouclé (embutido e externo) é aplicado com repetição de 0,30 m, para os laços lerem à distância; linho e veludo recebem `texture.repeat` = 0,30/0,14 e mantêm a repetição física de 140 mm (`FABRICS[id].repeatMeters`). Veludo usa sheen de `MeshPhysicalMaterial`, mantendo metallic-roughness como base compatível. A versão móvel reduz geometria e mapas embutidos; ao personalizar, usa os mesmos mapas externos até 2K para preservar a definição do acabamento.
 
 Não existe giro automático ou laço de render contínuo. A cena renderiza ao carregar, redimensionar ou receber interação. Mouse/trackpad não captura a roda de rolagem; no toque, a rolagem vertical permanece nativa. Setas giram/inclinam, + e − aproximam/afastam, Home restaura três quartos. O canvas é focável. As mudanças de vista são diretas, sem animações contínuas.
 

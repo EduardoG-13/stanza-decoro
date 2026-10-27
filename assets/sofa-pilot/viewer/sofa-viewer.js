@@ -3,21 +3,25 @@ import { GLTFLoader } from './vendor/three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from './vendor/three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from './vendor/three/addons/environments/RoomEnvironment.js';
 
-export const IDENTITY = Object.freeze({ modelId: 'stanza-organic-01', revision: '2.0.0' });
-export const DIMENSIONS = Object.freeze({ width:2.487, height:1.106, depth:1.084, unit:'m', estimated:true });
-export const COLORS = Object.freeze({ areia: '#d8c9b2', oliva: '#72765a', terracota: '#ae6952', grafite: '#494b4b' });
+export const IDENTITY = Object.freeze({ modelId: 'stanza-organic-01', revision: '2.1.0' });
+export const DIMENSIONS = Object.freeze({ width:2.503, height:1.132, depth:1.098, unit:'m', estimated:true });
+export const COLORS = Object.freeze({ areia: '#b6b0a8', oliva: '#72765a', terracota: '#ae6952', grafite: '#494b4b' });
 export const FABRICS = Object.freeze({
-  linen: { label:'Trama plana', roughness: 1, normalStrength: .78, sheen: .12, sheenRoughness: .85 },
-  boucle: { label:'Bouclé', roughness: 1, normalStrength: .9, sheen: .2, sheenRoughness: .9 },
-  velvet: { label:'Veludo', roughness: 1, normalStrength: .38, sheen: .72, sheenRoughness: .55 }
+  linen: { label:'Trama plana', roughness: 1, normalStrength: .78, sheen: .12, sheenRoughness: .85, repeatMeters: .14 },
+  boucle: { label:'Bouclé', roughness: 1, normalStrength: 1.8, sheen: .12, sheenRoughness: .95, repeatMeters: .30 },
+  velvet: { label:'Veludo', roughness: 1, normalStrength: .38, sheen: .72, sheenRoughness: .55, repeatMeters: .14 }
 });
+// 2.1.0: one body UV unit = BODY_UV_METERS (build_sofa.BODY_TILE). Each fabric's maps are scaled
+// with texture.repeat so they keep their own physical repeat (bouclé 0.30 m = the embedded maps).
+export const BODY_UV_METERS = .30;
 export const CAMERAS = Object.freeze({
   threequarter: { position:[2.6,1.65,3.1], target:[0,.5,0] },
   front: { position:[0,1.15,4.5], target:[0,.48,0] },
   side: { position:[4.4,1.2,0], target:[0,.48,0] },
   detail: { position:[.55,.63,1], target:[.5,.43,.35] },
-  // EXT-001: roughly the SOFA-2.jpg angle (front, slightly from the right/chaise side, elevated).
-  photo: { position:[.4,1.13,3.05], target:[-.05,.5,0] }
+  // SOFA-2.jpg angle. 2.1.0: re-fitted against the photo (closer, from slightly left of centre,
+  // looking down onto the seat as the photographer did); 2.0.0 was [.4,1.13,3.05] -> [-.05,.5,0].
+  photo: { position:[-.15,1.35,2.45], target:[-.05,.55,0] }
 });
 const zero = [0,0,0];
 // EXT-001 / 2.0.0: exterior-only asset. The illustrative layered opening (FEAT-004) and the
@@ -37,8 +41,8 @@ export const MATERIAL_REGIONS = Object.freeze({
 });
 // Fixed decorative look (sheen is a viewer-side MeshPhysicalMaterial addition; maps/colours come from the GLB).
 const DECORATIVE = Object.freeze({
-  cushion_light_boucle: { sheen:.25, sheenRoughness:.9, sheenColor:'#e6e1d8' },
-  cushion_light_seam: { sheen:.25, sheenRoughness:.9, sheenColor:'#e6e1d8' },
+  cushion_light_boucle: { sheen:.15, sheenRoughness:.95, sheenColor:'#e6e1d8' },
+  cushion_light_seam: { sheen:.15, sheenRoughness:.95, sheenColor:'#e6e1d8' },
   cushion_olive_weave: { sheen:.12, sheenRoughness:.8, sheenColor:'#b9b48a' },
   cushion_olive_seam: { sheen:.12, sheenRoughness:.8, sheenColor:'#b9b48a' },
   cushion_olive_reverse: { sheen:.15, sheenRoughness:.85, sheenColor:'#f1ece0' }
@@ -127,7 +131,7 @@ export async function createSofaViewer(container, options = {}) {
         textures.add(texture); texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
         texture.flipY = false; texture.colorSpace = name.startsWith('basecolor') ? THREE.SRGBColorSpace : THREE.NoColorSpace;
         texture.anisotropy = Math.min(8,renderer.capabilities.getMaxAnisotropy());
-        texture.repeat.set(1,1); return texture;
+        const k = BODY_UV_METERS / FABRICS[fabricId].repeatMeters; texture.repeat.set(k,k); return texture;
       }));
       return { map:result[0],normalMap:result[1],roughnessMap:result[2] };
     })();

@@ -35,16 +35,17 @@
         "roughnessMean": 0.8725013781322526,
         "normalLengthMaxErrorBeforeQuantization": 2.220446049250313e-16,
         "periodicity": "periodic Fourier noise, modular weave/loop sampling and wrapped normal derivatives"
-      }
+      },
+      "appliedRepeatMeters": 0.14
     },
     {
       "label": "Bouclé",
       "family": "fine_loop_boucle_study",
       "seed": 502,
-      "normalScale": 0.9,
+      "normalScale": 1.8,
       "roughness": 1.0,
-      "sheen": 0.2,
-      "sheenRoughness": 0.9,
+      "sheen": 0.12,
+      "sheenRoughness": 0.95,
       "description": "Lacos irregulares finos com relevo suave e penugem; distribuicao media de 1,9 mm. Estudo visual, sem codigo comercial.",
       "id": "boucle",
       "repeatMeters": 0.14,
@@ -70,7 +71,9 @@
         "roughnessMean": 0.9100106722228036,
         "normalLengthMaxErrorBeforeQuantization": 2.220446049250313e-16,
         "periodicity": "periodic Fourier noise, modular weave/loop sampling and wrapped normal derivatives"
-      }
+      },
+      "appliedRepeatMeters": 0.3,
+      "appliedRepeatNote": "2.1.0: the 0.14 m-authored bouclé maps are applied at 0.30 m per UV unit on the body and the light cushions (loops ~4 mm), so the bouclé reads at viewing distance like SOFA-2.jpg."
     },
     {
       "label": "Veludo",
@@ -111,7 +114,8 @@
         "roughnessMean": 0.7217925367701485,
         "normalLengthMaxErrorBeforeQuantization": 2.220446049250313e-16,
         "periodicity": "periodic Fourier noise, modular weave/loop sampling and wrapped normal derivatives"
-      }
+      },
+      "appliedRepeatMeters": 0.14
     }
   ],
   "decorativeCushionMaterials": {
@@ -129,12 +133,11 @@
         ],
         "faces": "front + edge strip",
         "repeatMeters": 0.14,
-        "cellMeters": 0.014,
         "maps": {
           "baseColor": "materials/cushions/olive-weave/basecolor.jpg",
           "normal": "materials/cushions/olive-weave/normal.png"
         },
-        "mobileMaps": "materials/cushions/olive-weave/mobile/ (256 px)",
+        "mobileMaps": "materials/cushions/olive-weave/mobile/ (base colour 256 px, normal 128 px)",
         "textureSize": [
           512,
           512
@@ -143,7 +146,14 @@
         "normalColorSpace": "linear-data",
         "normalConvention": "OpenGL +Y",
         "roughness": 0.92,
-        "sheen": 0.12
+        "sheen": 0.12,
+        "unitMeters": 0.0117,
+        "weave": "basket weave: checkerboard of 2-cord units, olive plied with cream (2.1.0; 2.0.0 was a 14 mm 2/2 twill that read as diagonal stripes)",
+        "normalTextureSize": [
+          256,
+          256
+        ],
+        "normalScale": 0.8
       },
       {
         "name": "cushion_olive_seam",
@@ -176,9 +186,9 @@
           "cushion_04"
         ],
         "tintSRGB": [
-          188,
+          186,
           182,
-          174
+          175
         ],
         "maps": {
           "baseColor": "materials/cushions/light-boucle/basecolor.jpg",
@@ -186,7 +196,9 @@
           "roughness": "source/embedded-boucle-roughness.jpg (shared)"
         },
         "mobileMaps": "basecolor 256 px + source/mobile-boucle normal/roughness (shared)",
-        "sheen": 0.25
+        "sheen": 0.15,
+        "normalScale": 1.6,
+        "appliedRepeatMeters": 0.3
       },
       {
         "name": "cushion_light_seam",
@@ -198,6 +210,19 @@
         "faces": "welt",
         "sameMapsAs": "cushion_light_boucle"
       }
-    ]
+    ],
+    "revision": "2.1.0"
+  },
+  "embeddedInitialBody": {
+    "since": "2.1.0",
+    "colorId": "areia",
+    "tintSRGB": [
+      182,
+      176,
+      168
+    ],
+    "hex": "#b6b0a8",
+    "generator": "source/generate_embedded_areia.py",
+    "note": "Embedded initial body base colour = neutral bouclé base × areia tint (same contract as the viewer external path: neutral map × COLORS.areia). Visual estimate of the light warm grey-beige of SOFA-2.jpg (2.0.0: #d8c9b2)."
   }
 }

@@ -1,15 +1,16 @@
 {
   "sourcePackage": "stanza-sofa-pilot.zip",
   "modelId": "stanza-organic-01",
-  "upstreamRevision": "2.0.0",
+  "upstreamRevision": "2.1.0",
   "geometryChanged": true,
   "modelSha256": {
-    "models/sofa.glb": "02fdb59ec8a52467a10840642546baa669127d28ed79251bd4d644997938d580",
-    "models/sofa-mobile.glb": "57d6a53a098e9ce91fa35ddaaaa9d6fc4f5f33de159bc4e8583713d36972c16e"
+    "models/sofa.glb": "cd718e87992672ddb3ebb8b0255989c9d332d5d6cdaf2f544deae6e71bc2fa14",
+    "models/sofa-mobile.glb": "cbb877780aa873dfde3b586e80e4d6514fe6d85e2220170cc0c3405f8ccac37b"
   },
   "viewerChanges": [
     "Optional backgroundColor and floorColor for site composition.",
-    "2.0.0 (EXT-001): exterior-only; only body materials (fabric_main/fabric_seam) are customizable; decorative cushion materials are fixed MeshPhysicalMaterial; setProgress deprecated no-op; optional modelUrls {main,mobile}; inspect() reports materialRegions."
+    "2.0.0 (EXT-001): exterior-only; only body materials (fabric_main/fabric_seam) are customizable; decorative cushion materials are fixed MeshPhysicalMaterial; setProgress deprecated no-op; optional modelUrls {main,mobile}; inspect() reports materialRegions.",
+    "2.1.0 (EXT-001 r2): COLORS.areia #d8c9b2 -> #b6b0a8 (light warm grey-beige, = embedded initial bouclé tint); FABRICS gain repeatMeters and BODY_UV_METERS=0.30 (body UVs are 0.30 m per unit; linen/velvet maps are scaled back to their 0.14 m repeat via texture.repeat); bouclé normalStrength 0.9 -> 1.8, sheen 0.2 -> 0.12; light cushion sheen 0.25 -> 0.15; photo camera re-fitted to SOFA-2.jpg."
   ],
   "siteAdapters": [
     "home-opening.js: decorative exterior rotation only while visible (<=30 fps), reduced motion / Save-Data keep the poster",

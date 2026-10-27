@@ -1,6 +1,6 @@
 # Fonte editavel original do piloto Stanza
 
-## Estado atual (revisao 2.0.0, EXT-001 — somente exterior)
+## Estado atual (revisao 2.1.0, EXT-001 r2 — somente exterior)
 
 O texto historico abaixo descreve a importacao da fonte original. Desde entao
 `build_sofa.py` e a fonte de verdade e regenera `sofa.blend`, `models/sofa.glb` e
@@ -18,6 +18,13 @@ O texto historico abaixo descreve a importacao da fonte original. Desde entao
   gravados apenas em `../materials/cushions/`. Pode ser executado com qualquer
   numpy>=1.26 + Pillow. `generate_materials.py` (tecidos do corpo) continua sem ser
   executado sobre a arvore.
+
+- `generate_embedded_areia.py` (2.1.0): retinge a base embutida inicial do corpo
+  (`embedded-boucle-areia.jpg` e `mobile-boucle/basecolor.jpg`) = base neutra de bouclé x
+  tinta areia `#b6b0a8`, que deve ser igual a `COLORS.areia` do visualizador. Estimativa visual.
+- 2.1.0: `BODY_TILE = .30` (UV do corpo e das almofadas claras em 0,30 m por unidade);
+  `BACK`/`BACK_HALF_THICK`/`slab_section()` definem o encosto alto de topo arredondado;
+  `pillow_shape()` faz almofadas cheias com cantos pontudos e rugas nos cantos.
 
 Esta branch disponibiliza a fonte original para diagnostico e planejamento. Ela
 nao remodela o sofa, nao altera os GLBs, o visualizador, as paginas ou os materiais

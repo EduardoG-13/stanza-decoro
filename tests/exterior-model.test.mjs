@@ -1,4 +1,4 @@
-// EXT-001 (revision 2.0.0) 3D contract tests. Replaces the FEAT-004/006 layer-stage tests: the
+// EXT-001 (revision 2.1.0, EXT-001 r2) 3D contract tests. Replaces the FEAT-004/006 layer-stage tests: the
 // sofa is now exterior-only, the layered opening is gone and setProgress is a deprecated no-op.
 // These checks cover structure, metadata coherence and material-region classification; they do
 // NOT replace visual inspection in a real WebGL viewer (see docs/sofa-3d-review/ext001-exterior.md).
@@ -26,7 +26,7 @@ function viewerConstants() {
   assert.ok(end > 0, 'end marker not found in viewer source');
   const prefix = viewerSrc.slice(0, end).replace(/^import[^\n]*\n/gm, '').replace(/\bexport const\b/g, 'const');
   const sandbox = {};
-  vm.runInNewContext(prefix + '\nthis.out={IDENTITY,DIMENSIONS,COLORS,FABRICS,CAMERAS,LAYER_STAGES,MATERIAL_REGIONS,regionOf,groups};', sandbox);
+  vm.runInNewContext(prefix + '\nthis.out={IDENTITY,DIMENSIONS,COLORS,FABRICS,CAMERAS,LAYER_STAGES,MATERIAL_REGIONS,BODY_UV_METERS,regionOf,groups};', sandbox);
   return sandbox.out;
 }
 const V = viewerConstants();
@@ -39,8 +39,8 @@ function glbJson(path) {
 }
 const GLBS = { main: 'assets/sofa-pilot/models/sofa.glb', mobile: 'assets/sofa-pilot/models/sofa-mobile.glb' };
 
-test('revision 2.0.0 is coherent everywhere', () => {
-  const rev = '2.0.0';
+test('revision 2.1.0 is coherent everywhere', () => {
+  const rev = '2.1.0';
   assert.equal(V.IDENTITY.revision, rev);
   assert.equal(contract.IDENTITY.revision, rev);
   assert.equal(pilot.revision, rev);
@@ -64,6 +64,7 @@ test('module constants == contract.json (identity, cameras, colours, fabrics, di
   assert.deepEqual(norm(V.FABRICS), contract.FABRICS);
   assert.deepEqual(norm(V.DIMENSIONS), contract.DIMENSIONS);
   assert.deepEqual(norm(V.MATERIAL_REGIONS), contract.MATERIAL_REGIONS);
+  assert.equal(V.BODY_UV_METERS, contract.BODY_UV_METERS);
   assert.ok(!('layers' in V.CAMERAS), 'layers camera removed');
 });
 
@@ -133,7 +134,7 @@ test('integrity: INTEGRATION and manifest sha256/bytes match the real GLB bytes;
   }
   assert.equal(integration.geometryChanged, true);
   for (const f of ['gltf-validation-sofa.json', 'gltf-validation-sofa-mobile.json']) {
-    const report = json('docs/sofa-3d-review/validation/ext001/' + f);
+    const report = json('docs/sofa-3d-review/validation/ext001-r2/' + f);
     assert.equal(report.issues.numErrors, 0, f);
   }
 });
@@ -161,4 +162,37 @@ test('no layer/structure controls or opening calls remain in the public pages an
     assert.doesNotMatch(text, /por dentro do sofá|abra suas camadas|percintas|ordem de construção/i, file);
   }
   assert.ok(!existsSync(new URL('assets/sofa-pilot/viewer/scroll.js', root)), 'scroll adapter removed');
+});
+
+test('2.1.0: embedded initial areia == neutral bouclé x COLORS.areia (no double tint, same look as the external path)', () => {
+  const gen = read('assets/sofa-pilot/source/generate_embedded_areia.py').toString('utf8');
+  const [r, g, b] = gen.match(/^AREIA = \((\d+), (\d+), (\d+)\)/m).slice(1).map(Number);
+  const hex = '#' + [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('');
+  assert.equal(V.COLORS.areia, hex, 'generator tint == viewer COLORS.areia');
+  assert.equal(contract.COLORS.areia, hex);
+  // the viewer keeps the white multiplier on the embedded maps (no second tint)
+  assert.match(viewerSrc, /material\.color\.set\(useEmbedded \? '#ffffff' : COLORS\[candidate\.colorId\]\)/);
+  // the GLB body uses the embedded areia image, main and mobile
+  for (const [variant, path] of Object.entries(GLBS)) {
+    const g2 = glbJson(path); const mat = g2.materials.find(m => m.name === 'fabric_main');
+    const img = g2.images[g2.textures[mat.pbrMetallicRoughness.baseColorTexture.index].source];
+    assert.match(img.name, variant === 'main' ? /embedded-boucle-areia/ : /basecolor/, variant);
+  }
+});
+
+test('2.1.0: body UV scale - fabrics declare their physical repeat; bouclé == BODY_UV_METERS (embedded maps unscaled)', () => {
+  assert.equal(V.BODY_UV_METERS, 0.3);
+  assert.equal(V.FABRICS.boucle.repeatMeters, V.BODY_UV_METERS);
+  for (const id of ['linen', 'velvet']) assert.equal(V.FABRICS[id].repeatMeters, 0.14, id);
+  assert.match(viewerSrc, /BODY_UV_METERS \/ FABRICS\[fabricId\]\.repeatMeters/);
+  assert.match(read('assets/sofa-pilot/source/build_sofa.py').toString('utf8'), /^BODY_TILE = \.30$/m);
+});
+
+test('2.1.0: every embedded image is a power of two and within budget; initial main bytes <= 5 MB', () => {
+  const pot = n => n > 0 && (n & (n - 1)) === 0;
+  for (const variant of ['main', 'mobile']) for (const t of manifest.models[variant].textures) {
+    assert.ok(pot(t.width) && pot(t.height), `${variant}: ${t.name} ${t.width}x${t.height}`);
+    assert.ok(Math.max(t.width, t.height) <= manifest.performance.maxTextureDimensionTarget);
+  }
+  assert.ok(manifest.performance.mainInitialBytes <= manifest.performance.initialBytesTarget);
 });

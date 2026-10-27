@@ -1,7 +1,7 @@
 {
   "contract": "stanza-sofa-credits/v1",
   "modelId": "stanza-organic-01",
-  "revision": "2.0.0",
+  "revision": "2.1.0",
   "researchedOn": "2026-10-25",
   "note": "Referências visuais são distintas dos arquivos incorporados. Nenhuma fotografia de referência ou mapa PBR de terceiros foi redistribuído.",
   "referencesConsulted": [
@@ -96,8 +96,21 @@
       ],
       "license": "CC0-1.0, na medida em que direitos possam existir",
       "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "purpose": "Acabamentos FIXOS das almofadas decorativas: trama de cesto oliva (basecolor sRGB + normal OpenGL +Y, 512 px; 256 px no móvel), base clara cinza-bege e avesso creme (derivadas da base neutra de bouclé própria, CC0).",
+      "purpose": "Acabamentos FIXOS das almofadas decorativas: trama de cesto oliva fina (2.1.0: unidades de ~11,7 mm, pares de cordões oliva torcidos com fio creme; basecolor sRGB 512 px + normal OpenGL +Y 256 px; 256/128 px no móvel), base clara cinza-bege e avesso creme (derivadas da base neutra de bouclé própria, CC0).",
       "generation": "Algoritmo original; SOFA-2.jpg foi apenas observada (escala da trama, cores médias), nunca amostrada como textura. Normal/roughness das almofadas claras e do avesso reutilizam os mapas de bouclé do corpo (mesma imagem no GLB)."
+    },
+    {
+      "id": "embedded-areia-retint",
+      "author": "Gerado para o piloto Stanza (EXT-001 r2)",
+      "url": null,
+      "source": "source/generate_embedded_areia.py",
+      "paths": [
+        "source/embedded-boucle-areia.jpg",
+        "source/mobile-boucle/basecolor.jpg"
+      ],
+      "license": "CC0-1.0, na medida em que direitos possam existir",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "purpose": "Cor inicial do corpo (areia) retingida: base neutra de bouclé própria × tinta sRGB [182,176,168] (#b6b0a8). Estimativa visual a partir de SOFA-2.jpg, não cor medida nem comercial."
     },
     {
       "id": "original-sofa-geometry",
@@ -116,7 +129,8 @@
       "limitations": "Forma interpretada da referência fornecida; dimensões estimadas. Desde a 2.0.0 o pacote contém apenas o exterior visível (corpo, almofadas decorativas e pés); não há construção interna. A licença dos arquivos gerados não concede direitos sobre marcas, fotos ou designs de terceiros.",
       "revision120Changes": "FEAT-003: autoria interna por componente. Introduzidos no gerador (não existiam antes da 1.2.0) os objetos seat_foam/back_foam (núcleo de espuma próprio, mais baixo/firme, no lugar do antigo seat_padding/back_padding que era a casca do revestimento reescalada) e seat_batting/back_batting (manta fina de poliéster, material batting_illustrative, envolvendo a espuma). As percintas suspension_band_* deixaram de ser 8 placas planas paralelas e passaram a ser faixas individuais tensionadas (catenária leve) ancoradas aos trilhos de madeira, com interlace parcial apenas nos vãos centrais. A estrutura ganhou front_rail/rear_rail/side_rail_* seguindo o contorno; os pés foot_* repousam no piso (z=0) com foot_mount_* ligando-os ao trilho. Nenhuma referência externa foi redistribuída; disposição das percintas fundamentada (não impondo cruzamento universal) nas fontes consultadas em CREDITS/INSPECTION.",
       "revision130Changes": "FEAT-002 rev2: almofadas soltas reassentadas no gerador (build_sofa.py). A antiga compressão `flatten` achatava a face TRASEIRA inteira (side=+1 = local +Y = mundo +Y, em direção ao encosto), não a base; foi removida. Novas posições/inclinações/tamanhos resolvidos por contato real contra as cascas externas de seat_cover/back_cover e das vizinhas; settle_contacts() aplica compressão localizada com falloff (faixa da borda inferior no assento, mancha da face traseira no encosto/braço ou na vizinha) e leve abaulamento ao redor; vivo (welt) acompanha a borda deformada e fica visível. Trilhos dianteiro/traseiro/laterais e pontas das percintas ajustados para ficar dentro do contorno estofado (antes atravessavam a capa). Sem novos objetos, materiais ou grupos.",
-      "revision200Changes": "EXT-001: GLBs somente com o exterior (EXTERIOR_ONLY em build_sofa.py): removidos do export os grupos padding/frame/suspension e seus objetos (espuma, manta, armação, trilhos, percintas) e os blocos ocultos de fixação dos pés. Almofadas maiores (≈45–50 cm) e mais cheias, reposicionadas pelo mesmo solver de contato e settle_contacts(); encosto elevado (topo 0,92→1,025 m) e base rebaixada (pés curtos, ~5 cm aparentes). Materiais por região: corpo personalizável (fabric_main/fabric_seam) e almofadas com materiais fixos próprios (cushion_light_*, cushion_olive_*)."
+      "revision200Changes": "EXT-001: GLBs somente com o exterior (EXTERIOR_ONLY em build_sofa.py): removidos do export os grupos padding/frame/suspension e seus objetos (espuma, manta, armação, trilhos, percintas) e os blocos ocultos de fixação dos pés. Almofadas maiores (≈45–50 cm) e mais cheias, reposicionadas pelo mesmo solver de contato e settle_contacts(); encosto elevado (topo 0,92→1,025 m) e base rebaixada (pés curtos, ~5 cm aparentes). Materiais por região: corpo personalizável (fabric_main/fabric_seam) e almofadas com materiais fixos próprios (cushion_light_*, cushion_olive_*).",
+      "revision210Changes": "EXT-001 r2: encosto como placa alta e espessa de frente plana com topo arredondado (topo 1,025→1,13 m, meia espessura 0,122→0,135 m), braço esquerdo baixo mantido e fim arredondado antes da chaise (x 0,62→0,70); almofadas mais cheias (loft 0,10–0,135 m, centro abaulado), bordas côncavas com cantos pontudos (\"orelhas\") e rugas suaves nos cantos, recompostas em leque como na foto e reposicionadas pelo mesmo solver de contato + settle_contacts(); UV do corpo e das almofadas claras em 0,30 m por unidade (bouclé legível à distância)."
     },
     {
       "id": "original-viewer-and-generation-code",

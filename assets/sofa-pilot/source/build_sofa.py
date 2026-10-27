@@ -21,16 +21,26 @@ from mathutils import Vector
 from math import sin, cos, pi, sqrt, exp
 
 ROOT = Path(__file__).resolve().parents[1]
-REVISION = '2.0.0'
+REVISION = '2.1.0'
 # EXT-001: True = exterior-only export (no frame/suspension/padding objects or groups).
 # False rebuilds the deprecated 1.3.0 illustrative interior for archaeology only; it is not
 # a supported product path any more (the viewer no longer opens layers).
 EXTERIOR_ONLY = True
 TILE = .14
+# EXT-001 r2 (2.1.0): the BODY (seat/back/seam UVs) and the light bouclé cushions use a larger UV
+# unit so the bouclé loops read at normal viewing distance (~4 mm loops instead of ~1.9 mm, as the
+# nubby bouclé of SOFA-2.jpg). One UV unit = BODY_TILE metres. The viewer rescales the other body
+# fabrics (linen/velvet, authored for a 0.14 m repeat) with texture.repeat so they keep 0.14 m.
+BODY_TILE = .30
 OUTLINE = [(-1.16,-.39),(-.91,-.56),(-.50,-.57),(-.13,-.47),(.21,-.44),(.60,-.48),(1.02,-.39),(1.23,-.16),(1.24,.12),(1.05,.37),(.73,.47),(.29,.44),(-.18,.43),(-.66,.44),(-1.04,.32),(-1.22,.04)]
 # EXT-001: backrest raised ~10 cm (top .92 -> 1.025) - in SOFA-2.jpg the back rises clearly above
 # the 45-50 cm cushions; the low arm (left) keeps its height.
-BACK = [(-1.05,-.29,.61),(-1.10,-.07,.72),(-1.02,.20,.91),(-.82,.34,1.0),(-.46,.37,1.02),(-.06,.38,1.025),(.32,.38,1.02),(.62,.34,1.0)]
+# EXT-001 r2 (2.1.0): in SOFA-2.jpg the back is a TALL, thick, flat-fronted slab with a rounded
+# (bullnose) top that clearly rises above the cushions; it reaches full height almost at the left
+# end, drops quickly into the low thick left arm and stops with a rounded end before the chaise.
+# Top 1.025 -> 1.13 m, full height kept over x -.75...55, short arm transition, end moved .62 -> .70.
+BACK = [(-1.04,-.30,.645),(-1.115,-.07,.685),(-1.09,.15,.80),(-.99,.295,1.04),(-.76,.36,1.115),(-.35,.38,1.13),(.10,.38,1.13),(.48,.37,1.125),(.70,.34,1.10)]
+BACK_HALF_THICK = .135   # half thickness of the slab (2.0.0: .122)
 # Loose seat cushions (FEAT-002 rev2). Each tuple: name, pos, rot (deg, XYZ), half size
 # (a=width, b=height), loft (max fill per face, m). Pillow axes: local X = width, local Z =
 # height (v=-1 is the LOWER edge), local Y = thickness; side=+1 is the REAR face (it maps to
@@ -49,11 +59,11 @@ BACK = [(-1.05,-.29,.61),(-1.10,-.07,.72),(-1.02,.20,.91),(-.82,.34,1.0),(-.46,.
 # in front of 01, 03 (tallest) in front of 02 and 04, 05 (small olive) in front of 04.
 # (y,z) were re-solved with the same contact solver (seat ~1 cm, lean ~1-1.2 cm).
 CUSHIONS = [
-  ('cushion_01',(-0.78,0.0776,0.7589),(-14,-15,38),(0.24,0.24),0.092),
-  ('cushion_02',(-0.35,0.0937,0.761),(-14,-16,6),(0.23,0.245),0.095),
-  ('cushion_03',(-0.07,-0.0889,0.7733),(-15,-22,-2),(0.225,0.24),0.095),
-  ('cushion_04',(0.19,0.1689,0.7112),(-16,-14,4),(0.19,0.205),0.085),
-  ('cushion_05',(0.45,0.0084,0.7097),(-15,26,-14),(0.195,0.175),0.082)]
+  ('cushion_01',(-0.75,0.0874,0.7532),(-18,-15,22),(0.24,0.24),0.13),
+  ('cushion_02',(-0.45,-0.0202,0.7682),(-20,-20,35),(0.23,0.245),0.13),
+  ('cushion_03',(-0.19,-0.1598,0.7719),(-20,-25,30),(0.22,0.24),0.135),
+  ('cushion_04',(0.07,0.1145,0.7108),(-20,-12,30),(0.19,0.205),0.12),
+  ('cushion_05',(0.35,0.059,0.7131),(-20,30,25),(0.195,0.175),0.11)]
 # Contact solve order: what each cushion rests on is built before it.
 SETTLE_ORDER = ['cushion_01','cushion_04','cushion_02','cushion_03','cushion_05']
 # Fixed decorative finish per cushion, read from SOFA-2.jpg (left to right): olive basket
@@ -127,7 +137,8 @@ def boucle_maps(mobile):
 def fabric(name, mobile=False):
     # BODY material (customizable). Base color is pre-tinted (areia) in the embedded GLB only;
     # the viewer swaps in neutral maps + a colour multiplier for the other choices.
-    return textured(name,boucle_maps(mobile),'body',.9,.2,.9)
+    # 2.1.0: normal 1.8 / sheen .12 (= viewer FABRICS.boucle) so the loops read and no plastic sheen.
+    return textured(name,boucle_maps(mobile),'body',1.8,.12,.95)
 
 def cushion_materials(mobile=False):
     """EXT-001 fixed decorative cushion finishes (own procedural maps, generate_cushion_materials.py).
@@ -136,8 +147,8 @@ def cushion_materials(mobile=False):
     plain cream reverse face. Welts are copies of their own cushion material (fixed as well)."""
     sub='mobile' if mobile else ''
     c=ROOT/'materials'/'cushions'; b=boucle_maps(mobile)
-    light=textured('cushion_light_boucle',{**b,'basecolor':c/'light-boucle'/sub/'basecolor.jpg'},'decorative',.9,.25,.9)
-    olive=textured('cushion_olive_weave',{'basecolor':c/'olive-weave'/sub/'basecolor.jpg','normal':c/'olive-weave'/sub/'normal.png'},'decorative',1.0,.12,.8)
+    light=textured('cushion_light_boucle',{**b,'basecolor':c/'light-boucle'/sub/'basecolor.jpg'},'decorative',1.6,.15,.95)
+    olive=textured('cushion_olive_weave',{'basecolor':c/'olive-weave'/sub/'basecolor.jpg','normal':c/'olive-weave'/sub/'normal.png'},'decorative',.8,.12,.8)
     olive.node_tree.nodes.get('Principled BSDF').inputs['Roughness'].default_value=.92
     reverse=textured('cushion_olive_reverse',{**b,'basecolor':c/'olive-reverse'/sub/'basecolor.jpg'},'decorative',.55,.15,.85)
     lseam=light.copy(); lseam.name='cushion_light_seam'
@@ -174,7 +185,7 @@ def seat(name, parent, mat, n=144, foam=False, batting=False):
             # Shallow foam dimple under each cushion footprint (see seat_dimple()).
             depression=seat_dimple(x,y) if z>.4 else 0
             vs.append((x,y,z+ripple-depression))
-            uv.append((x/TILE,y/TILE) if r>=8 else (i/n*6.28*.80/TILE,z/TILE))
+            uv.append((x/BODY_TILE,y/BODY_TILE) if r>=8 else (i/n*6.28*.80/BODY_TILE,z/BODY_TILE))
     fs=[]
     for r in range(len(profile)-1):
         for i in range(n): fs.append((r*n+i,r*n+(i+1)%n,(r+1)*n+(i+1)%n,(r+1)*n+i))
@@ -187,13 +198,41 @@ def seat(name, parent, mat, n=144, foam=False, batting=False):
     layer=ob.data.uv_layers.active
     for p in ob.data.polygons:
         vals=[layer.data[k].uv.x for k in p.loop_indices]
-        if p.index < 8*n and max(vals)-min(vals)>20:
+        if p.index < 8*n and max(vals)-min(vals)>6.28*.8/BODY_TILE/2:
             for k in p.loop_indices:
-                if layer.data[k].uv.x<1:layer.data[k].uv.x=6.28*.8/TILE
+                if layer.data[k].uv.x<6.28*.8/BODY_TILE/4:layer.data[k].uv.x=6.28*.8/BODY_TILE
     return ob
 
+def slab_section(w,h,m,r_top,r_bot):
+    """EXT-001 r2: closed cross-section of the back slab, m points resampled by ARC LENGTH
+    (so the bullnose top gets enough vertices). Rounded rectangle, half sizes w (thickness) x h
+    (height), big top radius (bullnose), small bottom radius. Starts at the middle of the
+    UNDERSIDE (hidden in the seat) so the closing UV seam of the loop never shows."""
+    def sd(x,z):
+        r=r_top if z>0 else r_bot
+        qx=abs(x)-(w-r); qz=abs(z)-(h-r)
+        return math.hypot(max(qx,0),max(qz,0))+min(max(qx,qz),0)-r
+    K=720; pts=[]
+    for k in range(K):
+        an=2*pi*k/K-pi/2; dx,dz=cos(an),sin(an); lo,hi=0.,2*(w+h)
+        for _ in range(40):
+            mid=(lo+hi)/2
+            if sd(dx*mid,dz*mid)>0: hi=mid
+            else: lo=mid
+        pts.append((dx*lo,dz*lo))
+    acc=[0.]
+    for k in range(1,K+1):
+        x0,z0=pts[k-1]; x1,z1=pts[k%K]; acc.append(acc[-1]+math.hypot(x1-x0,z1-z0))
+    L=acc[-1]; out=[]; k=0
+    for j in range(m):
+        target=L*j/m
+        while acc[k+1]<target: k+=1
+        f=(target-acc[k])/max(acc[k+1]-acc[k],1e-12); x0,z0=pts[k]; x1,z1=pts[(k+1)%K]
+        out.append((x0+(x1-x0)*f,z0+(z1-z0)*f))
+    return out
+
 def back(name,parent,mat,n=104,m=32,foam=False,batting=False):
-    vs=[];uv=[];fs=[];length=0;prev=None
+    vs=[];uv=[];fs=[];length=0;prev=None;ulen=[0.]*m
     for i in range(n+1):
         t=i/n; p=catmull(BACK,t,False); prevp=catmull(BACK,max(0,t-.001),False); nextp=catmull(BACK,min(1,t+.001),False)
         tangent=(nextp-prevp); tangent.z=0;tangent.normalize(); norm=Vector((-tangent.y,tangent.x,0))
@@ -201,17 +240,34 @@ def back(name,parent,mat,n=104,m=32,foam=False,batting=False):
         prev=p.copy()
         edge=min(t/.055,(1-t)/.055,1); cap=sqrt(max(.0002,1-(1-edge)**2))
         low=.315; high=p.z; center=(high+low)/2; hh=(high-low)/2
-        thick=.122*(.94+.06*sin(t*pi))
+        thick=BACK_HALF_THICK*(.94+.06*sin(t*pi))
+        # the arm's front end stays inside the seat roll (no exposed slab underside at the arm foot)
+        thick*=.84+.16*min(1,t/.22)
         # FEAT-003: foam core is the firmest/innermost back volume; batting is a thin loft
         # just outside it. Both stay inside the upholstery shell (which is unscaled here).
         if foam:thick*=.70;hh*=.80
         elif batting:thick*=.80;hh*=.86
+        # EXT-001 r2: flat-fronted slab with a bullnose top (radius ~85 % of the half thickness)
+        # instead of the 2.0.0 squircle, which read thin and pointed from the photo angle.
+        sec=slab_section(thick,hh,m,.85*thick,.035)
+        per=0
         for j in range(m):
-            a=2*pi*j/m
-            c=math.copysign(abs(cos(a))**.48,cos(a)); s=math.copysign(abs(sin(a))**.48,sin(a))
-            v=p+norm*(thick*c*cap);v.z=center+hh*s*cap
-            v.z+=.0012*sin(t*37)*sin(a)**2
-            vs.append(tuple(v));uv.append((length/TILE,(j/m*(2*(2*hh+2*thick)))/TILE))
+            c,zz=sec[j]
+            v=p+norm*(c*cap);v.z=center+zz*cap
+            sa=zz/max(hh,1e-6)
+            v.z+=.0012*sin(t*37)*sa*sa
+            if j: per+=math.hypot(c-sec[j-1][0],zz-sec[j-1][1])
+            # v follows the REAL (cap-scaled) perimeter so the rounded ends do not squeeze the whole
+            # texture into the shrinking end rings (2.0.0 showed fuzzy aliasing at the arm end).
+            # u accumulates the real surface distance per section vertex (the rounded ends are discs
+            # whose rings move sideways, not along the spline; spline length stretched them).
+            if i: ulen[j]+=(v-Vector(vs[(i-1)*m+j])).length
+            if edge<1:
+                # rounded END discs (arm front, chaise end): planar projection on the section plane;
+                # a polar (ring) mapping pinches the bouclé into radial streaks at the disc centre.
+                vs.append(tuple(v));uv.append(((c*cap+(0 if t<.5 else .5))/BODY_TILE,v.z/BODY_TILE))
+            else:
+                vs.append(tuple(v));uv.append((ulen[j]/BODY_TILE,per*cap/BODY_TILE))
     for i in range(n):
         for j in range(m):fs.append((i*m+j,i*m+(j+1)%m,(i+1)*m+(j+1)%m,(i+1)*m+j))
     for end in (0,n):
@@ -221,12 +277,13 @@ def back(name,parent,mat,n=104,m=32,foam=False,batting=False):
     # Smooth topology keeps the flowing arm/back outline editable as a quad loft.
     for p in ob.data.polygons:
         us=[ob.data.uv_layers.active.data[k].uv.y for k in p.loop_indices]
-        if max(us)-min(us)>3:
+        if max(us)-min(us)>.6*max(us) and min(us)<.01:
+            # closing quad of the section loop: wrap v=0 to the full perimeter (equal arc steps)
             for k in p.loop_indices:
                 if ob.data.uv_layers.active.data[k].uv.y<.01: ob.data.uv_layers.active.data[k].uv.y=max(us)*m/(m-1)
     return ob
 
-def tube(name,pts,radius,parent,mat,sides=5,closed=True):
+def tube(name,pts,radius,parent,mat,sides=5,closed=True,tile=TILE):
     vs=[];uv=[];fs=[];length=0
     for i,p in enumerate(pts):
         p=Vector(p)
@@ -236,27 +293,40 @@ def tube(name,pts,radius,parent,mat,sides=5,closed=True):
         if normal.length<.01:normal=tangent.cross(Vector((0,1,0)))
         normal.normalize();b=tangent.cross(normal).normalized()
         for j in range(sides):
-            a=2*pi*j/sides;v=p+radius*(normal*cos(a)+b*sin(a));vs.append(tuple(v));uv.append((length/TILE,j/sides*.01/TILE))
+            a=2*pi*j/sides;v=p+radius*(normal*cos(a)+b*sin(a));vs.append(tuple(v));uv.append((length/tile,j/sides*.01/tile))
     for i in range(len(pts) if closed else len(pts)-1):
         for j in range(sides):fs.append((i*sides+j,i*sides+(j+1)%sides,((i+1)%len(pts))*sides+(j+1)%sides,((i+1)%len(pts))*sides+j))
     return mesh(name,vs,fs,parent,mat,uv)
 
-def pillow_shape(n,size,seed,loft):
-    """Undeformed knife-edge cushion in its local frame (X width, Z height, Y thickness)."""
+def pillow_shape(n,size,seed,loft,tile=TILE):
+    """Undeformed knife-edge cushion in its local frame (X width, Z height, Y thickness).
+    EXT-001 r2 (2.1.0), read from SOFA-2.jpg: plump feather-like fill with a puffy rounded
+    centre that falls off only near the seam; the seam edges are drawn IN between the corners
+    (a stuffed knife-edge cover pulls its sides concave), so the corners stand out as slightly
+    pinched points ("dog ears") that stay thin; soft radial wrinkles fan out from each corner
+    where the cover gathers. tile: UV unit in metres (light bouclé cushions use BODY_TILE)."""
     vs=[];uv=[];fs=[];a,b=size
     for side in (-1,1):
         for j in range(n+1):
             v=j/n*2-1
             for i in range(n+1):
                 u=i/n*2-1
-                # Knife-edge cushions: tapered seams, soft broad fill, small inward edge gathers.
-                x=a*u*(1+.045*(1-v*v));z=b*v*(1+.025*(1-u*u))
-                # EXT-001: fuller fill profile (exponent .55 -> .45) - plumper cushions as in the photo.
-                belly=max(0,(1-u*u)*(1-v*v))**.45
-                edge=min(1-abs(u),1-abs(v))
-                gathers=.0055*sin(34*u+9*v+seed)*exp(-edge*9)*sin(pi*max(0,edge)/.28)
-                d=.008+loft*belly+gathers
-                vs.append((x,side*d,z));uv.append((x/TILE,z/TILE))
+                # Concave seam edges -> pointed corners (2.0.0 bulged the edges OUTWARD: rounded square).
+                x=a*u*(1-.075*(1-v*v));z=b*v*(1-.07*(1-u*u))
+                # Plump fill: a DOMED puffy centre (a flat-topped fill read as a rigid board). Mix of a
+                # full profile (fills out to the seam) and a dome (keeps a rounded crown).
+                fill=max(0,(1-u*u)*(1-v*v))
+                belly=.45*fill**.35+.55*fill**.85
+                # ... but the four corners collapse to thin pinched points.
+                cu,cv=1-abs(u),1-abs(v); rc=sqrt(cu*cu+cv*cv)          # distance to nearest corner (uv)
+                pinch=1-.35*exp(-(rc/.22)**2)
+                edge=min(cu,cv)
+                gathers=.0045*sin(34*u+9*v+seed)*exp(-edge*9)*sin(pi*max(0,edge)/.28)
+                # Corner wrinkles: shallow radial folds fanning from each corner, fading by ~1/3 of the face.
+                ang=math.atan2(cv,cu)
+                wrinkle=.0042*sin(7*ang+seed*1.7+side)*exp(-rc/.28)*(1-exp(-(rc/.06)**2))*sin(pi*min(1,rc/.9))
+                d=.007+loft*belly*pinch+gathers+wrinkle*(.4+belly)
+                vs.append((x,side*d,z));uv.append((x/tile,z/tile))
     block=(n+1)**2
     for s in range(2):
         for j in range(n):
@@ -337,10 +407,10 @@ def settle_contacts(pts,faces,colliders,radius=.045,bulge=.45):
     for _ in range(3): project(D)
     return [P0[k]+D[k] for k in range(V)]
 
-def cushion_geometry(n,pos,rot,size,seed,loft,colliders):
+def cushion_geometry(n,pos,rot,size,seed,loft,colliders,tile=TILE):
     """Settled cushion: returns local cover verts, uv, faces, perimeter, welt line (local)
     and the world-space verts (used as a collider by cushions that lean on this one)."""
-    vs,uv,fs,perimeter=pillow_shape(n,size,seed,loft)
+    vs,uv,fs,perimeter=pillow_shape(n,size,seed,loft,tile)
     M=cushion_matrix(pos,rot); Mi=M.inverted()
     world=settle_contacts([M@Vector(v) for v in vs],fs,colliders)
     block=(n+1)**2
@@ -436,7 +506,14 @@ def build(mobile=False):
         ripple=.0013*sin(t*2*pi*17+.8)*sin(pi*8/14)
         depression=seat_dimple(x,y)
         pts.append((x,y,.4385+ripple-depression))
-    tube('seat_panel_seam',pts,.0011,groups['upholstery'],seam,sides=5 if not mobile else 4)
+    # 2.1.0: the thicker back/arm slab now covers the rear of the seam ring; where the seam would
+    # graze the arm surface (dotted pierce-through) it is pulled 5 mm inside the arm so it reads
+    # as running under the arm instead of flickering through it.
+    bv=collider([tuple(v.co) for v in backob.data.vertices],[tuple(p.vertices) for p in backob.data.polygons])
+    for k,q in enumerate(pts):
+        sd,nrm=_signed(bv,Vector(q),.02)
+        if sd is not None and sd<.004: pts[k]=tuple(Vector(q)-nrm*(sd+.005))
+    tube('seat_panel_seam',pts,.0011,groups['upholstery'],seam,sides=5 if not mobile else 4,tile=BODY_TILE)
     # EXT-001: the illustrative interior below (FEAT-003, revisions 1.2.0-1.3.0) is NOT built
     # for the exterior-only product (EXTERIOR_ONLY=True). Kept gated so the history reads.
     if not EXTERIOR_ONLY:
@@ -536,7 +613,8 @@ def build(mobile=False):
     for name in SETTLE_ORDER:
         k,(_n,pos,rot,sz,loft)=spec[name]
         others=[(collider(geos[o][5],geos[o][2]),-.0008) for o in geos]
-        geos[name]=cushion_geometry(12 if mobile else 20,pos,rot,sz,k,loft,rigid+others)
+        geos[name]=cushion_geometry(14 if mobile else 22,pos,rot,sz,k,loft,rigid+others,
+                                    BODY_TILE if CUSHION_FINISH[name]=='light' else TILE)
     for name,pos,rot,sz,loft in CUSHIONS:
         cover,welt,reverse=decor[CUSHION_FINISH[name]]
         pillow(name,groups['cushions'],cover,welt,geos[name],pos,rot,reverse)

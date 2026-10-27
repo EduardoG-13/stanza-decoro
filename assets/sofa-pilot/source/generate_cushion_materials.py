@@ -6,8 +6,9 @@ Writes ONLY under assets/sofa-pilot/materials/cushions/. It never touches the bo
 families (generate_materials.py stays untouched and is not run).
 
 Families
-- olive-weave: chunky 2/2 basket/twill weave of olive cords over a lighter cream-olive weft,
-  ~1.4 cm cells (10 cells per 0.14 m UV repeat). Own algorithm; SOFA-2.jpg was only looked at
+- olive-weave (2.1.0): fine basket weave - checkerboard of ~11.7 mm units (12 per 0.14 m UV
+  repeat), each a pair of olive cords plied with cream yarn (small slanted cream flecks). 2.0.0
+  used a 2/2 twill with 14 mm cells that read as big diagonal stripes. Own algorithm; SOFA-2.jpg was only looked at
   for the general look (scale, olive + cream yarns) and average colour, never sampled as texture.
   Maps: basecolor (sRGB) and normal (tangent-space OpenGL +Y, linear data). Roughness is a constant
   factor (0.92) in the material: a roughness map added ~160 kB to the GLB for no visible gain.
@@ -16,7 +17,9 @@ Families
   fixed tint. Normal/roughness are SHARED with the body bouclé (no new maps, no extra bytes).
 - olive-reverse: plain cream reverse face of the olive cushions (same neutral bouclé base times a
   cream tint); also shares the body bouclé normal/roughness.
-Main maps are 512 px, mobile maps 256 px, all covering the same 0.14 m repeat.
+Main base colours are 512 px, mobile 256 px; the olive NORMAL is half that (256 / 128 px, 2.1.0:
+the ~2 mm cord relief needs fewer texels than the colour flecks, and it keeps the 5 MB initial
+budget). All are powers of two and cover the same 0.14 m repeat.
 Licence: original procedural output, CC0-1.0 to the extent rights exist.
 """
 from pathlib import Path
@@ -26,13 +29,15 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'materials' / 'cushions'
 REPEAT_M = 0.14
-N = 512
-CELLS = 10                       # cells per repeat -> 14 mm cords
-LIGHT_TINT = (188, 182, 174)     # light grey-beige cushions (cooler than body areia #d8c9b2)
+N = 512                          # base colour 512 px main / 256 px mobile (~43 px per woven unit)
+UNITS = 12                       # basket units per repeat -> ~11.7 mm woven units (2.0.0: 10 twill cells)
+CORDS = 2                        # parallel cords per unit (basket pair)
+TWISTS = 2.2                     # ply twists per unit along a cord
+LIGHT_TINT = (186, 182, 175)     # light grey-beige cushions, a touch lighter/cooler than body areia #b6b0a8 (2.0.0: 188,182,174)
 REVERSE_TINT = (226, 220, 207)   # cream reverse of the olive cushions
-OLIVE_CORD = np.array([72, 70, 44]) / 255     # olive warp cords
-OLIVE_LIGHT = np.array([134, 127, 94]) / 255  # lighter cream-olive weft
-GAP = np.array([34, 32, 20]) / 255
+OLIVE_CORD = np.array([50, 48, 22]) / 255     # olive yarn (visual estimate from SOFA-2.jpg, not sampled)
+CREAM = np.array([222, 212, 168]) / 255       # cream yarn plied with the olive
+GAP = np.array([22, 22, 12]) / 255
 
 
 def periodic_noise(rng, n, sigma):
@@ -51,41 +56,47 @@ def normals(height, n):
 
 
 def weave(n, seed=2051):
+    """EXT-001 r2 (2.1.0) basket weave. 2.0.0 used a 2/2 twill of long cosine floats; at viewing
+    distance its float progression read as big DIAGONAL STRIPES. SOFA-2.jpg shows a fine basket
+    weave of small woven units: here a checkerboard of square units (UNITS per 0.14 m repeat,
+    ~11.7 mm each, ~43 units across a 50 cm cushion), each unit = a PAIR of parallel plied cords,
+    horizontal and vertical units alternating. Every cord is olive plied with a cream yarn; the
+    ply twist leaves small slanted cream flecks whose slant flips with the unit orientation, which
+    gives the fine chevron sparkle of the photo instead of long lines. Own algorithm, CC0."""
     rng = np.random.default_rng(seed)
-    y, x = np.mgrid[0:n, 0:n].astype(np.float64) / n * CELLS     # cell coordinates
+    y, x = np.mgrid[0:n, 0:n].astype(np.float64) / n * UNITS        # unit coordinates
     i, j = np.floor(x), np.floor(y)
-    fx, fy = x - i, y - j                                        # 0..1 inside a cell
-    jitter = periodic_noise(rng, n, n / 90) * .035
-    # Cord cross-sections: wide olive warp cords (rows) and narrower cream-olive weft (columns).
-    dw = np.clip(np.abs(fy - .5 + jitter) / .47, 0, 1)
-    dv = np.clip(np.abs(fx - .5 - jitter) / .26, 0, 1)
-    warp_prof = np.sqrt(1 - dw ** 2); weft_prof = np.sqrt(1 - dv ** 2)
-    # 2/2 twill: warp row j floats over x in [j, j+2) (mod 4), weft column i over y in
-    # [i-3, i-1); the float/dip follows a continuous cosine ALONG each cord (no cell steps).
-    warp_lift = .5 + .5 * np.cos(2 * np.pi * (x - (j + 1)) / 4)
-    weft_lift = .5 + .5 * np.cos(2 * np.pi * (y - (i - 2)) / 4)
-    # Plied-yarn twist only (no pixel-scale noise: it costs PNG bytes and is invisible at 14 mm cords).
-    ply = .10 * np.sin(2 * np.pi * (x * 2.6 + y * 1.3))
-    hw = warp_prof ** .7 * (.35 + .65 * warp_lift) + ply * warp_prof
-    hv = weft_prof ** .7 * (.35 + .65 * weft_lift) + ply * weft_prof
-    top_warp = hw >= hv
-    height = np.maximum(hw, hv)
-    height = np.where(np.maximum(warp_prof, weft_prof) > 0, height, 0)
-    height_m = height * .0032                                  # ~3 mm cord relief
-    cord_var = .08 * periodic_noise(rng, n, n / 40)
-    fleck = np.clip(periodic_noise(rng, n, 1.6) - 1.2, 0, 1) * .5
-    base_w = OLIVE_CORD[None, None, :] * (1 + cord_var[..., None]) + fleck[..., None] * (OLIVE_LIGHT - OLIVE_CORD)
-    base_v = OLIVE_LIGHT[None, None, :] * (1 + .6 * cord_var[..., None])
-    color = np.where(top_warp[..., None], base_w, base_v)
-    cover = np.clip(height / .55, 0, 1)[..., None]               # gaps between cords read darker
-    color = GAP + (color - GAP) * (.35 + .65 * cover)
+    fx, fy = x - i, y - j
+    horiz = ((i + j) % 2) == 0
+    jit = periodic_noise(rng, n, n / 60) * .02
+    # across = position across the cords (2 cords per unit), along = along the cord
+    across = np.where(horiz, fy, fx) + jit
+    along = np.where(horiz, fx, fy)
+    k = np.floor(np.clip(across, 0, .9999) * CORDS)
+    t = np.clip(across, 0, .9999) * CORDS - k                        # 0..1 inside one cord
+    prof = np.sqrt(np.clip(1 - (2 * t - 1) ** 2 / .92, 0, 1))       # round cord section
+    dip = .45 + .55 * np.sin(np.pi * np.clip(along, 0, 1)) ** .5     # cord dives under at unit ends
+    # Ply twist: two-yarn ply, cream strand where the twist phase is high; slant flips per unit.
+    slant = np.where(horiz, 1.0, -1.0)
+    unit_phase = .25 * ((i + j) % 2) + .04 * periodic_noise(rng, n, n / 60)   # regular rows, slight irregularity
+    twist = np.sin(2 * np.pi * (along * TWISTS + slant * t * .85 + k * .5 + unit_phase))
+    cream = np.clip((twist - .48) / .26, 0, 1) * np.clip((prof - .3) / .3, 0, 1)
+    height = prof ** .8 * dip * (1 + .08 * twist)
+    height_m = height * .0021                                       # ~2 mm cord relief
+    unit_var = (rng.random((UNITS, UNITS)) - .5)[j.astype(int) % UNITS, i.astype(int) % UNITS] * .14
+    low = periodic_noise(rng, n, n / 30) * .05
+    olive = OLIVE_CORD[None, None, :] * (1 + unit_var[..., None] + low[..., None])
+    color = olive + cream[..., None] * (CREAM[None, None, :] - olive) * .85
+    shade = .30 + .70 * np.clip(height / .75, 0, 1) ** .8               # dark gaps between cords
+    color = GAP + (color - GAP) * shade[..., None]
     return np.clip(color, 0, 1), height_m
 
 
 def save_family(folder, color, height_m, n):
     folder.mkdir(parents=True, exist_ok=True)
-    Image.fromarray(np.uint8(np.round(color * 255))).save(folder / 'basecolor.jpg', quality=90, subsampling=0, optimize=True)
-    nrm = normals(height_m, n)
+    Image.fromarray(np.uint8(np.round(color * 255))).save(folder / 'basecolor.jpg', quality=88, subsampling=0, optimize=True)
+    h = height_m.reshape(n // 2, 2, n // 2, 2).mean(axis=(1, 3))      # box-downsample the height, then derive normals
+    nrm = normals(h, n // 2)
     Image.fromarray(np.uint8(np.round((nrm * .5 + .5) * 255))).save(folder / 'normal.png', optimize=True)
 
 

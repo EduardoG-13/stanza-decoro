@@ -1,5 +1,5 @@
 // The pilot owns geometry and materials; this adapter owns only site controls.
-// EXT-001 (2.0.0): exterior-only model. No layer/opening controls; fabric and colour apply to
+// EXT-001 (2.0.0+, now 2.1.0): exterior-only model. No layer/opening controls; fabric and colour apply to
 // the sofa BODY only (decorative cushions keep their fixed finish inside the viewer).
 const $ = selector => document.querySelector(selector);
 const options = JSON.parse($('#sofa-options').textContent);
