@@ -1,7 +1,7 @@
 {
   "contract": "stanza-model-3d/v1",
   "modelId": "stanza-piped-01",
-  "revision": "1.0.0",
+  "revision": "1.1.0",
   "queue": "EXT-005",
   "title": "Sofá cinza com vivo claro",
   "relation": {
@@ -170,17 +170,17 @@
   },
   "budgets": {
     "measured": {
-      "mainBytes": 3011884,
-      "mainTriangles": 49896,
-      "mobileBytes": 983004,
-      "mobileTriangles": 22120
+      "mainBytes": 3583152,
+      "mainTriangles": 67752,
+      "mobileBytes": 1213320,
+      "mobileTriangles": 29232
     },
     "limits": {
       "mainBytes": 5000000,
       "mainTriangles": 60000,
       "mobileTriangles": 25000
     },
-    "withinBudget": true
+    "withinBudget": false
   },
   "limitations": [
     "Um único ângulo (frente-esquerda, grande-angular, ~2,6° de rolagem): costas, lateral direita externa e fundo inferidos.",
@@ -193,8 +193,8 @@
   ],
   "dimensions": {
     "width": 3.468,
-    "height": 1.128,
-    "depth": 1.037,
+    "height": 1.154,
+    "depth": 1.035,
     "unit": "m",
     "estimated": true,
     "basis": "single photograph (sofa-com-vivo.webp); seat height assumed 0.45 m; depth constrained to 1.0 m; no measured shop dimensions"
@@ -202,9 +202,9 @@
   "models": {
     "main": {
       "uri": "models/stanza-piped-01.glb",
-      "bytes": 3011884,
-      "sha256": "f4958e112278ca029c3218c269ed60fb22127c9bc3b1aaa4146a71338d1f4f74",
-      "triangles": 49896,
+      "bytes": 3583152,
+      "sha256": "88d9f52c9211982c9ee8f09f625b1a71a6a1ed298adcba7bef1b2615779d81b1",
+      "triangles": 67752,
       "boundsMeters": {
         "min": [
           -1.734,
@@ -213,13 +213,13 @@
         ],
         "max": [
           1.734,
-          1.12717,
-          0.536
+          1.15327,
+          0.53366
         ],
         "dimensions": [
           3.468,
-          1.12824,
-          1.03701
+          1.15435,
+          1.03467
         ]
       },
       "textures": [
@@ -266,9 +266,9 @@
     },
     "mobile": {
       "uri": "models/stanza-piped-01-mobile.glb",
-      "bytes": 983004,
-      "sha256": "e85352912d755bd7449b766827d1db49d2af38ef9b8331e461fbf67d329a4b90",
-      "triangles": 22120,
+      "bytes": 1213320,
+      "sha256": "8c91c1620716e8c9a062adef46cd1211996d8834818835f6e47799d0e1d5f3a2",
+      "triangles": 29232,
       "boundsMeters": {
         "min": [
           -1.73395,
@@ -277,13 +277,13 @@
         ],
         "max": [
           1.73395,
-          1.12613,
-          0.52117
+          1.15182,
+          0.53378
         ],
         "dimensions": [
           3.4679,
-          1.12702,
-          1.02218
+          1.1527,
+          1.03479
         ]
       },
       "textures": [
