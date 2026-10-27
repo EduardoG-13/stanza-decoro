@@ -36,7 +36,11 @@ e reduzidas para manter o repositório leve. Não são renders de Blender.
 
 ### Personalização verificada (FEAT-005) — 12 combinações
 
-_A grade das 12 combinações e o retorno a bouclé+areia são adicionados no commit do FEAT-005._
+![Grade 12 combinações (tecido × cor) renderizadas](images/customization_grid_main.png)
+
+![Resposta de luz por tecido (mesma cor oliva)](images/fabric_light_response_main.png)
+
+![Retorno a bouclé+areia com os mapas embutidos (sem duplo tingimento)](images/customization_areia_return_main.png)
 
 ## Relatórios
 
@@ -44,9 +48,9 @@ _A grade das 12 combinações e o retorno a bouclé+areia são adicionados no co
 - [FEAT-002 — almofadas: contato suave](feat002-before-after.md)
 - [FEAT-003 — interior por componentes](feat003-before-after.md)
 - [FEAT-004 — abertura em camadas reversível](feat004-before-after.md)
-- FEAT-005 — tecidos, cores e iluminação _(adicionado no commit do FEAT-005)_
+- [FEAT-005 — tecidos, cores e iluminação](feat005-before-after.md)
 - FEAT-006 — exportação final, métricas e validação _(adicionado no commit do FEAT-006)_
-- Proposta separada: cor independente por almofada _(adicionada no commit do FEAT-005)_
+- [Proposta separada: cor independente por almofada (extensão futura)](proposal-per-cushion-color.md)
 
 ## Rótulos de honestidade
 
