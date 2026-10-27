@@ -1,0 +1,304 @@
+{
+  "contract": "stanza-model-3d/v1",
+  "modelId": "stanza-armchair-01",
+  "revision": "1.0.0",
+  "queue": "EXT-014",
+  "title": "Poltrona azul com braços",
+  "relation": {
+    "catalogId": "poltrona-bracos",
+    "catalogName": "Poltrona com braços",
+    "portfolioId": "projeto-24",
+    "portfolioTitle": "Poltronas azuis e puff capitonê",
+    "note": "A mesma foto (poltronas/poltronas-11.jpg) é a referência do item de catálogo poltrona-bracos e do portfólio projeto-24. A foto mostra DUAS poltronas idênticas e um puff capitonê: modela-se UMA poltrona (a da esquerda, mais próxima); o puff é o EXT-034 (pendente, fora do escopo); sala, tapete e demais objetos não são modelados. IDs existentes preservados; nenhuma entrada nova. A home continua sem o 3D da coleção."
+  },
+  "references": [
+    {
+      "path": "poltronas/poltronas-11.jpg",
+      "size": [
+        1040,
+        780
+      ],
+      "angle": "frente-direita da poltrona (girada para a direita da câmera), câmera elevada (~1,6 m), única vista; contraluz de janela",
+      "use": "forma, proporções, costuras, acabamento"
+    }
+  ],
+  "status": "technical-validated-visual-review-pending",
+  "construction": "exterior-only",
+  "units": "m",
+  "axes": {
+    "width": "+X",
+    "up": "+Y",
+    "front": "+Z",
+    "origin": "centro da projeção da peça no piso (Y=0)"
+  },
+  "estimatedScale": {
+    "seatHeightAssumed": 0.44,
+    "method": "câmera e proporções ajustadas a 12 correspondências na foto 1040×780 (braços, topo do encosto, frente do assento; rms ~9,5 px; foco 760 px fixo ~54° vertical ou livre, mesmos resultados), assento fixado em 0,44 m. O ajuste dá braço ~0,77 m e encosto ~1,1 m nos cantos inclinados; adotados 0,72 m (topo arredondado) e 1,04 m; almofada 0,17 m relida na sobreposição. Preset photo = câmera ajustada reapontada para o centro da poltrona (rotação + zoom no centro óptico; a foto é reprojetada pela mesma homografia para a comparação).",
+    "values": {
+      "width": 0.92,
+      "depthAtFloor": 0.84,
+      "shellThickness": 0.155,
+      "armHeight": 0.72,
+      "backHeight": 1.04,
+      "backLeanDeg": 5,
+      "seatHeight": 0.44,
+      "seatCushionThickness": 0.17,
+      "drumBaseTop": 0.27,
+      "rearArcSemiAxes": [
+        0.3825,
+        0.298
+      ]
+    },
+    "weak": [
+      "altura do encosto (1,0–1,1 m) e dos braços dependem da premissa do assento e da lente",
+      "profundidade e costas (não visíveis)",
+      "base giratória (se houver) oculta"
+    ]
+  },
+  "components": [
+    {
+      "name": "concha (braços + encosto curvo, contínua até o piso)",
+      "meshes": [
+        "shell"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "base tambor recuada, frente convexa",
+      "meshes": [
+        "drum_base"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "almofada de assento solta com vivos do próprio tecido",
+      "meshes": [
+        "seat_cushion",
+        "seat_cushion_welt_top",
+        "seat_cushion_welt_bottom"
+      ],
+      "group": "cushions"
+    }
+  ],
+  "materialRegions": {
+    "table": [
+      {
+        "mesh": "shell, drum_base, seat_cushion",
+        "material": "fabric_main",
+        "region": "body"
+      },
+      {
+        "mesh": "seat_cushion_welt_top/bottom",
+        "material": "fabric_seam",
+        "region": "body"
+      }
+    ],
+    "decorative": [],
+    "contrast": [],
+    "exterior-structure": [],
+    "note": "Tudo é o mesmo veludo azul: concha, base e almofada de assento (funcional) mudam juntas. Sem almofada decorativa, sem vivo/tacha/botão de outra cor e sem pés, madeira ou metal visíveis (a peça é estofada até o piso; a base giratória, se existir, fica oculta): nenhuma região fixa foi inventada."
+  },
+  "options": {
+    "appliesTo": "body",
+    "fabrics": [
+      "velvet",
+      "linen",
+      "boucle",
+      "sarja"
+    ],
+    "colors": [
+      "petroleo",
+      "grafite",
+      "gelo",
+      "areia",
+      "oliva",
+      "terracota"
+    ],
+    "default": {
+      "fabricId": "velvet",
+      "colorId": "petroleo"
+    },
+    "embedded": {
+      "fabricId": "velvet",
+      "colorId": "petroleo"
+    },
+    "note": "Veludo com brilho de pelo nos braços → família velvet existente (assets/sofa-pilot/materials/velvet), reutilizada. petroleo (#0e5668) é uma cor nova e aditiva: nenhuma cor existente é azul (a mais próxima, grafite #494b4b, é cinza neutro)."
+  },
+  "materials": {
+    "library": "assets/sofa-pilot/materials/velvet (reutilizada por referência; tinta embutida petroleo gerada no build.py como mapa × tinta)",
+    "reused": "assets/sofa-pilot/materials/ (boucle, linen) e assets/models-3d/materials/sarja por referência",
+    "embedded": {
+      "main": "veludo petroleo basecolor 1024 + normal 1024 + roughness 256, pré-repetidos 2×2 (0,15 m por repetição na unidade UV de 0,30 m; a família repete a 0,14 m)",
+      "mobile": "veludo 512/256/256, mesmo 2×2"
+    }
+  },
+  "provenance": {
+    "source": "assets/models-3d/stanza-armchair-01/source/build.py (paramétrico; importa assets/models-3d/lib/stanza3d.py: RoundedBox + settle_contacts)",
+    "derived": "source/stanza-armchair-01.blend, models/*.glb (gerados juntos, um passe)",
+    "tool": "Blender 5.0.1 como módulo Python (bpy, PyPI) em modo headless",
+    "license": "Geometria e mapas originais do projeto Stanza, CC0-1.0 na medida em que direitos possam existir; a foto de referência não é redistribuída no pacote nem usada como textura."
+  },
+  "budgets": {
+    "limits": {
+      "mainBytes": 5000000,
+      "mainTriangles": 60000,
+      "mobileTriangles": 25000
+    },
+    "measured": {
+      "mainBytes": 2013968,
+      "mainTriangles": 41776,
+      "mobileBytes": 631824,
+      "mobileTriangles": 16080
+    },
+    "withinBudget": true
+  },
+  "limitations": [
+    "Um único ângulo (frente-direita, câmera alta, contraluz): costas e lateral esquerda externa inferidas.",
+    "Medidas estimadas com assento fixado em 0,44 m; altura do encosto adotada abaixo do ajuste.",
+    "Cor petroleo #0e5668 e tecido (veludo) são estimativas visuais em foto subexposta.",
+    "Acabamento inicial embutido: veludo repetido a 0,15 m (2× na unidade UV de 0,30 m) contra 0,14 m da família no visualizador (7%, imperceptível).",
+    "Junções ocultas: base tambor sobreposta à concha até ~16 mm (dentro da concha/sob a almofada); almofada comprimida 3,5 mm contra os braços, vivo inferior até ~6 mm dentro da concha na linha de contato.",
+    "Base giratória (se houver) não é visível e não foi modelada.",
+    "Validado apenas em navegador headless (SwiftShader)."
+  ],
+  "dimensions": {
+    "width": 0.983,
+    "height": 1.046,
+    "depth": 0.973,
+    "unit": "m",
+    "estimated": true,
+    "basis": "single photograph (poltronas-11.jpg); seat height assumed 0.44 m; no measured shop dimensions"
+  },
+  "models": {
+    "main": {
+      "uri": "models/stanza-armchair-01.glb",
+      "bytes": 2013968,
+      "sha256": "9ebac6e7b27ccf83cf5485b4a11eeb0f6b6a5857f3aa809415e8b3fd70b0011e",
+      "triangles": 41776,
+      "boundsMeters": {
+        "min": [
+          -0.49141,
+          -0.00094,
+          -0.47631
+        ],
+        "max": [
+          0.49136,
+          1.04533,
+          0.49652
+        ],
+        "dimensions": [
+          0.98276,
+          1.04628,
+          0.97283
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal-1024",
+          "mimeType": "image/png",
+          "bytes": 564972,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "basecolor-petroleo-1024",
+          "mimeType": "image/jpeg",
+          "bytes": 27712,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 32969,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "fabric_main",
+          "region": "body"
+        },
+        {
+          "name": "fabric_seam",
+          "region": "body"
+        }
+      ]
+    },
+    "mobile": {
+      "uri": "models/stanza-armchair-01-mobile.glb",
+      "bytes": 631824,
+      "sha256": "422b0eed03d85fd9687193014fc4fb78afd6e727cf14a6791e58d0dd37dba6a6",
+      "triangles": 16080,
+      "boundsMeters": {
+        "min": [
+          -0.4905,
+          -0.00099,
+          -0.47611
+        ],
+        "max": [
+          0.49045,
+          1.04533,
+          0.49567
+        ],
+        "dimensions": [
+          0.98094,
+          1.04632,
+          0.97178
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal-256",
+          "mimeType": "image/png",
+          "bytes": 29499,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "basecolor-petroleo-512",
+          "mimeType": "image/jpeg",
+          "bytes": 7603,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 32969,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "fabric_main",
+          "region": "body"
+        },
+        {
+          "name": "fabric_seam",
+          "region": "body"
+        }
+      ]
+    }
+  }
+}

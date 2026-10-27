@@ -354,6 +354,75 @@
           "note": "fitted to sofa-com-vivo.webp (9 correspondences on the 1280x960 downscale, roll fixed at 0, rms ~20 px: the wide-angle phone photo has ~2.6 deg roll and a seat front that does not fit a straight edge)"
         }
       }
+    },
+    {
+      "modelId": "stanza-armchair-01",
+      "catalogId": "poltrona-bracos",
+      "portfolioId": "projeto-24",
+      "queue": "EXT-014",
+      "title": "Poltrona azul com braços",
+      "revision": "1.0.0",
+      "status": "technical-validated-visual-review-pending",
+      "statusLabel": "tecnicamente validado – revisão visual pendente",
+      "construction": "exterior-only",
+      "reference": "poltronas/poltronas-11.jpg",
+      "page": "/explorar-sofa.html?modelo=stanza-armchair-01",
+      "productPage": "/modelos/poltrona-bracos.html",
+      "posterAlt": "Estudo tridimensional da poltrona azul de braços curvos em veludo",
+      "assets": {
+        "viewerBase": "/assets/sofa-pilot/",
+        "main": "/assets/models-3d/stanza-armchair-01/models/stanza-armchair-01.glb",
+        "mobile": "/assets/models-3d/stanza-armchair-01/models/stanza-armchair-01-mobile.glb",
+        "poster": "/assets/models-3d/stanza-armchair-01/previews/poster.jpg",
+        "manifest": "/assets/models-3d/stanza-armchair-01/manifest.json"
+      },
+      "materialRegions": {
+        "body": [
+          "fabric_main",
+          "fabric_seam"
+        ]
+      },
+      "options": {
+        "appliesTo": "body",
+        "fabrics": [
+          "velvet",
+          "linen",
+          "boucle",
+          "sarja"
+        ],
+        "colors": [
+          "petroleo",
+          "grafite",
+          "gelo",
+          "areia",
+          "oliva",
+          "terracota"
+        ],
+        "default": {
+          "fabricId": "velvet",
+          "colorId": "petroleo"
+        },
+        "embedded": {
+          "fabricId": "velvet",
+          "colorId": "petroleo"
+        }
+      },
+      "cameras": {
+        "photo": {
+          "position": [
+            -2.385,
+            1.553,
+            3.169
+          ],
+          "target": [
+            0,
+            0.5,
+            0
+          ],
+          "fov": 29.14,
+          "note": "fitted to poltronas-11.jpg (12 correspondences, f 760 px, roll 0, rms ~11 px), then re-aimed at the chair centre (pure rotation + zoom about the camera centre; the reference is warped by the same homography for the overlay)"
+        }
+      }
     }
   ],
   "verifiedStatuses": [

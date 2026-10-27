@@ -124,7 +124,11 @@ test('viewer: embedded initial finish == model default, embedded tint == COLORS 
     assert.deepEqual(extra(rootNode(g).extras.embeddedFinish), m.options.embedded, m.modelId);
     const tint = lib.tints[m.options.embedded.colorId];
     assert.equal(tint, V.COLORS[m.options.embedded.colorId], `${m.modelId}: library tint == viewer colour`);
-    assert.equal(V.FABRICS[m.options.embedded.fabricId].repeatMeters, lib.bodyUvMeters, `${m.modelId}: embedded family authored at the body UV unit`);
+    // embedded maps are authored at the body UV unit: either the family repeat IS the unit, or the
+    // embedded maps pre-tile the family an integer number of times (root extra embeddedTiles, EXT-014
+    // velvet 0.14 m -> 2 tiles = 0.15 m, within 10%).
+    const tiles = extra(rootNode(g).extras.embeddedTiles) || 1, rep = V.FABRICS[m.options.embedded.fabricId].repeatMeters;
+    assert.ok(Number.isInteger(tiles) && Math.abs(lib.bodyUvMeters / tiles - rep) / rep <= .1, `${m.modelId}: embedded family authored at the body UV unit`);
   }
   assert.match(viewerSrc, /candidate\.fabricId === embedded\.fabricId && candidate\.colorId === embedded\.colorId/);
   assert.match(viewerSrc, /allowedFabrics\.includes\(candidate\.fabricId\) \|\| !allowedColors\.includes\(candidate\.colorId\)/);

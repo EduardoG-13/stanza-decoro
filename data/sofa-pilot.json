@@ -17,13 +17,15 @@
     "gelo": "Cinza gelo",
     "grafite-quente": "Grafite quente",
     "cru": "Cru",
-    "cinza-malva": "Cinza malva"
+    "cinza-malva": "Cinza malva",
+    "petroleo": "Azul petróleo"
   },
   "studies": {
     "stanza-organic-01": "sofa-organico",
     "stanza-straight-01": "sofa-reto",
     "stanza-modular-01": "sofa-modular",
     "stanza-two-seat-01": "sofa-dois-assentos",
-    "stanza-piped-01": "sofa-com-vivo"
+    "stanza-piped-01": "sofa-com-vivo",
+    "stanza-armchair-01": "poltrona-bracos"
   }
 }

@@ -1,0 +1,55 @@
+{
+ "glb": "assets/models-3d/stanza-armchair-01/models/stanza-armchair-01.glb",
+ "pairs": {
+  "drum_base:seat_cushion": {
+   "penetration_mm": 1.5,
+   "verts_inside": 240,
+   "gap_mm": 0.02
+  },
+  "drum_base:shell": {
+   "penetration_mm": 15.85,
+   "verts_inside": 346,
+   "gap_mm": 0.02
+  },
+  "seat_cushion:drum_base": {
+   "penetration_mm": 1.5,
+   "verts_inside": 500,
+   "gap_mm": 0.0
+  },
+  "seat_cushion:shell": {
+   "penetration_mm": 3.02,
+   "verts_inside": 703,
+   "gap_mm": 0.01
+  },
+  "seat_cushion_welt_bottom:seat_cushion": {
+   "penetration_mm": 1.86,
+   "verts_inside": 388,
+   "gap_mm": 0.01
+  },
+  "seat_cushion_welt_bottom:shell": {
+   "penetration_mm": 5.76,
+   "verts_inside": 90,
+   "gap_mm": 0.2
+  },
+  "seat_cushion_welt_top:seat_cushion": {
+   "penetration_mm": 1.8,
+   "verts_inside": 382,
+   "gap_mm": 0.04
+  },
+  "seat_cushion_welt_top:shell": {
+   "penetration_mm": 3.44,
+   "verts_inside": 56,
+   "gap_mm": 0.25
+  },
+  "shell:drum_base": {
+   "penetration_mm": 15.63,
+   "verts_inside": 487,
+   "gap_mm": 0.01
+  },
+  "shell:seat_cushion": {
+   "penetration_mm": 3.5,
+   "verts_inside": 378,
+   "gap_mm": 0.06
+  }
+ }
+}

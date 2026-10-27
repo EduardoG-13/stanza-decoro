@@ -1,0 +1,172 @@
+{
+  "assets/models-3d/stanza-armchair-01/models/stanza-armchair-01.glb": {
+    "bytes": 2013968,
+    "sha256": "9ebac6e7b27ccf83cf5485b4a11eeb0f6b6a5857f3aa809415e8b3fd70b0011e",
+    "triangles": 41776,
+    "boundsMeters": {
+      "min": [
+        -0.49141,
+        -0.00094,
+        -0.47631
+      ],
+      "max": [
+        0.49136,
+        1.04533,
+        0.49652
+      ],
+      "dimensions": [
+        0.98276,
+        1.04628,
+        0.97283
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal-1024",
+        "mimeType": "image/png",
+        "bytes": 564972,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "basecolor-petroleo-1024",
+        "mimeType": "image/jpeg",
+        "bytes": 27712,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 32969,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "fabric_main",
+        "region": "body"
+      },
+      {
+        "name": "fabric_seam",
+        "region": "body"
+      }
+    ],
+    "meshes": [
+      "drum_base",
+      "seat_cushion",
+      "seat_cushion_welt_bottom",
+      "seat_cushion_welt_top",
+      "shell"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-armchair-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "poltronas/poltronas-11.jpg",
+      "catalogId": "poltrona-bracos",
+      "queue": "EXT-014",
+      "materialRegions": "{\"body\": [\"fabric_main\", \"fabric_seam\"]}",
+      "embeddedFinish": "{\"fabricId\": \"velvet\", \"colorId\": \"petroleo\"}",
+      "embeddedTiles": 2,
+      "bodyUvMeters": 0.3
+    }
+  },
+  "assets/models-3d/stanza-armchair-01/models/stanza-armchair-01-mobile.glb": {
+    "bytes": 631824,
+    "sha256": "422b0eed03d85fd9687193014fc4fb78afd6e727cf14a6791e58d0dd37dba6a6",
+    "triangles": 16080,
+    "boundsMeters": {
+      "min": [
+        -0.4905,
+        -0.00099,
+        -0.47611
+      ],
+      "max": [
+        0.49045,
+        1.04533,
+        0.49567
+      ],
+      "dimensions": [
+        0.98094,
+        1.04632,
+        0.97178
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal-256",
+        "mimeType": "image/png",
+        "bytes": 29499,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "basecolor-petroleo-512",
+        "mimeType": "image/jpeg",
+        "bytes": 7603,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 32969,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "fabric_main",
+        "region": "body"
+      },
+      {
+        "name": "fabric_seam",
+        "region": "body"
+      }
+    ],
+    "meshes": [
+      "drum_base",
+      "seat_cushion",
+      "seat_cushion_welt_bottom",
+      "seat_cushion_welt_top",
+      "shell"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-armchair-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "poltronas/poltronas-11.jpg",
+      "catalogId": "poltrona-bracos",
+      "queue": "EXT-014",
+      "materialRegions": "{\"body\": [\"fabric_main\", \"fabric_seam\"]}",
+      "embeddedFinish": "{\"fabricId\": \"velvet\", \"colorId\": \"petroleo\"}",
+      "embeddedTiles": 2,
+      "bodyUvMeters": 0.3
+    }
+  }
+}

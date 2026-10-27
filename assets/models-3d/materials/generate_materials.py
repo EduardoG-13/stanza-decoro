@@ -27,7 +27,7 @@ from PIL import Image
 HERE = Path(__file__).resolve().parent
 N = 1024
 # Tints used for embedded initial finishes. MUST equal COLORS in assets/sofa-pilot/viewer/sofa-viewer.js.
-TINTS = {'gelo': (186, 188, 192), 'grafite-quente': (84, 80, 80), 'cru': (226, 221, 210), 'cinza-malva': (138, 130, 134)}
+TINTS = {'gelo': (186, 188, 192), 'grafite-quente': (84, 80, 80), 'cru': (226, 221, 210), 'cinza-malva': (138, 130, 134), 'petroleo': (14, 86, 104)}
 
 
 def noise(rng, sx, sy=None, n=N):

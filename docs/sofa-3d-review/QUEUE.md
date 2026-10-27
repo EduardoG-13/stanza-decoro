@@ -187,15 +187,16 @@ Em caso de dúvida, o material fica **fixo** e a dúvida é registrada em “Lim
 
 ### EXT-014 — Poltronas azuis e puff capitonê
 
-- **Estado:** pendente
+- **Estado:** tecnicamente validado – revisão visual pendente (poltrona); puff = EXT-034, **pendente / fora do escopo**
 - **Fontes:** [`poltronas/poltronas-11.jpg`](../../poltronas/poltronas-11.jpg)
-- **Relação:** catálogo `poltrona-bracos`; portfólio `projeto-24`
-- **Arquivos:** —
-- **Revisão:** —
-- **Opções reais:** a definir (aplicar a regra de regiões acima)
-- **Evidências:** —
-- **Limitações:** Duas poltronas idênticas = uma geometria com instâncias. O puff é o EXT-034.
-- **Próxima ação:** ler a foto, definir regiões e proporções, gerar fonte paramétrica e GLBs, registrar em `data/models-3d.json`.
+- **Relação:** catálogo `poltrona-bracos`; portfólio `projeto-24` (mesma foto; IDs preservados)
+- **Arquivos:** `assets/models-3d/stanza-armchair-01/` — `source/build.py` (fonte de verdade), `source/stanza-armchair-01.blend`, `models/stanza-armchair-01.glb`, `models/stanza-armchair-01-mobile.glb`, `previews/poster.jpg`, `manifest.json`; mapas `assets/sofa-pilot/materials/velvet/` (por referência); registro `data/models-3d.json` (`stanza-armchair-01`)
+- **Revisão:** 1.0.0 (somente exterior; UMA poltrona — a foto mostra duas idênticas) · principal 41 776 tri / 2,01 MB · móvel 16 080 tri / 0,63 MB
+- **Opções reais:** corpo (concha braços+encosto, base tambor, almofada de assento com vivos do próprio tecido) — tecidos `velvet` (inicial), `linen`, `boucle`, `sarja` × cores `petroleo` (inicial, nova), `grafite`, `gelo`, `areia`, `oliva`, `terracota`. Sem decorativas, contrastes ou estrutura visível.
+- **Evidências:** [ext014-poltrona-bracos.md](ext014-poltrona-bracos.md), imagens `images/ext014_*.jpg`, validação `validation/ext014/` (glTF-Validator 0/0/0/0, comportamento 77/77, máscaras, contatos)
+- **Prévia:** `/explorar-sofa.html?modelo=stanza-armchair-01`; produto `/modelos/poltrona-bracos.html` com "Ver em 3D"
+- **Limitações:** um único ângulo; medidas estimadas com assento 0,44 m; veludo e `petroleo` (`#0e5668`) são estimativas visuais (foto subexposta); base giratória oculta não modelada; abas do topo do encosto e interior do encosto mais plano da foto só aproximados; validação só headless. O puff capitonê (EXT-034) continua pendente.
+- **Próxima ação:** revisão visual pela Stanza; se aprovado, marcar `approved`. Puff: EXT-034.
 
 ### EXT-015 — Poltrona marrom de encosto curvo
 
