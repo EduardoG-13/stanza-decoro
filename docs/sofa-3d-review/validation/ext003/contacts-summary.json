@@ -1,0 +1,88 @@
+{
+ "main": {
+  "body->body": {
+   "maxPenetration_mm": 0.47,
+   "pair": "seat_block_3:arm_r",
+   "pairs": 30,
+   "verts_inside": 1
+  },
+  "body->pillow": {
+   "maxPenetration_mm": 6.36,
+   "pair": "seat_block_2:pillow_4_cover",
+   "pairs": 17,
+   "verts_inside": 1
+  },
+  "pillow->body": {
+   "maxPenetration_mm": 1.21,
+   "pair": "pillow_5_cover:seat_block_2",
+   "pairs": 17,
+   "verts_inside": 9
+  },
+  "welt->body": {
+   "maxPenetration_mm": 1.03,
+   "pair": "pillow_1_welt:seat_block_1",
+   "pairs": 17,
+   "verts_inside": 6
+  },
+  "welt-on-own-cover": {
+   "maxPenetration_mm": 3.67,
+   "pair": "pillow_5_welt:pillow_5_cover",
+   "pairs": 7,
+   "verts_inside": 285
+  },
+  "pillow->pillow": {
+   "maxPenetration_mm": 1.21,
+   "pair": "pillow_2_cover:pillow_3_cover",
+   "pairs": 8,
+   "verts_inside": 19
+  },
+  "welt->pillow": {
+   "maxPenetration_mm": 0,
+   "pair": null,
+   "pairs": 8
+  }
+ },
+ "mobile": {
+  "body->body": {
+   "maxPenetration_mm": 0.43,
+   "pair": "seat_block_3:arm_r",
+   "pairs": 30,
+   "verts_inside": 1
+  },
+  "body->pillow": {
+   "maxPenetration_mm": 4.71,
+   "pair": "seat_block_3:pillow_5_cover",
+   "pairs": 17,
+   "verts_inside": 3
+  },
+  "pillow->body": {
+   "maxPenetration_mm": 1.2,
+   "pair": "pillow_1_cover:back_block_1",
+   "pairs": 17,
+   "verts_inside": 19
+  },
+  "welt->body": {
+   "maxPenetration_mm": 0.9,
+   "pair": "pillow_5_welt:seat_block_2",
+   "pairs": 17,
+   "verts_inside": 4
+  },
+  "welt-on-own-cover": {
+   "maxPenetration_mm": 3.12,
+   "pair": "pillow_5_welt:pillow_5_cover",
+   "pairs": 7,
+   "verts_inside": 197
+  },
+  "pillow->pillow": {
+   "maxPenetration_mm": 1.34,
+   "pair": "pillow_2_cover:pillow_3_cover",
+   "pairs": 8,
+   "verts_inside": 8
+  },
+  "welt->pillow": {
+   "maxPenetration_mm": 0,
+   "pair": null,
+   "pairs": 8
+  }
+ }
+}

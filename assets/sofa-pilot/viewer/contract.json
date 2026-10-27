@@ -105,7 +105,8 @@
     "oliva": "#72765a",
     "terracota": "#ae6952",
     "grafite": "#494b4b",
-    "gelo": "#babcc0"
+    "gelo": "#babcc0",
+    "grafite-quente": "#545050"
   },
   "FABRICS": {
     "linen": {
@@ -138,6 +139,14 @@
       "normalStrength": 1.5,
       "sheen": 0.12,
       "sheenRoughness": 0.95,
+      "repeatMeters": 0.3
+    },
+    "sarja": {
+      "label": "Sarja",
+      "roughness": 1,
+      "normalStrength": 0.9,
+      "sheen": 0.1,
+      "sheenRoughness": 0.8,
       "repeatMeters": 0.3
     }
   },

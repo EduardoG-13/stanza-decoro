@@ -137,6 +137,80 @@
           "note": "fitted to SOFA-5.jpg (16 hand-picked correspondences, rms ~11 px at 1280x960)"
         }
       }
+    },
+    {
+      "modelId": "stanza-modular-01",
+      "catalogId": "sofa-modular",
+      "portfolioId": "projeto-3",
+      "queue": "EXT-003",
+      "title": "Sofá modular cinza",
+      "revision": "1.0.0",
+      "status": "technical-validated-visual-review-pending",
+      "statusLabel": "tecnicamente validado – revisão visual pendente",
+      "construction": "exterior-only",
+      "reference": "sofas/SOFA-3.jpg",
+      "page": "/explorar-sofa.html?modelo=stanza-modular-01",
+      "productPage": "/modelos/sofa-modular.html",
+      "posterAlt": "Estudo tridimensional do sofá modular cinza, com almofadas azuis e estampadas",
+      "assets": {
+        "viewerBase": "/assets/sofa-pilot/",
+        "main": "/assets/models-3d/stanza-modular-01/models/stanza-modular-01.glb",
+        "mobile": "/assets/models-3d/stanza-modular-01/models/stanza-modular-01-mobile.glb",
+        "poster": "/assets/models-3d/stanza-modular-01/previews/poster.jpg",
+        "manifest": "/assets/models-3d/stanza-modular-01/manifest.json"
+      },
+      "materialRegions": {
+        "body": [
+          "fabric_main"
+        ],
+        "decorative": [
+          "pillow_blue",
+          "pillow_blue_seam",
+          "pillow_print",
+          "pillow_print_seam"
+        ]
+      },
+      "options": {
+        "appliesTo": "body",
+        "fabrics": [
+          "sarja",
+          "linen",
+          "boucle",
+          "velvet"
+        ],
+        "colors": [
+          "grafite-quente",
+          "grafite",
+          "gelo",
+          "areia",
+          "oliva",
+          "terracota"
+        ],
+        "default": {
+          "fabricId": "sarja",
+          "colorId": "grafite-quente"
+        },
+        "embedded": {
+          "fabricId": "sarja",
+          "colorId": "grafite-quente"
+        }
+      },
+      "cameras": {
+        "photo": {
+          "position": [
+            3.196,
+            1.727,
+            3.351
+          ],
+          "target": [
+            0.233,
+            0.185,
+            -0.126
+          ],
+          "fov": 39.4,
+          "note": "fitted to SOFA-3.jpg (17 hand-picked correspondences, rms ~16 px at 1280x960, camera roll fixed at 0: the photo is rolled ~3 deg, which the viewer does not reproduce)"
+        }
+      }
     }
   ],
   "verifiedStatuses": [
@@ -147,6 +221,7 @@
     "boucle": "/assets/sofa-pilot/materials/boucle/",
     "linen": "/assets/sofa-pilot/materials/linen/",
     "velvet": "/assets/sofa-pilot/materials/velvet/",
-    "boucle-mescla": "/assets/models-3d/materials/boucle-mescla/"
+    "boucle-mescla": "/assets/models-3d/materials/boucle-mescla/",
+    "sarja": "/assets/models-3d/materials/sarja/"
   }
 }

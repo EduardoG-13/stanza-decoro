@@ -27,7 +27,7 @@ from PIL import Image
 HERE = Path(__file__).resolve().parent
 N = 1024
 # Tints used for embedded initial finishes. MUST equal COLORS in assets/sofa-pilot/viewer/sofa-viewer.js.
-TINTS = {'gelo': (186, 188, 192)}
+TINTS = {'gelo': (186, 188, 192), 'grafite-quente': (84, 80, 80)}
 
 
 def noise(rng, sx, sy=None, n=N):
@@ -176,8 +176,98 @@ def wood_wenge():
     return meta
 
 
+def blur(a, s):
+    """Periodic gaussian blur (sigma in px)."""
+    n = a.shape[0]; fx = np.fft.fftfreq(n)[None, :]; fy = np.fft.fftfreq(n)[:, None]
+    return np.fft.ifft2(np.fft.fft2(a)*np.exp(-2*np.pi**2*s*s*(fx*fx+fy*fy))).real
+
+
+def weave(rng, threads, pattern, thick=.08, slub=0.0, slub_len=60, profile=.8):
+    """Periodic woven height field (0..1) + per-pixel warp-on-top mask + per-thread tone.
+    threads: threads per tile on each axis (must divide N). pattern(i, j) -> bool array, True =
+    warp (vertical yarn) on top at weft row i / warp column j. thick: random yarn thickness
+    variation; slub: amplitude of elongated thickness swellings along each yarn (linen slubs)."""
+    p = N // threads
+    Y, X = np.mgrid[0:N, 0:N]
+    i = Y // p; j = X // p; fy = (Y % p + .5)/p; fx = (X % p + .5)/p
+    warp_top = pattern(i, j)
+    tw = 1 + thick*rng.standard_normal(threads)[j]; tf = 1 + thick*rng.standard_normal(threads)[i]
+    if slub:
+        # elongated swellings along each yarn: noise long along the yarn, one yarn wide across
+        along_w = noise(rng, p*.35, slub_len)        # long in Y (warp runs along Y)
+        along_f = noise(rng, slub_len, p*.35)        # long in X (weft runs along X)
+        tw = tw*(1+slub*np.clip(along_w, 0, None)**1.5); tf = tf*(1+slub*np.clip(along_f, 0, None)**1.5)
+    hw = np.cos(np.pi*(fx-.5))**profile*tw          # warp yarn cross-section (across X)
+    hf = np.cos(np.pi*(fy-.5))**profile*tf          # weft yarn cross-section (across Y)
+    # yarn crimp: the top yarn dips where it goes under at the next crossing
+    h = np.where(warp_top, .55+.45*hw, .55+.45*hf)*np.where(warp_top, tw, tf)**.5
+    h = blur(h, .6)
+    tone = np.where(warp_top, rng.normal(0, 1, threads)[j], rng.normal(0, 1, threads)[i])
+    return h, warp_top, tone
+
+
+def write_decor(fid, rgb, height, rough, repeat_m, meta):
+    """Decorative (fixed) print/jacquard family: basecolor holds the printed design (never a
+    photo). Also writes embedded/basecolor-512/256.jpg for GLB embedding."""
+    meta, col, _ = write_family(fid, height, None, rough, repeat_m, meta, rgb=rgb)
+    for s in (512, 256):
+        Image.fromarray(np.uint8(np.round(np.clip(col, 0, 1)*255))).resize((s, s), Image.Resampling.BOX).save(HERE/fid/'embedded'/f'basecolor-{s}.jpg', quality=90, subsampling=0, optimize=True)
+    meta['decorative'] = True
+    return meta
+
+
+def sarja():
+    """Flat 2/2 twill upholstery cloth (EXT-003, SOFA-3.jpg): tight, matte, very even; 256
+    yarns per 0.30 m tile (1.17 mm pitch), soft diagonal rib, faint heather from yarn tone."""
+    rng = np.random.default_rng(707)
+    repeat_m = .30
+    h, top, tone = weave(rng, 256, lambda i, j: ((i+j) % 4) < 2, thick=.02)
+    fuzz = noise(rng, .8)
+    height = .00016*h + .000006*fuzz + .000012*noise(rng, 40)
+    color = np.clip(.80 + .007*tone + .012*fuzz + .006*noise(rng, 30) - .05*(1-h), 0, 1)
+    rough = np.clip(.88 + .03*(1-h) + .02*noise(rng, 2), 0, 1)
+    meta = {'label': 'Sarja', 'family': 'flat_twill_upholstery_study', 'seed': 707, 'normalScale': .9,
+            'roughness': 1.0, 'sheen': .10, 'sheenRoughness': .8,
+            'description': 'Sarja 2/2 de trama fechada e fosca (fios de ~1,2 mm, diagonal suave). Estudo visual próprio a partir de SOFA-3.jpg; sem código comercial.',
+            'createdFor': 'EXT-003 (sofas/SOFA-3.jpg)'}
+    meta, col, _ = write_family('sarja', height, color, rough, repeat_m, meta)
+    meta['embedded'] = {t: tinted('sarja', col, t) for t in ('grafite-quente',)}
+    meta['embedded'].update({'normal': ['embedded/normal-512.png', 'embedded/normal-256.png'],
+                             'roughness': ['embedded/roughness-512.jpg', 'embedded/roughness-256.jpg']})
+    return meta
+
+
+def decor_losango():
+    """Printed nested-diamond (losango) cushion design for the fixed decorative pillows of
+    EXT-003: white ground, dusty light blue and grey-blue concentric diamonds, period 0.15 m
+    (2 per 0.30 m tile). Drawn procedurally; the woven relief comes from the cloth normal."""
+    rng = np.random.default_rng(708)
+    repeat_m = .30
+    Y, X = np.mgrid[0:N, 0:N].astype(np.float64)
+    cell = N/2
+    u = ((X % cell)/cell - .5)*2; v = ((Y % cell)/cell - .5)*2
+    d = np.abs(u)+np.abs(v)                 # 0 centre .. 1 diamond edge .. 2 cell corner
+    d2 = np.abs(((X+cell/2) % cell)/cell*2-1)+np.abs(((Y+cell/2) % cell)/cell*2-1)   # offset lattice
+    d = np.minimum(d, d2)
+    white = np.array([232, 234, 234])/255; blue = np.array([150, 182, 198])/255; grey = np.array([118, 140, 156])/255; pale = np.array([196, 212, 220])/255
+    wob = .006*noise(rng, 6)                 # slightly irregular print edges
+    dd = d + wob
+    rgb = np.empty((N, N, 3)); rgb[:] = white
+    for lo, hi, c in ((0, .09, grey), (.09, .15, white), (.15, .38, blue), (.38, .44, white), (.44, .64, pale), (.64, .69, white), (.69, .90, grey), (.90, 1.1, white)):
+        m = (dd >= lo) & (dd < hi); rgb[m] = c
+    rgb = np.stack([blur(rgb[..., k], .8) for k in range(3)], -1)
+    h, _t, tone = weave(rng, 256, lambda i, j: ((i+j) % 2) == 0, thick=.05)
+    rgb = np.clip(rgb*(1+.02*tone[..., None]-.04*(1-h[..., None])), 0, 1)
+    height = .00012*h
+    rough = np.clip(.9+.02*noise(rng, 2), 0, 1)
+    meta = {'label': 'Estampa losangos azul (decorativa)', 'family': 'printed_cushion_design', 'seed': 708, 'normalScale': .8,
+            'description': 'Estampa de losangos concêntricos azul claro e cinza-azulado sobre fundo branco, desenhada proceduralmente a partir da leitura de SOFA-3.jpg (não é a foto). Somente almofadas decorativas fixas.',
+            'createdFor': 'EXT-003 (almofadas estampadas de SOFA-3.jpg)'}
+    return write_decor('decor-losango', rgb, height, rough, repeat_m, meta)
+
+
 if __name__ == '__main__':
-    fams = [boucle_mescla(), wood_wenge()]
+    fams = [boucle_mescla(), wood_wenge(), sarja(), decor_losango()]
     index = {'contract': 'stanza-material-library/v1',
              'note': 'Biblioteca compartilhada de acabamentos da coleção 3D. Estudos visuais originais (CC0), não catálogo homologado; a tela não substitui amostra física.',
              'bodyUvMeters': .30,

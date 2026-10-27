@@ -1,0 +1,478 @@
+{
+  "main": {
+    "triangles_blender": 51448,
+    "trianglesByObject": {
+      "arm_l": 3368,
+      "arm_r": 3368,
+      "seat_block_1": 3944,
+      "back_block_1": 3344,
+      "seat_block_2": 3944,
+      "back_block_2": 3344,
+      "seat_block_3": 3944,
+      "back_block_3": 3344,
+      "pillow_1_cover": 2496,
+      "pillow_1_welt": 768,
+      "pillow_2_cover": 2496,
+      "pillow_2_welt": 768,
+      "pillow_3_cover": 2496,
+      "pillow_3_welt": 768,
+      "pillow_4_cover": 2496,
+      "pillow_4_welt": 768,
+      "pillow_5_cover": 2496,
+      "pillow_5_welt": 768,
+      "pillow_6_cover": 2496,
+      "pillow_6_welt": 768,
+      "pillow_7_cover": 2496,
+      "pillow_7_welt": 768
+    },
+    "placements": {
+      "pillow_1": {
+        "pos": [
+          -1.43,
+          0.2291,
+          0.7022
+        ],
+        "rot": [
+          -24,
+          -4,
+          0
+        ]
+      },
+      "pillow_4": {
+        "pos": [
+          -0.2,
+          0.2305,
+          0.7143
+        ],
+        "rot": [
+          -24,
+          4,
+          0
+        ]
+      },
+      "pillow_7": {
+        "pos": [
+          1.4,
+          0.2303,
+          0.7455
+        ],
+        "rot": [
+          -24,
+          -8,
+          0
+        ]
+      },
+      "pillow_2": {
+        "pos": [
+          -0.98,
+          -0.2258,
+          0.6338
+        ],
+        "rot": [
+          -30,
+          6,
+          0
+        ]
+      },
+      "pillow_3": {
+        "pos": [
+          -0.62,
+          -0.3372,
+          0.6527
+        ],
+        "rot": [
+          -30,
+          -10,
+          0
+        ]
+      },
+      "pillow_5": {
+        "pos": [
+          0.42,
+          0.2377,
+          0.6423
+        ],
+        "rot": [
+          -30,
+          16,
+          0
+        ]
+      },
+      "pillow_6": {
+        "pos": [
+          0.88,
+          -0.014,
+          0.6889
+        ],
+        "rot": [
+          -30,
+          24,
+          0
+        ]
+      }
+    },
+    "bytes": 3165244,
+    "sha256": "d8973c7cb96b9a11683621f4091fd96be705cd314e3e7b5a2e750fb6cc359b43",
+    "triangles": 51448,
+    "boundsMeters": {
+      "min": [
+        -2.12395,
+        -0.00174,
+        -0.587
+      ],
+      "max": [
+        2.12395,
+        1.12841,
+        0.59268
+      ],
+      "dimensions": [
+        4.2479,
+        1.13015,
+        1.17968
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal",
+        "mimeType": "image/png",
+        "bytes": 1051240,
+        "usedBy": [
+          "fabric_main",
+          "pillow_blue",
+          "pillow_blue_seam",
+          "pillow_print",
+          "pillow_print_seam"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 60813,
+        "usedBy": [
+          "fabric_main",
+          "pillow_blue",
+          "pillow_blue_seam",
+          "pillow_print",
+          "pillow_print_seam"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "basecolor",
+        "mimeType": "image/jpeg",
+        "bytes": 268776,
+        "usedBy": [
+          "pillow_print"
+        ]
+      },
+      {
+        "index": 3,
+        "name": "basecolor-grafite-quente-1024",
+        "mimeType": "image/jpeg",
+        "bytes": 74752,
+        "usedBy": [
+          "fabric_main"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "pillow_blue",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_blue_seam",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_print",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_print_seam",
+        "region": "decorative"
+      },
+      {
+        "name": "fabric_main",
+        "region": "body"
+      }
+    ],
+    "meshes": [
+      "arm_l",
+      "arm_r",
+      "back_block_1",
+      "back_block_2",
+      "back_block_3",
+      "pillow_1_cover",
+      "pillow_1_welt",
+      "pillow_2_cover",
+      "pillow_2_welt",
+      "pillow_3_cover",
+      "pillow_3_welt",
+      "pillow_4_cover",
+      "pillow_4_welt",
+      "pillow_5_cover",
+      "pillow_5_welt",
+      "pillow_6_cover",
+      "pillow_6_welt",
+      "pillow_7_cover",
+      "pillow_7_welt",
+      "seat_block_1",
+      "seat_block_2",
+      "seat_block_3"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-modular-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "sofas/SOFA-3.jpg",
+      "catalogId": "sofa-modular",
+      "queue": "EXT-003",
+      "materialRegions": "{\"body\": [\"fabric_main\"], \"decorative\": [\"pillow_blue\", \"pillow_blue_seam\", \"pillow_print\", \"pillow_print_seam\"]}",
+      "embeddedFinish": "{\"fabricId\": \"sarja\", \"colorId\": \"grafite-quente\"}",
+      "bodyUvMeters": 0.3
+    }
+  },
+  "mobile": {
+    "triangles_blender": 24092,
+    "trianglesByObject": {
+      "arm_l": 1416,
+      "arm_r": 1416,
+      "seat_block_1": 1700,
+      "back_block_1": 1504,
+      "seat_block_2": 1700,
+      "back_block_2": 1504,
+      "seat_block_3": 1700,
+      "back_block_3": 1504,
+      "pillow_1_cover": 1152,
+      "pillow_1_welt": 512,
+      "pillow_2_cover": 1152,
+      "pillow_2_welt": 512,
+      "pillow_3_cover": 1152,
+      "pillow_3_welt": 512,
+      "pillow_4_cover": 1152,
+      "pillow_4_welt": 512,
+      "pillow_5_cover": 1152,
+      "pillow_5_welt": 512,
+      "pillow_6_cover": 1152,
+      "pillow_6_welt": 512,
+      "pillow_7_cover": 1152,
+      "pillow_7_welt": 512
+    },
+    "placements": {
+      "pillow_1": {
+        "pos": [
+          -1.43,
+          0.2291,
+          0.7022
+        ],
+        "rot": [
+          -24,
+          -4,
+          0
+        ]
+      },
+      "pillow_4": {
+        "pos": [
+          -0.2,
+          0.2305,
+          0.7143
+        ],
+        "rot": [
+          -24,
+          4,
+          0
+        ]
+      },
+      "pillow_7": {
+        "pos": [
+          1.4,
+          0.2303,
+          0.7455
+        ],
+        "rot": [
+          -24,
+          -8,
+          0
+        ]
+      },
+      "pillow_2": {
+        "pos": [
+          -0.98,
+          -0.2258,
+          0.6338
+        ],
+        "rot": [
+          -30,
+          6,
+          0
+        ]
+      },
+      "pillow_3": {
+        "pos": [
+          -0.62,
+          -0.3372,
+          0.6527
+        ],
+        "rot": [
+          -30,
+          -10,
+          0
+        ]
+      },
+      "pillow_5": {
+        "pos": [
+          0.42,
+          0.2377,
+          0.6423
+        ],
+        "rot": [
+          -30,
+          16,
+          0
+        ]
+      },
+      "pillow_6": {
+        "pos": [
+          0.88,
+          -0.014,
+          0.6889
+        ],
+        "rot": [
+          -30,
+          24,
+          0
+        ]
+      }
+    },
+    "bytes": 1107144,
+    "sha256": "11bb4d078af0297f20f1568a1e77d564bb5f920019fab267a5e692b8ec22d3fa",
+    "triangles": 24092,
+    "boundsMeters": {
+      "min": [
+        -2.12384,
+        -0.00142,
+        -0.587
+      ],
+      "max": [
+        2.12384,
+        1.12841,
+        0.59211
+      ],
+      "dimensions": [
+        4.24768,
+        1.12983,
+        1.17911
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal-256",
+        "mimeType": "image/png",
+        "bytes": 52516,
+        "usedBy": [
+          "fabric_main",
+          "pillow_blue",
+          "pillow_blue_seam",
+          "pillow_print",
+          "pillow_print_seam"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 60813,
+        "usedBy": [
+          "fabric_main",
+          "pillow_blue",
+          "pillow_blue_seam",
+          "pillow_print",
+          "pillow_print_seam"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "basecolor-512",
+        "mimeType": "image/jpeg",
+        "bytes": 95467,
+        "usedBy": [
+          "pillow_print"
+        ]
+      },
+      {
+        "index": 3,
+        "name": "basecolor-grafite-quente-512",
+        "mimeType": "image/jpeg",
+        "bytes": 15654,
+        "usedBy": [
+          "fabric_main"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "pillow_blue",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_blue_seam",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_print",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_print_seam",
+        "region": "decorative"
+      },
+      {
+        "name": "fabric_main",
+        "region": "body"
+      }
+    ],
+    "meshes": [
+      "arm_l",
+      "arm_r",
+      "back_block_1",
+      "back_block_2",
+      "back_block_3",
+      "pillow_1_cover",
+      "pillow_1_welt",
+      "pillow_2_cover",
+      "pillow_2_welt",
+      "pillow_3_cover",
+      "pillow_3_welt",
+      "pillow_4_cover",
+      "pillow_4_welt",
+      "pillow_5_cover",
+      "pillow_5_welt",
+      "pillow_6_cover",
+      "pillow_6_welt",
+      "pillow_7_cover",
+      "pillow_7_welt",
+      "seat_block_1",
+      "seat_block_2",
+      "seat_block_3"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-modular-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "sofas/SOFA-3.jpg",
+      "catalogId": "sofa-modular",
+      "queue": "EXT-003",
+      "materialRegions": "{\"body\": [\"fabric_main\"], \"decorative\": [\"pillow_blue\", \"pillow_blue_seam\", \"pillow_print\", \"pillow_print_seam\"]}",
+      "embeddedFinish": "{\"fabricId\": \"sarja\", \"colorId\": \"grafite-quente\"}",
+      "bodyUvMeters": 0.3
+    }
+  }
+}

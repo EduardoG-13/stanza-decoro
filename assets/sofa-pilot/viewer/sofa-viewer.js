@@ -7,13 +7,16 @@ export const IDENTITY = Object.freeze({ modelId: 'stanza-organic-01', revision: 
 export const DIMENSIONS = Object.freeze({ width:2.503, height:1.132, depth:1.098, unit:'m', estimated:true });
 // Colour IDs are global and only ever ADDED (never renamed); each model exposes a subset.
 // gelo (EXT-002): cool light grey of the bouclé in SOFA-5.jpg (visual estimate).
-export const COLORS = Object.freeze({ areia: '#b6b0a8', oliva: '#72765a', terracota: '#ae6952', grafite: '#494b4b', gelo: '#babcc0' });
+// grafite-quente (EXT-003): warm dark grey of the twill in SOFA-3.jpg (visual estimate).
+export const COLORS = Object.freeze({ areia: '#b6b0a8', oliva: '#72765a', terracota: '#ae6952', grafite: '#494b4b', gelo: '#babcc0', 'grafite-quente': '#545050' });
 export const FABRICS = Object.freeze({
   linen: { label:'Trama plana', roughness: 1, normalStrength: .78, sheen: .12, sheenRoughness: .85, repeatMeters: .14 },
   boucle: { label:'Bouclé', roughness: 1, normalStrength: 1.8, sheen: .12, sheenRoughness: .95, repeatMeters: .30 },
   velvet: { label:'Veludo', roughness: 1, normalStrength: .38, sheen: .72, sheenRoughness: .55, repeatMeters: .14 },
   // EXT-002: heathered bouclé of SOFA-5.jpg (shared library assets/models-3d/materials/boucle-mescla).
-  'boucle-mescla': { label:'Bouclé mescla', roughness: 1, normalStrength: 1.5, sheen: .12, sheenRoughness: .95, repeatMeters: .30 }
+  'boucle-mescla': { label:'Bouclé mescla', roughness: 1, normalStrength: 1.5, sheen: .12, sheenRoughness: .95, repeatMeters: .30 },
+  // EXT-003: flat matte 2/2 twill of SOFA-3.jpg (assets/models-3d/materials/sarja).
+  sarja: { label:'Sarja', roughness: 1, normalStrength: .9, sheen: .10, sheenRoughness: .8, repeatMeters: .30 }
 });
 // 2.1.0: one body UV unit = BODY_UV_METERS (build_sofa.BODY_TILE). Each fabric's maps are scaled
 // with texture.repeat so they keep their own physical repeat (bouclé 0.30 m = the embedded maps).

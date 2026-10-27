@@ -1,4 +1,4 @@
-# Revisão dos estudos 3D (stanza-organic-01, stanza-straight-01 e fila)
+# Revisão dos estudos 3D (stanza-organic-01, stanza-straight-01, stanza-modular-01… e fila)
 
 Esta pasta reúne, de forma **versionada e visível no PR**, o material de revisão do aprimoramento
 do sofá 3D (branch `work/sofa-3d-inspection`). Os caminhos internos do sandbox (`.agents/`,
@@ -19,6 +19,11 @@ Infraestrutura multi-modelo (biblioteca Blender, biblioteca de acabamentos, regi
 ![EXT-002: foto × render](images/ext002_photo_vs_render.jpg)
 
 ![EXT-002: cores do corpo com decoração fixa](images/ext002_body_colours.jpg)
+
+**EXT-003 — Sofá modular cinza** (`stanza-modular-01` 1.0.0, catálogo `sofa-modular`):
+[ext003-sofa-modular.md](ext003-sofa-modular.md) · prévia `/explorar-sofa.html?modelo=stanza-modular-01`.
+
+![EXT-003: foto × render](images/ext003_photo_vs_render.jpg)
 
 ## EXT-001 r2, revisão 2.1.0 (refino de fidelidade à foto)
 

@@ -77,6 +77,82 @@
         "baseColorMean": 0.1396193465146052,
         "roughnessMean": 0.5669924269250324
       }
+    },
+    {
+      "label": "Sarja",
+      "family": "flat_twill_upholstery_study",
+      "seed": 707,
+      "normalScale": 0.9,
+      "roughness": 1.0,
+      "sheen": 0.1,
+      "sheenRoughness": 0.8,
+      "description": "Sarja 2/2 de trama fechada e fosca (fios de ~1,2 mm, diagonal suave). Estudo visual próprio a partir de SOFA-3.jpg; sem código comercial.",
+      "createdFor": "EXT-003 (sofas/SOFA-3.jpg)",
+      "id": "sarja",
+      "repeatMeters": 0.3,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "license": "CC0-1.0",
+      "source": "assets/models-3d/materials/generate_materials.py",
+      "maps": {
+        "baseColor": "sarja/basecolor.jpg",
+        "normal": "sarja/normal.png",
+        "roughness": "sarja/roughness.jpg",
+        "thumbnail": "sarja/thumbnail.jpg"
+      },
+      "validation": {
+        "baseColorMean": 0.7932188915485104,
+        "roughnessMean": 0.8840615465951795
+      },
+      "embedded": {
+        "grafite-quente": [
+          "basecolor-grafite-quente-1024.jpg",
+          "basecolor-grafite-quente-512.jpg"
+        ],
+        "normal": [
+          "embedded/normal-512.png",
+          "embedded/normal-256.png"
+        ],
+        "roughness": [
+          "embedded/roughness-512.jpg",
+          "embedded/roughness-256.jpg"
+        ]
+      }
+    },
+    {
+      "label": "Estampa losangos azul (decorativa)",
+      "family": "printed_cushion_design",
+      "seed": 708,
+      "normalScale": 0.8,
+      "description": "Estampa de losangos concêntricos azul claro e cinza-azulado sobre fundo branco, desenhada proceduralmente a partir da leitura de SOFA-3.jpg (não é a foto). Somente almofadas decorativas fixas.",
+      "createdFor": "EXT-003 (almofadas estampadas de SOFA-3.jpg)",
+      "id": "decor-losango",
+      "repeatMeters": 0.3,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "license": "CC0-1.0",
+      "source": "assets/models-3d/materials/generate_materials.py",
+      "maps": {
+        "baseColor": "decor-losango/basecolor.jpg",
+        "normal": "decor-losango/normal.png",
+        "roughness": "decor-losango/roughness.jpg",
+        "thumbnail": "decor-losango/thumbnail.jpg"
+      },
+      "validation": {
+        "baseColorMean": 0.7350928186477313,
+        "roughnessMean": 0.899853347820202
+      },
+      "decorative": true
     }
   ],
   "reusedFamilies": {
@@ -85,6 +161,7 @@
     "velvet": "/assets/sofa-pilot/materials/velvet/"
   },
   "tints": {
-    "gelo": "#babcc0"
+    "gelo": "#babcc0",
+    "grafite-quente": "#545050"
   }
 }

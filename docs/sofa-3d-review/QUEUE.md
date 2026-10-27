@@ -52,15 +52,16 @@ Em caso de dúvida, o material fica **fixo** e a dúvida é registrada em “Lim
 
 ### EXT-003 — Sofá modular cinza
 
-- **Estado:** pendente
+- **Estado:** tecnicamente validado – revisão visual pendente
 - **Fontes:** [`sofas/SOFA-3.jpg`](../../sofas/SOFA-3.jpg)
-- **Relação:** catálogo `sofa-modular`; portfólio `projeto-3`
-- **Arquivos:** —
-- **Revisão:** —
-- **Opções reais:** a definir (aplicar a regra de regiões acima)
-- **Evidências:** —
-- **Limitações:** —
-- **Próxima ação:** ler a foto, definir regiões e proporções, gerar fonte paramétrica e GLBs, registrar em `data/models-3d.json`.
+- **Relação:** catálogo `sofa-modular`; portfólio `projeto-3` (única peça com esta foto; IDs preservados)
+- **Arquivos:** `assets/models-3d/stanza-modular-01/` — `source/build.py` (fonte de verdade), `source/stanza-modular-01.blend`, `models/stanza-modular-01.glb`, `models/stanza-modular-01-mobile.glb`, `previews/poster.jpg`, `manifest.json`; mapas `assets/models-3d/materials/sarja/` e `decor-losango/`; registro `data/models-3d.json` (`stanza-modular-01`)
+- **Revisão:** 1.0.0 (somente exterior) · principal 51 448 tri / 3,17 MB · móvel 24 092 tri / 1,11 MB
+- **Opções reais:** corpo (braços, 3 blocos de assento, 3 blocos de encosto) — tecidos `sarja` (inicial, novo), `linen`, `boucle`, `velvet` × cores `grafite-quente` (inicial, nova), `grafite`, `gelo`, `areia`, `oliva`, `terracota`. Sete almofadas decorativas (4 lisas azuis, 3 estampadas): fixas. Sem contraste nem estrutura visível.
+- **Evidências:** [ext003-sofa-modular.md](ext003-sofa-modular.md), imagens `images/ext003_*.jpg`, validação `validation/ext003/` (glTF-Validator 0/0/0/0, comportamento 74/74, máscaras 0 px nas decorativas, contatos)
+- **Prévia:** `/explorar-sofa.html?modelo=stanza-modular-01`; produto `/modelos/sofa-modular.html` com "Ver em 3D"
+- **Limitações:** vista única (costas e lateral esquerda inferidas); escala com assento fixado em 0,40 m (peça resulta 4,24 × 1,17 m); espessura do encosto assumida; sarja e `grafite-quente` (`#545050`) são estimativas visuais; estampa das almofadas é releitura procedural; rolagem de 3° da foto não reproduzida; validação só headless.
+- **Próxima ação:** revisão visual pela Stanza; ajustes prováveis: caimento/sobreposição das almofadas e tom do tecido sob a luz da foto.
 
 ### EXT-004 — Sofá claro de dois assentos
 

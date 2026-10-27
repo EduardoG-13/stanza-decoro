@@ -5,17 +5,20 @@
     "boucle": "Bouclé",
     "linen": "Trama plana",
     "velvet": "Veludo",
-    "boucle-mescla": "Bouclé mescla"
+    "boucle-mescla": "Bouclé mescla",
+    "sarja": "Sarja"
   },
   "colors": {
     "areia": "Areia",
     "oliva": "Oliva",
     "terracota": "Terracota",
     "grafite": "Grafite",
-    "gelo": "Cinza gelo"
+    "gelo": "Cinza gelo",
+    "grafite-quente": "Grafite quente"
   },
   "studies": {
     "stanza-organic-01": "sofa-organico",
-    "stanza-straight-01": "sofa-reto"
+    "stanza-straight-01": "sofa-reto",
+    "stanza-modular-01": "sofa-modular"
   }
 }

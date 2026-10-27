@@ -1,0 +1,256 @@
+{
+  "assets/models-3d/stanza-modular-01/models/stanza-modular-01.glb": {
+    "bytes": 3165244,
+    "sha256": "d8973c7cb96b9a11683621f4091fd96be705cd314e3e7b5a2e750fb6cc359b43",
+    "triangles": 51448,
+    "boundsMeters": {
+      "min": [
+        -2.12395,
+        -0.00174,
+        -0.587
+      ],
+      "max": [
+        2.12395,
+        1.12841,
+        0.59268
+      ],
+      "dimensions": [
+        4.2479,
+        1.13015,
+        1.17968
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal",
+        "mimeType": "image/png",
+        "bytes": 1051240,
+        "usedBy": [
+          "fabric_main",
+          "pillow_blue",
+          "pillow_blue_seam",
+          "pillow_print",
+          "pillow_print_seam"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 60813,
+        "usedBy": [
+          "fabric_main",
+          "pillow_blue",
+          "pillow_blue_seam",
+          "pillow_print",
+          "pillow_print_seam"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "basecolor",
+        "mimeType": "image/jpeg",
+        "bytes": 268776,
+        "usedBy": [
+          "pillow_print"
+        ]
+      },
+      {
+        "index": 3,
+        "name": "basecolor-grafite-quente-1024",
+        "mimeType": "image/jpeg",
+        "bytes": 74752,
+        "usedBy": [
+          "fabric_main"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "pillow_blue",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_blue_seam",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_print",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_print_seam",
+        "region": "decorative"
+      },
+      {
+        "name": "fabric_main",
+        "region": "body"
+      }
+    ],
+    "meshes": [
+      "arm_l",
+      "arm_r",
+      "back_block_1",
+      "back_block_2",
+      "back_block_3",
+      "pillow_1_cover",
+      "pillow_1_welt",
+      "pillow_2_cover",
+      "pillow_2_welt",
+      "pillow_3_cover",
+      "pillow_3_welt",
+      "pillow_4_cover",
+      "pillow_4_welt",
+      "pillow_5_cover",
+      "pillow_5_welt",
+      "pillow_6_cover",
+      "pillow_6_welt",
+      "pillow_7_cover",
+      "pillow_7_welt",
+      "seat_block_1",
+      "seat_block_2",
+      "seat_block_3"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-modular-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "sofas/SOFA-3.jpg",
+      "catalogId": "sofa-modular",
+      "queue": "EXT-003",
+      "materialRegions": "{\"body\": [\"fabric_main\"], \"decorative\": [\"pillow_blue\", \"pillow_blue_seam\", \"pillow_print\", \"pillow_print_seam\"]}",
+      "embeddedFinish": "{\"fabricId\": \"sarja\", \"colorId\": \"grafite-quente\"}",
+      "bodyUvMeters": 0.3
+    }
+  },
+  "assets/models-3d/stanza-modular-01/models/stanza-modular-01-mobile.glb": {
+    "bytes": 1107144,
+    "sha256": "11bb4d078af0297f20f1568a1e77d564bb5f920019fab267a5e692b8ec22d3fa",
+    "triangles": 24092,
+    "boundsMeters": {
+      "min": [
+        -2.12384,
+        -0.00142,
+        -0.587
+      ],
+      "max": [
+        2.12384,
+        1.12841,
+        0.59211
+      ],
+      "dimensions": [
+        4.24768,
+        1.12983,
+        1.17911
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal-256",
+        "mimeType": "image/png",
+        "bytes": 52516,
+        "usedBy": [
+          "fabric_main",
+          "pillow_blue",
+          "pillow_blue_seam",
+          "pillow_print",
+          "pillow_print_seam"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 60813,
+        "usedBy": [
+          "fabric_main",
+          "pillow_blue",
+          "pillow_blue_seam",
+          "pillow_print",
+          "pillow_print_seam"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "basecolor-512",
+        "mimeType": "image/jpeg",
+        "bytes": 95467,
+        "usedBy": [
+          "pillow_print"
+        ]
+      },
+      {
+        "index": 3,
+        "name": "basecolor-grafite-quente-512",
+        "mimeType": "image/jpeg",
+        "bytes": 15654,
+        "usedBy": [
+          "fabric_main"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "pillow_blue",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_blue_seam",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_print",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_print_seam",
+        "region": "decorative"
+      },
+      {
+        "name": "fabric_main",
+        "region": "body"
+      }
+    ],
+    "meshes": [
+      "arm_l",
+      "arm_r",
+      "back_block_1",
+      "back_block_2",
+      "back_block_3",
+      "pillow_1_cover",
+      "pillow_1_welt",
+      "pillow_2_cover",
+      "pillow_2_welt",
+      "pillow_3_cover",
+      "pillow_3_welt",
+      "pillow_4_cover",
+      "pillow_4_welt",
+      "pillow_5_cover",
+      "pillow_5_welt",
+      "pillow_6_cover",
+      "pillow_6_welt",
+      "pillow_7_cover",
+      "pillow_7_welt",
+      "seat_block_1",
+      "seat_block_2",
+      "seat_block_3"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-modular-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "sofas/SOFA-3.jpg",
+      "catalogId": "sofa-modular",
+      "queue": "EXT-003",
+      "materialRegions": "{\"body\": [\"fabric_main\"], \"decorative\": [\"pillow_blue\", \"pillow_blue_seam\", \"pillow_print\", \"pillow_print_seam\"]}",
+      "embeddedFinish": "{\"fabricId\": \"sarja\", \"colorId\": \"grafite-quente\"}",
+      "bodyUvMeters": 0.3
+    }
+  }
+}
