@@ -6,7 +6,27 @@ do sofá 3D (branch `work/sofa-3d-inspection`). Os caminhos internos do sandbox 
 essenciais ficam aqui, com caminhos relativos ao repositório, e aparecem renderizados no PR.
 
 > A `main` permanece intacta. Nada foi mesclado nem publicado no site oficial. Este é um estudo
-> ilustrativo; dimensões e construção interna são estimadas, não desenhos de fabricação.
+> visual; dimensões são estimadas, não desenhos de fabricação.
+
+## Atual — EXT-001, revisão 2.0.0 (somente exterior)
+
+**Mudança de escopo:** a construção interna e a abertura em camadas foram abandonadas; a prioridade
+é um exterior realista. Relatório: [ext001-exterior.md](ext001-exterior.md). Fila de todos os
+modelos: [QUEUE.md](QUEUE.md) (EXT-001 … EXT-054, com a regra de regiões de material).
+
+![Ângulo da foto: referência × depois × antes](images/ext001_photo_angle_vs_reference.jpg)
+
+![Só o corpo muda de cor/tecido; almofadas fixas (main)](images/ext001_body_colours_cushions_fixed_main.jpg)
+
+![Contatos das almofadas (main)](images/ext001_cushion_contacts_main.jpg)
+
+![Vistas antes × depois (main)](images/ext001_views_before_after_main.jpg)
+
+As seções abaixo são **histórico** (revisões 1.x). As partes sobre interior e camadas (FEAT-003,
+FEAT-004 e as imagens de camadas/estrutura) estão **superadas pela mudança de escopo** e são mantidas
+apenas como registro.
+
+## Histórico (revisões 1.x)
 
 ## Imagens de comparação (antes/depois)
 
@@ -35,7 +55,7 @@ externas) em [`validation/feat002-rev2/`](validation/feat002-rev2/).
 
 ![Veludo-grafite](images/feat002rev2_velvet_grafite_main.jpg)
 
-![Abertura em camadas com a nova geometria](images/feat002rev2_layers_stages.jpg)
+![SUPERADO — abertura em camadas (removida na 2.0.0)](images/feat002rev2_layers_stages.jpg)
 
 ![DIAGNÓSTICO: cores por almofada e cortes (não é render de aceitação)](images/feat002rev2_diagnostics_main.jpg)
 
@@ -47,13 +67,13 @@ externas) em [`validation/feat002-rev2/`](validation/feat002-rev2/).
 
 ![Almofadas antes/depois, perspectiva](images/cushions_before_after_threequarter_main.png)
 
-### Interior por componentes (FEAT-003) — manta, espuma, percintas, armação
+### Interior por componentes (FEAT-003) — SUPERADO pela mudança de escopo (2.0.0)
 
 ![Estrutura antes/depois (camadas em p.7)](images/structure_before_after_layers_main.png)
 
 ![Percintas tensionadas e armação de madeira (close)](images/structure_webbing_frame_closeup_main.png)
 
-### Abertura em camadas (FEAT-004)
+### Abertura em camadas (FEAT-004) — SUPERADO pela mudança de escopo (2.0.0)
 
 ![Sequência de abertura: montada → tecido → manta → espuma → percintas → madeira](images/layers_sequence_main.png)
 
@@ -75,15 +95,18 @@ externas) em [`validation/feat002-rev2/`](validation/feat002-rev2/).
 
 ## Relatórios
 
+- [EXT-001 — exterior realista, revisão 2.0.0](ext001-exterior.md) — **atual**
+- [Fila de modelos 3D EXT-001 … EXT-054](QUEUE.md)
+
 - [Gate de fidelidade do gerador (pré-FEAT-002)](gate-comparison_feat002.md)
-- [FEAT-002 rev2 — almofadas reassentadas, métrica corrigida (revisão 1.3.0)](feat002-rev2-cushions.md)
+- [FEAT-002 rev2 — almofadas reassentadas, métrica corrigida (revisão 1.3.0)](feat002-rev2-cushions.md) — superado pela 2.0.0
 - [FEAT-002 — almofadas: contato suave](feat002-before-after.md) — **superado** pela rev2
-- [FEAT-003 — interior por componentes](feat003-before-after.md)
-- [FEAT-004 — abertura em camadas reversível](feat004-before-after.md)
-- [FEAT-005 — tecidos, cores e iluminação](feat005-before-after.md)
-- [FEAT-006 — exportação final, métricas e validação](feat006-final.md)
-- [Proposta separada: cor independente por almofada (extensão futura)](proposal-per-cushion-color.md)
-- Relatórios frescos do Khronos glTF-Validator: [`validation/`](validation/)
+- [FEAT-003 — interior por componentes](feat003-before-after.md) — **superado** (escopo mudou na 2.0.0)
+- [FEAT-004 — abertura em camadas reversível](feat004-before-after.md) — **superado** (escopo mudou na 2.0.0)
+- [FEAT-005 — tecidos, cores e iluminação](feat005-before-after.md) — parcialmente superado (personalização só no corpo)
+- [FEAT-006 — exportação final, métricas e validação](feat006-final.md) — **superado** pela 2.0.0
+- [Proposta separada: cor independente por almofada](proposal-per-cushion-color.md) — superada (almofadas com materiais fixos próprios)
+- Relatórios do Khronos glTF-Validator: atuais em [`validation/ext001/`](validation/ext001/); históricos em [`validation/`](validation/)
 
 ## Rótulos de honestidade
 

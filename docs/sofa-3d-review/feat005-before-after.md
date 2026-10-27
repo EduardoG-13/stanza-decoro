@@ -1,5 +1,7 @@
 # FEAT-005 — Tecidos, cores e iluminação: personalização RENDERIZADA verificada
 
+> **Parcialmente superado (EXT-001 / 2.0.0).** A personalização agora vale **só para o corpo**; as almofadas decorativas têm materiais fixos próprios. Ver [ext001-exterior.md](ext001-exterior.md).
+
 Foco: **confirmar** que a personalização global existente muda de fato o resultado RENDERIZADO (não
 só o seletor), nas 12 combinações × 2 variantes, com resposta de luz distinta por tecido e sem duplo
 tingimento no retorno a bouclé+areia. Personalização **global preservada**; cor por almofada fica em

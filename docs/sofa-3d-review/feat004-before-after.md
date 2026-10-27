@@ -1,5 +1,7 @@
 # FEAT-004 — Abertura em camadas legível e reversível (tecido → manta → espuma → percintas → madeira)
 
+> **SUPERADO (mudança de escopo, EXT-001 / revisão 2.0.0).** A abertura em camadas foi removida do visualizador e das páginas; `setProgress` é um no-op obsoleto. Mantido apenas como histórico; ver [ext001-exterior.md](ext001-exterior.md).
+
 Reautoria do contrato de `setProgress`/`LAYER_STAGES` no visualizador, mantendo os 6 grupos públicos
 e a semântica (0 e 1 = montada idêntica; ~.5 = separada; ~.7 = estrutura exposta). Depende do
 FEAT-003: a etapa de "manta" só é legível porque agora existe a camada de manta distinta da espuma

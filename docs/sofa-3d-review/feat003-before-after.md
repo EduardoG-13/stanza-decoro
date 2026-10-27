@@ -1,5 +1,7 @@
 # FEAT-003 — Interior por componentes: manta ≠ espuma, percintas tensionadas, armação e pés
 
+> **SUPERADO (mudança de escopo, EXT-001 / revisão 2.0.0).** A construção interna (manta, espuma, percintas, armação) foi abandonada e não está mais nos GLBs. Mantido apenas como histórico; ver [ext001-exterior.md](ext001-exterior.md).
+
 Edições **paramétricas** em `assets/sofa-pilot/source/build_sofa.py`, reexportadas para os dois GLBs
 e o `source/sofa.blend` num único passe do gerador (bpy 5.0.1). Sem cirurgia de GLB. Revisão
 `1.1.0 → 1.2.0`.

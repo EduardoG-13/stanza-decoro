@@ -1,5 +1,7 @@
 # FEAT-006 — Exportação final, metadados, enquadramento e validação
 
+> **SUPERADO pela revisão 2.0.0 (EXT-001).** Medidas, hashes e o contrato de camadas descritos aqui valem para a 1.2.0. Ver [ext001-exterior.md](ext001-exterior.md).
+
 Fechamento coerente do ativo na revisão **1.2.0**: medições vs alvos, metadados/contratos
 sincronizados, hashes reais, enquadramento conferido nos dois consumidores e validação completa.
 

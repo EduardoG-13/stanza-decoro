@@ -1,5 +1,7 @@
 # Proposta separada (extensão futura): cor independente por almofada / por região
 
+> **Superado (EXT-001 / 2.0.0):** as almofadas passaram a ter materiais decorativos fixos próprios, separados do corpo, conforme a foto. Ver [ext001-exterior.md](ext001-exterior.md).
+
 > **Status: proposta — NÃO implementada nesta entrega.** O usuário pediu explicitamente que
 > controles independentes por almofada fiquem como **proposta separada, sem atrasar esta entrega**.
 > A personalização **global** existente foi mantida intacta. Nenhuma opção nova de orçamento, nem um

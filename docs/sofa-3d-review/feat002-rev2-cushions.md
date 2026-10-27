@@ -1,5 +1,7 @@
 # FEAT-002 rev2: refitting the loose cushions (revision 1.3.0)
 
+> **Superado pela revisão 2.0.0 (EXT-001):** almofadas maiores, reposicionadas com o mesmo método de contato e com materiais fixos. Ver [ext001-exterior.md](ext001-exterior.md).
+
 This replaces [feat002-before-after.md](feat002-before-after.md). The first FEAT-002 fix was rejected
 because the five cushions still looked bunched, passed through each other and sank into the backrest.
 **The rejection was correct.** The metric used to accept that fix was wrong, and the fix also deformed
