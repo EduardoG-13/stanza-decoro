@@ -62,6 +62,81 @@
       "portfolioId": "projeto-2",
       "productPage": "/modelos/sofa-organico.html",
       "posterAlt": "Estudo tridimensional de sofá orgânico claro, com almofadas"
+    },
+    {
+      "modelId": "stanza-straight-01",
+      "catalogId": "sofa-reto",
+      "portfolioId": "projeto-5",
+      "queue": "EXT-002",
+      "title": "Sofá cinza de linhas retas",
+      "revision": "1.0.0",
+      "status": "technical-validated-visual-review-pending",
+      "statusLabel": "tecnicamente validado – revisão visual pendente",
+      "construction": "exterior-only",
+      "reference": "sofas/SOFA-5.jpg",
+      "page": "/explorar-sofa.html?modelo=stanza-straight-01",
+      "productPage": "/modelos/sofa-reto.html",
+      "posterAlt": "Estudo tridimensional do sofá cinza de linhas retas, com base de madeira escura",
+      "assets": {
+        "viewerBase": "/assets/sofa-pilot/",
+        "main": "/assets/models-3d/stanza-straight-01/models/stanza-straight-01.glb",
+        "mobile": "/assets/models-3d/stanza-straight-01/models/stanza-straight-01-mobile.glb",
+        "poster": "/assets/models-3d/stanza-straight-01/previews/poster.jpg",
+        "manifest": "/assets/models-3d/stanza-straight-01/manifest.json"
+      },
+      "materialRegions": {
+        "body": [
+          "fabric_main",
+          "fabric_seam"
+        ],
+        "decorative": [
+          "pillow_boucle",
+          "pillow_seam"
+        ],
+        "exterior-structure": [
+          "plinth_wood"
+        ]
+      },
+      "options": {
+        "appliesTo": "body",
+        "fabrics": [
+          "boucle-mescla",
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "gelo",
+          "areia",
+          "grafite",
+          "oliva",
+          "terracota"
+        ],
+        "default": {
+          "fabricId": "boucle-mescla",
+          "colorId": "gelo"
+        },
+        "embedded": {
+          "fabricId": "boucle-mescla",
+          "colorId": "gelo"
+        }
+      },
+      "cameras": {
+        "photo": {
+          "position": [
+            -1.661,
+            1.564,
+            3.588
+          ],
+          "target": [
+            0.026,
+            0.24,
+            0.066
+          ],
+          "fov": 28.3,
+          "note": "fitted to SOFA-5.jpg (16 hand-picked correspondences, rms ~11 px at 1280x960)"
+        }
+      }
     }
   ],
   "verifiedStatuses": [
