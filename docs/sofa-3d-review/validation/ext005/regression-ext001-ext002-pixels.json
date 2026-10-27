@@ -1,0 +1,178 @@
+{
+ "baseline": "2f6618e (dist built in a worktree)",
+ "current": "HEAD after EXT-005",
+ "models": {
+  "stanza-organic-01": {
+   "shots": 20,
+   "totalPixelsDifferent": 0,
+   "shotsDetail": {
+    "main__grafite__front.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__grafite__photo.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__grafite__side.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__grafite__threequarter.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__initial__front.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__initial__photo.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__initial__side.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__initial__threequarter.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__linen__front.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__linen__photo.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__linen__side.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__linen__threequarter.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "mobile__initial__front.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "mobile__initial__photo.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "mobile__initial__side.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "mobile__initial__threequarter.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "mobile__oliva__front.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "mobile__oliva__photo.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "mobile__oliva__side.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "mobile__oliva__threequarter.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    }
+   }
+  },
+  "stanza-straight-01": {
+   "shots": 20,
+   "totalPixelsDifferent": 0,
+   "shotsDetail": {
+    "main__grafite__front.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__grafite__photo.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__grafite__side.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__grafite__threequarter.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__initial__front.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__initial__photo.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__initial__side.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__initial__threequarter.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__linen__front.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__linen__photo.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__linen__side.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "main__linen__threequarter.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "mobile__initial__front.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "mobile__initial__photo.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "mobile__initial__side.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "mobile__initial__threequarter.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "mobile__oliva__front.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "mobile__oliva__photo.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "mobile__oliva__side.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    },
+    "mobile__oliva__threequarter.png": {
+     "pixelsDifferent": 0,
+     "maxAbs": 0
+    }
+   }
+  }
+ }
+}
