@@ -1,0 +1,486 @@
+{
+ "source": "assets/sofa-pilot/source/build_sofa.py",
+ "variant": "main",
+ "method": "closest-point distance on single outer shells; inside = majority of 3-direction ray parity; seat_cover/back_cover measured WITHOUT the 1.5 mm solidify",
+ "cushions": {
+  "cushion_01": {
+   "axesInWorld(Blender: +X right, +Y back, +Z up)": {
+    "localX(width)": [
+     0.761,
+     0.595,
+     0.259
+    ],
+    "localY(thickness, pillow side=+1)": [
+     -0.548,
+     0.803,
+     -0.234
+    ],
+    "localZ(height, v=+1)": [
+     -0.347,
+     0.036,
+     0.937
+    ]
+   },
+   "meanY_side-1": 0.0691,
+   "meanY_side+1": 0.1651,
+   "meanZ_side-1": 0.773,
+   "meanZ_side+1": 0.745,
+   "worldAABB": {
+    "x": [
+     -1.067,
+     -0.527
+    ],
+    "y": [
+     -0.059,
+     0.288
+    ],
+    "z": [
+     0.479,
+     1.048
+    ]
+   },
+   "thicknessMm": 347,
+   "vsSeat": {
+    "minSignedMm": -1.2,
+    "penetratingVerts": 3,
+    "contactAreaCm2": 12.1,
+    "regions": {
+     "front-face:corner(lower-edge+left-edge)": 1,
+     "rear-face:corner(lower-edge+left-edge)": 2
+    },
+    "weltMinSignedMm": -0.5,
+    "weltInside": 2,
+    "targetVertsInsideCushion": 0,
+    "targetMaxDepthInsideCushionMm": 0.0,
+    "trueMaxPenetrationMm": 1.2
+   },
+   "vsBack": {
+    "minSignedMm": -1.2,
+    "penetratingVerts": 20,
+    "contactAreaCm2": 251.1,
+    "regions": {
+     "rear-face:right-edge@backrest": 16,
+     "rear-face:left-edge@arm": 4
+    },
+    "weltMinSignedMm": 16.6,
+    "weltInside": 0,
+    "targetVertsInsideCushion": 10,
+    "targetMaxDepthInsideCushionMm": -1.6,
+    "trueMaxPenetrationMm": 1.6
+   }
+  },
+  "cushion_02": {
+   "axesInWorld(Blender: +X right, +Y back, +Z up)": {
+    "localX(width)": [
+     0.956,
+     0.1,
+     0.276
+    ],
+    "localY(thickness, pillow side=+1)": [
+     -0.035,
+     0.972,
+     -0.233
+    ],
+    "localZ(height, v=+1)": [
+     -0.291,
+     0.213,
+     0.933
+    ]
+   },
+   "meanY_side-1": 0.0734,
+   "meanY_side+1": 0.1934,
+   "meanZ_side-1": 0.7754,
+   "meanZ_side+1": 0.7468,
+   "worldAABB": {
+    "x": [
+     -0.658,
+     -0.075
+    ],
+    "y": [
+     0.014,
+     0.253
+    ],
+    "z": [
+     0.476,
+     1.055
+    ]
+   },
+   "thicknessMm": 239,
+   "vsSeat": {
+    "minSignedMm": -1.2,
+    "penetratingVerts": 3,
+    "contactAreaCm2": 13.7,
+    "regions": {
+     "front-face:corner(lower-edge+left-edge)": 1,
+     "rear-face:corner(lower-edge+left-edge)": 2
+    },
+    "weltMinSignedMm": -0.6,
+    "weltInside": 2,
+    "targetVertsInsideCushion": 0,
+    "targetMaxDepthInsideCushionMm": 0.0,
+    "trueMaxPenetrationMm": 1.2
+   },
+   "vsBack": {
+    "minSignedMm": 43.8,
+    "penetratingVerts": 0,
+    "contactAreaCm2": 0.0,
+    "regions": {},
+    "weltMinSignedMm": 120.4,
+    "weltInside": 0,
+    "targetVertsInsideCushion": 0,
+    "targetMaxDepthInsideCushionMm": 0.0,
+    "trueMaxPenetrationMm": 0
+   }
+  },
+  "cushion_03": {
+   "axesInWorld(Blender: +X right, +Y back, +Z up)": {
+    "localX(width)": [
+     0.927,
+     -0.032,
+     0.375
+    ],
+    "localY(thickness, pillow side=+1)": [
+     0.131,
+     0.962,
+     -0.24
+    ],
+    "localZ(height, v=+1)": [
+     -0.353,
+     0.271,
+     0.896
+    ]
+   },
+   "meanY_side-1": -0.1086,
+   "meanY_side+1": 0.01,
+   "meanZ_side-1": 0.7882,
+   "meanZ_side+1": 0.7586,
+   "worldAABB": {
+    "x": [
+     -0.381,
+     0.207
+    ],
+    "y": [
+     -0.172,
+     0.074
+    ],
+    "z": [
+     0.481,
+     1.074
+    ]
+   },
+   "thicknessMm": 246,
+   "vsSeat": {
+    "minSignedMm": -1.2,
+    "penetratingVerts": 2,
+    "contactAreaCm2": 13.4,
+    "regions": {
+     "front-face:corner(lower-edge+left-edge)": 1,
+     "rear-face:corner(lower-edge+left-edge)": 1
+    },
+    "weltMinSignedMm": -0.5,
+    "weltInside": 1,
+    "targetVertsInsideCushion": 0,
+    "targetMaxDepthInsideCushionMm": 0.0,
+    "trueMaxPenetrationMm": 1.2
+   },
+   "vsBack": {
+    "minSignedMm": 227.2,
+    "penetratingVerts": 0,
+    "contactAreaCm2": 0.0,
+    "regions": {},
+    "weltMinSignedMm": 272.1,
+    "weltInside": 0,
+    "targetVertsInsideCushion": 0,
+    "targetMaxDepthInsideCushionMm": 0.0,
+    "trueMaxPenetrationMm": 0
+   }
+  },
+  "cushion_04": {
+   "axesInWorld(Blender: +X right, +Y back, +Z up)": {
+    "localX(width)": [
+     0.968,
+     0.068,
+     0.242
+    ],
+    "localY(thickness, pillow side=+1)": [
+     -0.001,
+     0.964,
+     -0.267
+    ],
+    "localZ(height, v=+1)": [
+     -0.251,
+     0.259,
+     0.933
+    ]
+   },
+   "meanY_side-1": 0.1545,
+   "meanY_side+1": 0.2613,
+   "meanZ_side-1": 0.7263,
+   "meanZ_side+1": 0.6963,
+   "worldAABB": {
+    "x": [
+     -0.062,
+     0.409
+    ],
+    "y": [
+     0.1,
+     0.308
+    ],
+    "z": [
+     0.48,
+     0.951
+    ]
+   },
+   "thicknessMm": 208,
+   "vsSeat": {
+    "minSignedMm": -1.2,
+    "penetratingVerts": 3,
+    "contactAreaCm2": 13.9,
+    "regions": {
+     "front-face:corner(lower-edge+left-edge)": 1,
+     "rear-face:corner(lower-edge+left-edge)": 2
+    },
+    "weltMinSignedMm": -0.6,
+    "weltInside": 2,
+    "targetVertsInsideCushion": 0,
+    "targetMaxDepthInsideCushionMm": 0.0,
+    "trueMaxPenetrationMm": 1.2
+   },
+   "vsBack": {
+    "minSignedMm": -1.2,
+    "penetratingVerts": 44,
+    "contactAreaCm2": 289.9,
+    "regions": {
+     "rear-face:face@backrest": 44
+    },
+    "weltMinSignedMm": 38.2,
+    "weltInside": 0,
+    "targetVertsInsideCushion": 7,
+    "targetMaxDepthInsideCushionMm": -1.4,
+    "trueMaxPenetrationMm": 1.4
+   }
+  },
+  "cushion_05": {
+   "axesInWorld(Blender: +X right, +Y back, +Z up)": {
+    "localX(width)": [
+     0.872,
+     -0.217,
+     -0.438
+    ],
+    "localY(thickness, pillow side=+1)": [
+     0.124,
+     0.965,
+     -0.233
+    ],
+    "localZ(height, v=+1)": [
+     0.473,
+     0.149,
+     0.868
+    ]
+   },
+   "meanY_side-1": -0.0044,
+   "meanY_side+1": 0.1002,
+   "meanZ_side-1": 0.7224,
+   "meanZ_side+1": 0.6972,
+   "worldAABB": {
+    "x": [
+     0.179,
+     0.687
+    ],
+    "y": [
+     -0.056,
+     0.153
+    ],
+    "z": [
+     0.479,
+     0.949
+    ]
+   },
+   "thicknessMm": 209,
+   "vsSeat": {
+    "minSignedMm": -1.2,
+    "penetratingVerts": 2,
+    "contactAreaCm2": 9.6,
+    "regions": {
+     "front-face:corner(lower-edge+right-edge)": 1,
+     "rear-face:corner(lower-edge+right-edge)": 1
+    },
+    "weltMinSignedMm": -0.6,
+    "weltInside": 1,
+    "targetVertsInsideCushion": 0,
+    "targetMaxDepthInsideCushionMm": 0.0,
+    "trueMaxPenetrationMm": 1.2
+   },
+   "vsBack": {
+    "minSignedMm": 139.2,
+    "penetratingVerts": 0,
+    "contactAreaCm2": 0.0,
+    "regions": {},
+    "weltMinSignedMm": 190.0,
+    "weltInside": 0,
+    "targetVertsInsideCushion": 0,
+    "targetMaxDepthInsideCushionMm": 0.0,
+    "trueMaxPenetrationMm": 0
+   }
+  }
+ },
+ "pairs": {
+  "01-02": {
+   "minSignedMm(a verts vs b)": -1.7,
+   "trueMaxPenetrationMm": 1.7,
+   "aVertsInsideB": 7,
+   "bVertsInsideA": 8,
+   "contactAreaCm2(<2mm)": 87.6,
+   "regionsOfA": {
+    "front-face:face": 4,
+    "front-face:right-edge": 3
+   },
+   "weltOfAMinSignedMm": 65.3,
+   "weltOfAInsideB": 0,
+   "weltOfBInsideA": 0,
+   "regionsOfB": {
+    "rear-face:left-edge": 8
+   }
+  },
+  "01-03": {
+   "minSignedMm(a verts vs b)": 284.9,
+   "trueMaxPenetrationMm": 0,
+   "aVertsInsideB": 0,
+   "bVertsInsideA": 0,
+   "contactAreaCm2(<2mm)": 0.0,
+   "regionsOfA": {},
+   "weltOfAMinSignedMm": 334.8,
+   "weltOfAInsideB": 0,
+   "weltOfBInsideA": 0,
+   "regionsOfB": {}
+  },
+  "01-04": {
+   "minSignedMm(a verts vs b)": 508.0,
+   "trueMaxPenetrationMm": 0,
+   "aVertsInsideB": 0,
+   "bVertsInsideA": 0,
+   "contactAreaCm2(<2mm)": 0.0,
+   "regionsOfA": {},
+   "weltOfAMinSignedMm": 512.1,
+   "weltOfAInsideB": 0,
+   "weltOfBInsideA": 0,
+   "regionsOfB": {}
+  },
+  "01-05": {
+   "minSignedMm(a verts vs b)": 729.9,
+   "trueMaxPenetrationMm": 0,
+   "aVertsInsideB": 0,
+   "bVertsInsideA": 0,
+   "contactAreaCm2(<2mm)": 0.0,
+   "regionsOfA": {},
+   "weltOfAMinSignedMm": 734.7,
+   "weltOfAInsideB": 0,
+   "weltOfBInsideA": 0,
+   "regionsOfB": {}
+  },
+  "02-03": {
+   "minSignedMm(a verts vs b)": -1.0,
+   "trueMaxPenetrationMm": 1.0,
+   "aVertsInsideB": 11,
+   "bVertsInsideA": 12,
+   "contactAreaCm2(<2mm)": 128.5,
+   "regionsOfA": {
+    "front-face:face": 11
+   },
+   "weltOfAMinSignedMm": 81.9,
+   "weltOfAInsideB": 0,
+   "weltOfBInsideA": 0,
+   "regionsOfB": {
+    "rear-face:face": 9,
+    "rear-face:left-edge": 3
+   }
+  },
+  "02-04": {
+   "minSignedMm(a verts vs b)": 92.5,
+   "trueMaxPenetrationMm": 0,
+   "aVertsInsideB": 0,
+   "bVertsInsideA": 0,
+   "contactAreaCm2(<2mm)": 0.0,
+   "regionsOfA": {},
+   "weltOfAMinSignedMm": 94.5,
+   "weltOfAInsideB": 0,
+   "weltOfBInsideA": 0,
+   "regionsOfB": {}
+  },
+  "02-05": {
+   "minSignedMm(a verts vs b)": 261.4,
+   "trueMaxPenetrationMm": 0,
+   "aVertsInsideB": 0,
+   "bVertsInsideA": 0,
+   "contactAreaCm2(<2mm)": 0.0,
+   "regionsOfA": {},
+   "weltOfAMinSignedMm": 261.7,
+   "weltOfAInsideB": 0,
+   "weltOfBInsideA": 0,
+   "regionsOfB": {}
+  },
+  "03-04": {
+   "minSignedMm(a verts vs b)": 110.3,
+   "trueMaxPenetrationMm": 0,
+   "aVertsInsideB": 0,
+   "bVertsInsideA": 0,
+   "contactAreaCm2(<2mm)": 0.0,
+   "regionsOfA": {},
+   "weltOfAMinSignedMm": 203.3,
+   "weltOfAInsideB": 0,
+   "weltOfBInsideA": 0,
+   "regionsOfB": {}
+  },
+  "03-05": {
+   "minSignedMm(a verts vs b)": 99.2,
+   "trueMaxPenetrationMm": 0,
+   "aVertsInsideB": 0,
+   "bVertsInsideA": 0,
+   "contactAreaCm2(<2mm)": 0.0,
+   "regionsOfA": {},
+   "weltOfAMinSignedMm": 128.3,
+   "weltOfAInsideB": 0,
+   "weltOfBInsideA": 0,
+   "regionsOfB": {}
+  },
+  "04-05": {
+   "minSignedMm(a verts vs b)": -1.2,
+   "trueMaxPenetrationMm": 1.2,
+   "aVertsInsideB": 10,
+   "bVertsInsideA": 14,
+   "contactAreaCm2(<2mm)": 80.6,
+   "regionsOfA": {
+    "front-face:face": 10
+   },
+   "weltOfAMinSignedMm": 60.1,
+   "weltOfAInsideB": 0,
+   "weltOfBInsideA": 0,
+   "regionsOfB": {
+    "rear-face:left-edge": 4,
+    "rear-face:face": 10
+   }
+  }
+ },
+ "I4_replication_solidified_parity": {
+  "cushion_01": {
+   "I4StyleInsideVerts": 3,
+   "correctInsideVerts": 3
+  },
+  "cushion_02": {
+   "I4StyleInsideVerts": 3,
+   "correctInsideVerts": 3
+  },
+  "cushion_03": {
+   "I4StyleInsideVerts": 2,
+   "correctInsideVerts": 2
+  },
+  "cushion_04": {
+   "I4StyleInsideVerts": 3,
+   "correctInsideVerts": 3
+  },
+  "cushion_05": {
+   "I4StyleInsideVerts": 2,
+   "correctInsideVerts": 2
+  }
+ }
+}

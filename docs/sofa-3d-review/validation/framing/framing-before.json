@@ -1,0 +1,152 @@
+[
+ {
+  "modelId": "stanza-organic-01",
+  "size": "desktop",
+  "initial": {
+   "left": -23950.605,
+   "right": 6551.093,
+   "top": -17810.362,
+   "bottom": 10366.875,
+   "width": 30501.698,
+   "height": 28177.238,
+   "cx": -8699.756,
+   "cy": -3721.743,
+   "dist": 0,
+   "fov": 36,
+   "aspect": 1.3,
+   "verdict": {
+    "ok": false,
+    "cropped": true,
+    "tiny": false,
+    "offCentre": true
+   }
+  },
+  "views": {},
+  "errors": []
+ },
+ {
+  "modelId": "stanza-organic-01",
+  "size": "phone",
+  "initial": {
+   "left": -1640.212,
+   "right": 23526.248,
+   "top": -56409.759,
+   "bottom": 1086.306,
+   "width": 25166.46,
+   "height": 57496.064,
+   "cx": 10943.018,
+   "cy": -27661.727,
+   "dist": 0,
+   "fov": 36,
+   "aspect": 1.101,
+   "verdict": {
+    "ok": false,
+    "cropped": true,
+    "tiny": false,
+    "offCentre": true
+   }
+  },
+  "views": {},
+  "errors": []
+ },
+ {
+  "modelId": "stanza-piped-01",
+  "size": "desktop",
+  "initial": {
+   "left": null,
+   "right": null,
+   "top": null,
+   "bottom": 29.45,
+   "width": null,
+   "height": null,
+   "cx": null,
+   "cy": null,
+   "dist": 0,
+   "fov": 36,
+   "aspect": 1.3,
+   "verdict": {
+    "ok": false,
+    "cropped": true,
+    "tiny": false,
+    "offCentre": true
+   }
+  },
+  "views": {},
+  "errors": []
+ },
+ {
+  "modelId": "stanza-piped-01",
+  "size": "phone",
+  "initial": {
+   "left": -488.589,
+   "right": 494.805,
+   "top": -26.773,
+   "bottom": 160.539,
+   "width": 983.394,
+   "height": 187.312,
+   "cx": 3.108,
+   "cy": 66.883,
+   "dist": 0,
+   "fov": 36,
+   "aspect": 1.101,
+   "verdict": {
+    "ok": false,
+    "cropped": true,
+    "tiny": false,
+    "offCentre": true
+   }
+  },
+  "views": {},
+  "errors": []
+ },
+ {
+  "modelId": "stanza-headboard-panels-01",
+  "size": "desktop",
+  "initial": {
+   "left": null,
+   "right": null,
+   "top": null,
+   "bottom": 441375668.589,
+   "width": null,
+   "height": null,
+   "cx": null,
+   "cy": null,
+   "dist": 0,
+   "fov": 36,
+   "aspect": 1.3,
+   "verdict": {
+    "ok": false,
+    "cropped": true,
+    "tiny": false,
+    "offCentre": true
+   }
+  },
+  "views": {},
+  "errors": []
+ },
+ {
+  "modelId": "stanza-headboard-panels-01",
+  "size": "phone",
+  "initial": {
+   "left": null,
+   "right": null,
+   "top": null,
+   "bottom": 284316848.851,
+   "width": null,
+   "height": null,
+   "cx": null,
+   "cy": null,
+   "dist": 0,
+   "fov": 36,
+   "aspect": 1.101,
+   "verdict": {
+    "ok": false,
+    "cropped": true,
+    "tiny": false,
+    "offCentre": true
+   }
+  },
+  "views": {},
+  "errors": []
+ }
+]

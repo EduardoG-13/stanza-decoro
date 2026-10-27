@@ -1,0 +1,1477 @@
+{
+  "modelId": "stanza-two-seat-01",
+  "checks": [
+    {
+      "name": "stanza-two-seat-01/main: poster/identity before intent",
+      "ok": true,
+      "detail": {
+        "poster": "/assets/models-3d/stanza-two-seat-01/previews/poster.jpg",
+        "stage": "stanza-two-seat-01",
+        "crumb": "Sofá claro de dois assentos",
+        "product": "/modelos/sofa-dois-assentos.html",
+        "fabrics": [
+          "linho-rustico",
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "gelo",
+          "cru",
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "linho-rustico",
+          "cru"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-dois-assentos&estudo=stanza-two-seat-01&tecido=linho-rustico&cor=cru",
+        "layers": 0
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/main: only the model's options are offered, default checked",
+      "ok": true,
+      "detail": {
+        "poster": "/assets/models-3d/stanza-two-seat-01/previews/poster.jpg",
+        "stage": "stanza-two-seat-01",
+        "crumb": "Sofá claro de dois assentos",
+        "product": "/modelos/sofa-dois-assentos.html",
+        "fabrics": [
+          "linho-rustico",
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "gelo",
+          "cru",
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "linho-rustico",
+          "cru"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-dois-assentos&estudo=stanza-two-seat-01&tecido=linho-rustico&cor=cru",
+        "layers": 0
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/main: quote referencia before intent",
+      "ok": true,
+      "detail": "/orcamento.html?referencia=sofa-dois-assentos&estudo=stanza-two-seat-01&tecido=linho-rustico&cor=cru"
+    },
+    {
+      "name": "stanza-two-seat-01/main: no layer controls",
+      "ok": true,
+      "detail": 0
+    },
+    {
+      "name": "stanza-two-seat-01/main: no GLB before user intent",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "stanza-two-seat-01/main: only this model's main GLB is loaded",
+      "ok": true,
+      "detail": [
+        "/assets/models-3d/stanza-two-seat-01/models/stanza-two-seat-01.glb"
+      ]
+    },
+    {
+      "name": "stanza-two-seat-01/main: colour change updates selection + quote",
+      "ok": true,
+      "detail": {
+        "name": "Linho rústico · Grafite",
+        "quote": "/orcamento.html?referencia=sofa-dois-assentos&estudo=stanza-two-seat-01&tecido=linho-rustico&cor=grafite"
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/main: fast switch keeps the last request",
+      "ok": true,
+      "detail": {
+        "seq": [
+          "cru",
+          "gelo",
+          "areia"
+        ],
+        "last": "/orcamento.html?referencia=sofa-dois-assentos&estudo=stanza-two-seat-01&tecido=linho-rustico&cor=areia"
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/main: failed texture keeps the last good selection",
+      "ok": true,
+      "detail": {
+        "status": "Este acabamento não carregou. Mantivemos a última combinação disponível.",
+        "checked": "linho-rustico",
+        "quote": "/orcamento.html?referencia=sofa-dois-assentos&estudo=stanza-two-seat-01&tecido=linho-rustico&cor=areia"
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/main: retry after failure works",
+      "ok": true,
+      "detail": "/orcamento.html?referencia=sofa-dois-assentos&estudo=stanza-two-seat-01&tecido=linen&cor=areia"
+    },
+    {
+      "name": "stanza-two-seat-01/main: return to the initial finish is pixel-identical",
+      "ok": true,
+      "detail": {
+        "bytes": [
+          147012,
+          147012
+        ]
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/main: canvas follows resize",
+      "ok": true,
+      "detail": {
+        "c0": [
+          700,
+          539
+        ],
+        "c1": [
+          513,
+          395
+        ]
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/main: console errors = 0 (besides the 1 intentional aborted texture)",
+      "ok": true,
+      "detail": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "name": "stanza-two-seat-01/mobile: poster/identity before intent",
+      "ok": true,
+      "detail": {
+        "poster": "/assets/models-3d/stanza-two-seat-01/previews/poster.jpg",
+        "stage": "stanza-two-seat-01",
+        "crumb": "Sofá claro de dois assentos",
+        "product": "/modelos/sofa-dois-assentos.html",
+        "fabrics": [
+          "linho-rustico",
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "gelo",
+          "cru",
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "linho-rustico",
+          "cru"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-dois-assentos&estudo=stanza-two-seat-01&tecido=linho-rustico&cor=cru",
+        "layers": 0
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/mobile: only the model's options are offered, default checked",
+      "ok": true,
+      "detail": {
+        "poster": "/assets/models-3d/stanza-two-seat-01/previews/poster.jpg",
+        "stage": "stanza-two-seat-01",
+        "crumb": "Sofá claro de dois assentos",
+        "product": "/modelos/sofa-dois-assentos.html",
+        "fabrics": [
+          "linho-rustico",
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "gelo",
+          "cru",
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "linho-rustico",
+          "cru"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-dois-assentos&estudo=stanza-two-seat-01&tecido=linho-rustico&cor=cru",
+        "layers": 0
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/mobile: quote referencia before intent",
+      "ok": true,
+      "detail": "/orcamento.html?referencia=sofa-dois-assentos&estudo=stanza-two-seat-01&tecido=linho-rustico&cor=cru"
+    },
+    {
+      "name": "stanza-two-seat-01/mobile: no layer controls",
+      "ok": true,
+      "detail": 0
+    },
+    {
+      "name": "stanza-two-seat-01/mobile: no GLB before user intent",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "stanza-two-seat-01/mobile: only this model's mobile GLB is loaded",
+      "ok": true,
+      "detail": [
+        "/assets/models-3d/stanza-two-seat-01/models/stanza-two-seat-01-mobile.glb"
+      ]
+    },
+    {
+      "name": "stanza-two-seat-01/mobile: colour change updates selection + quote",
+      "ok": true,
+      "detail": {
+        "name": "Linho rústico · Grafite",
+        "quote": "/orcamento.html?referencia=sofa-dois-assentos&estudo=stanza-two-seat-01&tecido=linho-rustico&cor=grafite"
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/mobile: fast switch keeps the last request",
+      "ok": true,
+      "detail": {
+        "seq": [
+          "cru",
+          "gelo",
+          "areia"
+        ],
+        "last": "/orcamento.html?referencia=sofa-dois-assentos&estudo=stanza-two-seat-01&tecido=linho-rustico&cor=areia"
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/mobile: failed texture keeps the last good selection",
+      "ok": true,
+      "detail": {
+        "status": "Este acabamento não carregou. Mantivemos a última combinação disponível.",
+        "checked": "linho-rustico",
+        "quote": "/orcamento.html?referencia=sofa-dois-assentos&estudo=stanza-two-seat-01&tecido=linho-rustico&cor=areia"
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/mobile: retry after failure works",
+      "ok": true,
+      "detail": "/orcamento.html?referencia=sofa-dois-assentos&estudo=stanza-two-seat-01&tecido=linen&cor=areia"
+    },
+    {
+      "name": "stanza-two-seat-01/mobile: return to the initial finish is pixel-identical",
+      "ok": true,
+      "detail": {
+        "bytes": [
+          42397,
+          42397
+        ]
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/mobile: canvas follows resize",
+      "ok": true,
+      "detail": {
+        "c0": [
+          350,
+          318
+        ],
+        "c1": [
+          328,
+          298
+        ]
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/mobile: console errors = 0 (besides the 1 intentional aborted texture)",
+      "ok": true,
+      "detail": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "name": "stanza-two-seat-01/api: identity matches registry",
+      "ok": true,
+      "detail": [
+        "stanza-two-seat-01",
+        "1.0.0"
+      ]
+    },
+    {
+      "name": "stanza-two-seat-01/api: exterior-only + body materials",
+      "ok": true,
+      "detail": {
+        "c": "exterior-only",
+        "body": [
+          "fabric_main"
+        ]
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/api: presets",
+      "ok": true,
+      "detail": [
+        "threequarter",
+        "front",
+        "side",
+        "back",
+        "detail",
+        "photo"
+      ]
+    },
+    {
+      "name": "stanza-two-seat-01/api: last request wins",
+      "ok": true,
+      "detail": {
+        "final": {
+          "modelId": "stanza-two-seat-01",
+          "revision": "1.0.0",
+          "fabricId": "linho-rustico",
+          "colorId": "terracota"
+        },
+        "results": [
+          {
+            "modelId": "stanza-two-seat-01",
+            "revision": "1.0.0",
+            "fabricId": "linho-rustico",
+            "colorId": "cru"
+          },
+          {
+            "modelId": "stanza-two-seat-01",
+            "revision": "1.0.0",
+            "fabricId": "linho-rustico",
+            "colorId": "terracota"
+          },
+          {
+            "modelId": "stanza-two-seat-01",
+            "revision": "1.0.0",
+            "fabricId": "linho-rustico",
+            "colorId": "terracota"
+          }
+        ]
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/api: decorative/structure materials untouched by setFinish",
+      "ok": true,
+      "detail": {
+        "fixed0": [
+          [
+            "pillow_squares",
+            "ffffff",
+            "44c6513b-fc8a-4d7d-b6e9-7d222051b31f",
+            false
+          ],
+          [
+            "pillow_squares_seam",
+            "c4b0a4",
+            null,
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/api: invalid / non-exposed option rejected",
+      "ok": true,
+      "detail": {
+        "invalid": "RangeError",
+        "foreign": "RangeError"
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/api: dispose idempotent, canvas removed, API closed",
+      "ok": true,
+      "detail": {
+        "identity": [
+          "stanza-two-seat-01",
+          "1.0.0"
+        ],
+        "views": [
+          "threequarter",
+          "front",
+          "side",
+          "back",
+          "detail",
+          "photo"
+        ],
+        "options": {
+          "fabrics": [
+            "linho-rustico",
+            "linen",
+            "boucle",
+            "velvet"
+          ],
+          "colors": [
+            "cru",
+            "gelo",
+            "areia",
+            "grafite",
+            "oliva",
+            "terracota"
+          ],
+          "embedded": {
+            "fabricId": "linho-rustico",
+            "colorId": "cru"
+          }
+        },
+        "construction": "exterior-only",
+        "fixed0": [
+          [
+            "pillow_squares",
+            "ffffff",
+            "44c6513b-fc8a-4d7d-b6e9-7d222051b31f",
+            false
+          ],
+          [
+            "pillow_squares_seam",
+            "c4b0a4",
+            null,
+            false
+          ]
+        ],
+        "body": [
+          "fabric_main"
+        ],
+        "results": [
+          {
+            "modelId": "stanza-two-seat-01",
+            "revision": "1.0.0",
+            "fabricId": "linho-rustico",
+            "colorId": "cru"
+          },
+          {
+            "modelId": "stanza-two-seat-01",
+            "revision": "1.0.0",
+            "fabricId": "linho-rustico",
+            "colorId": "terracota"
+          },
+          {
+            "modelId": "stanza-two-seat-01",
+            "revision": "1.0.0",
+            "fabricId": "linho-rustico",
+            "colorId": "terracota"
+          }
+        ],
+        "final": {
+          "modelId": "stanza-two-seat-01",
+          "revision": "1.0.0",
+          "fabricId": "linho-rustico",
+          "colorId": "terracota"
+        },
+        "fixed1": [
+          [
+            "pillow_squares",
+            "ffffff",
+            "44c6513b-fc8a-4d7d-b6e9-7d222051b31f",
+            false
+          ],
+          [
+            "pillow_squares_seam",
+            "c4b0a4",
+            null,
+            false
+          ]
+        ],
+        "invalid": "RangeError",
+        "foreign": "RangeError",
+        "disposed": true,
+        "canvasLeft": 0,
+        "afterDispose": "Visualizador já desmontado."
+      }
+    },
+    {
+      "name": "stanza-two-seat-01/api: console errors = 0",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "stanza-organic-01/main: poster/identity before intent",
+      "ok": true,
+      "detail": {
+        "poster": "/assets/sofa-pilot/previews/poster.jpg",
+        "stage": "stanza-organic-01",
+        "crumb": "Sofá orgânico claro",
+        "product": "/modelos/sofa-organico.html",
+        "fabrics": [
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "boucle",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia",
+        "layers": 0
+      }
+    },
+    {
+      "name": "stanza-organic-01/main: only the model's options are offered, default checked",
+      "ok": true,
+      "detail": {
+        "poster": "/assets/sofa-pilot/previews/poster.jpg",
+        "stage": "stanza-organic-01",
+        "crumb": "Sofá orgânico claro",
+        "product": "/modelos/sofa-organico.html",
+        "fabrics": [
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "boucle",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia",
+        "layers": 0
+      }
+    },
+    {
+      "name": "stanza-organic-01/main: quote referencia before intent",
+      "ok": true,
+      "detail": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia"
+    },
+    {
+      "name": "stanza-organic-01/main: no layer controls",
+      "ok": true,
+      "detail": 0
+    },
+    {
+      "name": "stanza-organic-01/main: no GLB before user intent",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "stanza-organic-01/main: only this model's main GLB is loaded",
+      "ok": true,
+      "detail": [
+        "/assets/sofa-pilot/models/sofa.glb"
+      ]
+    },
+    {
+      "name": "stanza-organic-01/main: colour change updates selection + quote",
+      "ok": true,
+      "detail": {
+        "name": "Bouclé · Grafite",
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=grafite"
+      }
+    },
+    {
+      "name": "stanza-organic-01/main: fast switch keeps the last request",
+      "ok": true,
+      "detail": {
+        "seq": [
+          "areia",
+          "oliva",
+          "terracota"
+        ],
+        "last": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=terracota"
+      }
+    },
+    {
+      "name": "stanza-organic-01/main: failed texture keeps the last good selection",
+      "ok": true,
+      "detail": {
+        "status": "Este acabamento não carregou. Mantivemos a última combinação disponível.",
+        "checked": "boucle",
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=terracota"
+      }
+    },
+    {
+      "name": "stanza-organic-01/main: retry after failure works",
+      "ok": true,
+      "detail": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=linen&cor=terracota"
+    },
+    {
+      "name": "stanza-organic-01/main: return to the initial finish is pixel-identical",
+      "ok": true,
+      "detail": {
+        "bytes": [
+          364843,
+          364843
+        ]
+      }
+    },
+    {
+      "name": "stanza-organic-01/main: canvas follows resize",
+      "ok": true,
+      "detail": {
+        "c0": [
+          700,
+          539
+        ],
+        "c1": [
+          513,
+          395
+        ]
+      }
+    },
+    {
+      "name": "stanza-organic-01/main: console errors = 0 (besides the 1 intentional aborted texture)",
+      "ok": true,
+      "detail": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "name": "stanza-organic-01/mobile: poster/identity before intent",
+      "ok": true,
+      "detail": {
+        "poster": "/assets/sofa-pilot/previews/poster.jpg",
+        "stage": "stanza-organic-01",
+        "crumb": "Sofá orgânico claro",
+        "product": "/modelos/sofa-organico.html",
+        "fabrics": [
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "boucle",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia",
+        "layers": 0
+      }
+    },
+    {
+      "name": "stanza-organic-01/mobile: only the model's options are offered, default checked",
+      "ok": true,
+      "detail": {
+        "poster": "/assets/sofa-pilot/previews/poster.jpg",
+        "stage": "stanza-organic-01",
+        "crumb": "Sofá orgânico claro",
+        "product": "/modelos/sofa-organico.html",
+        "fabrics": [
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "boucle",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia",
+        "layers": 0
+      }
+    },
+    {
+      "name": "stanza-organic-01/mobile: quote referencia before intent",
+      "ok": true,
+      "detail": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia"
+    },
+    {
+      "name": "stanza-organic-01/mobile: no layer controls",
+      "ok": true,
+      "detail": 0
+    },
+    {
+      "name": "stanza-organic-01/mobile: no GLB before user intent",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "stanza-organic-01/mobile: only this model's mobile GLB is loaded",
+      "ok": true,
+      "detail": [
+        "/assets/sofa-pilot/models/sofa-mobile.glb"
+      ]
+    },
+    {
+      "name": "stanza-organic-01/mobile: colour change updates selection + quote",
+      "ok": true,
+      "detail": {
+        "name": "Bouclé · Grafite",
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=grafite"
+      }
+    },
+    {
+      "name": "stanza-organic-01/mobile: fast switch keeps the last request",
+      "ok": true,
+      "detail": {
+        "seq": [
+          "areia",
+          "oliva",
+          "terracota"
+        ],
+        "last": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=terracota"
+      }
+    },
+    {
+      "name": "stanza-organic-01/mobile: failed texture keeps the last good selection",
+      "ok": true,
+      "detail": {
+        "status": "Este acabamento não carregou. Mantivemos a última combinação disponível.",
+        "checked": "boucle",
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=terracota"
+      }
+    },
+    {
+      "name": "stanza-organic-01/mobile: retry after failure works",
+      "ok": true,
+      "detail": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=linen&cor=terracota"
+    },
+    {
+      "name": "stanza-organic-01/mobile: return to the initial finish is pixel-identical",
+      "ok": true,
+      "detail": {
+        "bytes": [
+          102879,
+          102879
+        ]
+      }
+    },
+    {
+      "name": "stanza-organic-01/mobile: canvas follows resize",
+      "ok": true,
+      "detail": {
+        "c0": [
+          350,
+          318
+        ],
+        "c1": [
+          328,
+          298
+        ]
+      }
+    },
+    {
+      "name": "stanza-organic-01/mobile: console errors = 0 (besides the 1 intentional aborted texture)",
+      "ok": true,
+      "detail": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "name": "stanza-organic-01/api: identity matches registry",
+      "ok": true,
+      "detail": [
+        "stanza-organic-01",
+        "2.1.0"
+      ]
+    },
+    {
+      "name": "stanza-organic-01/api: exterior-only + body materials",
+      "ok": true,
+      "detail": {
+        "c": "exterior-only",
+        "body": [
+          "fabric_main",
+          "fabric_seam"
+        ]
+      }
+    },
+    {
+      "name": "stanza-organic-01/api: presets",
+      "ok": true,
+      "detail": [
+        "threequarter",
+        "front",
+        "side",
+        "detail",
+        "photo"
+      ]
+    },
+    {
+      "name": "stanza-organic-01/api: last request wins",
+      "ok": true,
+      "detail": {
+        "final": {
+          "modelId": "stanza-organic-01",
+          "revision": "2.1.0",
+          "fabricId": "boucle",
+          "colorId": "grafite"
+        },
+        "results": [
+          {
+            "modelId": "stanza-organic-01",
+            "revision": "2.1.0",
+            "fabricId": "boucle",
+            "colorId": "areia"
+          },
+          {
+            "modelId": "stanza-organic-01",
+            "revision": "2.1.0",
+            "fabricId": "boucle",
+            "colorId": "grafite"
+          },
+          {
+            "modelId": "stanza-organic-01",
+            "revision": "2.1.0",
+            "fabricId": "boucle",
+            "colorId": "grafite"
+          }
+        ]
+      }
+    },
+    {
+      "name": "stanza-organic-01/api: decorative/structure materials untouched by setFinish",
+      "ok": true,
+      "detail": {
+        "fixed0": [
+          [
+            "cushion_olive_weave",
+            "ffffff",
+            "edeb659a-9dac-4b00-bd3c-8f6f9b7e153e",
+            false
+          ],
+          [
+            "cushion_olive_reverse",
+            "ffffff",
+            "0bb9766c-9cf5-4f03-9759-6b1108acc0db",
+            false
+          ],
+          [
+            "cushion_olive_seam",
+            "ffffff",
+            "edeb659a-9dac-4b00-bd3c-8f6f9b7e153e",
+            false
+          ],
+          [
+            "cushion_light_boucle",
+            "ffffff",
+            "136ff331-4160-4af4-9111-e7507a78b03c",
+            false
+          ],
+          [
+            "cushion_light_seam",
+            "ffffff",
+            "136ff331-4160-4af4-9111-e7507a78b03c",
+            false
+          ],
+          [
+            "legs_dark",
+            "2d2c29",
+            null,
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "name": "stanza-organic-01/api: invalid / non-exposed option rejected",
+      "ok": true,
+      "detail": {
+        "invalid": "RangeError",
+        "foreign": "RangeError"
+      }
+    },
+    {
+      "name": "stanza-organic-01/api: dispose idempotent, canvas removed, API closed",
+      "ok": true,
+      "detail": {
+        "identity": [
+          "stanza-organic-01",
+          "2.1.0"
+        ],
+        "views": [
+          "threequarter",
+          "front",
+          "side",
+          "detail",
+          "photo"
+        ],
+        "options": {
+          "fabrics": [
+            "boucle",
+            "linen",
+            "velvet"
+          ],
+          "colors": [
+            "areia",
+            "oliva",
+            "terracota",
+            "grafite"
+          ],
+          "embedded": {
+            "fabricId": "boucle",
+            "colorId": "areia"
+          }
+        },
+        "construction": "exterior-only",
+        "fixed0": [
+          [
+            "cushion_olive_weave",
+            "ffffff",
+            "edeb659a-9dac-4b00-bd3c-8f6f9b7e153e",
+            false
+          ],
+          [
+            "cushion_olive_reverse",
+            "ffffff",
+            "0bb9766c-9cf5-4f03-9759-6b1108acc0db",
+            false
+          ],
+          [
+            "cushion_olive_seam",
+            "ffffff",
+            "edeb659a-9dac-4b00-bd3c-8f6f9b7e153e",
+            false
+          ],
+          [
+            "cushion_light_boucle",
+            "ffffff",
+            "136ff331-4160-4af4-9111-e7507a78b03c",
+            false
+          ],
+          [
+            "cushion_light_seam",
+            "ffffff",
+            "136ff331-4160-4af4-9111-e7507a78b03c",
+            false
+          ],
+          [
+            "legs_dark",
+            "2d2c29",
+            null,
+            false
+          ]
+        ],
+        "body": [
+          "fabric_main",
+          "fabric_seam"
+        ],
+        "results": [
+          {
+            "modelId": "stanza-organic-01",
+            "revision": "2.1.0",
+            "fabricId": "boucle",
+            "colorId": "areia"
+          },
+          {
+            "modelId": "stanza-organic-01",
+            "revision": "2.1.0",
+            "fabricId": "boucle",
+            "colorId": "grafite"
+          },
+          {
+            "modelId": "stanza-organic-01",
+            "revision": "2.1.0",
+            "fabricId": "boucle",
+            "colorId": "grafite"
+          }
+        ],
+        "final": {
+          "modelId": "stanza-organic-01",
+          "revision": "2.1.0",
+          "fabricId": "boucle",
+          "colorId": "grafite"
+        },
+        "fixed1": [
+          [
+            "cushion_olive_weave",
+            "ffffff",
+            "edeb659a-9dac-4b00-bd3c-8f6f9b7e153e",
+            false
+          ],
+          [
+            "cushion_olive_reverse",
+            "ffffff",
+            "0bb9766c-9cf5-4f03-9759-6b1108acc0db",
+            false
+          ],
+          [
+            "cushion_olive_seam",
+            "ffffff",
+            "edeb659a-9dac-4b00-bd3c-8f6f9b7e153e",
+            false
+          ],
+          [
+            "cushion_light_boucle",
+            "ffffff",
+            "136ff331-4160-4af4-9111-e7507a78b03c",
+            false
+          ],
+          [
+            "cushion_light_seam",
+            "ffffff",
+            "136ff331-4160-4af4-9111-e7507a78b03c",
+            false
+          ],
+          [
+            "legs_dark",
+            "2d2c29",
+            null,
+            false
+          ]
+        ],
+        "invalid": "RangeError",
+        "foreign": "RangeError",
+        "disposed": true,
+        "canvasLeft": 0,
+        "afterDispose": "Visualizador já desmontado."
+      }
+    },
+    {
+      "name": "stanza-organic-01/api: console errors = 0",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "product page sofa-organico: \"Ver em 3D\" -> /explorar-sofa.html, photo kept",
+      "ok": true,
+      "detail": [
+        [
+          null,
+          "/explorar-sofa.html",
+          "Ver em 3D e experimentar cores e tecidos ↗"
+        ]
+      ]
+    },
+    {
+      "name": "product page sofa-reto: \"Ver em 3D\" -> /explorar-sofa.html?modelo=stanza-straight-01, photo kept",
+      "ok": true,
+      "detail": [
+        [
+          null,
+          "/explorar-sofa.html?modelo=stanza-straight-01",
+          "Ver em 3D e experimentar cores e tecidos ↗"
+        ]
+      ]
+    },
+    {
+      "name": "product page sofa-modular: \"Ver em 3D\" -> /explorar-sofa.html?modelo=stanza-modular-01, photo kept",
+      "ok": true,
+      "detail": [
+        [
+          null,
+          "/explorar-sofa.html?modelo=stanza-modular-01",
+          "Ver em 3D e experimentar cores e tecidos ↗"
+        ]
+      ]
+    },
+    {
+      "name": "product page sofa-dois-assentos: \"Ver em 3D\" -> /explorar-sofa.html?modelo=stanza-two-seat-01, photo kept",
+      "ok": true,
+      "detail": [
+        [
+          null,
+          "/explorar-sofa.html?modelo=stanza-two-seat-01",
+          "Ver em 3D e experimentar cores e tecidos ↗"
+        ]
+      ]
+    },
+    {
+      "name": "product page sofa-chaise: no 3D entry (not registered)",
+      "ok": true
+    },
+    {
+      "name": "unknown model: no 3D, no other piece, no GLB",
+      "ok": true,
+      "detail": {
+        "st": {
+          "start": true,
+          "status": "Este estudo 3D não está disponível. As fotos das peças continuam no catálogo.",
+          "poster": true,
+          "quote": "/orcamento.html"
+        },
+        "errors": []
+      }
+    },
+    {
+      "name": "home: never requests the 3D collection; only the organic sofa",
+      "ok": true,
+      "detail": {
+        "r3": [],
+        "glb": [
+          "/assets/sofa-pilot/models/sofa-mobile.glb"
+        ]
+      }
+    }
+  ],
+  "runs": {
+    "stanza-two-seat-01/main": {
+      "before": {
+        "poster": "/assets/models-3d/stanza-two-seat-01/previews/poster.jpg",
+        "stage": "stanza-two-seat-01",
+        "crumb": "Sofá claro de dois assentos",
+        "product": "/modelos/sofa-dois-assentos.html",
+        "fabrics": [
+          "linho-rustico",
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "gelo",
+          "cru",
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "linho-rustico",
+          "cru"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-dois-assentos&estudo=stanza-two-seat-01&tecido=linho-rustico&cor=cru",
+        "layers": 0
+      },
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    "stanza-two-seat-01/mobile": {
+      "before": {
+        "poster": "/assets/models-3d/stanza-two-seat-01/previews/poster.jpg",
+        "stage": "stanza-two-seat-01",
+        "crumb": "Sofá claro de dois assentos",
+        "product": "/modelos/sofa-dois-assentos.html",
+        "fabrics": [
+          "linho-rustico",
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "gelo",
+          "cru",
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "linho-rustico",
+          "cru"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-dois-assentos&estudo=stanza-two-seat-01&tecido=linho-rustico&cor=cru",
+        "layers": 0
+      },
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    "stanza-two-seat-01/api": {
+      "identity": [
+        "stanza-two-seat-01",
+        "1.0.0"
+      ],
+      "views": [
+        "threequarter",
+        "front",
+        "side",
+        "back",
+        "detail",
+        "photo"
+      ],
+      "options": {
+        "fabrics": [
+          "linho-rustico",
+          "linen",
+          "boucle",
+          "velvet"
+        ],
+        "colors": [
+          "cru",
+          "gelo",
+          "areia",
+          "grafite",
+          "oliva",
+          "terracota"
+        ],
+        "embedded": {
+          "fabricId": "linho-rustico",
+          "colorId": "cru"
+        }
+      },
+      "construction": "exterior-only",
+      "fixed0": [
+        [
+          "pillow_squares",
+          "ffffff",
+          "44c6513b-fc8a-4d7d-b6e9-7d222051b31f",
+          false
+        ],
+        [
+          "pillow_squares_seam",
+          "c4b0a4",
+          null,
+          false
+        ]
+      ],
+      "body": [
+        "fabric_main"
+      ],
+      "results": [
+        {
+          "modelId": "stanza-two-seat-01",
+          "revision": "1.0.0",
+          "fabricId": "linho-rustico",
+          "colorId": "cru"
+        },
+        {
+          "modelId": "stanza-two-seat-01",
+          "revision": "1.0.0",
+          "fabricId": "linho-rustico",
+          "colorId": "terracota"
+        },
+        {
+          "modelId": "stanza-two-seat-01",
+          "revision": "1.0.0",
+          "fabricId": "linho-rustico",
+          "colorId": "terracota"
+        }
+      ],
+      "final": {
+        "modelId": "stanza-two-seat-01",
+        "revision": "1.0.0",
+        "fabricId": "linho-rustico",
+        "colorId": "terracota"
+      },
+      "fixed1": [
+        [
+          "pillow_squares",
+          "ffffff",
+          "44c6513b-fc8a-4d7d-b6e9-7d222051b31f",
+          false
+        ],
+        [
+          "pillow_squares_seam",
+          "c4b0a4",
+          null,
+          false
+        ]
+      ],
+      "invalid": "RangeError",
+      "foreign": "RangeError",
+      "disposed": true,
+      "canvasLeft": 0,
+      "afterDispose": "Visualizador já desmontado."
+    },
+    "stanza-organic-01/main": {
+      "before": {
+        "poster": "/assets/sofa-pilot/previews/poster.jpg",
+        "stage": "stanza-organic-01",
+        "crumb": "Sofá orgânico claro",
+        "product": "/modelos/sofa-organico.html",
+        "fabrics": [
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "boucle",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia",
+        "layers": 0
+      },
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    "stanza-organic-01/mobile": {
+      "before": {
+        "poster": "/assets/sofa-pilot/previews/poster.jpg",
+        "stage": "stanza-organic-01",
+        "crumb": "Sofá orgânico claro",
+        "product": "/modelos/sofa-organico.html",
+        "fabrics": [
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "checked": [
+          "boucle",
+          "areia"
+        ],
+        "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia",
+        "layers": 0
+      },
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    "stanza-organic-01/api": {
+      "identity": [
+        "stanza-organic-01",
+        "2.1.0"
+      ],
+      "views": [
+        "threequarter",
+        "front",
+        "side",
+        "detail",
+        "photo"
+      ],
+      "options": {
+        "fabrics": [
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "embedded": {
+          "fabricId": "boucle",
+          "colorId": "areia"
+        }
+      },
+      "construction": "exterior-only",
+      "fixed0": [
+        [
+          "cushion_olive_weave",
+          "ffffff",
+          "edeb659a-9dac-4b00-bd3c-8f6f9b7e153e",
+          false
+        ],
+        [
+          "cushion_olive_reverse",
+          "ffffff",
+          "0bb9766c-9cf5-4f03-9759-6b1108acc0db",
+          false
+        ],
+        [
+          "cushion_olive_seam",
+          "ffffff",
+          "edeb659a-9dac-4b00-bd3c-8f6f9b7e153e",
+          false
+        ],
+        [
+          "cushion_light_boucle",
+          "ffffff",
+          "136ff331-4160-4af4-9111-e7507a78b03c",
+          false
+        ],
+        [
+          "cushion_light_seam",
+          "ffffff",
+          "136ff331-4160-4af4-9111-e7507a78b03c",
+          false
+        ],
+        [
+          "legs_dark",
+          "2d2c29",
+          null,
+          false
+        ]
+      ],
+      "body": [
+        "fabric_main",
+        "fabric_seam"
+      ],
+      "results": [
+        {
+          "modelId": "stanza-organic-01",
+          "revision": "2.1.0",
+          "fabricId": "boucle",
+          "colorId": "areia"
+        },
+        {
+          "modelId": "stanza-organic-01",
+          "revision": "2.1.0",
+          "fabricId": "boucle",
+          "colorId": "grafite"
+        },
+        {
+          "modelId": "stanza-organic-01",
+          "revision": "2.1.0",
+          "fabricId": "boucle",
+          "colorId": "grafite"
+        }
+      ],
+      "final": {
+        "modelId": "stanza-organic-01",
+        "revision": "2.1.0",
+        "fabricId": "boucle",
+        "colorId": "grafite"
+      },
+      "fixed1": [
+        [
+          "cushion_olive_weave",
+          "ffffff",
+          "edeb659a-9dac-4b00-bd3c-8f6f9b7e153e",
+          false
+        ],
+        [
+          "cushion_olive_reverse",
+          "ffffff",
+          "0bb9766c-9cf5-4f03-9759-6b1108acc0db",
+          false
+        ],
+        [
+          "cushion_olive_seam",
+          "ffffff",
+          "edeb659a-9dac-4b00-bd3c-8f6f9b7e153e",
+          false
+        ],
+        [
+          "cushion_light_boucle",
+          "ffffff",
+          "136ff331-4160-4af4-9111-e7507a78b03c",
+          false
+        ],
+        [
+          "cushion_light_seam",
+          "ffffff",
+          "136ff331-4160-4af4-9111-e7507a78b03c",
+          false
+        ],
+        [
+          "legs_dark",
+          "2d2c29",
+          null,
+          false
+        ]
+      ],
+      "invalid": "RangeError",
+      "foreign": "RangeError",
+      "disposed": true,
+      "canvasLeft": 0,
+      "afterDispose": "Visualizador já desmontado."
+    }
+  },
+  "passed": true,
+  "summary": {
+    "total": 75,
+    "failed": 0
+  }
+}

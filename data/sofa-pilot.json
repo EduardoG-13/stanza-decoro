@@ -1,15 +1,36 @@
 {
   "modelId": "stanza-organic-01",
-  "revision": "1.0.0",
+  "revision": "2.1.0",
   "fabrics": {
     "boucle": "Bouclé",
     "linen": "Trama plana",
-    "velvet": "Veludo"
+    "velvet": "Veludo",
+    "boucle-mescla": "Bouclé mescla",
+    "sarja": "Sarja",
+    "linho-rustico": "Linho rústico"
   },
   "colors": {
     "areia": "Areia",
     "oliva": "Oliva",
     "terracota": "Terracota",
-    "grafite": "Grafite"
+    "grafite": "Grafite",
+    "gelo": "Cinza gelo",
+    "grafite-quente": "Grafite quente",
+    "cru": "Cru",
+    "cinza-malva": "Cinza malva",
+    "petroleo": "Azul petróleo",
+    "musgo": "Verde musgo",
+    "mostarda": "Amarelo mostarda"
+  },
+  "studies": {
+    "stanza-organic-01": "sofa-organico",
+    "stanza-straight-01": "sofa-reto",
+    "stanza-modular-01": "sofa-modular",
+    "stanza-two-seat-01": "sofa-dois-assentos",
+    "stanza-piped-01": "sofa-com-vivo",
+    "stanza-armchair-01": "poltrona-bracos",
+    "stanza-headboard-panels-01": "cabeceira-paineis",
+    "stanza-curved-arm-01": "sofa-curvo",
+    "stanza-puff-square-01": "puff-quadrado"
   }
 }

@@ -1,0 +1,456 @@
+{
+  "contract": "stanza-model-3d/v1",
+  "modelId": "stanza-straight-01",
+  "revision": "1.0.0",
+  "queue": "EXT-002",
+  "title": "Sofá cinza de linhas retas",
+  "relation": {
+    "catalogId": "sofa-reto",
+    "catalogName": "Sofá de linhas retas",
+    "portfolioId": "projeto-5",
+    "portfolioTitle": "Sofá cinza de linhas retas",
+    "note": "A mesma foto (sofas/SOFA-5.jpg) é a referência do item de catálogo e do item de portfólio; nenhuma outra entrada do acervo usa esta peça. IDs existentes preservados."
+  },
+  "references": [
+    {
+      "path": "sofas/SOFA-5.jpg",
+      "size": [
+        1280,
+        960
+      ],
+      "angle": "frente-esquerda, câmera elevada (~1,6 m), única vista",
+      "use": "forma, proporções, composição das almofadas, acabamento"
+    }
+  ],
+  "status": "technical-validated-visual-review-pending",
+  "construction": "exterior-only",
+  "units": "m",
+  "axes": {
+    "width": "+X",
+    "up": "+Y",
+    "front": "+Z",
+    "origin": "centro da projeção da peça no piso (Y=0)"
+  },
+  "estimatedScale": {
+    "seatHeightAssumed": 0.44,
+    "method": "câmera e proporções ajustadas por mínimos quadrados a 16 correspondências marcadas na foto (rms ~11 px em 1280×960), altura do assento fixada em 0,44 m; profundidade fracamente determinada (0,75–0,95 m) e fixada em 0,86 m",
+    "values": {
+      "width": 2.33,
+      "depth": 0.86,
+      "armHeight": 0.575,
+      "armWidth": 0.24,
+      "plinthHeight": 0.115,
+      "apronHeight": 0.048,
+      "footSection": 0.068,
+      "baseBandTop": 0.24,
+      "seatCushionThickness": 0.2,
+      "backPanelThickness": 0.18,
+      "backCushion": [
+        0.78,
+        0.43
+      ],
+      "pillowLeft": [
+        0.6,
+        0.35
+      ],
+      "pillowRight": [
+        0.47,
+        0.47
+      ]
+    }
+  },
+  "components": [
+    {
+      "name": "plinto de madeira",
+      "meshes": [
+        "plinth_apron_front",
+        "plinth_apron_back",
+        "plinth_apron_side_l",
+        "plinth_apron_side_r",
+        "foot_1",
+        "foot_2",
+        "foot_3",
+        "foot_4"
+      ],
+      "group": "legs"
+    },
+    {
+      "name": "braços retos",
+      "meshes": [
+        "arm_l",
+        "arm_r",
+        "arm_l_front_welt",
+        "arm_r_front_welt"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "base estofada (faixa frontal)",
+      "meshes": [
+        "base_band"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "encosto baixo (painel)",
+      "meshes": [
+        "back_panel"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "almofadas de assento",
+      "meshes": [
+        "seat_cushion_1",
+        "seat_cushion_2",
+        "seat_cushion_1_welt_top",
+        "seat_cushion_1_welt_bottom",
+        "seat_cushion_2_welt_top",
+        "seat_cushion_2_welt_bottom"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "almofadas soltas de encosto",
+      "meshes": [
+        "back_cushion_1_cover",
+        "back_cushion_1_welt",
+        "back_cushion_2_cover",
+        "back_cushion_2_welt"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "almofadas decorativas",
+      "meshes": [
+        "pillow_1_cover",
+        "pillow_1_welt",
+        "pillow_2_cover",
+        "pillow_2_welt"
+      ],
+      "group": "cushions"
+    }
+  ],
+  "materialRegions": {
+    "table": [
+      {
+        "mesh": "arm_l, arm_r, base_band, back_panel, seat_cushion_1/2, back_cushion_1/2_cover",
+        "material": "fabric_main",
+        "region": "body"
+      },
+      {
+        "mesh": "*_welt (braços, assento, encosto)",
+        "material": "fabric_seam",
+        "region": "body"
+      },
+      {
+        "mesh": "pillow_1_cover, pillow_2_cover",
+        "material": "pillow_boucle",
+        "region": "decorative"
+      },
+      {
+        "mesh": "pillow_1_welt, pillow_2_welt",
+        "material": "pillow_seam",
+        "region": "decorative"
+      },
+      {
+        "mesh": "plinth_apron_*, foot_1..4",
+        "material": "plinth_wood",
+        "region": "exterior-structure"
+      }
+    ],
+    "contrast": [],
+    "note": "Almofadas de assento e encosto são funcionais e do mesmo tecido do corpo: região body. As duas almofadas decorativas começam com o mesmo bouclé (levemente mais cinza) mas são fixas. Sem contrastes (vivos/tachas) visíveis na foto."
+  },
+  "options": {
+    "appliesTo": "body",
+    "fabrics": [
+      "boucle-mescla",
+      "boucle",
+      "linen",
+      "velvet"
+    ],
+    "colors": [
+      "gelo",
+      "areia",
+      "grafite",
+      "oliva",
+      "terracota"
+    ],
+    "default": {
+      "fabricId": "boucle-mescla",
+      "colorId": "gelo"
+    },
+    "embedded": {
+      "fabricId": "boucle-mescla",
+      "colorId": "gelo"
+    },
+    "note": "boucle-mescla e gelo são novos IDs (aditivos) porque a foto mostra um bouclé mesclado cinza-frio que nenhuma das cores existentes representa (areia é bege quente)."
+  },
+  "materials": {
+    "library": "assets/models-3d/materials/ (boucle-mescla, wood-wenge; generate_materials.py)",
+    "reused": "assets/sofa-pilot/materials/ (boucle, linen, velvet) por referência",
+    "embedded": {
+      "main": "bouclé mescla gelo basecolor 1024 + normal 1024 + roughness 256; madeira 512/256/256",
+      "mobile": "bouclé 512/256/256; madeira 256"
+    }
+  },
+  "provenance": {
+    "source": "assets/models-3d/stanza-straight-01/source/build.py (paramétrico; importa assets/models-3d/lib/stanza3d.py)",
+    "derived": "source/stanza-straight-01.blend, models/*.glb (gerados juntos, um passe)",
+    "tool": "Blender 5.0.1 como módulo Python (bpy, PyPI) em modo headless",
+    "license": "Geometria e mapas originais do projeto Stanza, CC0-1.0 na medida em que direitos possam existir; a foto de referência não é redistribuída no pacote nem usada como textura."
+  },
+  "budgets": {
+    "limits": {
+      "mainBytes": 5000000,
+      "mainTriangles": 60000,
+      "mobileTriangles": 25000
+    },
+    "measured": {
+      "mainBytes": 4154200,
+      "mainTriangles": 49384,
+      "mobileBytes": 1220660,
+      "mobileTriangles": 21996
+    },
+    "withinBudget": true
+  },
+  "limitations": [
+    "Um único ângulo de referência: costas, lado direito externo e fundo do plinto são inferidos.",
+    "Medidas estimadas (assento fixado em 0,44 m); a profundidade é a dimensão menos determinada (0,75–0,95 m).",
+    "Tecido e cor (bouclé mescla, cinza gelo #babcc0) são estimativas visuais sob a luz da foto, não amostra medida.",
+    "Almofadas decorativas reposicionadas por solver de contato a partir da foto; o caimento real é mais macio/cheio.",
+    "As junções entre painéis do corpo (braços/base/encosto) são volumes sobrepostos ocultos, lidos como vinco costurado; não há estrutura interna.",
+    "Validado apenas em navegador headless (SwiftShader); sem teste em aparelho físico."
+  ],
+  "dimensions": {
+    "width": 2.33,
+    "height": 0.988,
+    "depth": 0.871,
+    "unit": "m",
+    "estimated": true,
+    "basis": "single photograph (SOFA-5.jpg); seat height assumed 0.44 m; no measured shop dimensions"
+  },
+  "models": {
+    "main": {
+      "uri": "models/stanza-straight-01.glb",
+      "bytes": 4154200,
+      "sha256": "2b11e9410a2da464887733c66b75e7ddb2f3c322e26e17a730f72f562b5b6ce7",
+      "triangles": 49384,
+      "boundsMeters": {
+        "min": [
+          -1.165,
+          0.0,
+          -0.4313
+        ],
+        "max": [
+          1.165,
+          0.98786,
+          0.43945
+        ],
+        "dimensions": [
+          2.33,
+          0.98786,
+          0.87074
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal",
+          "mimeType": "image/png",
+          "bytes": 1997957,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam",
+            "pillow_boucle",
+            "pillow_seam"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "basecolor-gelo-1024",
+          "mimeType": "image/jpeg",
+          "bytes": 215269,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam",
+            "pillow_boucle",
+            "pillow_seam"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 67361,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam",
+            "pillow_boucle",
+            "pillow_seam"
+          ]
+        },
+        {
+          "index": 3,
+          "name": "normal-256",
+          "mimeType": "image/png",
+          "bytes": 35868,
+          "usedBy": [
+            "plinth_wood"
+          ]
+        },
+        {
+          "index": 4,
+          "name": "basecolor-512",
+          "mimeType": "image/jpeg",
+          "bytes": 21362,
+          "usedBy": [
+            "plinth_wood"
+          ]
+        },
+        {
+          "index": 5,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 58253,
+          "usedBy": [
+            "plinth_wood"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "pillow_boucle",
+          "region": "decorative"
+        },
+        {
+          "name": "pillow_seam",
+          "region": "decorative"
+        },
+        {
+          "name": "plinth_wood",
+          "region": "exterior-structure"
+        },
+        {
+          "name": "fabric_main",
+          "region": "body"
+        },
+        {
+          "name": "fabric_seam",
+          "region": "body"
+        }
+      ]
+    },
+    "mobile": {
+      "uri": "models/stanza-straight-01-mobile.glb",
+      "bytes": 1220660,
+      "sha256": "9274cf995d3e6edf1bcacbe3c9c867b2a58b7286ce6b0a1861ecc0b400fba244",
+      "triangles": 21996,
+      "boundsMeters": {
+        "min": [
+          -1.16494,
+          0.0,
+          -0.4313
+        ],
+        "max": [
+          1.16494,
+          0.98781,
+          0.44083
+        ],
+        "dimensions": [
+          2.32988,
+          0.98781,
+          0.87212
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal-256",
+          "mimeType": "image/png",
+          "bytes": 146763,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam",
+            "pillow_boucle",
+            "pillow_seam"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "basecolor-gelo-512",
+          "mimeType": "image/jpeg",
+          "bytes": 64370,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam",
+            "pillow_boucle",
+            "pillow_seam"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 67361,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam",
+            "pillow_boucle",
+            "pillow_seam"
+          ]
+        },
+        {
+          "index": 3,
+          "name": "normal-256",
+          "mimeType": "image/png",
+          "bytes": 35868,
+          "usedBy": [
+            "plinth_wood"
+          ]
+        },
+        {
+          "index": 4,
+          "name": "basecolor-256",
+          "mimeType": "image/jpeg",
+          "bytes": 6086,
+          "usedBy": [
+            "plinth_wood"
+          ]
+        },
+        {
+          "index": 5,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 58253,
+          "usedBy": [
+            "plinth_wood"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "pillow_boucle",
+          "region": "decorative"
+        },
+        {
+          "name": "pillow_seam",
+          "region": "decorative"
+        },
+        {
+          "name": "plinth_wood",
+          "region": "exterior-structure"
+        },
+        {
+          "name": "fabric_main",
+          "region": "body"
+        },
+        {
+          "name": "fabric_seam",
+          "region": "body"
+        }
+      ]
+    }
+  }
+}

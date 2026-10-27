@@ -1,0 +1,408 @@
+{
+  "contract": "stanza-model-3d/v1",
+  "modelId": "stanza-modular-01",
+  "revision": "1.0.0",
+  "queue": "EXT-003",
+  "title": "Sofá modular cinza",
+  "relation": {
+    "catalogId": "sofa-modular",
+    "catalogName": "Sofá modular",
+    "portfolioId": "projeto-3",
+    "portfolioTitle": "Sofá modular cinza",
+    "note": "A mesma foto (sofas/SOFA-3.jpg) é a referência do item de catálogo e do item de portfólio; nenhuma outra entrada do acervo usa esta peça. IDs existentes preservados."
+  },
+  "references": [
+    {
+      "path": "sofas/SOFA-3.jpg",
+      "size": [
+        1280,
+        960
+      ],
+      "angle": "frente-direita, câmera elevada (~1,9 m), única vista; a peça recua da direita (braço próximo) para a esquerda",
+      "use": "forma, proporções, módulos, composição das almofadas, acabamento"
+    }
+  ],
+  "status": "technical-validated-visual-review-pending",
+  "construction": "exterior-only",
+  "units": "m",
+  "axes": {
+    "width": "+X",
+    "up": "+Y",
+    "front": "+Z",
+    "origin": "centro da projeção da peça no piso (Y=0)"
+  },
+  "estimatedScale": {
+    "seatHeightAssumed": 0.4,
+    "method": "câmera e proporções ajustadas por mínimos quadrados a 17 correspondências marcadas na foto (rms ~12 px em 1280×960 com rolagem livre); altura do bloco de assento fixada em 0,40 m; as duas juntas dos módulos do encosto, não usadas no ajuste, caem a ≤ 9 px do previsto. Câmera do preset 'photo' reajustada com rolagem 0 (o visualizador não reproduz os ~3° de rolagem da foto; rms 16 px).",
+    "values": {
+      "width": 4.24,
+      "depth": 1.17,
+      "armHeight": 0.76,
+      "armWidth": 0.34,
+      "backHeight": 0.96,
+      "backThickness": 0.22,
+      "seatBlockHeight": 0.4,
+      "moduleWidth": 1.18,
+      "seatBlockDepth": 0.946,
+      "pillowLarge": [
+        0.66,
+        0.64
+      ],
+      "pillowSmall": [
+        0.5,
+        0.49
+      ]
+    },
+    "weak": [
+      "backThickness (0,22 m, não visível)",
+      "escala absoluta (depende da premissa do assento 0,40 m; as almofadas grandes resultam ~0,6–0,66 m, coerente)"
+    ]
+  },
+  "components": [
+    {
+      "name": "braços em bloco",
+      "meshes": [
+        "arm_l",
+        "arm_r"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "blocos de assento (3 módulos)",
+      "meshes": [
+        "seat_block_1",
+        "seat_block_2",
+        "seat_block_3"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "blocos de encosto (3 módulos)",
+      "meshes": [
+        "back_block_1",
+        "back_block_2",
+        "back_block_3"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "almofadas decorativas lisas azuis",
+      "meshes": [
+        "pillow_1_cover",
+        "pillow_1_welt",
+        "pillow_2_cover",
+        "pillow_2_welt",
+        "pillow_4_cover",
+        "pillow_4_welt",
+        "pillow_7_cover",
+        "pillow_7_welt"
+      ],
+      "group": "cushions"
+    },
+    {
+      "name": "almofadas decorativas estampadas (losangos)",
+      "meshes": [
+        "pillow_3_cover",
+        "pillow_3_welt",
+        "pillow_5_cover",
+        "pillow_5_welt",
+        "pillow_6_cover",
+        "pillow_6_welt"
+      ],
+      "group": "cushions"
+    }
+  ],
+  "materialRegions": {
+    "table": [
+      {
+        "mesh": "arm_l, arm_r, seat_block_1..3, back_block_1..3",
+        "material": "fabric_main",
+        "region": "body"
+      },
+      {
+        "mesh": "pillow_1/2/4/7_cover",
+        "material": "pillow_blue",
+        "region": "decorative"
+      },
+      {
+        "mesh": "pillow_1/2/4/7_welt",
+        "material": "pillow_blue_seam",
+        "region": "decorative"
+      },
+      {
+        "mesh": "pillow_3/5/6_cover",
+        "material": "pillow_print",
+        "region": "decorative"
+      },
+      {
+        "mesh": "pillow_3/5/6_welt",
+        "material": "pillow_print_seam",
+        "region": "decorative"
+      }
+    ],
+    "contrast": [],
+    "exterior-structure": [],
+    "note": "Peça modular sem almofadas soltas de assento/encosto: os blocos estofados são o corpo. As sete almofadas (quatro lisas azul-acinzentado, três estampadas) são decoração fixa. Sem vivos, tachas ou botões; nenhum pé ou base visível (os blocos apoiam direto no tapete), por isso não há região de estrutura."
+  },
+  "options": {
+    "appliesTo": "body",
+    "fabrics": [
+      "sarja",
+      "linen",
+      "boucle",
+      "velvet"
+    ],
+    "colors": [
+      "grafite-quente",
+      "grafite",
+      "gelo",
+      "areia",
+      "oliva",
+      "terracota"
+    ],
+    "default": {
+      "fabricId": "sarja",
+      "colorId": "grafite-quente"
+    },
+    "embedded": {
+      "fabricId": "sarja",
+      "colorId": "grafite-quente"
+    },
+    "note": "sarja (tecido) e grafite-quente (cor #545050) são IDs novos e aditivos: a foto mostra uma trama plana fosca e fechada (nenhuma família existente) num cinza escuro levemente quente, mais claro e menos neutro que grafite (#494b4b)."
+  },
+  "materials": {
+    "library": "assets/models-3d/materials/ (sarja, decor-losango; generate_materials.py)",
+    "reused": "assets/sofa-pilot/materials/ (boucle, linen, velvet) por referência",
+    "embedded": {
+      "main": "sarja grafite-quente basecolor 1024 + normal 1024 + roughness 256 (compartilhados pelo relevo das almofadas); estampa losangos 1024",
+      "mobile": "sarja 512/256/256; estampa 512"
+    },
+    "decorativeFinishes": {
+      "pillow_blue": "azul-acinzentado claro #7f9eac (fator de cor sobre o relevo da sarja)",
+      "pillow_print": "estampa procedural de losangos (decor-losango), não é a foto",
+      "pillow_print_seam": "vivo claro #e4e7e8"
+    }
+  },
+  "provenance": {
+    "source": "assets/models-3d/stanza-modular-01/source/build.py (paramétrico; importa assets/models-3d/lib/stanza3d.py)",
+    "derived": "source/stanza-modular-01.blend, models/*.glb (gerados juntos, um passe)",
+    "tool": "Blender 5.0.1 como módulo Python (bpy, PyPI) em modo headless",
+    "license": "Geometria e mapas originais do projeto Stanza, CC0-1.0 na medida em que direitos possam existir; a foto de referência não é redistribuída no pacote nem usada como textura."
+  },
+  "budgets": {
+    "measured": {
+      "mainBytes": 3165244,
+      "mainTriangles": 51448,
+      "mobileBytes": 1107144,
+      "mobileTriangles": 24092
+    },
+    "limits": {
+      "mainBytes": 5000000,
+      "mainTriangles": 60000,
+      "mobileTriangles": 25000
+    },
+    "withinBudget": true
+  },
+  "limitations": [
+    "Um único ângulo de referência (frente-direita): costas, lateral esquerda externa e fundo inferidos.",
+    "Medidas estimadas com o assento fixado em 0,40 m; a peça resulta grande (4,24 × 1,17 m), coerente com as almofadas de ~0,6 m, mas sem medida real.",
+    "Espessura do encosto (0,22 m) não é visível na foto; assumida.",
+    "Tecido (sarja) e cor (grafite quente #545050) são estimativas visuais; a foto tem luz de janela que clareia os topos, que o visualizador (luz fixa) não reproduz.",
+    "Almofadas posicionadas por solver de contato a partir da foto; a ordem/sobreposição exata e o caimento mais mole das almofadas reais diferem.",
+    "Estampa das almofadas é uma releitura procedural (losangos concêntricos), não a estampa exata.",
+    "Sem pés ou base visíveis na foto: os blocos tocam o piso; se houver pés ocultos, não foram inventados.",
+    "Validado apenas em navegador headless (SwiftShader); sem teste em aparelho físico."
+  ],
+  "dimensions": {
+    "width": 4.248,
+    "height": 1.13,
+    "depth": 1.18,
+    "unit": "m",
+    "estimated": true,
+    "basis": "single photograph (SOFA-3.jpg); seat block height assumed 0.40 m; no measured shop dimensions"
+  },
+  "models": {
+    "main": {
+      "uri": "models/stanza-modular-01.glb",
+      "bytes": 3165244,
+      "sha256": "d8973c7cb96b9a11683621f4091fd96be705cd314e3e7b5a2e750fb6cc359b43",
+      "triangles": 51448,
+      "boundsMeters": {
+        "min": [
+          -2.12395,
+          -0.00174,
+          -0.587
+        ],
+        "max": [
+          2.12395,
+          1.12841,
+          0.59268
+        ],
+        "dimensions": [
+          4.2479,
+          1.13015,
+          1.17968
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal",
+          "mimeType": "image/png",
+          "bytes": 1051240,
+          "usedBy": [
+            "fabric_main",
+            "pillow_blue",
+            "pillow_blue_seam",
+            "pillow_print",
+            "pillow_print_seam"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 60813,
+          "usedBy": [
+            "fabric_main",
+            "pillow_blue",
+            "pillow_blue_seam",
+            "pillow_print",
+            "pillow_print_seam"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "basecolor",
+          "mimeType": "image/jpeg",
+          "bytes": 268776,
+          "usedBy": [
+            "pillow_print"
+          ]
+        },
+        {
+          "index": 3,
+          "name": "basecolor-grafite-quente-1024",
+          "mimeType": "image/jpeg",
+          "bytes": 74752,
+          "usedBy": [
+            "fabric_main"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "pillow_blue",
+          "region": "decorative"
+        },
+        {
+          "name": "pillow_blue_seam",
+          "region": "decorative"
+        },
+        {
+          "name": "pillow_print",
+          "region": "decorative"
+        },
+        {
+          "name": "pillow_print_seam",
+          "region": "decorative"
+        },
+        {
+          "name": "fabric_main",
+          "region": "body"
+        }
+      ]
+    },
+    "mobile": {
+      "uri": "models/stanza-modular-01-mobile.glb",
+      "bytes": 1107144,
+      "sha256": "11bb4d078af0297f20f1568a1e77d564bb5f920019fab267a5e692b8ec22d3fa",
+      "triangles": 24092,
+      "boundsMeters": {
+        "min": [
+          -2.12384,
+          -0.00142,
+          -0.587
+        ],
+        "max": [
+          2.12384,
+          1.12841,
+          0.59211
+        ],
+        "dimensions": [
+          4.24768,
+          1.12983,
+          1.17911
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal-256",
+          "mimeType": "image/png",
+          "bytes": 52516,
+          "usedBy": [
+            "fabric_main",
+            "pillow_blue",
+            "pillow_blue_seam",
+            "pillow_print",
+            "pillow_print_seam"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 60813,
+          "usedBy": [
+            "fabric_main",
+            "pillow_blue",
+            "pillow_blue_seam",
+            "pillow_print",
+            "pillow_print_seam"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "basecolor-512",
+          "mimeType": "image/jpeg",
+          "bytes": 95467,
+          "usedBy": [
+            "pillow_print"
+          ]
+        },
+        {
+          "index": 3,
+          "name": "basecolor-grafite-quente-512",
+          "mimeType": "image/jpeg",
+          "bytes": 15654,
+          "usedBy": [
+            "fabric_main"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "pillow_blue",
+          "region": "decorative"
+        },
+        {
+          "name": "pillow_blue_seam",
+          "region": "decorative"
+        },
+        {
+          "name": "pillow_print",
+          "region": "decorative"
+        },
+        {
+          "name": "pillow_print_seam",
+          "region": "decorative"
+        },
+        {
+          "name": "fabric_main",
+          "region": "body"
+        }
+      ]
+    }
+  }
+}

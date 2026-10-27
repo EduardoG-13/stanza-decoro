@@ -1,0 +1,66 @@
+{
+  "runs": [
+    {
+      "label": "before_velvet",
+      "variant": "main",
+      "model": "/cmp/before/sofa.glb",
+      "ready": true,
+      "shots": [
+        "before_velvet__g2_threequarter_right.png",
+        "before_velvet__p12_front.png",
+        "before_velvet__p23_front.png",
+        "before_velvet__p45_front.png",
+        "before_velvet__b2_back_side.png",
+        "before_velvet__b4_back_side.png"
+      ],
+      "selection": {
+        "modelId": "stanza-organic-01",
+        "revision": "1.2.0",
+        "fabricId": "velvet",
+        "colorId": "grafite"
+      },
+      "inspect": {
+        "revision": "1.2.0",
+        "variant": "main",
+        "bounds": [
+          2.4866939783096313,
+          1.0424261266140802,
+          1.0842711329460144
+        ],
+        "renders": 8
+      },
+      "errors": []
+    },
+    {
+      "label": "after_velvet",
+      "variant": "main",
+      "model": "default",
+      "ready": true,
+      "shots": [
+        "after_velvet__g2_threequarter_right.png",
+        "after_velvet__p12_front.png",
+        "after_velvet__p23_front.png",
+        "after_velvet__p45_front.png",
+        "after_velvet__b2_back_side.png",
+        "after_velvet__b4_back_side.png"
+      ],
+      "selection": {
+        "modelId": "stanza-organic-01",
+        "revision": "1.2.0",
+        "fabricId": "velvet",
+        "colorId": "grafite"
+      },
+      "inspect": {
+        "revision": "1.2.0",
+        "variant": "main",
+        "bounds": [
+          2.4866939783096313,
+          0.993347696023303,
+          1.0842711329460144
+        ],
+        "renders": 8
+      },
+      "errors": []
+    }
+  ]
+}

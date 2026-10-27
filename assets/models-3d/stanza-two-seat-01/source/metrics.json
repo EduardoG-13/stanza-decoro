@@ -1,0 +1,350 @@
+{
+  "main": {
+    "triangles_blender": 39188,
+    "trianglesByObject": {
+      "arm_l": 3680,
+      "arm_r": 3680,
+      "base_band": 5096,
+      "back_panel": 4556,
+      "seat_cushion_1": 4416,
+      "seat_cushion_2": 4416,
+      "pillow_1_cover": 2912,
+      "pillow_1_welt": 832,
+      "back_cushion_1_cover": 3840,
+      "back_cushion_1_welt": 960,
+      "back_cushion_2_cover": 3840,
+      "back_cushion_2_welt": 960
+    },
+    "placements": {
+      "back_cushion_1": {
+        "pos": [
+          -0.5405,
+          0.2812,
+          0.6873
+        ],
+        "rot": [
+          -10.0,
+          0,
+          0
+        ]
+      },
+      "back_cushion_2": {
+        "pos": [
+          0.5405,
+          0.2811,
+          0.687
+        ],
+        "rot": [
+          -10.0,
+          0,
+          0
+        ]
+      },
+      "pillow_1": {
+        "pos": [
+          -0.17,
+          0.0696,
+          0.6256
+        ],
+        "rot": [
+          -34,
+          4,
+          4
+        ]
+      }
+    },
+    "bytes": 3716244,
+    "sha256": "15eb056ab5cbac90abe5fd87c564af3a8befd30437f84b330998435c5a863f45",
+    "triangles": 39188,
+    "boundsMeters": {
+      "min": [
+        -1.32,
+        -0.00098,
+        -0.60109
+      ],
+      "max": [
+        1.32,
+        0.94937,
+        0.62133
+      ],
+      "dimensions": [
+        2.64,
+        0.95035,
+        1.22243
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal-512",
+        "mimeType": "image/png",
+        "bytes": 391471,
+        "usedBy": [
+          "pillow_squares"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "basecolor",
+        "mimeType": "image/jpeg",
+        "bytes": 260705,
+        "usedBy": [
+          "pillow_squares"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 61339,
+        "usedBy": [
+          "pillow_squares"
+        ]
+      },
+      {
+        "index": 3,
+        "name": "normal",
+        "mimeType": "image/png",
+        "bytes": 1459986,
+        "usedBy": [
+          "fabric_main",
+          "pillow_squares_seam"
+        ]
+      },
+      {
+        "index": 4,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 55466,
+        "usedBy": [
+          "fabric_main",
+          "pillow_squares_seam"
+        ]
+      },
+      {
+        "index": 5,
+        "name": "basecolor-cru-1024",
+        "mimeType": "image/jpeg",
+        "bytes": 160236,
+        "usedBy": [
+          "fabric_main"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "pillow_squares",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_squares_seam",
+        "region": "decorative"
+      },
+      {
+        "name": "fabric_main",
+        "region": "body"
+      }
+    ],
+    "meshes": [
+      "arm_l",
+      "arm_r",
+      "back_cushion_1_cover",
+      "back_cushion_1_welt",
+      "back_cushion_2_cover",
+      "back_cushion_2_welt",
+      "back_panel",
+      "base_band",
+      "pillow_1_cover",
+      "pillow_1_welt",
+      "seat_cushion_1",
+      "seat_cushion_2"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-two-seat-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "acervo/sofa-dois-assentos.webp",
+      "catalogId": "sofa-dois-assentos",
+      "queue": "EXT-004",
+      "materialRegions": "{\"body\": [\"fabric_main\"], \"decorative\": [\"pillow_squares\", \"pillow_squares_seam\"]}",
+      "embeddedFinish": "{\"fabricId\": \"linho-rustico\", \"colorId\": \"cru\"}",
+      "bodyUvMeters": 0.3
+    }
+  },
+  "mobile": {
+    "triangles_blender": 15976,
+    "trianglesByObject": {
+      "arm_l": 1472,
+      "arm_r": 1472,
+      "base_band": 2096,
+      "back_panel": 1872,
+      "seat_cushion_1": 1860,
+      "seat_cushion_2": 1860,
+      "pillow_1_cover": 1440,
+      "pillow_1_welt": 576,
+      "back_cushion_1_cover": 1152,
+      "back_cushion_1_welt": 512,
+      "back_cushion_2_cover": 1152,
+      "back_cushion_2_welt": 512
+    },
+    "placements": {
+      "back_cushion_1": {
+        "pos": [
+          -0.5405,
+          0.2812,
+          0.6873
+        ],
+        "rot": [
+          -10.0,
+          0,
+          0
+        ]
+      },
+      "back_cushion_2": {
+        "pos": [
+          0.5405,
+          0.2811,
+          0.687
+        ],
+        "rot": [
+          -10.0,
+          0,
+          0
+        ]
+      },
+      "pillow_1": {
+        "pos": [
+          -0.17,
+          0.0696,
+          0.6256
+        ],
+        "rot": [
+          -34,
+          4,
+          4
+        ]
+      }
+    },
+    "bytes": 951352,
+    "sha256": "7e1e39fb3423bc632d5f7b4f8c6f838cc73153fd01e4fc7867d0414399994267",
+    "triangles": 15976,
+    "boundsMeters": {
+      "min": [
+        -1.32,
+        -0.00076,
+        -0.60109
+      ],
+      "max": [
+        1.32,
+        0.94942,
+        0.6237
+      ],
+      "dimensions": [
+        2.64,
+        0.95017,
+        1.2248
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal-256",
+        "mimeType": "image/png",
+        "bytes": 80264,
+        "usedBy": [
+          "pillow_squares"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "basecolor-512",
+        "mimeType": "image/jpeg",
+        "bytes": 67721,
+        "usedBy": [
+          "pillow_squares"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 61339,
+        "usedBy": [
+          "pillow_squares"
+        ]
+      },
+      {
+        "index": 3,
+        "name": "normal-256",
+        "mimeType": "image/png",
+        "bytes": 67937,
+        "usedBy": [
+          "fabric_main",
+          "pillow_squares_seam"
+        ]
+      },
+      {
+        "index": 4,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 55466,
+        "usedBy": [
+          "fabric_main",
+          "pillow_squares_seam"
+        ]
+      },
+      {
+        "index": 5,
+        "name": "basecolor-cru-512",
+        "mimeType": "image/jpeg",
+        "bytes": 40460,
+        "usedBy": [
+          "fabric_main"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "pillow_squares",
+        "region": "decorative"
+      },
+      {
+        "name": "pillow_squares_seam",
+        "region": "decorative"
+      },
+      {
+        "name": "fabric_main",
+        "region": "body"
+      }
+    ],
+    "meshes": [
+      "arm_l",
+      "arm_r",
+      "back_cushion_1_cover",
+      "back_cushion_1_welt",
+      "back_cushion_2_cover",
+      "back_cushion_2_welt",
+      "back_panel",
+      "base_band",
+      "pillow_1_cover",
+      "pillow_1_welt",
+      "seat_cushion_1",
+      "seat_cushion_2"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-two-seat-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "acervo/sofa-dois-assentos.webp",
+      "catalogId": "sofa-dois-assentos",
+      "queue": "EXT-004",
+      "materialRegions": "{\"body\": [\"fabric_main\"], \"decorative\": [\"pillow_squares\", \"pillow_squares_seam\"]}",
+      "embeddedFinish": "{\"fabricId\": \"linho-rustico\", \"colorId\": \"cru\"}",
+      "bodyUvMeters": 0.3
+    }
+  }
+}

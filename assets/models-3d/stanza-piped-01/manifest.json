@@ -1,0 +1,332 @@
+{
+  "contract": "stanza-model-3d/v1",
+  "modelId": "stanza-piped-01",
+  "revision": "1.1.0",
+  "queue": "EXT-005",
+  "title": "Sofá cinza com vivo claro",
+  "relation": {
+    "catalogId": "sofa-com-vivo",
+    "catalogName": "Sofá com vivo",
+    "portfolioId": "projeto-48",
+    "portfolioTitle": "Sofá cinza com vivo claro",
+    "note": "A mesma foto (acervo/sofa-com-vivo.webp) é a referência do item de catálogo e do item de portfólio; também ilustra a página de tecidos (PIPING_IMAGE) e a home (projeto-48 em HOME_PROJECTS), sempre a mesma peça: nenhuma entrada nova. IDs existentes preservados. A home continua sem o 3D da coleção."
+  },
+  "references": [
+    {
+      "path": "acervo/sofa-com-vivo.webp",
+      "size": [
+        2560,
+        1920
+      ],
+      "angle": "frente-esquerda, câmera elevada (~1,35 m), lente grande-angular, rolagem ~2,6°, única vista; luz forte de janela",
+      "use": "forma, proporções, vivos, acabamento"
+    }
+  ],
+  "status": "technical-validated-visual-review-pending",
+  "construction": "exterior-only",
+  "units": "m",
+  "axes": {
+    "width": "+X",
+    "up": "+Y",
+    "front": "+Z",
+    "origin": "centro da projeção da peça no piso (Y=0)"
+  },
+  "estimatedScale": {
+    "seatHeightAssumed": 0.45,
+    "method": "câmera e proporções ajustadas a 8 correspondências na foto reduzida a 1280×960 (rms ~4 px com rolagem livre de −2,6°), assento fixado em 0,45 m e profundidade restrita a ~1,0 m (o fundo não é mensurável). A frente do assento no meio não se ajusta a uma aresta reta (fica ~40 px acima do previsto; lente grande-angular / almofadas abauladas). Preset 'photo' reajustado com rolagem 0 e 9 pontos (rms ~20 px). Altura do topo das almofadas de encosto (~1,1 m) lida por retroprojeção.",
+    "values": {
+      "width": 3.46,
+      "depth": 1.0,
+      "armHeight": 0.665,
+      "armWidth": 0.23,
+      "seatHeight": 0.45,
+      "seatCushionThickness": 0.13,
+      "baseBandTop": 0.32,
+      "backPanelHeight": 0.84,
+      "backPanelThickness": 0.17,
+      "backCushion": [
+        1.49,
+        0.64,
+        0.2
+      ],
+      "backCushionLeanDeg": 14,
+      "pipingDiameterMm": 6.4
+    },
+    "weak": [
+      "profundidade (restrita, não medida)",
+      "largura total 3,46 m depende da premissa do assento e da lente grande-angular",
+      "painel do encosto (oculto)"
+    ]
+  },
+  "components": [
+    {
+      "name": "braços retos com vivo no painel frontal",
+      "meshes": [
+        "arm_l",
+        "arm_r",
+        "arm_l_front_welt",
+        "arm_r_front_welt"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "base estofada",
+      "meshes": [
+        "base_band"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "painel do encosto",
+      "meshes": [
+        "back_panel"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "almofadas de assento com vivos (topo e base)",
+      "meshes": [
+        "seat_cushion_1",
+        "seat_cushion_2",
+        "seat_cushion_1_welt_top",
+        "seat_cushion_1_welt_bottom",
+        "seat_cushion_2_welt_top",
+        "seat_cushion_2_welt_bottom"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "almofadas de encosto caixa com vivos (frente e costas)",
+      "meshes": [
+        "back_cushion_1_cover",
+        "back_cushion_1_welt_ny",
+        "back_cushion_1_welt_py",
+        "back_cushion_2_cover",
+        "back_cushion_2_welt_ny",
+        "back_cushion_2_welt_py"
+      ],
+      "group": "upholstery"
+    }
+  ],
+  "materialRegions": {
+    "table": [
+      {
+        "mesh": "arm_l/r, base_band, back_panel, seat_cushion_1/2, back_cushion_1/2_cover",
+        "material": "fabric_main",
+        "region": "body"
+      },
+      {
+        "mesh": "todos os *_welt* (painéis dos braços, assentos topo/base, encostos frente/costas)",
+        "material": "piping_light",
+        "region": "contrast"
+      }
+    ],
+    "decorative": [],
+    "exterior-structure": [],
+    "note": "O vivo claro é de outra cor (quase branco) que o corpo cinza: contraste FIXO, nunca recolorido pela troca de tecido/cor. Almofadas de assento e encosto são funcionais e do tecido do corpo. Sem almofadas decorativas. Sem pés confirmados: braços e base chegam ao piso (uma faixa escura sob a peça é sombra); nada foi inventado."
+  },
+  "options": {
+    "appliesTo": "body",
+    "fabrics": [
+      "sarja",
+      "linen",
+      "velvet",
+      "boucle"
+    ],
+    "colors": [
+      "cinza-malva",
+      "grafite",
+      "gelo",
+      "areia",
+      "oliva",
+      "terracota"
+    ],
+    "default": {
+      "fabricId": "sarja",
+      "colorId": "cinza-malva"
+    },
+    "embedded": {
+      "fabricId": "sarja",
+      "colorId": "cinza-malva"
+    },
+    "note": "Tecido liso fosco de trama fechada → família sarja (EXT-003) reutilizada. cinza-malva (#8a8286) é uma cor nova e aditiva: cinza médio levemente rosado/lilás da foto, que nenhuma cor existente representa. O vivo (piping_light, #e2e2e5) fica fixo em todas as combinações."
+  },
+  "materials": {
+    "library": "assets/models-3d/materials/sarja (reutilizada; tinta embutida cinza-malva nova)",
+    "reused": "assets/sofa-pilot/materials/ (boucle, linen, velvet) por referência",
+    "embedded": {
+      "main": "sarja cinza-malva basecolor 1024 + normal 1024 + roughness 256 (o vivo usa o mesmo relevo com fator de cor próprio, sem imagem extra)",
+      "mobile": "sarja 512/256/256"
+    },
+    "contrastFinishes": {
+      "piping_light": "vivo claro #e2e2e5 (fator de cor sobre o relevo da sarja), raio 3,2 mm"
+    }
+  },
+  "provenance": {
+    "source": "assets/models-3d/stanza-piped-01/source/build.py (paramétrico; importa assets/models-3d/lib/stanza3d.py: oriented_box + rest_rigid)",
+    "derived": "source/stanza-piped-01.blend, models/*.glb (gerados juntos, um passe)",
+    "tool": "Blender 5.0.1 como módulo Python (bpy, PyPI) em modo headless",
+    "license": "Geometria e mapas originais do projeto Stanza, CC0-1.0 na medida em que direitos possam existir; a foto de referência não é redistribuída no pacote nem usada como textura."
+  },
+  "budgets": {
+    "measured": {
+      "mainBytes": 3583152,
+      "mainTriangles": 67752,
+      "mobileBytes": 1213320,
+      "mobileTriangles": 29232
+    },
+    "limits": {
+      "mainBytes": 5000000,
+      "mainTriangles": 60000,
+      "mobileTriangles": 25000
+    },
+    "withinBudget": false
+  },
+  "limitations": [
+    "Um único ângulo (frente-esquerda, grande-angular, ~2,6° de rolagem): costas, lateral direita externa e fundo inferidos.",
+    "Medidas estimadas com assento fixado em 0,45 m e profundidade restrita a 1,0 m; largura 3,46 m sensível à distorção da lente.",
+    "A foto tem sol forte da janela (topos estourados); cor cinza-malva #8a8286 e tecido (sarja) são estimativas visuais.",
+    "Almofadas de encosto reais são mais moles (topo ondulado, cantos caídos); aqui são caixas rígidas com coroa suave apoiadas por contato rígido (3 mm).",
+    "Sem pés confirmados na foto; não foram inventados.",
+    "Junções braço/base/encosto por volumes sobrepostos ocultos (até 50 mm sob o painel), lidas como vinco costurado.",
+    "Validado apenas em navegador headless (SwiftShader)."
+  ],
+  "dimensions": {
+    "width": 3.468,
+    "height": 1.154,
+    "depth": 1.035,
+    "unit": "m",
+    "estimated": true,
+    "basis": "single photograph (sofa-com-vivo.webp); seat height assumed 0.45 m; depth constrained to 1.0 m; no measured shop dimensions"
+  },
+  "models": {
+    "main": {
+      "uri": "models/stanza-piped-01.glb",
+      "bytes": 3583152,
+      "sha256": "88d9f52c9211982c9ee8f09f625b1a71a6a1ed298adcba7bef1b2615779d81b1",
+      "triangles": 67752,
+      "boundsMeters": {
+        "min": [
+          -1.734,
+          -0.00108,
+          -0.50101
+        ],
+        "max": [
+          1.734,
+          1.15327,
+          0.53366
+        ],
+        "dimensions": [
+          3.468,
+          1.15435,
+          1.03467
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal",
+          "mimeType": "image/png",
+          "bytes": 1051240,
+          "usedBy": [
+            "fabric_main",
+            "piping_light"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "basecolor-cinza-malva-1024",
+          "mimeType": "image/jpeg",
+          "bytes": 111821,
+          "usedBy": [
+            "fabric_main"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 60813,
+          "usedBy": [
+            "fabric_main",
+            "piping_light"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "fabric_main",
+          "region": "body"
+        },
+        {
+          "name": "piping_light",
+          "region": "contrast"
+        }
+      ]
+    },
+    "mobile": {
+      "uri": "models/stanza-piped-01-mobile.glb",
+      "bytes": 1213320,
+      "sha256": "8c91c1620716e8c9a062adef46cd1211996d8834818835f6e47799d0e1d5f3a2",
+      "triangles": 29232,
+      "boundsMeters": {
+        "min": [
+          -1.73395,
+          -0.00088,
+          -0.50101
+        ],
+        "max": [
+          1.73395,
+          1.15182,
+          0.53378
+        ],
+        "dimensions": [
+          3.4679,
+          1.1527,
+          1.03479
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal-256",
+          "mimeType": "image/png",
+          "bytes": 52516,
+          "usedBy": [
+            "fabric_main",
+            "piping_light"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "basecolor-cinza-malva-512",
+          "mimeType": "image/jpeg",
+          "bytes": 24695,
+          "usedBy": [
+            "fabric_main"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 60813,
+          "usedBy": [
+            "fabric_main",
+            "piping_light"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "fabric_main",
+          "region": "body"
+        },
+        {
+          "name": "piping_light",
+          "region": "contrast"
+        }
+      ]
+    }
+  }
+}

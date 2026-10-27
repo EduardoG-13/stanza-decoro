@@ -1,0 +1,461 @@
+[
+ {
+  "view": "photo",
+  "reference": "initial",
+  "pixels": {
+   "body": 167102,
+   "decorative": 0,
+   "contrast": 0,
+   "exterior-structure": 0
+  },
+  "passes": {
+   "grafite": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 103.686,
+     "max": 118
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "cru": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 26.282,
+     "max": 34
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "gelo": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 15.566,
+     "max": 20
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "oliva": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 73.397,
+     "max": 83
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "terracota": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 80.053,
+     "max": 91
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "linen_gelo": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 13.004,
+     "max": 22
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "boucle_areia": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 4.396,
+     "max": 36
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "sarja_grafite": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 130.764,
+     "max": 138
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "back_initial": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   }
+  },
+  "run": "main",
+  "fixedRegionsMaxDiff": {},
+  "backToInitialBodyMax": 0
+ },
+ {
+  "view": "tq_right",
+  "reference": "initial",
+  "pixels": {
+   "body": 140643,
+   "decorative": 0,
+   "contrast": 0,
+   "exterior-structure": 0
+  },
+  "passes": {
+   "grafite": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 103.702,
+     "max": 115
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "cru": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 26.634,
+     "max": 35
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "gelo": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 15.748,
+     "max": 21
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "oliva": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 73.326,
+     "max": 80
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "terracota": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 79.975,
+     "max": 88
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "back_initial": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   }
+  },
+  "run": "main",
+  "fixedRegionsMaxDiff": {},
+  "backToInitialBodyMax": 0
+ },
+ {
+  "view": "photo",
+  "reference": "initial",
+  "pixels": {
+   "body": 68820,
+   "decorative": 0,
+   "contrast": 0,
+   "exterior-structure": 0
+  },
+  "passes": {
+   "grafite": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 103.715,
+     "max": 118
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "cru": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 26.457,
+     "max": 34
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "back_initial": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   }
+  },
+  "run": "mobile",
+  "fixedRegionsMaxDiff": {},
+  "backToInitialBodyMax": 0
+ },
+ {
+  "view": "tq_right",
+  "reference": "initial",
+  "pixels": {
+   "body": 84181,
+   "decorative": 0,
+   "contrast": 0,
+   "exterior-structure": 0
+  },
+  "passes": {
+   "grafite": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 103.725,
+     "max": 115
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "cru": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 26.806,
+     "max": 35
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   },
+   "back_initial": {
+    "maskIdentical": true,
+    "body": {
+     "meanAbs": 0.0,
+     "max": 0
+    },
+    "decorative": {
+     "meanAbs": null,
+     "max": null
+    },
+    "contrast": {
+     "meanAbs": null,
+     "max": null
+    },
+    "exterior-structure": {
+     "meanAbs": null,
+     "max": null
+    }
+   }
+  },
+  "run": "mobile",
+  "fixedRegionsMaxDiff": {},
+  "backToInitialBodyMax": 0
+ }
+]

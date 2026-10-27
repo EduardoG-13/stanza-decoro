@@ -1,0 +1,66 @@
+{
+ "main": {
+  "body->body": {
+   "maxPenetration_mm": 49.98,
+   "pair": "base_band:back_panel",
+   "pairs": 32,
+   "verts_inside": 724
+  },
+  "body->pillow": {
+   "maxPenetration_mm": 2.18,
+   "pair": "seat_cushion_2:pillow_1_cover",
+   "pairs": 4,
+   "verts_inside": 1
+  },
+  "welt-on-own-cover": {
+   "maxPenetration_mm": 3.76,
+   "pair": "back_cushion_1_welt:back_cushion_1_cover",
+   "pairs": 3,
+   "verts_inside": 395
+  },
+  "welt->body": {
+   "maxPenetration_mm": 0.88,
+   "pair": "pillow_1_welt:seat_cushion_2",
+   "pairs": 6,
+   "verts_inside": 4
+  },
+  "pillow->body": {
+   "maxPenetration_mm": 1.2,
+   "pair": "pillow_1_cover:seat_cushion_2",
+   "pairs": 4,
+   "verts_inside": 7
+  }
+ },
+ "mobile": {
+  "body->body": {
+   "maxPenetration_mm": 49.97,
+   "pair": "base_band:back_panel",
+   "pairs": 32,
+   "verts_inside": 368
+  },
+  "body->pillow": {
+   "maxPenetration_mm": 0.8,
+   "pair": "back_cushion_1_cover:pillow_1_cover",
+   "pairs": 4,
+   "verts_inside": 7
+  },
+  "welt-on-own-cover": {
+   "maxPenetration_mm": 4.15,
+   "pair": "back_cushion_2_welt:back_cushion_2_cover",
+   "pairs": 3,
+   "verts_inside": 218
+  },
+  "welt->body": {
+   "maxPenetration_mm": 0.79,
+   "pair": "back_cushion_1_welt:seat_cushion_1",
+   "pairs": 6,
+   "verts_inside": 15
+  },
+  "pillow->body": {
+   "maxPenetration_mm": 1.2,
+   "pair": "pillow_1_cover:seat_cushion_2",
+   "pairs": 4,
+   "verts_inside": 4
+  }
+ }
+}

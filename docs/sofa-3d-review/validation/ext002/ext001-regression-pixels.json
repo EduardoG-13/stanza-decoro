@@ -1,0 +1,50 @@
+{
+ "main__initial__front.png": {
+  "maxAbs": 0,
+  "pixelsDiff": 0
+ },
+ "main__initial__photo.png": {
+  "maxAbs": 0,
+  "pixelsDiff": 0
+ },
+ "main__initial__threequarter.png": {
+  "maxAbs": 0,
+  "pixelsDiff": 0
+ },
+ "main__linen__front.png": {
+  "maxAbs": 0,
+  "pixelsDiff": 0
+ },
+ "main__linen__photo.png": {
+  "maxAbs": 0,
+  "pixelsDiff": 0
+ },
+ "main__linen__threequarter.png": {
+  "maxAbs": 0,
+  "pixelsDiff": 0
+ },
+ "main__oliva__front.png": {
+  "maxAbs": 0,
+  "pixelsDiff": 0
+ },
+ "main__oliva__photo.png": {
+  "maxAbs": 0,
+  "pixelsDiff": 0
+ },
+ "main__oliva__threequarter.png": {
+  "maxAbs": 0,
+  "pixelsDiff": 0
+ },
+ "mobile__initial__front.png": {
+  "maxAbs": 0,
+  "pixelsDiff": 0
+ },
+ "mobile__initial__photo.png": {
+  "maxAbs": 0,
+  "pixelsDiff": 0
+ },
+ "mobile__initial__threequarter.png": {
+  "maxAbs": 0,
+  "pixelsDiff": 0
+ }
+}

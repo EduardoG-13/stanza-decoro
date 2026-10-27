@@ -1,0 +1,440 @@
+{
+ "main": {
+  "boucle-areia": {
+   "cushion_01": [
+    117.1,
+    111.0,
+    78.7
+   ],
+   "cushion_02": [
+    193.4,
+    189.2,
+    182.7
+   ],
+   "cushion_03": [
+    186.6,
+    182.2,
+    175.6
+   ],
+   "cushion_04": [
+    186.0,
+    182.0,
+    175.9
+   ],
+   "cushion_05": [
+    109.2,
+    103.5,
+    73.2
+   ],
+   "cushionsMaxAbsDiffVsInitial": 0.0,
+   "cushionPixels99pctDiff": 0.0,
+   "wholeImageMeanAbsDiffVsInitial": 0.0
+  },
+  "boucle-oliva": {
+   "cushion_01": [
+    117.1,
+    111.0,
+    78.7
+   ],
+   "cushion_02": [
+    193.4,
+    189.2,
+    182.7
+   ],
+   "cushion_03": [
+    186.6,
+    182.2,
+    175.6
+   ],
+   "cushion_04": [
+    186.0,
+    182.0,
+    175.9
+   ],
+   "cushion_05": [
+    109.2,
+    103.5,
+    73.2
+   ],
+   "cushionsMaxAbsDiffVsInitial": 0.0,
+   "cushionPixels99pctDiff": 0.0,
+   "wholeImageMeanAbsDiffVsInitial": 29.179
+  },
+  "boucle-terracota": {
+   "cushion_01": [
+    117.1,
+    111.0,
+    78.7
+   ],
+   "cushion_02": [
+    193.4,
+    189.2,
+    182.7
+   ],
+   "cushion_03": [
+    186.6,
+    182.2,
+    175.6
+   ],
+   "cushion_04": [
+    186.0,
+    182.0,
+    175.9
+   ],
+   "cushion_05": [
+    109.2,
+    103.5,
+    73.2
+   ],
+   "cushionsMaxAbsDiffVsInitial": 0.0,
+   "cushionPixels99pctDiff": 0.0,
+   "wholeImageMeanAbsDiffVsInitial": 23.33
+  },
+  "boucle-grafite": {
+   "cushion_01": [
+    117.1,
+    111.0,
+    78.7
+   ],
+   "cushion_02": [
+    193.4,
+    189.2,
+    182.7
+   ],
+   "cushion_03": [
+    186.6,
+    182.2,
+    175.6
+   ],
+   "cushion_04": [
+    186.0,
+    182.0,
+    175.9
+   ],
+   "cushion_05": [
+    109.2,
+    103.5,
+    73.2
+   ],
+   "cushionsMaxAbsDiffVsInitial": 0.0,
+   "cushionPixels99pctDiff": 0.0,
+   "wholeImageMeanAbsDiffVsInitial": 46.689
+  },
+  "linen-oliva": {
+   "cushion_01": [
+    117.1,
+    111.0,
+    78.7
+   ],
+   "cushion_02": [
+    193.4,
+    189.2,
+    182.7
+   ],
+   "cushion_03": [
+    186.6,
+    182.2,
+    175.6
+   ],
+   "cushion_04": [
+    186.0,
+    182.0,
+    175.9
+   ],
+   "cushion_05": [
+    109.2,
+    103.5,
+    73.2
+   ],
+   "cushionsMaxAbsDiffVsInitial": 0.0,
+   "cushionPixels99pctDiff": 0.0,
+   "wholeImageMeanAbsDiffVsInitial": 29.69
+  },
+  "velvet-terracota": {
+   "cushion_01": [
+    117.1,
+    111.0,
+    78.7
+   ],
+   "cushion_02": [
+    193.4,
+    189.2,
+    182.7
+   ],
+   "cushion_03": [
+    186.6,
+    182.2,
+    175.6
+   ],
+   "cushion_04": [
+    186.0,
+    182.0,
+    175.9
+   ],
+   "cushion_05": [
+    109.2,
+    103.5,
+    73.2
+   ],
+   "cushionsMaxAbsDiffVsInitial": 0.0,
+   "cushionPixels99pctDiff": 0.0,
+   "wholeImageMeanAbsDiffVsInitial": 19.549
+  },
+  "return-boucle-areia": {
+   "cushion_01": [
+    117.1,
+    111.0,
+    78.7
+   ],
+   "cushion_02": [
+    193.4,
+    189.2,
+    182.7
+   ],
+   "cushion_03": [
+    186.6,
+    182.2,
+    175.6
+   ],
+   "cushion_04": [
+    186.0,
+    182.0,
+    175.9
+   ],
+   "cushion_05": [
+    109.2,
+    103.5,
+    73.2
+   ],
+   "cushionsMaxAbsDiffVsInitial": 0.0,
+   "cushionPixels99pctDiff": 0.0,
+   "wholeImageMeanAbsDiffVsInitial": 0.0
+  },
+  "maskPixels": {
+   "cushion_01": 16398,
+   "cushion_02": 15889,
+   "cushion_03": 24397,
+   "cushion_04": 6686,
+   "cushion_05": 10645
+  }
+ },
+ "mobile": {
+  "boucle-areia": {
+   "cushion_01": [
+    115.3,
+    109.8,
+    79.3
+   ],
+   "cushion_02": [
+    192.8,
+    188.6,
+    182.0
+   ],
+   "cushion_03": [
+    186.1,
+    181.8,
+    175.2
+   ],
+   "cushion_04": [
+    185.5,
+    181.5,
+    175.5
+   ],
+   "cushion_05": [
+    108.1,
+    103.0,
+    74.1
+   ],
+   "cushionsMaxAbsDiffVsInitial": 0.0,
+   "cushionPixels99pctDiff": 0.0,
+   "wholeImageMeanAbsDiffVsInitial": 0.0
+  },
+  "boucle-oliva": {
+   "cushion_01": [
+    115.3,
+    109.8,
+    79.3
+   ],
+   "cushion_02": [
+    192.8,
+    188.6,
+    182.0
+   ],
+   "cushion_03": [
+    186.1,
+    181.8,
+    175.2
+   ],
+   "cushion_04": [
+    185.5,
+    181.5,
+    175.5
+   ],
+   "cushion_05": [
+    108.1,
+    103.0,
+    74.1
+   ],
+   "cushionsMaxAbsDiffVsInitial": 0.0,
+   "cushionPixels99pctDiff": 0.0,
+   "wholeImageMeanAbsDiffVsInitial": 29.127
+  },
+  "boucle-terracota": {
+   "cushion_01": [
+    115.3,
+    109.8,
+    79.3
+   ],
+   "cushion_02": [
+    192.8,
+    188.6,
+    182.0
+   ],
+   "cushion_03": [
+    186.1,
+    181.8,
+    175.2
+   ],
+   "cushion_04": [
+    185.5,
+    181.5,
+    175.5
+   ],
+   "cushion_05": [
+    108.1,
+    103.0,
+    74.1
+   ],
+   "cushionsMaxAbsDiffVsInitial": 0.0,
+   "cushionPixels99pctDiff": 0.0,
+   "wholeImageMeanAbsDiffVsInitial": 23.288
+  },
+  "boucle-grafite": {
+   "cushion_01": [
+    115.3,
+    109.8,
+    79.3
+   ],
+   "cushion_02": [
+    192.8,
+    188.6,
+    182.0
+   ],
+   "cushion_03": [
+    186.1,
+    181.8,
+    175.2
+   ],
+   "cushion_04": [
+    185.5,
+    181.5,
+    175.5
+   ],
+   "cushion_05": [
+    108.1,
+    103.0,
+    74.1
+   ],
+   "cushionsMaxAbsDiffVsInitial": 0.0,
+   "cushionPixels99pctDiff": 0.0,
+   "wholeImageMeanAbsDiffVsInitial": 46.653
+  },
+  "linen-oliva": {
+   "cushion_01": [
+    115.3,
+    109.8,
+    79.3
+   ],
+   "cushion_02": [
+    192.8,
+    188.6,
+    182.0
+   ],
+   "cushion_03": [
+    186.1,
+    181.8,
+    175.2
+   ],
+   "cushion_04": [
+    185.5,
+    181.5,
+    175.5
+   ],
+   "cushion_05": [
+    108.1,
+    103.0,
+    74.1
+   ],
+   "cushionsMaxAbsDiffVsInitial": 0.0,
+   "cushionPixels99pctDiff": 0.0,
+   "wholeImageMeanAbsDiffVsInitial": 29.637
+  },
+  "velvet-terracota": {
+   "cushion_01": [
+    115.3,
+    109.8,
+    79.3
+   ],
+   "cushion_02": [
+    192.8,
+    188.6,
+    182.0
+   ],
+   "cushion_03": [
+    186.1,
+    181.8,
+    175.2
+   ],
+   "cushion_04": [
+    185.5,
+    181.5,
+    175.5
+   ],
+   "cushion_05": [
+    108.1,
+    103.0,
+    74.1
+   ],
+   "cushionsMaxAbsDiffVsInitial": 0.0,
+   "cushionPixels99pctDiff": 0.0,
+   "wholeImageMeanAbsDiffVsInitial": 19.468
+  },
+  "return-boucle-areia": {
+   "cushion_01": [
+    115.3,
+    109.8,
+    79.3
+   ],
+   "cushion_02": [
+    192.8,
+    188.6,
+    182.0
+   ],
+   "cushion_03": [
+    186.1,
+    181.8,
+    175.2
+   ],
+   "cushion_04": [
+    185.5,
+    181.5,
+    175.5
+   ],
+   "cushion_05": [
+    108.1,
+    103.0,
+    74.1
+   ],
+   "cushionsMaxAbsDiffVsInitial": 0.0,
+   "cushionPixels99pctDiff": 0.0,
+   "wholeImageMeanAbsDiffVsInitial": 0.0
+  },
+  "maskPixels": {
+   "cushion_01": 16390,
+   "cushion_02": 15871,
+   "cushion_03": 24568,
+   "cushion_04": 6719,
+   "cushion_05": 10559
+  }
+ }
+}

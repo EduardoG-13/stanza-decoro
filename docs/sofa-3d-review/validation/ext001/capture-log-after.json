@@ -1,0 +1,294 @@
+{
+ "runs": [
+  {
+   "label": "after_main",
+   "variant": "main",
+   "model": "default",
+   "ready": true,
+   "shots": [
+    "after_main__boucle-areia__photo.png",
+    "after_main__boucle-areia__photo_mask.png",
+    "after_main__boucle-areia__front.png",
+    "after_main__boucle-areia__tq_right.png",
+    "after_main__boucle-areia__tq_left.png",
+    "after_main__boucle-areia__side.png",
+    "after_main__boucle-areia__close_left.png",
+    "after_main__boucle-areia__close_mid.png",
+    "after_main__boucle-areia__close_right.png",
+    "after_main__boucle-areia__close_back.png",
+    "after_main__boucle-areia__close_low.png",
+    "after_main__boucle-areia__debug_top.png",
+    "after_main__boucle-oliva__photo.png",
+    "after_main__boucle-oliva__close_mid.png",
+    "after_main__boucle-terracota__photo.png",
+    "after_main__boucle-grafite__photo.png",
+    "after_main__boucle-grafite__close_left.png",
+    "after_main__boucle-grafite__close_mid.png",
+    "after_main__boucle-grafite__close_right.png",
+    "after_main__boucle-grafite__close_back.png",
+    "after_main__linen-oliva__photo.png",
+    "after_main__velvet-terracota__photo.png",
+    "after_main__return-boucle-areia__photo.png"
+   ],
+   "selection": {
+    "modelId": "stanza-organic-01",
+    "revision": "2.0.0",
+    "fabricId": "boucle",
+    "colorId": "areia"
+   },
+   "inspect": {
+    "revision": "2.0.0",
+    "variant": "main",
+    "bounds": [
+     2.4866939783096313,
+     1.106411795877791,
+     1.0842711329460144
+    ],
+    "renders": 27,
+    "construction": "exterior-only",
+    "meshes": [
+     "cushion_01_cover_mesh",
+     "cushion_01_cover_mesh_1",
+     "cushion_01_welt",
+     "cushion_02_cover",
+     "cushion_02_welt",
+     "cushion_03_cover",
+     "cushion_03_welt",
+     "cushion_04_cover",
+     "cushion_04_welt",
+     "cushion_05_cover_mesh",
+     "cushion_05_cover_mesh_1",
+     "cushion_05_welt",
+     "foot_1",
+     "foot_2",
+     "foot_3",
+     "foot_4",
+     "back_cover",
+     "seat_cover",
+     "seat_panel_seam"
+    ],
+    "materialRegions": [
+     {
+      "name": "cushion_olive_weave",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff"
+     },
+     {
+      "name": "cushion_olive_reverse",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff"
+     },
+     {
+      "name": "cushion_olive_seam",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff"
+     },
+     {
+      "name": "cushion_light_boucle",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff"
+     },
+     {
+      "name": "cushion_light_seam",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff"
+     },
+     {
+      "name": "legs_dark",
+      "region": "exterior-structure",
+      "stanzaFabric": false,
+      "type": "MeshStandardMaterial",
+      "color": "2d2c29"
+     },
+     {
+      "name": "fabric_main",
+      "region": "body",
+      "stanzaFabric": true,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff"
+     },
+     {
+      "name": "fabric_seam",
+      "region": "body",
+      "stanzaFabric": true,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff"
+     }
+    ],
+    "groups": {
+     "upholstery": [
+      -0.01689988374710083,
+      0,
+      -0.03974375128746033
+     ],
+     "legs": [
+      -0.01689988374710083,
+      0,
+      -0.03974375128746033
+     ],
+     "cushions": [
+      -0.01689988374710083,
+      0,
+      -0.03974375128746033
+     ]
+    }
+   },
+   "errors": []
+  },
+  {
+   "label": "after_mobile",
+   "variant": "mobile",
+   "model": "default",
+   "ready": true,
+   "shots": [
+    "after_mobile__boucle-areia__photo.png",
+    "after_mobile__boucle-areia__photo_mask.png",
+    "after_mobile__boucle-areia__front.png",
+    "after_mobile__boucle-areia__tq_right.png",
+    "after_mobile__boucle-areia__tq_left.png",
+    "after_mobile__boucle-areia__side.png",
+    "after_mobile__boucle-areia__close_left.png",
+    "after_mobile__boucle-areia__close_mid.png",
+    "after_mobile__boucle-areia__close_right.png",
+    "after_mobile__boucle-areia__close_back.png",
+    "after_mobile__boucle-areia__close_low.png",
+    "after_mobile__boucle-areia__debug_top.png",
+    "after_mobile__boucle-oliva__photo.png",
+    "after_mobile__boucle-oliva__close_mid.png",
+    "after_mobile__boucle-terracota__photo.png",
+    "after_mobile__boucle-grafite__photo.png",
+    "after_mobile__boucle-grafite__close_left.png",
+    "after_mobile__boucle-grafite__close_mid.png",
+    "after_mobile__boucle-grafite__close_right.png",
+    "after_mobile__boucle-grafite__close_back.png",
+    "after_mobile__linen-oliva__photo.png",
+    "after_mobile__velvet-terracota__photo.png",
+    "after_mobile__return-boucle-areia__photo.png"
+   ],
+   "selection": {
+    "modelId": "stanza-organic-01",
+    "revision": "2.0.0",
+    "fabricId": "boucle",
+    "colorId": "areia"
+   },
+   "inspect": {
+    "revision": "2.0.0",
+    "variant": "mobile",
+    "bounds": [
+     2.486400008201599,
+     1.106411795877791,
+     1.083982527256012
+    ],
+    "renders": 27,
+    "construction": "exterior-only",
+    "meshes": [
+     "cushion_01_cover_mesh001",
+     "cushion_01_cover_mesh001_1",
+     "cushion_01_welt",
+     "cushion_02_cover",
+     "cushion_02_welt",
+     "cushion_03_cover",
+     "cushion_03_welt",
+     "cushion_04_cover",
+     "cushion_04_welt",
+     "cushion_05_cover_mesh001",
+     "cushion_05_cover_mesh001_1",
+     "cushion_05_welt",
+     "foot_1",
+     "foot_2",
+     "foot_3",
+     "foot_4",
+     "back_cover",
+     "seat_cover",
+     "seat_panel_seam"
+    ],
+    "materialRegions": [
+     {
+      "name": "cushion_olive_weave",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff"
+     },
+     {
+      "name": "cushion_olive_reverse",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff"
+     },
+     {
+      "name": "cushion_olive_seam",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff"
+     },
+     {
+      "name": "cushion_light_boucle",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff"
+     },
+     {
+      "name": "cushion_light_seam",
+      "region": "decorative",
+      "stanzaFabric": false,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff"
+     },
+     {
+      "name": "legs_dark",
+      "region": "exterior-structure",
+      "stanzaFabric": false,
+      "type": "MeshStandardMaterial",
+      "color": "2d2c29"
+     },
+     {
+      "name": "fabric_main",
+      "region": "body",
+      "stanzaFabric": true,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff"
+     },
+     {
+      "name": "fabric_seam",
+      "region": "body",
+      "stanzaFabric": true,
+      "type": "MeshPhysicalMaterial",
+      "color": "ffffff"
+     }
+    ],
+    "groups": {
+     "upholstery": [
+      -0.016799986362457275,
+      0,
+      -0.03960874676704407
+     ],
+     "legs": [
+      -0.016799986362457275,
+      0,
+      -0.03960874676704407
+     ],
+     "cushions": [
+      -0.016799986362457275,
+      0,
+      -0.03960874676704407
+     ]
+    }
+   },
+   "errors": []
+  }
+ ]
+}

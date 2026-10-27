@@ -1,0 +1,1112 @@
+{
+ "method": "closest-point distance on single outer shells; inside = majority of 3-direction ray parity; seat_cover/back_cover measured WITHOUT the 1.5 mm solidify",
+ "units": "mm (positive = penetration depth into the other OUTER shell; signed distance < 0 inside)",
+ "variants": {
+  "main": {
+   "cushions": {
+    "cushion_01": {
+     "seat": {
+      "before": {
+       "penMm": 89.4,
+       "vertsInside": 91,
+       "weltVertsInside": 82,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 9,
+        "front-face:lower-edge": 26,
+        "front-face:left-edge": 3,
+        "rear-face:corner(lower-edge+left-edge)": 9,
+        "rear-face:lower-edge": 34,
+        "rear-face:left-edge": 6,
+        "rear-face:face": 4
+       }
+      },
+      "after": {
+       "penMm": 1.2,
+       "vertsInside": 9,
+       "weltVertsInside": 8,
+       "weltMinSignedMm": -0.7,
+       "contactAreaCm2_lt2mm": 66.7,
+       "minSignedMm": -1.2,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 1,
+        "rear-face:corner(lower-edge+left-edge)": 3,
+        "rear-face:lower-edge": 5
+       }
+      }
+     },
+     "backrestOrArm": {
+      "before": {
+       "penMm": 112.9,
+       "vertsInside": 166,
+       "weltVertsInside": 75,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)@arm": 9,
+        "front-face:lower-edge@arm": 6,
+        "front-face:left-edge@arm": 33,
+        "front-face:face@arm": 30,
+        "rear-face:corner(lower-edge+left-edge)@arm": 9,
+        "rear-face:lower-edge@arm": 1,
+        "rear-face:left-edge@arm": 41,
+        "rear-face:face@arm": 37
+       }
+      },
+      "after": {
+       "penMm": 1.2,
+       "vertsInside": 5,
+       "weltVertsInside": 0,
+       "weltMinSignedMm": 2.5,
+       "contactAreaCm2_lt2mm": 38.8,
+       "minSignedMm": -1.2,
+       "regions": {
+        "rear-face:left-edge@arm": 5
+       }
+      }
+     },
+     "worldAABB": {
+      "before": {
+       "x": [
+        -1.175,
+        -0.682
+       ],
+       "y": [
+        -0.201,
+        0.037
+       ],
+       "z": [
+        0.37,
+        0.926
+       ]
+      },
+      "after": {
+       "x": [
+        -1.031,
+        -0.602
+       ],
+       "y": [
+        -0.089,
+        0.136
+       ],
+       "z": [
+        0.474,
+        0.876
+       ]
+      }
+     }
+    },
+    "cushion_02": {
+     "seat": {
+      "before": {
+       "penMm": 88.0,
+       "vertsInside": 101,
+       "weltVertsInside": 89,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 1,
+        "front-face:lower-edge": 26,
+        "front-face:corner(lower-edge+right-edge)": 9,
+        "front-face:right-edge": 2,
+        "rear-face:corner(lower-edge+left-edge)": 2,
+        "rear-face:lower-edge": 40,
+        "rear-face:corner(lower-edge+right-edge)": 9,
+        "rear-face:face": 7,
+        "rear-face:right-edge": 5
+       }
+      },
+      "after": {
+       "penMm": 1.2,
+       "vertsInside": 3,
+       "weltVertsInside": 2,
+       "weltMinSignedMm": -0.6,
+       "contactAreaCm2_lt2mm": 13.2,
+       "minSignedMm": -1.2,
+       "regions": {
+        "front-face:corner(lower-edge+right-edge)": 1,
+        "rear-face:corner(lower-edge+right-edge)": 2
+       }
+      }
+     },
+     "backrestOrArm": {
+      "before": {
+       "penMm": 0,
+       "vertsInside": 0,
+       "weltVertsInside": 0,
+       "regions": {}
+      },
+      "after": {
+       "penMm": 1.7,
+       "vertsInside": 36,
+       "weltVertsInside": 0,
+       "weltMinSignedMm": 40.8,
+       "contactAreaCm2_lt2mm": 220.4,
+       "minSignedMm": -1.2,
+       "regions": {
+        "rear-face:face@backrest": 36
+       }
+      }
+     },
+     "worldAABB": {
+      "before": {
+       "x": [
+        -0.836,
+        -0.362
+       ],
+       "y": [
+        -0.288,
+        -0.023
+       ],
+       "z": [
+        0.376,
+        0.926
+       ]
+      },
+      "after": {
+       "x": [
+        -0.74,
+        -0.294
+       ],
+       "y": [
+        0.09,
+        0.297
+       ],
+       "z": [
+        0.478,
+        0.953
+       ]
+      }
+     }
+    },
+    "cushion_03": {
+     "seat": {
+      "before": {
+       "penMm": 67.0,
+       "vertsInside": 69,
+       "weltVertsInside": 77,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 8,
+        "front-face:lower-edge": 19,
+        "rear-face:corner(lower-edge+left-edge)": 9,
+        "rear-face:lower-edge": 33
+       }
+      },
+      "after": {
+       "penMm": 1.2,
+       "vertsInside": 4,
+       "weltVertsInside": 3,
+       "weltMinSignedMm": -0.7,
+       "contactAreaCm2_lt2mm": 31.2,
+       "minSignedMm": -1.2,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 1,
+        "rear-face:corner(lower-edge+left-edge)": 3
+       }
+      }
+     },
+     "backrestOrArm": {
+      "before": {
+       "penMm": 0,
+       "vertsInside": 0,
+       "weltVertsInside": 0,
+       "regions": {}
+      },
+      "after": {
+       "penMm": 0,
+       "vertsInside": 0,
+       "weltVertsInside": 0,
+       "weltMinSignedMm": 139.9,
+       "contactAreaCm2_lt2mm": 0.0,
+       "minSignedMm": 91.7,
+       "regions": {}
+      }
+     },
+     "worldAABB": {
+      "before": {
+       "x": [
+        -0.508,
+        0.004
+       ],
+       "y": [
+        -0.191,
+        0.07
+       ],
+       "z": [
+        0.398,
+        1.006
+       ]
+      },
+      "after": {
+       "x": [
+        -0.409,
+        0.055
+       ],
+       "y": [
+        -0.004,
+        0.209
+       ],
+       "z": [
+        0.478,
+        0.966
+       ]
+      }
+     }
+    },
+    "cushion_04": {
+     "seat": {
+      "before": {
+       "penMm": 73.3,
+       "vertsInside": 71,
+       "weltVertsInside": 71,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 9,
+        "front-face:lower-edge": 17,
+        "front-face:left-edge": 1,
+        "rear-face:corner(lower-edge+left-edge)": 9,
+        "rear-face:lower-edge": 29,
+        "rear-face:left-edge": 3,
+        "rear-face:face": 3
+       }
+      },
+      "after": {
+       "penMm": 1.3,
+       "vertsInside": 3,
+       "weltVertsInside": 2,
+       "weltMinSignedMm": -0.6,
+       "contactAreaCm2_lt2mm": 14.1,
+       "minSignedMm": -1.3,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 1,
+        "rear-face:corner(lower-edge+left-edge)": 2
+       }
+      }
+     },
+     "backrestOrArm": {
+      "before": {
+       "penMm": 0,
+       "vertsInside": 0,
+       "weltVertsInside": 0,
+       "regions": {}
+      },
+      "after": {
+       "penMm": 1.4,
+       "vertsInside": 43,
+       "weltVertsInside": 0,
+       "weltMinSignedMm": 45.8,
+       "contactAreaCm2_lt2mm": 200.2,
+       "minSignedMm": -1.2,
+       "regions": {
+        "rear-face:face@backrest": 43
+       }
+      }
+     },
+     "worldAABB": {
+      "before": {
+       "x": [
+        -0.108,
+        0.378
+       ],
+       "y": [
+        -0.201,
+        0.044
+       ],
+       "z": [
+        0.392,
+        0.932
+       ]
+      },
+      "after": {
+       "x": [
+        -0.058,
+        0.364
+       ],
+       "y": [
+        0.116,
+        0.31
+       ],
+       "z": [
+        0.479,
+        0.912
+       ]
+      }
+     }
+    },
+    "cushion_05": {
+     "seat": {
+      "before": {
+       "penMm": 86.1,
+       "vertsInside": 82,
+       "weltVertsInside": 66,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 9,
+        "front-face:lower-edge": 14,
+        "front-face:left-edge": 6,
+        "rear-face:corner(lower-edge+left-edge)": 9,
+        "rear-face:lower-edge": 25,
+        "rear-face:left-edge": 10,
+        "rear-face:face": 9
+       }
+      },
+      "after": {
+       "penMm": 1.4,
+       "vertsInside": 3,
+       "weltVertsInside": 2,
+       "weltMinSignedMm": -0.8,
+       "contactAreaCm2_lt2mm": 6.5,
+       "minSignedMm": -1.4,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 1,
+        "rear-face:corner(lower-edge+left-edge)": 2
+       }
+      }
+     },
+     "backrestOrArm": {
+      "before": {
+       "penMm": 0,
+       "vertsInside": 0,
+       "weltVertsInside": 0,
+       "regions": {}
+      },
+      "after": {
+       "penMm": 0,
+       "vertsInside": 0,
+       "weltVertsInside": 0,
+       "weltMinSignedMm": 152.8,
+       "contactAreaCm2_lt2mm": 0.0,
+       "minSignedMm": 123.2,
+       "regions": {}
+      }
+     },
+     "worldAABB": {
+      "before": {
+       "x": [
+        0.217,
+        0.673
+       ],
+       "y": [
+        -0.336,
+        -0.057
+       ],
+       "z": [
+        0.377,
+        0.869
+       ]
+      },
+      "after": {
+       "x": [
+        0.242,
+        0.625
+       ],
+       "y": [
+        -0.024,
+        0.172
+       ],
+       "z": [
+        0.48,
+        0.87
+       ]
+      }
+     }
+    }
+   },
+   "pairs": {
+    "01-02": {
+     "before": {
+      "penMm": 47.1,
+      "vertsInside": 107,
+      "weltVertsInside": 25,
+      "regionsA": {
+       "front-face:corner(lower-edge+right-edge)": 7,
+       "front-face:lower-edge": 5,
+       "front-face:face": 12,
+       "front-face:right-edge": 27
+      },
+      "regionsB": {
+       "rear-face:left-edge": 29,
+       "rear-face:face": 27
+      }
+     },
+     "after": {
+      "penMm": 1.9,
+      "minSignedMm": -0.8,
+      "vertsInside": 18,
+      "weltVertsInside": 0,
+      "contactAreaCm2_lt2mm": 81.5,
+      "regionsA": {
+       "rear-face:right-edge": 9,
+       "rear-face:face": 1
+      },
+      "regionsB": {
+       "front-face:face": 4,
+       "front-face:left-edge": 4
+      }
+     }
+    },
+    "02-03": {
+     "before": {
+      "penMm": 62.8,
+      "vertsInside": 105,
+      "weltVertsInside": 59,
+      "regionsA": {
+       "front-face:right-edge": 8,
+       "front-face:corner(upper-edge+right-edge)": 7,
+       "front-face:upper-edge": 1,
+       "rear-face:right-edge": 25,
+       "rear-face:face": 10,
+       "rear-face:upper-edge": 8,
+       "rear-face:corner(upper-edge+right-edge)": 9
+      },
+      "regionsB": {
+       "front-face:left-edge": 22,
+       "front-face:face": 15
+      }
+     },
+     "after": {
+      "penMm": 1.2,
+      "minSignedMm": -1.2,
+      "vertsInside": 15,
+      "weltVertsInside": 0,
+      "contactAreaCm2_lt2mm": 61.5,
+      "regionsA": {
+       "front-face:right-edge": 4,
+       "front-face:face": 2
+      },
+      "regionsB": {
+       "rear-face:left-edge": 9
+      }
+     }
+    },
+    "03-04": {
+     "before": {
+      "penMm": 46.4,
+      "vertsInside": 84,
+      "weltVertsInside": 120,
+      "regionsA": {
+       "front-face:corner(lower-edge+right-edge)": 1,
+       "front-face:right-edge": 11,
+       "rear-face:corner(lower-edge+right-edge)": 2,
+       "rear-face:right-edge": 21
+      },
+      "regionsB": {
+       "front-face:left-edge": 21,
+       "front-face:corner(upper-edge+left-edge)": 9,
+       "front-face:upper-edge": 1,
+       "rear-face:left-edge": 11,
+       "rear-face:corner(upper-edge+left-edge)": 7
+      }
+     },
+     "after": {
+      "penMm": 0,
+      "minSignedMm": 29.1,
+      "vertsInside": 0,
+      "weltVertsInside": 0,
+      "contactAreaCm2_lt2mm": 0.0,
+      "regionsA": {},
+      "regionsB": {}
+     }
+    },
+    "04-05": {
+     "before": {
+      "penMm": 72.2,
+      "vertsInside": 123,
+      "weltVertsInside": 69,
+      "regionsA": {
+       "front-face:lower-edge": 4,
+       "front-face:corner(lower-edge+right-edge)": 4,
+       "front-face:face": 13,
+       "front-face:right-edge": 20
+      },
+      "regionsB": {
+       "front-face:left-edge": 13,
+       "front-face:corner(upper-edge+left-edge)": 9,
+       "front-face:upper-edge": 3,
+       "rear-face:left-edge": 26,
+       "rear-face:face": 15,
+       "rear-face:corner(upper-edge+left-edge)": 9,
+       "rear-face:upper-edge": 7
+      }
+     },
+     "after": {
+      "penMm": 1.2,
+      "minSignedMm": -1.2,
+      "vertsInside": 18,
+      "weltVertsInside": 0,
+      "contactAreaCm2_lt2mm": 45.0,
+      "regionsA": {
+       "front-face:face": 5,
+       "front-face:right-edge": 2
+      },
+      "regionsB": {
+       "rear-face:left-edge": 6,
+       "rear-face:corner(upper-edge+left-edge)": 5
+      }
+     }
+    }
+   },
+   "I4_replication_before": {
+    "cushion_01": {
+     "I4StyleInsideVerts": 1,
+     "correctInsideVerts": 91
+    },
+    "cushion_02": {
+     "I4StyleInsideVerts": 2,
+     "correctInsideVerts": 101
+    },
+    "cushion_03": {
+     "I4StyleInsideVerts": 4,
+     "correctInsideVerts": 69
+    },
+    "cushion_04": {
+     "I4StyleInsideVerts": 4,
+     "correctInsideVerts": 71
+    },
+    "cushion_05": {
+     "I4StyleInsideVerts": 2,
+     "correctInsideVerts": 82
+    }
+   }
+  },
+  "mobile": {
+   "cushions": {
+    "cushion_01": {
+     "seat": {
+      "before": {
+       "penMm": 89.6,
+       "vertsInside": 39,
+       "weltVertsInside": 49,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 4,
+        "front-face:lower-edge": 11,
+        "front-face:left-edge": 1,
+        "rear-face:corner(lower-edge+left-edge)": 4,
+        "rear-face:lower-edge": 15,
+        "rear-face:left-edge": 2,
+        "rear-face:face": 2
+       }
+      },
+      "after": {
+       "penMm": 1.2,
+       "vertsInside": 6,
+       "weltVertsInside": 4,
+       "weltMinSignedMm": -0.7,
+       "contactAreaCm2_lt2mm": 70.6,
+       "minSignedMm": -1.2,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 1,
+        "rear-face:corner(lower-edge+left-edge)": 2,
+        "rear-face:lower-edge": 3
+       }
+      }
+     },
+     "backrestOrArm": {
+      "before": {
+       "penMm": 111.5,
+       "vertsInside": 63,
+       "weltVertsInside": 41,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)@arm": 4,
+        "front-face:lower-edge@arm": 3,
+        "front-face:left-edge@arm": 13,
+        "front-face:face@arm": 10,
+        "rear-face:corner(lower-edge+left-edge)@arm": 4,
+        "rear-face:left-edge@arm": 16,
+        "rear-face:face@arm": 13
+       }
+      },
+      "after": {
+       "penMm": 0,
+       "vertsInside": 0,
+       "weltVertsInside": 0,
+       "weltMinSignedMm": 3.3,
+       "contactAreaCm2_lt2mm": 24.6,
+       "minSignedMm": 0.5,
+       "regions": {}
+      }
+     },
+     "worldAABB": {
+      "before": {
+       "x": [
+        -1.175,
+        -0.682
+       ],
+       "y": [
+        -0.201,
+        0.037
+       ],
+       "z": [
+        0.37,
+        0.926
+       ]
+      },
+      "after": {
+       "x": [
+        -1.031,
+        -0.602
+       ],
+       "y": [
+        -0.089,
+        0.136
+       ],
+       "z": [
+        0.474,
+        0.876
+       ]
+      }
+     }
+    },
+    "cushion_02": {
+     "seat": {
+      "before": {
+       "penMm": 88.1,
+       "vertsInside": 44,
+       "weltVertsInside": 56,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 1,
+        "front-face:lower-edge": 12,
+        "front-face:corner(lower-edge+right-edge)": 4,
+        "front-face:right-edge": 1,
+        "rear-face:corner(lower-edge+left-edge)": 1,
+        "rear-face:lower-edge": 16,
+        "rear-face:corner(lower-edge+right-edge)": 4,
+        "rear-face:face": 3,
+        "rear-face:right-edge": 2
+       }
+      },
+      "after": {
+       "penMm": 1.2,
+       "vertsInside": 1,
+       "weltVertsInside": 1,
+       "weltMinSignedMm": -0.4,
+       "contactAreaCm2_lt2mm": 21.5,
+       "minSignedMm": -1.2,
+       "regions": {
+        "rear-face:corner(lower-edge+right-edge)": 1
+       }
+      }
+     },
+     "backrestOrArm": {
+      "before": {
+       "penMm": 0,
+       "vertsInside": 0,
+       "weltVertsInside": 0,
+       "regions": {}
+      },
+      "after": {
+       "penMm": 2.1,
+       "vertsInside": 12,
+       "weltVertsInside": 0,
+       "weltMinSignedMm": 40.4,
+       "contactAreaCm2_lt2mm": 219.9,
+       "minSignedMm": -1.2,
+       "regions": {
+        "rear-face:face@backrest": 12
+       }
+      }
+     },
+     "worldAABB": {
+      "before": {
+       "x": [
+        -0.836,
+        -0.362
+       ],
+       "y": [
+        -0.288,
+        -0.024
+       ],
+       "z": [
+        0.376,
+        0.926
+       ]
+      },
+      "after": {
+       "x": [
+        -0.74,
+        -0.294
+       ],
+       "y": [
+        0.09,
+        0.297
+       ],
+       "z": [
+        0.478,
+        0.953
+       ]
+      }
+     }
+    },
+    "cushion_03": {
+     "seat": {
+      "before": {
+       "penMm": 67.0,
+       "vertsInside": 30,
+       "weltVertsInside": 47,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 4,
+        "front-face:lower-edge": 8,
+        "rear-face:corner(lower-edge+left-edge)": 4,
+        "rear-face:lower-edge": 14
+       }
+      },
+      "after": {
+       "penMm": 1.2,
+       "vertsInside": 3,
+       "weltVertsInside": 2,
+       "weltMinSignedMm": -0.7,
+       "contactAreaCm2_lt2mm": 45.0,
+       "minSignedMm": -1.2,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 1,
+        "rear-face:corner(lower-edge+left-edge)": 2
+       }
+      }
+     },
+     "backrestOrArm": {
+      "before": {
+       "penMm": 0,
+       "vertsInside": 0,
+       "weltVertsInside": 0,
+       "regions": {}
+      },
+      "after": {
+       "penMm": 0,
+       "vertsInside": 0,
+       "weltVertsInside": 0,
+       "weltMinSignedMm": 139.6,
+       "contactAreaCm2_lt2mm": 0.0,
+       "minSignedMm": 91.6,
+       "regions": {}
+      }
+     },
+     "worldAABB": {
+      "before": {
+       "x": [
+        -0.508,
+        0.004
+       ],
+       "y": [
+        -0.191,
+        0.068
+       ],
+       "z": [
+        0.398,
+        1.006
+       ]
+      },
+      "after": {
+       "x": [
+        -0.409,
+        0.055
+       ],
+       "y": [
+        -0.004,
+        0.208
+       ],
+       "z": [
+        0.478,
+        0.966
+       ]
+      }
+     }
+    },
+    "cushion_04": {
+     "seat": {
+      "before": {
+       "penMm": 73.3,
+       "vertsInside": 31,
+       "weltVertsInside": 43,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 4,
+        "front-face:lower-edge": 8,
+        "rear-face:corner(lower-edge+left-edge)": 4,
+        "rear-face:lower-edge": 12,
+        "rear-face:left-edge": 2,
+        "rear-face:face": 1
+       }
+      },
+      "after": {
+       "penMm": 1.3,
+       "vertsInside": 1,
+       "weltVertsInside": 1,
+       "weltMinSignedMm": -0.6,
+       "contactAreaCm2_lt2mm": 18.5,
+       "minSignedMm": -1.3,
+       "regions": {
+        "rear-face:corner(lower-edge+left-edge)": 1
+       }
+      }
+     },
+     "backrestOrArm": {
+      "before": {
+       "penMm": 0,
+       "vertsInside": 0,
+       "weltVertsInside": 0,
+       "regions": {}
+      },
+      "after": {
+       "penMm": 1.7,
+       "vertsInside": 13,
+       "weltVertsInside": 0,
+       "weltMinSignedMm": 45.9,
+       "contactAreaCm2_lt2mm": 201.3,
+       "minSignedMm": -1.2,
+       "regions": {
+        "rear-face:face@backrest": 13
+       }
+      }
+     },
+     "worldAABB": {
+      "before": {
+       "x": [
+        -0.108,
+        0.378
+       ],
+       "y": [
+        -0.201,
+        0.043
+       ],
+       "z": [
+        0.392,
+        0.932
+       ]
+      },
+      "after": {
+       "x": [
+        -0.058,
+        0.364
+       ],
+       "y": [
+        0.116,
+        0.31
+       ],
+       "z": [
+        0.479,
+        0.912
+       ]
+      }
+     }
+    },
+    "cushion_05": {
+     "seat": {
+      "before": {
+       "penMm": 86.2,
+       "vertsInside": 36,
+       "weltVertsInside": 40,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 4,
+        "front-face:lower-edge": 7,
+        "front-face:left-edge": 3,
+        "rear-face:corner(lower-edge+left-edge)": 4,
+        "rear-face:lower-edge": 10,
+        "rear-face:left-edge": 4,
+        "rear-face:face": 4
+       }
+      },
+      "after": {
+       "penMm": 1.5,
+       "vertsInside": 2,
+       "weltVertsInside": 1,
+       "weltMinSignedMm": -0.9,
+       "contactAreaCm2_lt2mm": 8.7,
+       "minSignedMm": -1.5,
+       "regions": {
+        "front-face:corner(lower-edge+left-edge)": 1,
+        "rear-face:corner(lower-edge+left-edge)": 1
+       }
+      }
+     },
+     "backrestOrArm": {
+      "before": {
+       "penMm": 0,
+       "vertsInside": 0,
+       "weltVertsInside": 0,
+       "regions": {}
+      },
+      "after": {
+       "penMm": 0,
+       "vertsInside": 0,
+       "weltVertsInside": 0,
+       "weltMinSignedMm": 153.4,
+       "contactAreaCm2_lt2mm": 0.0,
+       "minSignedMm": 123.9,
+       "regions": {}
+      }
+     },
+     "worldAABB": {
+      "before": {
+       "x": [
+        0.217,
+        0.674
+       ],
+       "y": [
+        -0.336,
+        -0.06
+       ],
+       "z": [
+        0.377,
+        0.869
+       ]
+      },
+      "after": {
+       "x": [
+        0.242,
+        0.625
+       ],
+       "y": [
+        -0.024,
+        0.172
+       ],
+       "z": [
+        0.48,
+        0.87
+       ]
+      }
+     }
+    }
+   },
+   "pairs": {
+    "01-02": {
+     "before": {
+      "penMm": 46.5,
+      "vertsInside": 40,
+      "weltVertsInside": 12,
+      "regionsA": {
+       "front-face:corner(lower-edge+right-edge)": 3,
+       "front-face:lower-edge": 2,
+       "front-face:face": 4,
+       "front-face:right-edge": 11
+      },
+      "regionsB": {
+       "rear-face:left-edge": 11,
+       "rear-face:face": 9
+      }
+     },
+     "after": {
+      "penMm": 0.9,
+      "minSignedMm": -0.9,
+      "vertsInside": 4,
+      "weltVertsInside": 0,
+      "contactAreaCm2_lt2mm": 41.3,
+      "regionsA": {
+       "rear-face:right-edge": 3
+      },
+      "regionsB": {
+       "front-face:face": 1
+      }
+     }
+    },
+    "02-03": {
+     "before": {
+      "penMm": 55.1,
+      "vertsInside": 39,
+      "weltVertsInside": 36,
+      "regionsA": {
+       "front-face:right-edge": 4,
+       "front-face:corner(upper-edge+right-edge)": 3,
+       "front-face:upper-edge": 1,
+       "rear-face:right-edge": 10,
+       "rear-face:face": 4,
+       "rear-face:upper-edge": 3,
+       "rear-face:corner(upper-edge+right-edge)": 4
+      },
+      "regionsB": {
+       "front-face:left-edge": 6,
+       "front-face:face": 4
+      }
+     },
+     "after": {
+      "penMm": 0.8,
+      "minSignedMm": 0.2,
+      "vertsInside": 2,
+      "weltVertsInside": 0,
+      "contactAreaCm2_lt2mm": 49.8,
+      "regionsA": {},
+      "regionsB": {
+       "rear-face:left-edge": 2
+      }
+     }
+    },
+    "03-04": {
+     "before": {
+      "penMm": 44.0,
+      "vertsInside": 36,
+      "weltVertsInside": 72,
+      "regionsA": {
+       "front-face:right-edge": 6,
+       "rear-face:corner(lower-edge+right-edge)": 1,
+       "rear-face:right-edge": 7
+      },
+      "regionsB": {
+       "front-face:left-edge": 9,
+       "front-face:corner(upper-edge+left-edge)": 4,
+       "rear-face:left-edge": 6,
+       "rear-face:corner(upper-edge+left-edge)": 3
+      }
+     },
+     "after": {
+      "penMm": 0,
+      "minSignedMm": 31.4,
+      "vertsInside": 0,
+      "weltVertsInside": 0,
+      "contactAreaCm2_lt2mm": 0.0,
+      "regionsA": {},
+      "regionsB": {}
+     }
+    },
+    "04-05": {
+     "before": {
+      "penMm": 71.9,
+      "vertsInside": 46,
+      "weltVertsInside": 39,
+      "regionsA": {
+       "front-face:lower-edge": 1,
+       "front-face:corner(lower-edge+right-edge)": 1,
+       "front-face:face": 4,
+       "front-face:right-edge": 7
+      },
+      "regionsB": {
+       "front-face:left-edge": 6,
+       "front-face:corner(upper-edge+left-edge)": 4,
+       "front-face:upper-edge": 1,
+       "rear-face:left-edge": 11,
+       "rear-face:face": 5,
+       "rear-face:corner(upper-edge+left-edge)": 4,
+       "rear-face:upper-edge": 2
+      }
+     },
+     "after": {
+      "penMm": 1.8,
+      "minSignedMm": -1.8,
+      "vertsInside": 7,
+      "weltVertsInside": 0,
+      "contactAreaCm2_lt2mm": 43.3,
+      "regionsA": {
+       "front-face:face": 2
+      },
+      "regionsB": {
+       "rear-face:left-edge": 3,
+       "rear-face:corner(upper-edge+left-edge)": 2
+      }
+     }
+    }
+   },
+   "I4_replication_before": {
+    "cushion_01": {
+     "I4StyleInsideVerts": 1,
+     "correctInsideVerts": 39
+    },
+    "cushion_02": {
+     "I4StyleInsideVerts": 2,
+     "correctInsideVerts": 44
+    },
+    "cushion_03": {
+     "I4StyleInsideVerts": 0,
+     "correctInsideVerts": 30
+    },
+    "cushion_04": {
+     "I4StyleInsideVerts": 1,
+     "correctInsideVerts": 31
+    },
+    "cushion_05": {
+     "I4StyleInsideVerts": 4,
+     "correctInsideVerts": 36
+    }
+   }
+  }
+ }
+}

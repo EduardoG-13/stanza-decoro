@@ -1,0 +1,330 @@
+{
+ "glb": "assets/models-3d/stanza-piped-01/models/stanza-piped-01.glb",
+ "pairs": {
+  "arm_l:back_cushion_1_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 5.57
+  },
+  "arm_l:back_panel": {
+   "penetration_mm": 15.22,
+   "verts_inside": 85,
+   "gap_mm": 0.11
+  },
+  "arm_l:base_band": {
+   "penetration_mm": 15.85,
+   "verts_inside": 141,
+   "gap_mm": 0.0
+  },
+  "arm_l:seat_cushion_1": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 4.84
+  },
+  "arm_l_front_welt:arm_l": {
+   "penetration_mm": 2.69,
+   "verts_inside": 318,
+   "gap_mm": 0.0
+  },
+  "arm_l_front_welt:base_band": {
+   "penetration_mm": 0.49,
+   "verts_inside": 9,
+   "gap_mm": 0.02
+  },
+  "arm_l_front_welt:seat_cushion_1": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 13.37
+  },
+  "arm_r:back_cushion_2_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 5.9
+  },
+  "arm_r:back_panel": {
+   "penetration_mm": 15.56,
+   "verts_inside": 90,
+   "gap_mm": 0.04
+  },
+  "arm_r:base_band": {
+   "penetration_mm": 16.03,
+   "verts_inside": 145,
+   "gap_mm": 0.1
+  },
+  "arm_r:seat_cushion_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 4.7
+  },
+  "arm_r_front_welt:arm_r": {
+   "penetration_mm": 2.52,
+   "verts_inside": 310,
+   "gap_mm": 0.01
+  },
+  "arm_r_front_welt:base_band": {
+   "penetration_mm": 0.5,
+   "verts_inside": 12,
+   "gap_mm": 0.08
+  },
+  "arm_r_front_welt:seat_cushion_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 11.71
+  },
+  "back_cushion_1_cover:arm_l": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 3.54
+  },
+  "back_cushion_1_cover:back_cushion_2_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 2.41
+  },
+  "back_cushion_1_cover:back_panel": {
+   "penetration_mm": 3.0,
+   "verts_inside": 11,
+   "gap_mm": 1.5
+  },
+  "back_cushion_1_cover:seat_cushion_1": {
+   "penetration_mm": 2.96,
+   "verts_inside": 16,
+   "gap_mm": 0.24
+  },
+  "back_cushion_1_cover:seat_cushion_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 38.92
+  },
+  "back_cushion_1_welt_ny:back_cushion_1_cover": {
+   "penetration_mm": 4.67,
+   "verts_inside": 441,
+   "gap_mm": 0.0
+  },
+  "back_cushion_1_welt_py:back_cushion_1_cover": {
+   "penetration_mm": 4.95,
+   "verts_inside": 433,
+   "gap_mm": 0.01
+  },
+  "back_cushion_1_welt_py:back_panel": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 17.66
+  },
+  "back_cushion_1_welt_py:seat_cushion_1": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.24
+  },
+  "back_cushion_2_cover:arm_r": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 3.61
+  },
+  "back_cushion_2_cover:back_cushion_1_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 2.41
+  },
+  "back_cushion_2_cover:back_panel": {
+   "penetration_mm": 3.0,
+   "verts_inside": 11,
+   "gap_mm": 0.65
+  },
+  "back_cushion_2_cover:seat_cushion_1": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 42.26
+  },
+  "back_cushion_2_cover:seat_cushion_2": {
+   "penetration_mm": 2.86,
+   "verts_inside": 20,
+   "gap_mm": 0.02
+  },
+  "back_cushion_2_welt_ny:back_cushion_2_cover": {
+   "penetration_mm": 4.96,
+   "verts_inside": 427,
+   "gap_mm": 0.01
+  },
+  "back_cushion_2_welt_py:back_cushion_2_cover": {
+   "penetration_mm": 4.86,
+   "verts_inside": 439,
+   "gap_mm": 0.01
+  },
+  "back_cushion_2_welt_py:back_panel": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 18.76
+  },
+  "back_cushion_2_welt_py:seat_cushion_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.8
+  },
+  "back_panel:arm_l": {
+   "penetration_mm": 16.37,
+   "verts_inside": 138,
+   "gap_mm": 0.2
+  },
+  "back_panel:arm_r": {
+   "penetration_mm": 16.41,
+   "verts_inside": 131,
+   "gap_mm": 0.59
+  },
+  "back_panel:back_cushion_1_cover": {
+   "penetration_mm": 3.94,
+   "verts_inside": 24,
+   "gap_mm": 0.01
+  },
+  "back_panel:back_cushion_2_cover": {
+   "penetration_mm": 3.79,
+   "verts_inside": 22,
+   "gap_mm": 0.03
+  },
+  "back_panel:base_band": {
+   "penetration_mm": 35.51,
+   "verts_inside": 449,
+   "gap_mm": 0.56
+  },
+  "back_panel:seat_cushion_1": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 4.7
+  },
+  "back_panel:seat_cushion_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 4.72
+  },
+  "base_band:arm_l": {
+   "penetration_mm": 15.57,
+   "verts_inside": 293,
+   "gap_mm": 0.03
+  },
+  "base_band:arm_r": {
+   "penetration_mm": 15.68,
+   "verts_inside": 297,
+   "gap_mm": 0.08
+  },
+  "base_band:back_panel": {
+   "penetration_mm": 49.94,
+   "verts_inside": 789,
+   "gap_mm": 0.1
+  },
+  "base_band:seat_cushion_1": {
+   "penetration_mm": 1.11,
+   "verts_inside": 7,
+   "gap_mm": 0.01
+  },
+  "base_band:seat_cushion_2": {
+   "penetration_mm": 0.75,
+   "verts_inside": 10,
+   "gap_mm": 0.02
+  },
+  "seat_cushion_1:arm_l": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 4.0
+  },
+  "seat_cushion_1:back_cushion_1_cover": {
+   "penetration_mm": 0.07,
+   "verts_inside": 1,
+   "gap_mm": 0.12
+  },
+  "seat_cushion_1:back_cushion_2_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 45.78
+  },
+  "seat_cushion_1:back_panel": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 2.31
+  },
+  "seat_cushion_1:base_band": {
+   "penetration_mm": 1.5,
+   "verts_inside": 23,
+   "gap_mm": 0.01
+  },
+  "seat_cushion_1:seat_cushion_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.98
+  },
+  "seat_cushion_1_welt_bottom:base_band": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 6.96
+  },
+  "seat_cushion_1_welt_bottom:seat_cushion_1": {
+   "penetration_mm": 4.23,
+   "verts_inside": 370,
+   "gap_mm": 0.0
+  },
+  "seat_cushion_1_welt_top:back_cushion_1_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 24.13
+  },
+  "seat_cushion_1_welt_top:seat_cushion_1": {
+   "penetration_mm": 4.38,
+   "verts_inside": 289,
+   "gap_mm": 0.0
+  },
+  "seat_cushion_2:arm_r": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 4.0
+  },
+  "seat_cushion_2:back_cushion_1_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 45.2
+  },
+  "seat_cushion_2:back_cushion_2_cover": {
+   "penetration_mm": 0.08,
+   "verts_inside": 1,
+   "gap_mm": 0.11
+  },
+  "seat_cushion_2:back_panel": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 3.12
+  },
+  "seat_cushion_2:base_band": {
+   "penetration_mm": 1.44,
+   "verts_inside": 21,
+   "gap_mm": 0.05
+  },
+  "seat_cushion_2:seat_cushion_1": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.99
+  },
+  "seat_cushion_2_welt_bottom:base_band": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 6.75
+  },
+  "seat_cushion_2_welt_bottom:seat_cushion_2": {
+   "penetration_mm": 3.99,
+   "verts_inside": 366,
+   "gap_mm": 0.02
+  },
+  "seat_cushion_2_welt_top:back_cushion_1_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 40.56
+  },
+  "seat_cushion_2_welt_top:back_cushion_2_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 24.54
+  },
+  "seat_cushion_2_welt_top:seat_cushion_2": {
+   "penetration_mm": 3.93,
+   "verts_inside": 294,
+   "gap_mm": 0.01
+  }
+ }
+}

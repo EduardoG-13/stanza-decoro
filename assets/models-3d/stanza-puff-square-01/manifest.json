@@ -1,0 +1,286 @@
+{
+  "contract": "stanza-model-3d/v1",
+  "modelId": "stanza-puff-square-01",
+  "revision": "1.0.0",
+  "queue": "EXT-030",
+  "title": "Puff quadrado",
+  "relation": {
+    "catalogId": "puff-quadrado",
+    "catalogName": "Puff quadrado",
+    "portfolioId": "projeto-14",
+    "portfolioTitle": "Puffs para uma sala de TV",
+    "note": "pufs/pufs-10.jpg é a referência (source) do item de catálogo puff-quadrado e do portfólio projeto-14. Modela-se UM puff solto (o amarelo do centro, em primeiro plano); os demais puffs, o banco com nichos, TV, quadros, piso e sala não são modelados. IDs existentes preservados; nenhuma entrada nova. A home continua sem o 3D da coleção."
+  },
+  "references": [
+    {
+      "path": "pufs/pufs-10.jpg",
+      "size": [
+        1024,
+        683
+      ],
+      "angle": "frente levemente pela direita, câmera em pé (~1,3 m) a ~3 m, luz quente",
+      "use": "forma, proporções, cor e acabamento"
+    }
+  ],
+  "status": "technical-validated-visual-review-pending",
+  "construction": "exterior-only",
+  "mounting": "solto, apoiado direto no piso (sem pés nem base visíveis)",
+  "units": "m",
+  "axes": {
+    "width": "+X",
+    "up": "+Y",
+    "front": "+Z",
+    "origin": "piso, centro do puff"
+  },
+  "estimatedScale": {
+    "method": "contorno do puff na foto ~1:1 (largura × altura aparente) e razão topo/frente ~0,5 na coluna central, compatíveis com altura ≈ 0,9 × largura vista a ~26° de elevação; escala fixada por um puff estofado típico de 0,45 m (sem medida de oficina).",
+    "values": {
+      "width": 0.45,
+      "depth": 0.45,
+      "height": 0.4,
+      "edgeRadius": 0.085,
+      "topCrown": 0.018,
+      "sideCrown": 0.01
+    },
+    "weak": [
+      "escala inteira (premissa de 0,45 m)",
+      "profundidade = largura (planta quadrada assumida)"
+    ]
+  },
+  "components": [
+    {
+      "name": "capa estofada inteira (cubo de arestas muito macias, faces levemente abauladas, base plana no piso)",
+      "meshes": [
+        "puff_cover"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "costura discreta de fechamento no topo (mesmo tecido)",
+      "meshes": [
+        "puff_seam_top"
+      ],
+      "group": "upholstery"
+    }
+  ],
+  "materialRegions": {
+    "table": [
+      {
+        "mesh": "puff_cover",
+        "material": "fabric_main",
+        "region": "body"
+      },
+      {
+        "mesh": "puff_seam_top",
+        "material": "fabric_seam",
+        "region": "body"
+      }
+    ],
+    "decorative": [],
+    "contrast": [],
+    "exterior-structure": [],
+    "note": "Peça inteira de um só tecido; sem pés, base, vivo de outra cor ou almofadas: nenhuma região fixa foi inventada. Grupos legs/cushions existem vazios (contrato do visualizador)."
+  },
+  "options": {
+    "appliesTo": "body",
+    "fabrics": [
+      "sarja",
+      "linen",
+      "velvet",
+      "boucle"
+    ],
+    "colors": [
+      "mostarda",
+      "cinza-malva",
+      "grafite",
+      "gelo",
+      "areia",
+      "terracota"
+    ],
+    "default": {
+      "fabricId": "sarja",
+      "colorId": "mostarda"
+    },
+    "embedded": {
+      "fabricId": "sarja",
+      "colorId": "mostarda"
+    },
+    "note": "Tecido liso fosco de trama fechada → família sarja existente (biblioteca). mostarda (#e2aa18) é cor nova e aditiva: nenhuma cor existente é amarela (a foto, balanceada pelo branco da porta, dá ~#d2af2d no meio da face, saturada para a leitura amarelo-limão da foto). O cinza do puff vizinho, balanceado, é um cinza quente médio (~#8f807a) → cinza-malva #8a8286 existente reutilizado."
+  },
+  "materials": {
+    "library": "assets/models-3d/materials/sarja (por referência; tinta embutida mostarda gerada por generate_materials.py, embedded/basecolor-mostarda-1024/512)",
+    "reused": "assets/sofa-pilot/materials/ (boucle, linen, velvet) por referência",
+    "embedded": {
+      "main": "sarja mostarda basecolor 1024 + normal 1024 + roughness 256",
+      "mobile": "sarja 512/512/256"
+    }
+  },
+  "provenance": {
+    "source": "assets/models-3d/stanza-puff-square-01/source/build.py (paramétrico; importa assets/models-3d/lib/stanza3d.py: RoundedBox, seam_loop, tube)",
+    "derived": "source/stanza-puff-square-01.blend, models/*.glb (gerados juntos, um passe)",
+    "tool": "Blender 5.0.1 como módulo Python (bpy, PyPI) em modo headless",
+    "license": "Geometria e mapas originais do projeto Stanza, CC0-1.0 na medida em que direitos possam existir; a foto de referência não é redistribuída no pacote nem usada como textura."
+  },
+  "budgets": {
+    "limits": {
+      "mainBytes": 5000000,
+      "mainTriangles": 60000,
+      "mobileTriangles": 25000
+    },
+    "measured": {
+      "mainBytes": 2059376,
+      "mainTriangles": 24288,
+      "mobileBytes": 650528,
+      "mobileTriangles": 7680
+    },
+    "withinBudget": true
+  },
+  "limitations": [
+    "Um único ângulo; costas e lateral esquerda inferidas (planta quadrada assumida).",
+    "Escala estimada (0,45 m); a foto não tem medida de referência confiável.",
+    "Cor mostarda e sarja são estimativas visuais; a foto tem luz quente forte (o cinza vizinho aparece marrom sem correção).",
+    "Costuras de fechamento só sugeridas (a foto não mostra vivo nem pesponto nítido).",
+    "Preset photo é aproximação visual, não câmera ajustada por correspondências.",
+    "Validado apenas em navegador headless (SwiftShader)."
+  ],
+  "dimensions": {
+    "width": 0.47,
+    "height": 0.419,
+    "depth": 0.47,
+    "unit": "m",
+    "estimated": true,
+    "basis": "single photograph (pufs-10.jpg); width assumed 0.45 m; no measured shop dimensions"
+  },
+  "models": {
+    "main": {
+      "uri": "models/stanza-puff-square-01.glb",
+      "bytes": 2059376,
+      "sha256": "668844398ca122cbb80a5bcefd585c60fcb1c72b678c2faf98672c08a9d84c3c",
+      "triangles": 24288,
+      "boundsMeters": {
+        "min": [
+          -0.235,
+          -0.00093,
+          -0.235
+        ],
+        "max": [
+          0.235,
+          0.418,
+          0.235
+        ],
+        "dimensions": [
+          0.47,
+          0.41893,
+          0.47
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal",
+          "mimeType": "image/png",
+          "bytes": 1051240,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "basecolor-mostarda-1024",
+          "mimeType": "image/jpeg",
+          "bytes": 164015,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 60813,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "fabric_main",
+          "region": "body"
+        },
+        {
+          "name": "fabric_seam",
+          "region": "body"
+        }
+      ]
+    },
+    "mobile": {
+      "uri": "models/stanza-puff-square-01-mobile.glb",
+      "bytes": 650528,
+      "sha256": "130a77a88106c3a58fbcb4cdb57cdd3d7082b1d949173917163f241972ffc706",
+      "triangles": 7680,
+      "boundsMeters": {
+        "min": [
+          -0.23494,
+          -0.00095,
+          -0.23494
+        ],
+        "max": [
+          0.23494,
+          0.418,
+          0.23494
+        ],
+        "dimensions": [
+          0.46988,
+          0.41895,
+          0.46988
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal-512",
+          "mimeType": "image/png",
+          "bytes": 292202,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "basecolor-mostarda-512",
+          "mimeType": "image/jpeg",
+          "bytes": 34212,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 60813,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "fabric_main",
+          "region": "body"
+        },
+        {
+          "name": "fabric_seam",
+          "region": "body"
+        }
+      ]
+    }
+  }
+}

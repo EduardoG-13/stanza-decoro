@@ -1,0 +1,174 @@
+{
+  "main": {
+    "triangles_blender": 24288,
+    "trianglesByObject": {
+      "puff_cover": 22528,
+      "puff_seam_top": 1760
+    },
+    "bytes": 2059376,
+    "sha256": "668844398ca122cbb80a5bcefd585c60fcb1c72b678c2faf98672c08a9d84c3c",
+    "triangles": 24288,
+    "boundsMeters": {
+      "min": [
+        -0.235,
+        -0.00093,
+        -0.235
+      ],
+      "max": [
+        0.235,
+        0.418,
+        0.235
+      ],
+      "dimensions": [
+        0.47,
+        0.41893,
+        0.47
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal",
+        "mimeType": "image/png",
+        "bytes": 1051240,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "basecolor-mostarda-1024",
+        "mimeType": "image/jpeg",
+        "bytes": 164015,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 60813,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "fabric_main",
+        "region": "body"
+      },
+      {
+        "name": "fabric_seam",
+        "region": "body"
+      }
+    ],
+    "meshes": [
+      "puff_cover",
+      "puff_seam_top"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-puff-square-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "pufs/pufs-10.jpg",
+      "catalogId": "puff-quadrado",
+      "queue": "EXT-030",
+      "materialRegions": "{\"body\": [\"fabric_main\", \"fabric_seam\"]}",
+      "embeddedFinish": "{\"fabricId\": \"sarja\", \"colorId\": \"mostarda\"}",
+      "bodyUvMeters": 0.3
+    }
+  },
+  "mobile": {
+    "triangles_blender": 7680,
+    "trianglesByObject": {
+      "puff_cover": 6720,
+      "puff_seam_top": 960
+    },
+    "bytes": 650528,
+    "sha256": "130a77a88106c3a58fbcb4cdb57cdd3d7082b1d949173917163f241972ffc706",
+    "triangles": 7680,
+    "boundsMeters": {
+      "min": [
+        -0.23494,
+        -0.00095,
+        -0.23494
+      ],
+      "max": [
+        0.23494,
+        0.418,
+        0.23494
+      ],
+      "dimensions": [
+        0.46988,
+        0.41895,
+        0.46988
+      ]
+    },
+    "textures": [
+      {
+        "index": 0,
+        "name": "normal-512",
+        "mimeType": "image/png",
+        "bytes": 292202,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam"
+        ]
+      },
+      {
+        "index": 1,
+        "name": "basecolor-mostarda-512",
+        "mimeType": "image/jpeg",
+        "bytes": 34212,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam"
+        ]
+      },
+      {
+        "index": 2,
+        "name": "roughness-256",
+        "mimeType": "image/png",
+        "bytes": 60813,
+        "usedBy": [
+          "fabric_main",
+          "fabric_seam"
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "name": "fabric_main",
+        "region": "body"
+      },
+      {
+        "name": "fabric_seam",
+        "region": "body"
+      }
+    ],
+    "meshes": [
+      "puff_cover",
+      "puff_seam_top"
+    ],
+    "rootExtras": {
+      "asset_id": "model_root",
+      "modelId": "stanza-puff-square-01",
+      "revision": "1.0.0",
+      "construction": "exterior-only",
+      "dimensions_estimated": true,
+      "reference": "pufs/pufs-10.jpg",
+      "catalogId": "puff-quadrado",
+      "queue": "EXT-030",
+      "materialRegions": "{\"body\": [\"fabric_main\", \"fabric_seam\"]}",
+      "embeddedFinish": "{\"fabricId\": \"sarja\", \"colorId\": \"mostarda\"}",
+      "bodyUvMeters": 0.3
+    }
+  }
+}

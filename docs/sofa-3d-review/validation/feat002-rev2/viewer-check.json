@@ -1,0 +1,420 @@
+{
+  "main": {
+    "identity": {
+      "modelId": "stanza-organic-01",
+      "revision": "1.3.0"
+    },
+    "inspect0": {
+      "revision": "1.3.0",
+      "variant": "main",
+      "bounds": [
+        2.4866939783096313,
+        0.993347696023303,
+        1.0842711329460144
+      ],
+      "groups": {
+        "upholstery": [
+          -0.01689988374710083,
+          0,
+          -0.03974375128746033
+        ],
+        "padding": [
+          -0.01689988374710083,
+          0,
+          -0.03974375128746033
+        ],
+        "frame": [
+          -0.01689988374710083,
+          0,
+          -0.03974375128746033
+        ],
+        "legs": [
+          -0.01689988374710083,
+          0,
+          -0.03974375128746033
+        ],
+        "cushions": [
+          -0.01689988374710083,
+          0,
+          -0.03974375128746033
+        ],
+        "suspension": [
+          -0.01689988374710083,
+          0,
+          -0.03974375128746033
+        ]
+      }
+    },
+    "selection0": {
+      "modelId": "stanza-organic-01",
+      "revision": "1.3.0",
+      "fabricId": "boucle",
+      "colorId": "areia"
+    },
+    "views": [
+      "threequarter",
+      "front",
+      "side",
+      "detail",
+      "layers"
+    ],
+    "stages": [
+      0,
+      0.2,
+      0.35,
+      0.5,
+      0.7,
+      1
+    ],
+    "combos": [
+      {
+        "s": {
+          "modelId": "stanza-organic-01",
+          "revision": "1.3.0",
+          "fabricId": "linen",
+          "colorId": "oliva"
+        },
+        "mats": [
+          "fabric_main:72765a:1024",
+          "fabric_seam:72765a:1024"
+        ]
+      },
+      {
+        "s": {
+          "modelId": "stanza-organic-01",
+          "revision": "1.3.0",
+          "fabricId": "velvet",
+          "colorId": "terracota"
+        },
+        "mats": [
+          "fabric_main:ae6952:1024",
+          "fabric_seam:ae6952:1024"
+        ]
+      },
+      {
+        "s": {
+          "modelId": "stanza-organic-01",
+          "revision": "1.3.0",
+          "fabricId": "boucle",
+          "colorId": "grafite"
+        },
+        "mats": [
+          "fabric_main:494b4b:1024",
+          "fabric_seam:494b4b:1024"
+        ]
+      },
+      {
+        "s": {
+          "modelId": "stanza-organic-01",
+          "revision": "1.3.0",
+          "fabricId": "velvet",
+          "colorId": "grafite"
+        },
+        "mats": [
+          "fabric_main:494b4b:1024",
+          "fabric_seam:494b4b:1024"
+        ]
+      },
+      {
+        "s": {
+          "modelId": "stanza-organic-01",
+          "revision": "1.3.0",
+          "fabricId": "linen",
+          "colorId": "areia"
+        },
+        "mats": [
+          "fabric_main:d8c9b2:1024",
+          "fabric_seam:d8c9b2:1024"
+        ]
+      },
+      {
+        "s": {
+          "modelId": "stanza-organic-01",
+          "revision": "1.3.0",
+          "fabricId": "boucle",
+          "colorId": "areia"
+        },
+        "mats": [
+          "fabric_main:ffffff:512",
+          "fabric_seam:ffffff:512"
+        ]
+      }
+    ],
+    "cycleGroups": {
+      "identicalAt0": true,
+      "identical0vs1": true,
+      "cam0": {
+        "position": [
+          2.6,
+          1.6499999999999995,
+          3.1
+        ],
+        "target": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "cam1": {
+        "position": [
+          2.6,
+          1.6499999999999995,
+          3.1
+        ],
+        "target": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "groups": {
+        "upholstery": [
+          -0.01689988374710083,
+          0,
+          -0.03974375128746033
+        ],
+        "padding": [
+          -0.01689988374710083,
+          0,
+          -0.03974375128746033
+        ],
+        "frame": [
+          -0.01689988374710083,
+          0,
+          -0.03974375128746033
+        ],
+        "legs": [
+          -0.01689988374710083,
+          0,
+          -0.03974375128746033
+        ],
+        "cushions": [
+          -0.01689988374710083,
+          0,
+          -0.03974375128746033
+        ],
+        "suspension": [
+          -0.01689988374710083,
+          0,
+          -0.03974375128746033
+        ]
+      }
+    },
+    "selectionFinal": {
+      "modelId": "stanza-organic-01",
+      "revision": "1.3.0",
+      "fabricId": "boucle",
+      "colorId": "areia"
+    },
+    "errors": []
+  },
+  "mobile": {
+    "identity": {
+      "modelId": "stanza-organic-01",
+      "revision": "1.3.0"
+    },
+    "inspect0": {
+      "revision": "1.3.0",
+      "variant": "mobile",
+      "bounds": [
+        2.486400008201599,
+        0.9933474682012964,
+        1.083982527256012
+      ],
+      "groups": {
+        "upholstery": [
+          -0.016799986362457275,
+          0,
+          -0.03960874676704407
+        ],
+        "padding": [
+          -0.016799986362457275,
+          0,
+          -0.03960874676704407
+        ],
+        "frame": [
+          -0.016799986362457275,
+          0,
+          -0.03960874676704407
+        ],
+        "legs": [
+          -0.016799986362457275,
+          0,
+          -0.03960874676704407
+        ],
+        "cushions": [
+          -0.016799986362457275,
+          0,
+          -0.03960874676704407
+        ],
+        "suspension": [
+          -0.016799986362457275,
+          0,
+          -0.03960874676704407
+        ]
+      }
+    },
+    "selection0": {
+      "modelId": "stanza-organic-01",
+      "revision": "1.3.0",
+      "fabricId": "boucle",
+      "colorId": "areia"
+    },
+    "views": [
+      "threequarter",
+      "front",
+      "side",
+      "detail",
+      "layers"
+    ],
+    "stages": [
+      0,
+      0.2,
+      0.35,
+      0.5,
+      0.7,
+      1
+    ],
+    "combos": [
+      {
+        "s": {
+          "modelId": "stanza-organic-01",
+          "revision": "1.3.0",
+          "fabricId": "linen",
+          "colorId": "oliva"
+        },
+        "mats": [
+          "fabric_main:72765a:1024",
+          "fabric_seam:72765a:1024"
+        ]
+      },
+      {
+        "s": {
+          "modelId": "stanza-organic-01",
+          "revision": "1.3.0",
+          "fabricId": "velvet",
+          "colorId": "terracota"
+        },
+        "mats": [
+          "fabric_main:ae6952:1024",
+          "fabric_seam:ae6952:1024"
+        ]
+      },
+      {
+        "s": {
+          "modelId": "stanza-organic-01",
+          "revision": "1.3.0",
+          "fabricId": "boucle",
+          "colorId": "grafite"
+        },
+        "mats": [
+          "fabric_main:494b4b:1024",
+          "fabric_seam:494b4b:1024"
+        ]
+      },
+      {
+        "s": {
+          "modelId": "stanza-organic-01",
+          "revision": "1.3.0",
+          "fabricId": "velvet",
+          "colorId": "grafite"
+        },
+        "mats": [
+          "fabric_main:494b4b:1024",
+          "fabric_seam:494b4b:1024"
+        ]
+      },
+      {
+        "s": {
+          "modelId": "stanza-organic-01",
+          "revision": "1.3.0",
+          "fabricId": "linen",
+          "colorId": "areia"
+        },
+        "mats": [
+          "fabric_main:d8c9b2:1024",
+          "fabric_seam:d8c9b2:1024"
+        ]
+      },
+      {
+        "s": {
+          "modelId": "stanza-organic-01",
+          "revision": "1.3.0",
+          "fabricId": "boucle",
+          "colorId": "areia"
+        },
+        "mats": [
+          "fabric_main:ffffff:512",
+          "fabric_seam:ffffff:512"
+        ]
+      }
+    ],
+    "cycleGroups": {
+      "identicalAt0": true,
+      "identical0vs1": true,
+      "cam0": {
+        "position": [
+          2.6,
+          1.6499999999999995,
+          3.1
+        ],
+        "target": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "cam1": {
+        "position": [
+          2.6,
+          1.6499999999999995,
+          3.1
+        ],
+        "target": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "groups": {
+        "upholstery": [
+          -0.016799986362457275,
+          0,
+          -0.03960874676704407
+        ],
+        "padding": [
+          -0.016799986362457275,
+          0,
+          -0.03960874676704407
+        ],
+        "frame": [
+          -0.016799986362457275,
+          0,
+          -0.03960874676704407
+        ],
+        "legs": [
+          -0.016799986362457275,
+          0,
+          -0.03960874676704407
+        ],
+        "cushions": [
+          -0.016799986362457275,
+          0,
+          -0.03960874676704407
+        ],
+        "suspension": [
+          -0.016799986362457275,
+          0,
+          -0.03960874676704407
+        ]
+      }
+    },
+    "selectionFinal": {
+      "modelId": "stanza-organic-01",
+      "revision": "1.3.0",
+      "fabricId": "boucle",
+      "colorId": "areia"
+    },
+    "errors": []
+  }
+}

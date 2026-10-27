@@ -1,0 +1,438 @@
+{
+  "product_main": {
+    "dom": {
+      "layerControls": 0,
+      "views": [
+        "photo",
+        "threequarter",
+        "front",
+        "side",
+        "detail"
+      ],
+      "stageModel": "stanza-organic-01",
+      "registry": [
+        "stanza-organic-01"
+      ],
+      "posterVisible": true,
+      "intro": "Gire a peça e experimente tecidos e cores no corpo do sofá. As almofadas decorativas mantêm o acabamento da foto. Uma forma de começar a imaginar o seu projeto."
+    },
+    "glbBeforeStart": [],
+    "glbAfterStart": [
+      "/assets/sofa-pilot/models/sofa.glb"
+    ],
+    "statusReady": "Pronto. Arraste para girar ou use os controles.",
+    "failure": {
+      "status": "Este acabamento não carregou. Mantivemos a última combinação disponível.",
+      "name": "Bouclé · Areia",
+      "checkedFabric": "boucle",
+      "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia"
+    },
+    "retry": {
+      "status": "Combinação atualizada.",
+      "name": "Trama plana · Areia",
+      "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=linen&cor=areia"
+    },
+    "fastSwitch": {
+      "name": "Bouclé · Terracota",
+      "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=terracota",
+      "fabric": "boucle",
+      "color": "terracota"
+    },
+    "controls": true,
+    "errorsProduct": [
+      "Failed to load resource: net::ERR_FAILED"
+    ],
+    "api": {
+      "construction": "exterior-only",
+      "groups": [
+        "upholstery",
+        "legs",
+        "cushions"
+      ],
+      "meshes": [
+        "cushion_01_cover_mesh",
+        "cushion_01_cover_mesh_1",
+        "cushion_01_welt",
+        "cushion_02_cover",
+        "cushion_02_welt",
+        "cushion_03_cover",
+        "cushion_03_welt",
+        "cushion_04_cover",
+        "cushion_04_welt",
+        "cushion_05_cover_mesh",
+        "cushion_05_cover_mesh_1",
+        "cushion_05_welt",
+        "foot_1",
+        "foot_2",
+        "foot_3",
+        "foot_4",
+        "back_cover",
+        "seat_cover",
+        "seat_panel_seam"
+      ],
+      "materialRegions": [
+        {
+          "name": "cushion_olive_weave",
+          "region": "decorative",
+          "stanzaFabric": false,
+          "type": "MeshPhysicalMaterial"
+        },
+        {
+          "name": "cushion_olive_reverse",
+          "region": "decorative",
+          "stanzaFabric": false,
+          "type": "MeshPhysicalMaterial"
+        },
+        {
+          "name": "cushion_olive_seam",
+          "region": "decorative",
+          "stanzaFabric": false,
+          "type": "MeshPhysicalMaterial"
+        },
+        {
+          "name": "cushion_light_boucle",
+          "region": "decorative",
+          "stanzaFabric": false,
+          "type": "MeshPhysicalMaterial"
+        },
+        {
+          "name": "cushion_light_seam",
+          "region": "decorative",
+          "stanzaFabric": false,
+          "type": "MeshPhysicalMaterial"
+        },
+        {
+          "name": "legs_dark",
+          "region": "exterior-structure",
+          "stanzaFabric": false,
+          "type": "MeshStandardMaterial"
+        },
+        {
+          "name": "fabric_main",
+          "region": "body",
+          "stanzaFabric": true,
+          "type": "MeshPhysicalMaterial"
+        },
+        {
+          "name": "fabric_seam",
+          "region": "body",
+          "stanzaFabric": true,
+          "type": "MeshPhysicalMaterial"
+        }
+      ],
+      "decorBefore": [
+        "cushion_olive_weave:ffffff:111c9054-975a-40d1-800c-5d755921e670",
+        "cushion_olive_reverse:ffffff:45ad80af-f1d7-4f9a-a27e-828e08bb6b58",
+        "cushion_olive_seam:ffffff:111c9054-975a-40d1-800c-5d755921e670",
+        "cushion_light_boucle:ffffff:bf86d696-d87f-4b94-9e31-e55dc2f24fb8",
+        "cushion_light_seam:ffffff:bf86d696-d87f-4b94-9e31-e55dc2f24fb8"
+      ],
+      "setProgressNoop": true,
+      "setProgressNaN": "TypeError",
+      "fastApi": {
+        "results": [
+          "fulfilled:boucle-areia",
+          "fulfilled:boucle-areia",
+          "fulfilled:boucle-grafite"
+        ],
+        "selection": {
+          "modelId": "stanza-organic-01",
+          "revision": "2.1.0",
+          "fabricId": "boucle",
+          "colorId": "grafite"
+        },
+        "bodyColors": [
+          "fabric_main:494b4b",
+          "fabric_seam:494b4b"
+        ]
+      },
+      "decorAfter": [
+        "cushion_olive_weave:ffffff:111c9054-975a-40d1-800c-5d755921e670",
+        "cushion_olive_reverse:ffffff:45ad80af-f1d7-4f9a-a27e-828e08bb6b58",
+        "cushion_olive_seam:ffffff:111c9054-975a-40d1-800c-5d755921e670",
+        "cushion_light_boucle:ffffff:bf86d696-d87f-4b94-9e31-e55dc2f24fb8",
+        "cushion_light_seam:ffffff:bf86d696-d87f-4b94-9e31-e55dc2f24fb8"
+      ],
+      "decorUnchanged": true,
+      "returnInitial": [
+        "fabric_main:ffffff:512",
+        "fabric_seam:ffffff:512"
+      ],
+      "texturesLoaded": [
+        "boucle:embedded-areia",
+        "linen",
+        "velvet",
+        "boucle"
+      ],
+      "resize": {
+        "before": {
+          "width": 800,
+          "height": 500
+        },
+        "after": {
+          "width": 600,
+          "height": 420
+        }
+      }
+    },
+    "dispose": {
+      "disposed": true,
+      "canvasLeft": 0,
+      "posterRestored": true,
+      "callAfter": "rejected: Visualizador já desmontado. | setView throws: Visualizador já desmontado.",
+      "disposal": {
+        "resources": 48,
+        "imageBitmapsClosed": 7
+      }
+    },
+    "errorsApi": []
+  },
+  "product_mobile": {
+    "dom": {
+      "layerControls": 0,
+      "views": [
+        "photo",
+        "threequarter",
+        "front",
+        "side",
+        "detail"
+      ],
+      "stageModel": "stanza-organic-01",
+      "registry": [
+        "stanza-organic-01"
+      ],
+      "posterVisible": true,
+      "intro": "Gire a peça e experimente tecidos e cores no corpo do sofá. As almofadas decorativas mantêm o acabamento da foto. Uma forma de começar a imaginar o seu projeto."
+    },
+    "glbBeforeStart": [],
+    "glbAfterStart": [
+      "/assets/sofa-pilot/models/sofa-mobile.glb"
+    ],
+    "statusReady": "Pronto. Arraste para girar ou use os controles.",
+    "failure": {
+      "status": "Este acabamento não carregou. Mantivemos a última combinação disponível.",
+      "name": "Bouclé · Areia",
+      "checkedFabric": "boucle",
+      "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=areia"
+    },
+    "retry": {
+      "status": "Combinação atualizada.",
+      "name": "Trama plana · Areia",
+      "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=linen&cor=areia"
+    },
+    "fastSwitch": {
+      "name": "Bouclé · Terracota",
+      "quote": "/orcamento.html?referencia=sofa-organico&estudo=stanza-organic-01&tecido=boucle&cor=terracota",
+      "fabric": "boucle",
+      "color": "terracota"
+    },
+    "controls": true,
+    "errorsProduct": [
+      "Failed to load resource: net::ERR_FAILED"
+    ],
+    "api": {
+      "construction": "exterior-only",
+      "groups": [
+        "upholstery",
+        "legs",
+        "cushions"
+      ],
+      "meshes": [
+        "cushion_01_cover_mesh001",
+        "cushion_01_cover_mesh001_1",
+        "cushion_01_welt",
+        "cushion_02_cover",
+        "cushion_02_welt",
+        "cushion_03_cover",
+        "cushion_03_welt",
+        "cushion_04_cover",
+        "cushion_04_welt",
+        "cushion_05_cover_mesh001",
+        "cushion_05_cover_mesh001_1",
+        "cushion_05_welt",
+        "foot_1",
+        "foot_2",
+        "foot_3",
+        "foot_4",
+        "back_cover",
+        "seat_cover",
+        "seat_panel_seam"
+      ],
+      "materialRegions": [
+        {
+          "name": "cushion_olive_weave",
+          "region": "decorative",
+          "stanzaFabric": false,
+          "type": "MeshPhysicalMaterial"
+        },
+        {
+          "name": "cushion_olive_reverse",
+          "region": "decorative",
+          "stanzaFabric": false,
+          "type": "MeshPhysicalMaterial"
+        },
+        {
+          "name": "cushion_olive_seam",
+          "region": "decorative",
+          "stanzaFabric": false,
+          "type": "MeshPhysicalMaterial"
+        },
+        {
+          "name": "cushion_light_boucle",
+          "region": "decorative",
+          "stanzaFabric": false,
+          "type": "MeshPhysicalMaterial"
+        },
+        {
+          "name": "cushion_light_seam",
+          "region": "decorative",
+          "stanzaFabric": false,
+          "type": "MeshPhysicalMaterial"
+        },
+        {
+          "name": "legs_dark",
+          "region": "exterior-structure",
+          "stanzaFabric": false,
+          "type": "MeshStandardMaterial"
+        },
+        {
+          "name": "fabric_main",
+          "region": "body",
+          "stanzaFabric": true,
+          "type": "MeshPhysicalMaterial"
+        },
+        {
+          "name": "fabric_seam",
+          "region": "body",
+          "stanzaFabric": true,
+          "type": "MeshPhysicalMaterial"
+        }
+      ],
+      "decorBefore": [
+        "cushion_olive_weave:ffffff:fe452654-5d1c-4895-abb4-143fb3db127c",
+        "cushion_olive_reverse:ffffff:845ef03c-e334-48fc-bce5-e883490af81c",
+        "cushion_olive_seam:ffffff:fe452654-5d1c-4895-abb4-143fb3db127c",
+        "cushion_light_boucle:ffffff:55212fe9-0cce-4af7-b6c0-ba724174a06c",
+        "cushion_light_seam:ffffff:55212fe9-0cce-4af7-b6c0-ba724174a06c"
+      ],
+      "setProgressNoop": true,
+      "setProgressNaN": "TypeError",
+      "fastApi": {
+        "results": [
+          "fulfilled:boucle-areia",
+          "fulfilled:boucle-areia",
+          "fulfilled:boucle-grafite"
+        ],
+        "selection": {
+          "modelId": "stanza-organic-01",
+          "revision": "2.1.0",
+          "fabricId": "boucle",
+          "colorId": "grafite"
+        },
+        "bodyColors": [
+          "fabric_main:494b4b",
+          "fabric_seam:494b4b"
+        ]
+      },
+      "decorAfter": [
+        "cushion_olive_weave:ffffff:fe452654-5d1c-4895-abb4-143fb3db127c",
+        "cushion_olive_reverse:ffffff:845ef03c-e334-48fc-bce5-e883490af81c",
+        "cushion_olive_seam:ffffff:fe452654-5d1c-4895-abb4-143fb3db127c",
+        "cushion_light_boucle:ffffff:55212fe9-0cce-4af7-b6c0-ba724174a06c",
+        "cushion_light_seam:ffffff:55212fe9-0cce-4af7-b6c0-ba724174a06c"
+      ],
+      "decorUnchanged": true,
+      "returnInitial": [
+        "fabric_main:ffffff:512",
+        "fabric_seam:ffffff:512"
+      ],
+      "texturesLoaded": [
+        "boucle:embedded-areia",
+        "linen",
+        "velvet",
+        "boucle"
+      ],
+      "resize": {
+        "before": {
+          "width": 800,
+          "height": 500
+        },
+        "after": {
+          "width": 600,
+          "height": 420
+        }
+      }
+    },
+    "dispose": {
+      "disposed": true,
+      "canvasLeft": 0,
+      "posterRestored": true,
+      "callAfter": "rejected: Visualizador já desmontado. | setView throws: Visualizador já desmontado.",
+      "disposal": {
+        "resources": 48,
+        "imageBitmapsClosed": 7
+      }
+    },
+    "errorsApi": []
+  },
+  "home_desktop": {
+    "state0": {
+      "scene": "ready",
+      "motion": "running",
+      "canvas": true
+    },
+    "glb": [
+      "/assets/sofa-pilot/models/sofa-mobile.glb"
+    ],
+    "clearsPerSecondVisible": 23,
+    "scrollProbe": {
+      "y": 5118,
+      "top": -4425,
+      "h": 6018
+    },
+    "stateOffscreen": "offscreen",
+    "clearsPerSecondOffscreen": 0,
+    "stateBack": "running",
+    "layerControls": 0,
+    "errors": []
+  },
+  "home_mobile": {
+    "state0": {
+      "scene": "ready",
+      "motion": "running",
+      "canvas": true
+    },
+    "glb": [
+      "/assets/sofa-pilot/models/sofa-mobile.glb"
+    ],
+    "clearsPerSecondVisible": 20,
+    "scrollProbe": {
+      "y": 7453,
+      "top": -6557,
+      "h": 8233
+    },
+    "stateOffscreen": "offscreen",
+    "clearsPerSecondOffscreen": 0,
+    "stateBack": "running",
+    "layerControls": 0,
+    "errors": []
+  },
+  "home_reduced": {
+    "state0": {
+      "motion": "reduced",
+      "canvas": false
+    },
+    "glb": [],
+    "clearsPerSecondVisible": 0,
+    "scrollProbe": {
+      "y": 5118,
+      "top": -4425,
+      "h": 6018
+    },
+    "stateOffscreen": "reduced",
+    "clearsPerSecondOffscreen": 0,
+    "stateBack": "reduced",
+    "layerControls": 0,
+    "errors": []
+  }
+}

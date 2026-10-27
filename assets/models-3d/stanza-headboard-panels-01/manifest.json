@@ -1,0 +1,305 @@
+{
+  "contract": "stanza-model-3d/v1",
+  "modelId": "stanza-headboard-panels-01",
+  "revision": "1.0.1",
+  "queue": "EXT-040",
+  "title": "Cabeceira de painéis horizontais",
+  "relation": {
+    "catalogId": "cabeceira-paineis",
+    "catalogName": "Cabeceira de painéis",
+    "portfolioId": "projeto-21",
+    "portfolioTitle": "Cabeceira com painéis horizontais",
+    "note": "A mesma foto (cabeceiras/cabeceiras-6.jpg) é a referência do item de catálogo cabeceira-paineis e do portfólio projeto-21. Modela-se só a composição estofada fixada na parede (cabeceira central de 3 painéis horizontais, 2 faixas verticais de cada lado, 2 painéis laterais de cada lado acima dos criados). Criados-mudos, luminárias, interruptores, colchão, roupa de cama, ripado da parede, piso e sala não são modelados. IDs existentes preservados; nenhuma entrada nova. A home continua sem o 3D da coleção."
+  },
+  "references": [
+    {
+      "path": "cabeceiras/cabeceiras-6.jpg",
+      "size": [
+        899,
+        899
+      ],
+      "angle": "frente-esquerda elevada (~1,5 m), grande-angular, única vista; cama afastada (só um canto do colchão aparece)",
+      "use": "forma, proporções, divisão dos painéis, acabamento"
+    }
+  ],
+  "status": "technical-validated-visual-review-pending",
+  "construction": "exterior-only",
+  "mounting": "parede (painéis encostados no plano da parede; sem pés, estrutura ou suporte visíveis)",
+  "units": "m",
+  "axes": {
+    "width": "+X",
+    "up": "+Y",
+    "front": "+Z",
+    "origin": "piso, no plano da parede (Z=0), centro da cabeceira central"
+  },
+  "estimatedScale": {
+    "centralWidthAssumed": 1.6,
+    "method": "câmera (posição, orientação, foco) e proporções ajustadas a 13 correspondências na foto 899×899 (cantos da cabeceira central, os dois canais, topos das faixas, painel lateral direito; rms ~6 px, foco 851 px, rolagem 1,2° descartada), com a largura da cabeceira central fixada em 1,60 m (colchão queen 1,58 m + 1 cm de cada lado; o colchão da foto está afastado e só aparece um canto, por isso é premissa). Preset photo = câmera ajustada reapontada para o centro da composição (rotação + zoom no centro óptico; a foto é reprojetada pela mesma homografia para a comparação).",
+    "values": {
+      "centralWidth": 1.6,
+      "height": 1.21,
+      "centralChannels": [
+        0.64,
+        0.925
+      ],
+      "centralPanelHeights": [
+        0.64,
+        0.285,
+        0.285
+      ],
+      "stripWidth": 0.2,
+      "stripsPerSide": 2,
+      "sidePanelWidth": 0.6,
+      "sidePanelBottom": 0.67,
+      "sidePanelChannel": 0.94,
+      "depthCentral": 0.09,
+      "depthStrips": 0.07,
+      "depthSidePanels": 0.05,
+      "joint": 0.003
+    },
+    "weak": [
+      "escala inteira depende da premissa de 1,60 m",
+      "largura dos painéis laterais (o esquerdo sai do quadro, o direito encosta no canto da sala)",
+      "profundidades (só as faces laterais esquerdas aparecem)"
+    ]
+  },
+  "components": [
+    {
+      "name": "cabeceira central: 3 painéis horizontais (0,64 / 0,285 / 0,285 m)",
+      "meshes": [
+        "center_panel_bottom",
+        "center_panel_middle",
+        "center_panel_top"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "faixas verticais, 2 de cada lado, do piso ao topo",
+      "meshes": [
+        "strip_left_inner",
+        "strip_left_outer",
+        "strip_right_inner",
+        "strip_right_outer"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "painéis laterais, 2 horizontais de cada lado, acima dos criados",
+      "meshes": [
+        "side_left_bottom",
+        "side_left_top",
+        "side_right_bottom",
+        "side_right_top"
+      ],
+      "group": "upholstery"
+    }
+  ],
+  "materialRegions": {
+    "table": [
+      {
+        "mesh": "todos os 11 painéis",
+        "material": "fabric_main",
+        "region": "body"
+      }
+    ],
+    "decorative": [],
+    "contrast": [],
+    "exterior-structure": [],
+    "note": "Todos os painéis são do mesmo tecido claro e mudam juntos. Sem vivo, friso ou moldura de outra cor e sem estrutura de madeira/metal visível (painéis fixos na parede): nenhuma região fixa foi inventada."
+  },
+  "options": {
+    "appliesTo": "body",
+    "fabrics": [
+      "velvet",
+      "linen",
+      "sarja",
+      "boucle"
+    ],
+    "colors": [
+      "areia",
+      "cru",
+      "gelo",
+      "grafite",
+      "oliva",
+      "terracota"
+    ],
+    "default": {
+      "fabricId": "velvet",
+      "colorId": "areia"
+    },
+    "embedded": {
+      "fabricId": "velvet",
+      "colorId": "areia"
+    },
+    "note": "Tecido liso com brilho suave tipo suede/veludo → família velvet existente. Cor: a média dos painéis, corrigida pelo branco do espelho do interruptor, dá ~#c2b7b3 (greige quente); areia #b6b0a8 é a cor existente mais próxima e foi reutilizada (nenhuma cor nova). A tinta areia foi apenas registrada em materials.json/TINTS com o mesmo valor de COLORS.areia, para gerar o mapa embutido."
+  },
+  "materials": {
+    "library": "assets/sofa-pilot/materials/velvet (reutilizada por referência; tinta embutida areia gerada no build.py como mapa × tinta)",
+    "reused": "assets/sofa-pilot/materials/ (boucle, linen) e assets/models-3d/materials/sarja por referência",
+    "embedded": {
+      "main": "veludo areia basecolor 1024 + normal 1024 + roughness 256, pré-repetidos 2×2 (0,15 m)",
+      "mobile": "veludo 512/256/256, mesmo 2×2"
+    }
+  },
+  "provenance": {
+    "source": "assets/models-3d/stanza-headboard-panels-01/source/build.py (paramétrico; importa assets/models-3d/lib/stanza3d.py: RoundedBox)",
+    "derived": "source/stanza-headboard-panels-01.blend, models/*.glb (gerados juntos, um passe)",
+    "tool": "Blender 5.0.1 como módulo Python (bpy, PyPI) em modo headless",
+    "license": "Geometria e mapas originais do projeto Stanza, CC0-1.0 na medida em que direitos possam existir; a foto de referência não é redistribuída no pacote nem usada como textura."
+  },
+  "budgets": {
+    "limits": {
+      "mainBytes": 5000000,
+      "mainTriangles": 60000,
+      "mobileTriangles": 25000
+    },
+    "measured": {
+      "mainBytes": 2092964,
+      "mainTriangles": 42928,
+      "mobileBytes": 689060,
+      "mobileTriangles": 17136
+    },
+    "withinBudget": true
+  },
+  "limitations": [
+    "Um único ângulo (frente-esquerda, grande-angular): faces laterais direitas e topo inferidos.",
+    "Escala estimada com a cabeceira central fixada em 1,60 m (queen); demais medidas relativas a ela.",
+    "Composição tratada como simétrica; largura dos painéis laterais (0,60 m) estimada.",
+    "Cor (areia) e tecido (veludo) são estimativas visuais; a foto tem luz quente.",
+    "Recortes de interruptores/tomadas nas faixas não foram modelados.",
+    "Sem parede no visualizador: os painéis laterais ficam suspensos a 0,67 m como na instalação real.",
+    "Validado apenas em navegador headless (SwiftShader)."
+  ],
+  "dimensions": {
+    "width": 3.602,
+    "height": 1.213,
+    "depth": 0.103,
+    "unit": "m",
+    "estimated": true,
+    "basis": "single photograph (cabeceiras-6.jpg); central headboard width assumed 1.60 m; no measured shop dimensions"
+  },
+  "models": {
+    "main": {
+      "uri": "models/stanza-headboard-panels-01.glb",
+      "bytes": 2092964,
+      "sha256": "4fa0da06f2d4c852c16b7298deb639b9ba055e9d95c57508a663ef1614426fe2",
+      "triangles": 42928,
+      "boundsMeters": {
+        "min": [
+          -1.801,
+          -0.001,
+          -0.00074
+        ],
+        "max": [
+          1.801,
+          1.212,
+          0.10199
+        ],
+        "dimensions": [
+          3.602,
+          1.213,
+          0.10273
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal-1024",
+          "mimeType": "image/png",
+          "bytes": 564972,
+          "usedBy": [
+            "fabric_main"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "basecolor-areia-1024",
+          "mimeType": "image/jpeg",
+          "bytes": 46922,
+          "usedBy": [
+            "fabric_main"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 32969,
+          "usedBy": [
+            "fabric_main"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "fabric_main",
+          "region": "body"
+        }
+      ]
+    },
+    "mobile": {
+      "uri": "models/stanza-headboard-panels-01-mobile.glb",
+      "bytes": 689060,
+      "sha256": "fed840139c418a9fb25a05c8eb1ed62cbd406e2f5b7da7fb3444173e0c49afa3",
+      "triangles": 17136,
+      "boundsMeters": {
+        "min": [
+          -1.80089,
+          -0.001,
+          -0.0007
+        ],
+        "max": [
+          1.80089,
+          1.212,
+          0.10176
+        ],
+        "dimensions": [
+          3.60178,
+          1.213,
+          0.10246
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal-256",
+          "mimeType": "image/png",
+          "bytes": 29499,
+          "usedBy": [
+            "fabric_main"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "basecolor-areia-512",
+          "mimeType": "image/jpeg",
+          "bytes": 11080,
+          "usedBy": [
+            "fabric_main"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 32969,
+          "usedBy": [
+            "fabric_main"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "fabric_main",
+          "region": "body"
+        }
+      ]
+    }
+  },
+  "changelog": [
+    {
+      "revision": "1.0.1",
+      "change": "raios das bordas mais justos (central 24→17 mm, faixas 22→16 mm, laterais 20→15 mm) e junta 4→3 mm: canais mais finos, como na foto; mesma divisão, medidas e opções"
+    }
+  ]
+}

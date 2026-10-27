@@ -1,0 +1,525 @@
+{
+ "glb": "assets/models-3d/stanza-modular-01/models/stanza-modular-01.glb",
+ "pairs": {
+  "arm_l:back_block_1": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.13
+  },
+  "arm_l:pillow_1_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 33.82
+  },
+  "arm_l:seat_block_1": {
+   "penetration_mm": 0.09,
+   "verts_inside": 1,
+   "gap_mm": 0.18
+  },
+  "arm_r:back_block_3": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.11
+  },
+  "arm_r:pillow_7_cover": {
+   "penetration_mm": 0.88,
+   "verts_inside": 1,
+   "gap_mm": 28.21
+  },
+  "arm_r:seat_block_3": {
+   "penetration_mm": 0.12,
+   "verts_inside": 1,
+   "gap_mm": 0.02
+  },
+  "back_block_1:arm_l": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.24
+  },
+  "back_block_1:back_block_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 5.91
+  },
+  "back_block_1:pillow_1_cover": {
+   "penetration_mm": 1.94,
+   "verts_inside": 11,
+   "gap_mm": 1.03
+  },
+  "back_block_1:seat_block_1": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.64
+  },
+  "back_block_1:seat_block_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 41.52
+  },
+  "back_block_2:back_block_1": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 5.8
+  },
+  "back_block_2:back_block_3": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 6.43
+  },
+  "back_block_2:pillow_4_cover": {
+   "penetration_mm": 2.3,
+   "verts_inside": 9,
+   "gap_mm": 0.55
+  },
+  "back_block_2:pillow_5_cover": {
+   "penetration_mm": 1.14,
+   "verts_inside": 3,
+   "gap_mm": 0.12
+  },
+  "back_block_2:seat_block_1": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 41.81
+  },
+  "back_block_2:seat_block_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.86
+  },
+  "back_block_2:seat_block_3": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 43.17
+  },
+  "back_block_3:arm_r": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.01
+  },
+  "back_block_3:back_block_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 6.31
+  },
+  "back_block_3:pillow_5_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.12
+  },
+  "back_block_3:pillow_7_cover": {
+   "penetration_mm": 2.95,
+   "verts_inside": 12,
+   "gap_mm": 0.4
+  },
+  "back_block_3:seat_block_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 44.34
+  },
+  "back_block_3:seat_block_3": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.69
+  },
+  "pillow_1_cover:arm_l": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 38.89
+  },
+  "pillow_1_cover:back_block_1": {
+   "penetration_mm": 1.2,
+   "verts_inside": 43,
+   "gap_mm": 0.18
+  },
+  "pillow_1_cover:seat_block_1": {
+   "penetration_mm": 1.2,
+   "verts_inside": 8,
+   "gap_mm": 0.7
+  },
+  "pillow_1_welt:arm_l": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 37.54
+  },
+  "pillow_1_welt:back_block_1": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 26.21
+  },
+  "pillow_1_welt:pillow_1_cover": {
+   "penetration_mm": 2.41,
+   "verts_inside": 264,
+   "gap_mm": 0.0
+  },
+  "pillow_1_welt:seat_block_1": {
+   "penetration_mm": 1.03,
+   "verts_inside": 6,
+   "gap_mm": 0.0
+  },
+  "pillow_2_cover:pillow_3_cover": {
+   "penetration_mm": 1.21,
+   "verts_inside": 19,
+   "gap_mm": 0.02
+  },
+  "pillow_2_cover:seat_block_1": {
+   "penetration_mm": 1.2,
+   "verts_inside": 6,
+   "gap_mm": 1.32
+  },
+  "pillow_2_welt:pillow_2_cover": {
+   "penetration_mm": 2.0,
+   "verts_inside": 281,
+   "gap_mm": 0.0
+  },
+  "pillow_2_welt:pillow_3_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 36.24
+  },
+  "pillow_2_welt:seat_block_1": {
+   "penetration_mm": 0.6,
+   "verts_inside": 3,
+   "gap_mm": 0.63
+  },
+  "pillow_3_cover:pillow_2_cover": {
+   "penetration_mm": 0.8,
+   "verts_inside": 20,
+   "gap_mm": 0.18
+  },
+  "pillow_3_cover:seat_block_1": {
+   "penetration_mm": 1.2,
+   "verts_inside": 4,
+   "gap_mm": 0.57
+  },
+  "pillow_3_cover:seat_block_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "pillow_3_welt:pillow_2_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 15.82
+  },
+  "pillow_3_welt:pillow_3_cover": {
+   "penetration_mm": 2.0,
+   "verts_inside": 293,
+   "gap_mm": 0.0
+  },
+  "pillow_3_welt:seat_block_1": {
+   "penetration_mm": 0.66,
+   "verts_inside": 4,
+   "gap_mm": 0.7
+  },
+  "pillow_3_welt:seat_block_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "pillow_4_cover:back_block_2": {
+   "penetration_mm": 1.2,
+   "verts_inside": 38,
+   "gap_mm": 0.32
+  },
+  "pillow_4_cover:pillow_5_cover": {
+   "penetration_mm": 0.8,
+   "verts_inside": 1,
+   "gap_mm": 17.56
+  },
+  "pillow_4_cover:seat_block_2": {
+   "penetration_mm": 1.2,
+   "verts_inside": 5,
+   "gap_mm": 0.97
+  },
+  "pillow_4_welt:back_block_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 26.01
+  },
+  "pillow_4_welt:pillow_4_cover": {
+   "penetration_mm": 2.0,
+   "verts_inside": 278,
+   "gap_mm": 0.0
+  },
+  "pillow_4_welt:pillow_5_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 22.37
+  },
+  "pillow_4_welt:seat_block_2": {
+   "penetration_mm": 0.82,
+   "verts_inside": 2,
+   "gap_mm": 0.05
+  },
+  "pillow_5_cover:back_block_2": {
+   "penetration_mm": 1.2,
+   "verts_inside": 44,
+   "gap_mm": 0.01
+  },
+  "pillow_5_cover:back_block_3": {
+   "penetration_mm": 1.2,
+   "verts_inside": 7,
+   "gap_mm": 0.5
+  },
+  "pillow_5_cover:pillow_4_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 20.16
+  },
+  "pillow_5_cover:pillow_6_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "pillow_5_cover:seat_block_2": {
+   "penetration_mm": 1.21,
+   "verts_inside": 9,
+   "gap_mm": 1.71
+  },
+  "pillow_5_cover:seat_block_3": {
+   "penetration_mm": 1.2,
+   "verts_inside": 3,
+   "gap_mm": 2.91
+  },
+  "pillow_5_welt:back_block_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 2.75
+  },
+  "pillow_5_welt:back_block_3": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 2.48
+  },
+  "pillow_5_welt:pillow_4_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 24.64
+  },
+  "pillow_5_welt:pillow_5_cover": {
+   "penetration_mm": 3.67,
+   "verts_inside": 285,
+   "gap_mm": 0.0
+  },
+  "pillow_5_welt:pillow_6_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "pillow_5_welt:seat_block_2": {
+   "penetration_mm": 0.95,
+   "verts_inside": 5,
+   "gap_mm": 0.26
+  },
+  "pillow_5_welt:seat_block_3": {
+   "penetration_mm": 0.71,
+   "verts_inside": 1,
+   "gap_mm": 0.72
+  },
+  "pillow_6_cover:pillow_5_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "pillow_6_cover:pillow_7_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "pillow_6_cover:seat_block_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "pillow_6_cover:seat_block_3": {
+   "penetration_mm": 1.2,
+   "verts_inside": 3,
+   "gap_mm": 0.54
+  },
+  "pillow_6_welt:pillow_5_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "pillow_6_welt:pillow_6_cover": {
+   "penetration_mm": 2.82,
+   "verts_inside": 280,
+   "gap_mm": 0.0
+  },
+  "pillow_6_welt:pillow_7_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "pillow_6_welt:seat_block_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "pillow_6_welt:seat_block_3": {
+   "penetration_mm": 0.9,
+   "verts_inside": 2,
+   "gap_mm": 1.73
+  },
+  "pillow_7_cover:arm_r": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.1
+  },
+  "pillow_7_cover:back_block_3": {
+   "penetration_mm": 1.2,
+   "verts_inside": 21,
+   "gap_mm": 0.0
+  },
+  "pillow_7_cover:pillow_6_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "pillow_7_cover:seat_block_3": {
+   "penetration_mm": 1.2,
+   "verts_inside": 5,
+   "gap_mm": 4.16
+  },
+  "pillow_7_welt:arm_r": {
+   "penetration_mm": 0.77,
+   "verts_inside": 1,
+   "gap_mm": 0.66
+  },
+  "pillow_7_welt:back_block_3": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 26.68
+  },
+  "pillow_7_welt:pillow_6_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "pillow_7_welt:pillow_7_cover": {
+   "penetration_mm": 2.0,
+   "verts_inside": 292,
+   "gap_mm": 0.0
+  },
+  "pillow_7_welt:seat_block_3": {
+   "penetration_mm": 0.68,
+   "verts_inside": 2,
+   "gap_mm": 0.03
+  },
+  "seat_block_1:arm_l": {
+   "penetration_mm": 0.31,
+   "verts_inside": 2,
+   "gap_mm": 0.04
+  },
+  "seat_block_1:back_block_1": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.46
+  },
+  "seat_block_1:back_block_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 42.47
+  },
+  "seat_block_1:pillow_1_cover": {
+   "penetration_mm": 1.31,
+   "verts_inside": 1,
+   "gap_mm": 2.6
+  },
+  "seat_block_1:pillow_2_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 7.44
+  },
+  "seat_block_1:pillow_3_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 6.26
+  },
+  "seat_block_1:seat_block_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 5.7
+  },
+  "seat_block_2:back_block_1": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 42.96
+  },
+  "seat_block_2:back_block_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.37
+  },
+  "seat_block_2:back_block_3": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 43.16
+  },
+  "seat_block_2:pillow_3_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "seat_block_2:pillow_4_cover": {
+   "penetration_mm": 6.36,
+   "verts_inside": 1,
+   "gap_mm": 2.17
+  },
+  "seat_block_2:pillow_5_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 5.92
+  },
+  "seat_block_2:pillow_6_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": null
+  },
+  "seat_block_2:seat_block_1": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 5.7
+  },
+  "seat_block_2:seat_block_3": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 5.7
+  },
+  "seat_block_3:arm_r": {
+   "penetration_mm": 0.47,
+   "verts_inside": 1,
+   "gap_mm": 0.1
+  },
+  "seat_block_3:back_block_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 39.45
+  },
+  "seat_block_3:back_block_3": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 0.54
+  },
+  "seat_block_3:pillow_5_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 1.41
+  },
+  "seat_block_3:pillow_6_cover": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 13.41
+  },
+  "seat_block_3:pillow_7_cover": {
+   "penetration_mm": 0.87,
+   "verts_inside": 1,
+   "gap_mm": 11.3
+  },
+  "seat_block_3:seat_block_2": {
+   "penetration_mm": 0.0,
+   "verts_inside": 0,
+   "gap_mm": 5.7
+  }
+ }
+}

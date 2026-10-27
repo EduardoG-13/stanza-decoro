@@ -1,7 +1,7 @@
 {
   "IDENTITY": {
     "modelId": "stanza-organic-01",
-    "revision": "1.0.0"
+    "revision": "2.1.0"
   },
   "CAMERAS": {
     "threequarter": {
@@ -52,15 +52,15 @@
         0.35
       ]
     },
-    "layers": {
+    "photo": {
       "position": [
-        3.5,
-        2.7,
-        4.5
+        -0.15,
+        1.35,
+        2.45
       ],
       "target": [
-        0,
-        1,
+        -0.05,
+        0.55,
         0
       ]
     }
@@ -75,219 +75,12 @@
           0,
           0
         ],
-        "padding": [
-          0,
-          0,
-          0
-        ],
-        "frame": [
-          0,
-          0,
-          0
-        ],
         "legs": [
           0,
           0,
           0
         ],
         "cushions": [
-          0,
-          0,
-          0
-        ],
-        "suspension": [
-          0,
-          0,
-          0
-        ]
-      },
-      "camera": {
-        "position": [
-          2.6,
-          1.65,
-          3.1
-        ],
-        "target": [
-          0,
-          0.5,
-          0
-        ]
-      }
-    },
-    {
-      "progress": 0.2,
-      "label": "Aproximação do revestimento",
-      "offsets": {
-        "upholstery": [
-          0,
-          0,
-          0
-        ],
-        "padding": [
-          0,
-          0,
-          0
-        ],
-        "frame": [
-          0,
-          0,
-          0
-        ],
-        "legs": [
-          0,
-          0,
-          0
-        ],
-        "cushions": [
-          0,
-          0,
-          0
-        ],
-        "suspension": [
-          0,
-          0,
-          0
-        ]
-      },
-      "camera": {
-        "position": [
-          2.1,
-          1.5,
-          2.6
-        ],
-        "target": [
-          0,
-          0.6,
-          0.15
-        ]
-      }
-    },
-    {
-      "progress": 0.5,
-      "label": "Revestimento e acolchoamento separados",
-      "offsets": {
-        "upholstery": [
-          0,
-          0.8,
-          0.3
-        ],
-        "padding": [
-          0,
-          0.3,
-          0
-        ],
-        "frame": [
-          0,
-          0,
-          0
-        ],
-        "legs": [
-          0,
-          0,
-          0
-        ],
-        "cushions": [
-          0,
-          0.9,
-          0.65
-        ],
-        "suspension": [
-          0,
-          0.08,
-          0
-        ]
-      },
-      "camera": {
-        "position": [
-          3.5,
-          2.7,
-          4.5
-        ],
-        "target": [
-          0,
-          1,
-          0
-        ]
-      }
-    },
-    {
-      "progress": 0.7,
-      "label": "Estrutura exposta · construção ilustrativa",
-      "offsets": {
-        "upholstery": [
-          0,
-          1.3,
-          0.5
-        ],
-        "padding": [
-          0,
-          0.65,
-          0
-        ],
-        "frame": [
-          0,
-          0,
-          0
-        ],
-        "legs": [
-          0,
-          0,
-          0
-        ],
-        "cushions": [
-          0,
-          1.45,
-          0.85
-        ],
-        "suspension": [
-          0,
-          0.22,
-          0
-        ]
-      },
-      "camera": {
-        "position": [
-          3.5,
-          2.7,
-          4.5
-        ],
-        "target": [
-          0,
-          1,
-          0
-        ]
-      }
-    },
-    {
-      "progress": 1,
-      "label": "Retorno à peça montada",
-      "offsets": {
-        "upholstery": [
-          0,
-          0,
-          0
-        ],
-        "padding": [
-          0,
-          0,
-          0
-        ],
-        "frame": [
-          0,
-          0,
-          0
-        ],
-        "legs": [
-          0,
-          0,
-          0
-        ],
-        "cushions": [
-          0,
-          0,
-          0
-        ],
-        "suspension": [
           0,
           0,
           0
@@ -308,10 +101,17 @@
     }
   ],
   "COLORS": {
-    "areia": "#d8c9b2",
+    "areia": "#b6b0a8",
     "oliva": "#72765a",
     "terracota": "#ae6952",
-    "grafite": "#494b4b"
+    "grafite": "#494b4b",
+    "gelo": "#babcc0",
+    "grafite-quente": "#545050",
+    "cru": "#e2ddd2",
+    "cinza-malva": "#8a8286",
+    "petroleo": "#0e5668",
+    "musgo": "#6b6534",
+    "mostarda": "#e2aa18"
   },
   "FABRICS": {
     "linen": {
@@ -319,28 +119,116 @@
       "roughness": 1,
       "normalStrength": 0.78,
       "sheen": 0.12,
-      "sheenRoughness": 0.85
+      "sheenRoughness": 0.85,
+      "repeatMeters": 0.14
     },
     "boucle": {
       "label": "Bouclé",
       "roughness": 1,
-      "normalStrength": 0.9,
-      "sheen": 0.2,
-      "sheenRoughness": 0.9
+      "normalStrength": 1.8,
+      "sheen": 0.12,
+      "sheenRoughness": 0.95,
+      "repeatMeters": 0.3
     },
     "velvet": {
       "label": "Veludo",
       "roughness": 1,
       "normalStrength": 0.38,
       "sheen": 0.72,
-      "sheenRoughness": 0.55
+      "sheenRoughness": 0.55,
+      "repeatMeters": 0.14
+    },
+    "boucle-mescla": {
+      "label": "Bouclé mescla",
+      "roughness": 1,
+      "normalStrength": 1.5,
+      "sheen": 0.12,
+      "sheenRoughness": 0.95,
+      "repeatMeters": 0.3
+    },
+    "sarja": {
+      "label": "Sarja",
+      "roughness": 1,
+      "normalStrength": 0.9,
+      "sheen": 0.1,
+      "sheenRoughness": 0.8,
+      "repeatMeters": 0.3
+    },
+    "linho-rustico": {
+      "label": "Linho rústico",
+      "roughness": 1,
+      "normalStrength": 1,
+      "sheen": 0.1,
+      "sheenRoughness": 0.85,
+      "repeatMeters": 0.3
     }
   },
   "DIMENSIONS": {
-    "width": 2.487,
-    "height": 1.007,
-    "depth": 1.084,
+    "width": 2.503,
+    "height": 1.132,
+    "depth": 1.098,
     "unit": "m",
     "estimated": true
+  },
+  "MATERIAL_REGIONS": {
+    "body": [
+      "fabric_main",
+      "fabric_seam"
+    ],
+    "decorative": [
+      "cushion_light_boucle",
+      "cushion_light_seam",
+      "cushion_olive_weave",
+      "cushion_olive_seam",
+      "cushion_olive_reverse"
+    ],
+    "exterior-structure": [
+      "legs_dark"
+    ]
+  },
+  "DEPRECATED": {
+    "since": "2.0.0",
+    "setProgress": "no-op: keeps the assembled piece (exterior-only asset, no layered opening)",
+    "LAYER_STAGES": "single assembled stage kept for old importers; the 1.x opening stages were removed",
+    "removedCameras": [
+      "layers"
+    ],
+    "removedGroups": [
+      "padding",
+      "frame",
+      "suspension"
+    ],
+    "removedModules": [
+      "viewer/scroll.js",
+      "viewer/vendor/gsap/"
+    ]
+  },
+  "BODY_UV_METERS": 0.3,
+  "REGION_NAMES": [
+    "body",
+    "decorative",
+    "contrast",
+    "exterior-structure"
+  ],
+  "DEFAULT_MODEL_OPTIONS": {
+    "fabrics": [
+      "boucle",
+      "linen",
+      "velvet"
+    ],
+    "colors": [
+      "areia",
+      "oliva",
+      "terracota",
+      "grafite"
+    ],
+    "default": {
+      "fabricId": "boucle",
+      "colorId": "areia"
+    }
+  },
+  "MULTI_MODEL": {
+    "since": "models3d pipeline (EXT-002)",
+    "note": "COLORS/FABRICS are the global, append-only palette; each registered model exposes a subset (data/models-3d.json options). EXT-001 keeps DEFAULT_MODEL_OPTIONS and CAMERAS; other models get framedCameras(bounds) + registry overrides."
   }
 }

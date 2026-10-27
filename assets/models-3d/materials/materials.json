@@ -1,0 +1,257 @@
+{
+  "contract": "stanza-material-library/v1",
+  "note": "Biblioteca compartilhada de acabamentos da coleção 3D. Estudos visuais originais (CC0), não catálogo homologado; a tela não substitui amostra física.",
+  "bodyUvMeters": 0.3,
+  "families": [
+    {
+      "label": "Bouclé mescla",
+      "family": "heathered_loop_boucle_study",
+      "seed": 705,
+      "normalScale": 1.5,
+      "roughness": 1.0,
+      "sheen": 0.12,
+      "sheenRoughness": 0.95,
+      "description": "Bouclé mesclado de laços irregulares (aprox. 4-7 mm), fios brancos e cinza misturados. Estudo visual próprio a partir de SOFA-5.jpg; sem código comercial.",
+      "createdFor": "EXT-002 (sofas/SOFA-5.jpg)",
+      "id": "boucle-mescla",
+      "repeatMeters": 0.3,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "license": "CC0-1.0",
+      "source": "assets/models-3d/materials/generate_materials.py",
+      "maps": {
+        "baseColor": "boucle-mescla/basecolor.jpg",
+        "normal": "boucle-mescla/normal.png",
+        "roughness": "boucle-mescla/roughness.jpg",
+        "thumbnail": "boucle-mescla/thumbnail.jpg"
+      },
+      "validation": {
+        "baseColorMean": 0.8411507852740071,
+        "roughnessMean": 0.9299549379803922
+      },
+      "embedded": {
+        "gelo": [
+          "basecolor-gelo-1024.jpg",
+          "basecolor-gelo-512.jpg"
+        ],
+        "normal": [
+          "embedded/normal-512.png",
+          "embedded/normal-256.png"
+        ],
+        "roughness": [
+          "embedded/roughness-512.jpg",
+          "embedded/roughness-256.jpg"
+        ]
+      }
+    },
+    {
+      "label": "Madeira escura (wengué)",
+      "family": "dark_stained_wood_study",
+      "seed": 706,
+      "normalScale": 0.4,
+      "description": "Madeira tingida escura com veio longo suave; acabamento fixo de bases e pés.",
+      "createdFor": "EXT-002 (plinto e pés de SOFA-5.jpg)",
+      "id": "wood-wenge",
+      "repeatMeters": 0.6,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "license": "CC0-1.0",
+      "source": "assets/models-3d/materials/generate_materials.py",
+      "maps": {
+        "baseColor": "wood-wenge/basecolor.jpg",
+        "normal": "wood-wenge/normal.png",
+        "roughness": "wood-wenge/roughness.jpg",
+        "thumbnail": "wood-wenge/thumbnail.jpg"
+      },
+      "validation": {
+        "baseColorMean": 0.1396193465146052,
+        "roughnessMean": 0.5669924269250324
+      }
+    },
+    {
+      "label": "Sarja",
+      "family": "flat_twill_upholstery_study",
+      "seed": 707,
+      "normalScale": 0.9,
+      "roughness": 1.0,
+      "sheen": 0.1,
+      "sheenRoughness": 0.8,
+      "description": "Sarja 2/2 de trama fechada e fosca (fios de ~1,2 mm, diagonal suave). Estudo visual próprio a partir de SOFA-3.jpg; sem código comercial.",
+      "createdFor": "EXT-003 (sofas/SOFA-3.jpg); reutilizada no EXT-005 (acervo/sofa-com-vivo.webp) e no EXT-030 (pufs/pufs-10.jpg)",
+      "id": "sarja",
+      "repeatMeters": 0.3,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "license": "CC0-1.0",
+      "source": "assets/models-3d/materials/generate_materials.py",
+      "maps": {
+        "baseColor": "sarja/basecolor.jpg",
+        "normal": "sarja/normal.png",
+        "roughness": "sarja/roughness.jpg",
+        "thumbnail": "sarja/thumbnail.jpg"
+      },
+      "validation": {
+        "baseColorMean": 0.7932188915485104,
+        "roughnessMean": 0.8840615465951795
+      },
+      "embedded": {
+        "grafite-quente": [
+          "basecolor-grafite-quente-1024.jpg",
+          "basecolor-grafite-quente-512.jpg"
+        ],
+        "cinza-malva": [
+          "basecolor-cinza-malva-1024.jpg",
+          "basecolor-cinza-malva-512.jpg"
+        ],
+        "mostarda": [
+          "basecolor-mostarda-1024.jpg",
+          "basecolor-mostarda-512.jpg"
+        ],
+        "normal": [
+          "embedded/normal-512.png",
+          "embedded/normal-256.png"
+        ],
+        "roughness": [
+          "embedded/roughness-512.jpg",
+          "embedded/roughness-256.jpg"
+        ]
+      }
+    },
+    {
+      "label": "Estampa losangos azul (decorativa)",
+      "family": "printed_cushion_design",
+      "seed": 708,
+      "normalScale": 0.8,
+      "description": "Estampa de losangos concêntricos azul claro e cinza-azulado sobre fundo branco, desenhada proceduralmente a partir da leitura de SOFA-3.jpg (não é a foto). Somente almofadas decorativas fixas.",
+      "createdFor": "EXT-003 (almofadas estampadas de SOFA-3.jpg)",
+      "id": "decor-losango",
+      "repeatMeters": 0.3,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "license": "CC0-1.0",
+      "source": "assets/models-3d/materials/generate_materials.py",
+      "maps": {
+        "baseColor": "decor-losango/basecolor.jpg",
+        "normal": "decor-losango/normal.png",
+        "roughness": "decor-losango/roughness.jpg",
+        "thumbnail": "decor-losango/thumbnail.jpg"
+      },
+      "validation": {
+        "baseColorMean": 0.7350928186477313,
+        "roughnessMean": 0.899853347820202
+      },
+      "decorative": true
+    },
+    {
+      "label": "Linho rústico",
+      "family": "slub_plain_weave_study",
+      "seed": 709,
+      "normalScale": 1.0,
+      "roughness": 1.0,
+      "sheen": 0.1,
+      "sheenRoughness": 0.85,
+      "description": "Tela de aspecto linho, trama simples com flamê (engrossamentos alongados dos fios), fosca. Estudo visual próprio a partir de sofa-dois-assentos.webp; sem código comercial.",
+      "createdFor": "EXT-004 (acervo/sofa-dois-assentos.webp)",
+      "id": "linho-rustico",
+      "repeatMeters": 0.3,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "license": "CC0-1.0",
+      "source": "assets/models-3d/materials/generate_materials.py",
+      "maps": {
+        "baseColor": "linho-rustico/basecolor.jpg",
+        "normal": "linho-rustico/normal.png",
+        "roughness": "linho-rustico/roughness.jpg",
+        "thumbnail": "linho-rustico/thumbnail.jpg"
+      },
+      "validation": {
+        "baseColorMean": 0.7964933590945064,
+        "roughnessMean": 0.9224724440422591
+      },
+      "embedded": {
+        "cru": [
+          "basecolor-cru-1024.jpg",
+          "basecolor-cru-512.jpg"
+        ],
+        "normal": [
+          "embedded/normal-512.png",
+          "embedded/normal-256.png"
+        ],
+        "roughness": [
+          "embedded/roughness-512.jpg",
+          "embedded/roughness-256.jpg"
+        ]
+      }
+    },
+    {
+      "label": "Quadrados marrons (decorativa)",
+      "family": "cut_velvet_cushion_design",
+      "seed": 710,
+      "normalScale": 1.0,
+      "description": "Fundo marrom-escuro em relevo (aspecto veludo cortado) com retângulos bege rosado em fileiras desencontradas, procedural a partir da leitura de sofa-dois-assentos.webp (não é a foto). Somente a almofada decorativa fixa.",
+      "createdFor": "EXT-004 (almofada lombar de sofa-dois-assentos.webp)",
+      "id": "decor-quadrados",
+      "repeatMeters": 0.3,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "license": "CC0-1.0",
+      "source": "assets/models-3d/materials/generate_materials.py",
+      "maps": {
+        "baseColor": "decor-quadrados/basecolor.jpg",
+        "normal": "decor-quadrados/normal.png",
+        "roughness": "decor-quadrados/roughness.jpg",
+        "thumbnail": "decor-quadrados/thumbnail.jpg"
+      },
+      "validation": {
+        "baseColorMean": 0.49064438738183563,
+        "roughnessMean": 0.907540317044836
+      },
+      "decorative": true
+    }
+  ],
+  "reusedFamilies": {
+    "boucle": "/assets/sofa-pilot/materials/boucle/",
+    "linen": "/assets/sofa-pilot/materials/linen/",
+    "velvet": "/assets/sofa-pilot/materials/velvet/"
+  },
+  "tints": {
+    "gelo": "#babcc0",
+    "grafite-quente": "#545050",
+    "cru": "#e2ddd2",
+    "cinza-malva": "#8a8286",
+    "petroleo": "#0e5668",
+    "areia": "#b6b0a8",
+    "musgo": "#6b6534",
+    "mostarda": "#e2aa18"
+  }
+}

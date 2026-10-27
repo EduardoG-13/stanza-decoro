@@ -1,4 +1,6 @@
 dist/
+node_modules/
+.agents/
 assets/images/
 __pycache__/
 .preview/
@@ -11,3 +13,4 @@ site.config.local.json
 
 dist-formulario/
 dist-producao/
+*.blend1

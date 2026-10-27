@@ -1,0 +1,455 @@
+{
+  "contract": "stanza-model-3d/v1",
+  "modelId": "stanza-curved-arm-01",
+  "revision": "1.0.0",
+  "queue": "EXT-007",
+  "title": "Sofá verde de braços curvos",
+  "relation": {
+    "catalogId": "sofa-curvo",
+    "catalogName": "Sofá de braços curvos",
+    "portfolioId": "projeto-9",
+    "portfolioTitle": "Sofá verde de braços curvos",
+    "note": "sofas/SOFA-9.png é a referência (source) do item de catálogo sofa-curvo e do portfólio projeto-9; sofas/SOFA-9.2.png é a galeria do mesmo item. As duas fotos são a mesma peça e o MESMO ponto de vista (SOFA-9.2 = SOFA-9 recortada nas linhas 72–403, diferença mediana 2/255): um único modelo. IDs existentes preservados; nenhuma entrada nova. Sala, mesas e poltrona vizinha não são modelados. A home continua sem o 3D da coleção."
+  },
+  "references": [
+    {
+      "path": "sofas/SOFA-9.png",
+      "size": [
+        532,
+        450
+      ],
+      "angle": "quase frontal, levemente pela direita, câmera alta (~1,8 m) olhando para baixo, rolagem ~-2,6°",
+      "use": "forma, proporções, composição das almofadas, acabamento"
+    },
+    {
+      "path": "sofas/SOFA-9.2.png",
+      "size": [
+        532,
+        332
+      ],
+      "angle": "mesmo ponto de vista de SOFA-9 (recorte vertical); não é um segundo ângulo",
+      "use": "confirmação das proporções e da composição (mesma câmera, recortada)"
+    }
+  ],
+  "status": "technical-validated-visual-review-pending",
+  "construction": "exterior-only",
+  "units": "m",
+  "axes": {
+    "width": "+X",
+    "up": "+Y",
+    "front": "+Z",
+    "origin": "centro da projeção da peça no piso (Y=0)"
+  },
+  "estimatedScale": {
+    "seatHeightAssumed": 0.43,
+    "method": "câmera ajustada a 11 correspondências em SOFA-9.png 532×450 (pés dianteiros base/topo, cantos da frente do assento, base da frente, extremos e topos dos braços; foco 600 px fixo, rolagem livre −2,6°, rms 4,8 px), topo da almofada de assento na frente fixado em 0,43 m. SOFA-9.2.png é o mesmo ponto de vista (SOFA-9 recortada nas linhas 72–403, diferença mediana 2/255) e só confirma as proporções; a profundidade (0,95 m) não é medida pela vista quase frontal. Preset photo = câmera ajustada reapontada para o centro do sofá (rotação + zoom no centro óptico; as duas fotos são reprojetadas pela mesma homografia).",
+    "values": {
+      "widthArms": 2.07,
+      "widthSilhouetteFit": 2.13,
+      "depth": 0.95,
+      "hullUnderside": 0.21,
+      "deck": 0.37,
+      "seatPadTop": 0.43,
+      "padThickness": 0.068,
+      "armTop": 0.715,
+      "armInnerFootFront": 0.7,
+      "armInnerFootBack": 0.88,
+      "backPanelTop": 0.64,
+      "backLeanDeg": 9,
+      "legsX": 0.925,
+      "pillow": [
+        0.36,
+        0.32
+      ]
+    },
+    "weak": [
+      "profundidade (assumida 0,95 m) e costas: não visíveis",
+      "pés recuados para ±0,925 m (o ajuste dá ±1,0 m) para apoiarem sob a curva inferior dos braços",
+      "recuo do pé interno dos braços para trás (0,70→0,88 m) inferido das bordas das almofadas"
+    ]
+  },
+  "components": [
+    {
+      "name": "base de madeira: 4 pés + travessas no topo dos pés",
+      "meshes": [
+        "foot_1..4",
+        "wood_base_apron_front/back/side_l/side_r"
+      ],
+      "group": "legs"
+    },
+    {
+      "name": "casco estofado baixo (frente entre os braços)",
+      "meshes": [
+        "hull"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "braços curvos: face externa vertical, curva para dentro na base, ombro arredondado e subida em curva até o assento; o pé interno recua para trás",
+      "meshes": [
+        "arm_l",
+        "arm_r"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "encosto baixo inclinado 9°",
+      "meshes": [
+        "back_panel"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "colchão matelassê (capitonê raso + pespontos) no assento, no encosto e sobre os braços, caindo por fora",
+      "meshes": [
+        "seat_pad",
+        "back_pad",
+        "arm_pad_l",
+        "arm_pad_r",
+        "*_seam"
+      ],
+      "group": "upholstery"
+    },
+    {
+      "name": "seis almofadas soltas de borda faca (0,36 × 0,32 m)",
+      "meshes": [
+        "pillow_1..6_cover",
+        "pillow_1..6_welt"
+      ],
+      "group": "cushions"
+    }
+  ],
+  "materialRegions": {
+    "table": [
+      {
+        "mesh": "hull, arm_l/r, back_panel, seat_pad, back_pad, arm_pad_l/r",
+        "material": "fabric_main",
+        "region": "body"
+      },
+      {
+        "mesh": "seat_pad_seam, back_pad_seam, arm_pad_l/r_seam",
+        "material": "fabric_seam",
+        "region": "body"
+      },
+      {
+        "mesh": "pillow_1..6_cover",
+        "material": "pillow_velvet",
+        "region": "decorative"
+      },
+      {
+        "mesh": "pillow_1..6_welt",
+        "material": "pillow_seam",
+        "region": "decorative"
+      },
+      {
+        "mesh": "foot_1..4, wood_base_apron_*",
+        "material": "base_wood",
+        "region": "exterior-structure"
+      }
+    ],
+    "decorative": [
+      "pillow_velvet",
+      "pillow_seam"
+    ],
+    "contrast": [],
+    "exterior-structure": [
+      "base_wood"
+    ],
+    "note": "Corpo = casco, braços, encosto e o colchão matelassê funcional (assento/encosto/braços), mesmo veludo: muda junto. As seis almofadas soltas de 36 cm são almofadas de arremesso apoiadas no encosto baixo: pela regra da fila (almofadas soltas → decoração fixa, mesmo que comecem iguais ao corpo) ficam fixas no veludo musgo da foto. Sem vivo, tacha ou botão de outra cor visível. Pés e travessas de madeira = estrutura aparente, material próprio (wood-wenge), nunca tingido. Dúvida registrada: o colchão sobre os braços lembra uma manta; foi tratado como corpo porque é contínuo com o assento e tem o mesmo matelassê."
+  },
+  "options": {
+    "appliesTo": "body",
+    "fabrics": [
+      "velvet",
+      "linen",
+      "boucle",
+      "sarja"
+    ],
+    "colors": [
+      "musgo",
+      "oliva",
+      "grafite",
+      "gelo",
+      "areia",
+      "terracota"
+    ],
+    "default": {
+      "fabricId": "velvet",
+      "colorId": "musgo"
+    },
+    "embedded": {
+      "fabricId": "velvet",
+      "colorId": "musgo"
+    },
+    "note": "Veludo (brilho de pelo no assento e nos braços) → família velvet existente, reutilizada. musgo (#6b6534) é cor nova e aditiva: o verde da foto é musgo/oliva saturado (matiz ~50°, saturação ~0,45); oliva #72765a é um verde-acinzentado (68°, 0,24) e fica como alternativa. Sem família nova."
+  },
+  "materials": {
+    "library": "assets/sofa-pilot/materials/velvet (por referência; tinta musgo gerada no build.py como mapa × tinta, pré-repetida 2×2 como EXT-014)",
+    "reused": "assets/sofa-pilot/materials/ (boucle, linen), assets/models-3d/materials/sarja e wood-wenge por referência",
+    "embedded": {
+      "main": "veludo musgo basecolor 1024 + normal 1024 + roughness 256 (2×2); wood-wenge 512/256/256",
+      "mobile": "veludo 512/256/256 (2×2); wood-wenge 256"
+    }
+  },
+  "provenance": {
+    "source": "assets/models-3d/stanza-curved-arm-01/source/build.py (paramétrico; importa assets/models-3d/lib/stanza3d.py: RoundedBox com deformação, plinth, LooseCushion/settle_contacts, snap)",
+    "derived": "source/stanza-curved-arm-01.blend, models/*.glb (gerados juntos, um passe)",
+    "tool": "Blender 5.0.1 como módulo Python (bpy, PyPI) em modo headless",
+    "license": "Geometria e mapas originais do projeto Stanza, CC0-1.0 na medida em que direitos possam existir; a foto de referência não é redistribuída no pacote nem usada como textura."
+  },
+  "budgets": {
+    "limits": {
+      "mainBytes": 5000000,
+      "mainTriangles": 60000,
+      "mobileTriangles": 25000
+    },
+    "measured": {
+      "mainBytes": 2809352,
+      "mainTriangles": 57852,
+      "mobileBytes": 1009416,
+      "mobileTriangles": 21456
+    },
+    "withinBudget": true
+  },
+  "limitations": [
+    "Um só ponto de vista: SOFA-9.2.png é a mesma foto recortada (não é um segundo ângulo); costas, laterais e profundidade inferidas.",
+    "Medidas estimadas com o topo do assento a 0,43 m e profundidade assumida 0,95 m.",
+    "Cor musgo #6b6534 e veludo são estimativas visuais; a foto tem frente em sombra (marrom-oliva escuro) e assento estourado.",
+    "Madeira: a foto mostra madeira avermelhada média; usado o wood-wenge da biblioteca (mais escuro, menos vermelho) para não criar família nova.",
+    "Pés recuados ~7 cm em relação ao ajuste para apoiar sob a curva inferior dos braços.",
+    "Matelassê raso: os capitonês e pespontos da foto aparecem só de perto; as dobras soltas do colchão sobre os braços são simplificadas.",
+    "Almofadas: um pouco menores e menos estufadas que na foto; posições adaptadas para não atravessar os braços (as das pontas ficam ~10 cm mais para dentro).",
+    "Junções ocultas: casco, braços e encosto se interpenetram por dentro (até ~50 mm, invisível); colchão comprimido até ~8 mm contra os braços.",
+    "Validado apenas em navegador headless (SwiftShader)."
+  ],
+  "dimensions": {
+    "width": 2.207,
+    "height": 0.84,
+    "depth": 0.999,
+    "unit": "m",
+    "estimated": true,
+    "basis": "one viewpoint (SOFA-9.png; SOFA-9.2.png is the same view cropped); seat pad top at the front assumed 0.43 m; depth assumed 0.95 m; no measured shop dimensions"
+  },
+  "models": {
+    "main": {
+      "uri": "models/stanza-curved-arm-01.glb",
+      "bytes": 2809352,
+      "sha256": "535b669b241c1556f51d37469796c9c1cc33da3a073b8158e23ef76e8e6ff61e",
+      "triangles": 57852,
+      "boundsMeters": {
+        "min": [
+          -1.10249,
+          0.0,
+          -0.50905
+        ],
+        "max": [
+          1.10464,
+          0.83979,
+          0.49035
+        ],
+        "dimensions": [
+          2.20713,
+          0.83979,
+          0.9994
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal-1024",
+          "mimeType": "image/png",
+          "bytes": 564972,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam",
+            "pillow_seam",
+            "pillow_velvet"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "basecolor-musgo-1024",
+          "mimeType": "image/jpeg",
+          "bytes": 32746,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam",
+            "pillow_seam",
+            "pillow_velvet"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 32969,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam",
+            "pillow_seam",
+            "pillow_velvet"
+          ]
+        },
+        {
+          "index": 3,
+          "name": "normal-256",
+          "mimeType": "image/png",
+          "bytes": 35868,
+          "usedBy": [
+            "base_wood"
+          ]
+        },
+        {
+          "index": 4,
+          "name": "basecolor-512",
+          "mimeType": "image/jpeg",
+          "bytes": 21362,
+          "usedBy": [
+            "base_wood"
+          ]
+        },
+        {
+          "index": 5,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 58253,
+          "usedBy": [
+            "base_wood"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "pillow_velvet",
+          "region": "decorative"
+        },
+        {
+          "name": "pillow_seam",
+          "region": "decorative"
+        },
+        {
+          "name": "base_wood",
+          "region": "exterior-structure"
+        },
+        {
+          "name": "fabric_main",
+          "region": "body"
+        },
+        {
+          "name": "fabric_seam",
+          "region": "body"
+        }
+      ]
+    },
+    "mobile": {
+      "uri": "models/stanza-curved-arm-01-mobile.glb",
+      "bytes": 1009416,
+      "sha256": "bc024930ca6c3da8d5769a83c0656f66e2d5db7673db422d8eb93196168a4468",
+      "triangles": 21456,
+      "boundsMeters": {
+        "min": [
+          -1.10226,
+          0.0,
+          -0.50893
+        ],
+        "max": [
+          1.10367,
+          0.84453,
+          0.49016
+        ],
+        "dimensions": [
+          2.20593,
+          0.84453,
+          0.99909
+        ]
+      },
+      "textures": [
+        {
+          "index": 0,
+          "name": "normal-256",
+          "mimeType": "image/png",
+          "bytes": 29499,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam",
+            "pillow_seam",
+            "pillow_velvet"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "basecolor-musgo-512",
+          "mimeType": "image/jpeg",
+          "bytes": 8300,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam",
+            "pillow_seam",
+            "pillow_velvet"
+          ]
+        },
+        {
+          "index": 2,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 32969,
+          "usedBy": [
+            "fabric_main",
+            "fabric_seam",
+            "pillow_seam",
+            "pillow_velvet"
+          ]
+        },
+        {
+          "index": 3,
+          "name": "normal-256",
+          "mimeType": "image/png",
+          "bytes": 35868,
+          "usedBy": [
+            "base_wood"
+          ]
+        },
+        {
+          "index": 4,
+          "name": "basecolor-256",
+          "mimeType": "image/jpeg",
+          "bytes": 6086,
+          "usedBy": [
+            "base_wood"
+          ]
+        },
+        {
+          "index": 5,
+          "name": "roughness-256",
+          "mimeType": "image/png",
+          "bytes": 58253,
+          "usedBy": [
+            "base_wood"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "pillow_velvet",
+          "region": "decorative"
+        },
+        {
+          "name": "pillow_seam",
+          "region": "decorative"
+        },
+        {
+          "name": "base_wood",
+          "region": "exterior-structure"
+        },
+        {
+          "name": "fabric_main",
+          "region": "body"
+        },
+        {
+          "name": "fabric_seam",
+          "region": "body"
+        }
+      ]
+    }
+  }
+}
