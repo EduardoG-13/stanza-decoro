@@ -5,11 +5,15 @@ import { RoomEnvironment } from './vendor/three/addons/environments/RoomEnvironm
 
 export const IDENTITY = Object.freeze({ modelId: 'stanza-organic-01', revision: '2.1.0' });
 export const DIMENSIONS = Object.freeze({ width:2.503, height:1.132, depth:1.098, unit:'m', estimated:true });
-export const COLORS = Object.freeze({ areia: '#b6b0a8', oliva: '#72765a', terracota: '#ae6952', grafite: '#494b4b' });
+// Colour IDs are global and only ever ADDED (never renamed); each model exposes a subset.
+// gelo (EXT-002): cool light grey of the bouclé in SOFA-5.jpg (visual estimate).
+export const COLORS = Object.freeze({ areia: '#b6b0a8', oliva: '#72765a', terracota: '#ae6952', grafite: '#494b4b', gelo: '#babcc0' });
 export const FABRICS = Object.freeze({
   linen: { label:'Trama plana', roughness: 1, normalStrength: .78, sheen: .12, sheenRoughness: .85, repeatMeters: .14 },
   boucle: { label:'Bouclé', roughness: 1, normalStrength: 1.8, sheen: .12, sheenRoughness: .95, repeatMeters: .30 },
-  velvet: { label:'Veludo', roughness: 1, normalStrength: .38, sheen: .72, sheenRoughness: .55, repeatMeters: .14 }
+  velvet: { label:'Veludo', roughness: 1, normalStrength: .38, sheen: .72, sheenRoughness: .55, repeatMeters: .14 },
+  // EXT-002: heathered bouclé of SOFA-5.jpg (shared library assets/models-3d/materials/boucle-mescla).
+  'boucle-mescla': { label:'Bouclé mescla', roughness: 1, normalStrength: 1.5, sheen: .12, sheenRoughness: .95, repeatMeters: .30 }
 });
 // 2.1.0: one body UV unit = BODY_UV_METERS (build_sofa.BODY_TILE). Each fabric's maps are scaled
 // with texture.repeat so they keep their own physical repeat (bouclé 0.30 m = the embedded maps).
@@ -47,15 +51,40 @@ const DECORATIVE = Object.freeze({
   cushion_olive_seam: { sheen:.12, sheenRoughness:.8, sheenColor:'#b9b48a' },
   cushion_olive_reverse: { sheen:.15, sheenRoughness:.85, sheenColor:'#f1ece0' }
 });
+// Multi-model (models3d pipeline): a model registered in data/models-3d.json is passed as
+// options.model ({modelId, revision, materialRegions, options:{fabrics, colors, default}, cameras}).
+// Without it the viewer behaves exactly as for EXT-001 (stanza-organic-01).
+export const REGION_NAMES = Object.freeze(['body','decorative','contrast','exterior-structure']);
+export const DEFAULT_MODEL_OPTIONS = Object.freeze({
+  fabrics: Object.freeze(['boucle','linen','velvet']), colors: Object.freeze(['areia','oliva','terracota','grafite']),
+  default: Object.freeze({ fabricId:'boucle', colorId:'areia' })
+});
+/** Camera presets framed from model bounds (glTF axes: +Z front, Y up). Pure, testable. */
+export const framedCameras = (min, max) => {
+  const c = [0,1,2].map(k => (min[k]+max[k])/2), s = [0,1,2].map(k => max[k]-min[k]);
+  const r = Math.hypot(s[0], s[1]*.8, s[2]) / 2, dist = r / Math.tan(18*Math.PI/180) * 1.05;
+  const ty = min[1] + s[1]*.42, target = [c[0],ty,c[2]].map(v=>+v.toFixed(3));
+  const at = (dx,dy,dz,k=1) => { const L = Math.hypot(dx,dy,dz); return [c[0]+dx/L*dist*k, ty+dy/L*dist*k, c[2]+dz/L*dist*k].map(v=>+v.toFixed(3)); };
+  const dt = [max[0]-s[0]*.22, min[1]+s[1]*.40, max[2]-s[2]*.12].map(v=>+v.toFixed(3));
+  return {
+    threequarter: { position:at(.62,.36,.70), target },
+    front: { position:at(0,.24,1), target },
+    side: { position:at(1,.22,0,.85), target },
+    back: { position:at(-.35,.32,-1), target },
+    detail: { position:[dt[0]+.25,dt[1]+.22,dt[2]+.7].map(v=>+v.toFixed(3)), target:dt },
+    photo: { position:at(-.5,.4,.8), target }
+  };
+};
 const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
 const ease = t => t*t*(3-2*t);
 const groups = ['upholstery','legs','cushions'];
-function regionOf(material) {
+function regionOf(material, regions = MATERIAL_REGIONS) {
   const tagged = material.userData?.stanza_region;
-  if (tagged && Object.hasOwn(MATERIAL_REGIONS,tagged)) return tagged;
-  for (const [region,names] of Object.entries(MATERIAL_REGIONS)) if (names.includes(material.name)) return region;
+  if (tagged && REGION_NAMES.includes(tagged)) return tagged;
+  for (const [region,names] of Object.entries(regions)) if (names.includes(material.name)) return region;
   return 'other';
 }
+const parseExtra = value => { if (typeof value !== 'string') return value ?? null; try { return JSON.parse(value); } catch { return null; } };
 
 /** Create an independent viewer in a sized HTML element. See API.md. */
 export async function createSofaViewer(container, options = {}) {
@@ -72,8 +101,17 @@ export async function createSofaViewer(container, options = {}) {
   const closedImages = new Set();
   let disposed = false, raf = 0, renders = 0, finishToken = 0, progress = 0;
   let loadedRoot, scene, renderer, controls, resizeObserver, environment;
-  let desired = { fabricId: options.fabricId || 'boucle', colorId: options.colorId || 'areia' };
-  let selection = { ...IDENTITY, ...desired };
+  const model = options.model || null;
+  let modelOptions = model?.options || DEFAULT_MODEL_OPTIONS;
+  let allowedFabrics = modelOptions.fabrics.filter(id => Object.hasOwn(FABRICS,id));
+  let allowedColors = modelOptions.colors.filter(id => Object.hasOwn(COLORS,id));
+  // The initial finish is the one embedded in the GLB (pre-tinted maps, white multiplier).
+  let embedded = { ...(modelOptions.embedded || modelOptions.default || DEFAULT_MODEL_OPTIONS.default) };
+  let identity = model ? { modelId:model.modelId, revision:model.revision } : { ...IDENTITY };
+  let regions = model?.materialRegions || MATERIAL_REGIONS;
+  let cameras = CAMERAS;
+  let desired = { fabricId: options.fabricId || modelOptions.default?.fabricId || 'boucle', colorId: options.colorId || modelOptions.default?.colorId || 'areia' };
+  let selection = { ...identity, ...desired };
   const originalChildren = [...container.children].map(child=>({child,hidden:child.hidden}));
   const abort = new AbortController();
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -126,7 +164,9 @@ export async function createSofaViewer(container, options = {}) {
       const loader = new THREE.TextureLoader();
       // Load each family only when requested; no preload of the other finishes.
       const result = await Promise.all(['basecolor.jpg','normal.png','roughness.jpg'].map(async (name) => {
-        const texture = await loader.loadAsync(new URL(`materials/${fabricId}/${name}`,baseUrl).href);
+        // Shared material library: options.materialUrls maps a fabric family to its folder.
+        const folder = new URL(options.materialUrls?.[fabricId] || `materials/${fabricId}/`,baseUrl);
+        const texture = await loader.loadAsync(new URL(name,folder).href);
         if (disposed) { texture.dispose(); throw new Error('Visualizador desmontado durante carga.'); }
         textures.add(texture); texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
         texture.flipY = false; texture.colorSpace = name.startsWith('basecolor') ? THREE.SRGBColorSpace : THREE.NoColorSpace;
@@ -142,13 +182,13 @@ export async function createSofaViewer(container, options = {}) {
   async function setFinish(next) {
     assertAlive();
     const candidate = { ...desired,...next };
-    if (!Object.hasOwn(FABRICS,candidate.fabricId) || !Object.hasOwn(COLORS,candidate.colorId)) throw new RangeError('Identificador de tecido ou cor inválido.');
+    if (!allowedFabrics.includes(candidate.fabricId) || !allowedColors.includes(candidate.colorId)) throw new RangeError('Identificador de tecido ou cor inválido.');
     desired = candidate;
     const token = ++finishToken;
     options.onStatus?.('Carregando acabamento…');
     // The GLB embeds sand-colored bouclé. Its color is already baked into baseColor;
     // multiplying by sand again would darken it. Other choices use neutral source maps.
-    const useEmbedded = candidate.fabricId === 'boucle' && candidate.colorId === 'areia' && embeddedFinishes.size > 0;
+    const useEmbedded = candidate.fabricId === embedded.fabricId && candidate.colorId === embedded.colorId && embeddedFinishes.size > 0;
     const maps = useEmbedded ? null : await loadFabric(candidate.fabricId);
     if (disposed || token !== finishToken) return { ...selection };
     const params = FABRICS[candidate.fabricId];
@@ -162,14 +202,17 @@ export async function createSofaViewer(container, options = {}) {
       material.sheenColor.set(COLORS[candidate.colorId]); material.sheenColor.lerp(new THREE.Color('white'),.35);
       material.needsUpdate = true;
     }
-    selection = { ...IDENTITY,...candidate };
+    selection = { ...identity,...candidate };
     options.onFinish?.({ ...selection }); options.onStatus?.('Pronto para explorar'); invalidate();
     return { ...selection };
   }
   function setView(viewId) {
     assertAlive();
-    const view = Object.hasOwn(CAMERAS,viewId) && CAMERAS[viewId];
+    const view = Object.hasOwn(cameras,viewId) && cameras[viewId];
     if (!view) throw new RangeError(`Vista desconhecida: ${viewId}`);
+    // Fitted views (view.fov, authored for a 4:3 photo) keep their horizontal field on narrower canvases.
+    const fitted = view.fov && camera.aspect < 4/3 ? 2*Math.atan(Math.tan(view.fov*Math.PI/360)*(4/3)/camera.aspect)*180/Math.PI : view.fov;
+    camera.fov = fitted || 36; camera.updateProjectionMatrix();
     camera.position.fromArray(view.position); controls.target.fromArray(view.target);
     controls.update(); invalidate();
   }
@@ -244,7 +287,19 @@ export async function createSofaViewer(container, options = {}) {
     const url = new URL(options.modelUrl || variantUrl || (variant==='mobile'?'models/sofa-mobile.glb':'models/sofa.glb'),baseUrl).href;
     const gltf = await loader.loadAsync(url);
     loadedRoot = gltf.scene;
-    if (!loadedRoot.getObjectByName('sofa_root')) throw new Error('O GLB não contém o nó sofa_root.');
+    const rootNode = loadedRoot.getObjectByName('sofa_root') || loadedRoot.getObjectByName('model_root');
+    if (!rootNode) throw new Error('O GLB não contém o nó sofa_root.');
+    const extras = rootNode.userData || {};
+    if (model && extras.modelId && (extras.modelId !== model.modelId || (extras.revision && extras.revision !== model.revision)))
+      throw new Error('O GLB não corresponde ao modelo registrado.');
+    if (!model && extras.modelId && extras.modelId !== IDENTITY.modelId) {
+      // Unregistered non-EXT-001 GLB loaded directly (e.g. capture harness): trust its own extras.
+      identity = { modelId:extras.modelId, revision:extras.revision || '' };
+      embedded = parseExtra(extras.embeddedFinish) || embedded;
+      allowedFabrics = Object.keys(FABRICS); allowedColors = Object.keys(COLORS);
+      if (!options.fabricId && !options.colorId) desired = { ...embedded };
+    }
+    if (!model?.materialRegions && extras.materialRegions) regions = parseExtra(extras.materialRegions) || regions;
     for (const name of groups) {
       const node = loadedRoot.getObjectByName(name);
       if (!node) throw new Error(`Grupo ausente no GLB: ${name}`);
@@ -260,7 +315,7 @@ export async function createSofaViewer(container, options = {}) {
       // by mesh, so a body instance can never be shared with a cushion and vice versa.
       const convert = material => {
         if (convertedMaterials.has(material)) return convertedMaterials.get(material);
-        const region = regionOf(material);
+        const region = regionOf(material,regions);
         if (region !== 'body' && region !== 'decorative') {
           material.userData.stanzaRegion = region; materials.add(material); convertedMaterials.set(material,material); return material;
         }
@@ -285,6 +340,10 @@ export async function createSofaViewer(container, options = {}) {
       node.material = Array.isArray(node.material)?node.material.map(convert):convert(node.material);
     });
     scene.add(loadedRoot);
+    if (identity.modelId !== IDENTITY.modelId) {
+      const box = new THREE.Box3().setFromObject(loadedRoot);
+      cameras = { ...framedCameras(box.min.toArray(),box.max.toArray()), ...(model?.cameras || {}) };
+    }
     if (![...materials].some(material=>material.userData.stanzaFabric)) throw new Error('Nenhum material de corpo (fabric_main/fabric_seam) foi exportado.');
     await setFinish(desired);
     container.append(canvas); originalChildren.forEach(({child})=>{child.hidden=true;});
@@ -295,12 +354,13 @@ export async function createSofaViewer(container, options = {}) {
     };
     resizeObserver=new ResizeObserver(resize); resizeObserver.observe(container); resize();
     const api = Object.freeze({ setProgress,setFinish,setView,getSelection:()=>({...selection}),dispose,zoom,rotate,
-      inspect:()=>({ ...IDENTITY,variant,progress,disposed,reducedMotion:reducedMotion.matches,renders,
-        texturesLoaded:[...(embeddedFinishes.size?['boucle:embedded-areia']:[]),...textureCache.keys()],camera:{position:camera.position.toArray(),target:controls.target.toArray()},
+      inspect:()=>({ ...identity,variant,progress,disposed,reducedMotion:reducedMotion.matches,renders,
+        texturesLoaded:[...(embeddedFinishes.size?[`${embedded.fabricId}:embedded-${embedded.colorId}`]:[]),...textureCache.keys()],camera:{position:camera.position.toArray(),target:controls.target.toArray(),fov:camera.fov},
+        options:{ fabrics:[...allowedFabrics], colors:[...allowedColors], embedded:{...embedded} }, views:Object.keys(cameras),
         groups:Object.fromEntries(groups.filter(name=>originalPositions.has(name)).map(name=>[name,loadedRoot.getObjectByName(name).position.toArray()])),
         canvas:{width:canvas.width,height:canvas.height}, renderer:renderer.info.render,
         disposal:{resources:resources.size,imageBitmapsClosed:closedImages.size},
-        construction:loadedRoot.getObjectByName('sofa_root')?.userData?.construction ?? null,
+        construction:rootNode.userData?.construction ?? null,
         meshes:(()=>{const names=[];loadedRoot.traverse(n=>{if(n.isMesh)names.push(n.name);});return names;})(),
         materialRegions:[...materials].map(material=>({ name:material.name, region:material.userData.stanzaRegion,
           stanzaFabric:material.userData.stanzaFabric===true, type:material.type, color:material.color?.getHexString(),

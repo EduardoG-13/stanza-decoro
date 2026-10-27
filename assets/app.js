@@ -115,7 +115,10 @@ if (form) {
   if (params.get('servico') === 'reforma') field('service').value = 'Reforma';
   const sofaOptions = JSON.parse(document.querySelector('#sofa-options').textContent);
   const fabric = option(sofaOptions.fabrics,params.get('tecido')), color = option(sofaOptions.colors,params.get('cor'));
-  if (catalogSelection && params.get('referencia') === 'sofa-organico' && params.get('estudo') === sofaOptions.modelId && fabric && color) {
+  // 3D studies: each registered model (sofa-pilot.json `studies`: modelId -> catalogId) may carry its finish.
+  const studyMatches = Boolean(catalogSelection) && ((params.get('referencia') === 'sofa-organico' && params.get('estudo') === sofaOptions.modelId) ||
+    (Object.hasOwn(sofaOptions.studies || {}, params.get('estudo')) && sofaOptions.studies[params.get('estudo')] === params.get('referencia')));
+  if (studyMatches && fabric && color) {
     field('reference').value = selected.name + ' · estudo 3D: ' + fabric + ' / ' + color;
   }
   const context = document.querySelector('#quote-selected-reference');
@@ -129,7 +132,7 @@ if (form) {
       contextImage.src=selected.image;contextImage.alt=selected.alt || selected.name;contextImage.hidden=false;
       contextImage.addEventListener('error',()=>{contextImage.hidden=true;context.classList.add('quote-selected-no-image');},{once:true});
     } else context.classList.add('quote-selected-no-image');
-    if (catalogSelection && params.get('estudo')===sofaOptions.modelId && fabric && color) {
+    if (studyMatches && fabric && color) {
       const contextNote=document.querySelector('#quote-context-note');
       if(contextNote) contextNote.textContent='A foto mostra o modelo de referência. Sua combinação de cor e tecido será avaliada no atendimento.';
     }

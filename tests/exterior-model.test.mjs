@@ -147,8 +147,12 @@ test('model registry is consistent with the contract and its assets exist', () =
   }
   const sofa = registry.models.find(m => m.modelId === registry.defaultModelId);
   assert.deepEqual(sofa.materialRegions, contract.MATERIAL_REGIONS);
-  assert.deepEqual(sofa.options.fabrics.slice().sort(), Object.keys(contract.FABRICS).sort());
-  assert.deepEqual(sofa.options.colors.slice().sort(), Object.keys(contract.COLORS).sort());
+  // models3d pipeline: COLORS/FABRICS are an append-only global palette; EXT-001 still exposes
+  // exactly its original 3 fabrics x 4 colours (contract DEFAULT_MODEL_OPTIONS).
+  assert.deepEqual(sofa.options.fabrics, contract.DEFAULT_MODEL_OPTIONS.fabrics);
+  assert.deepEqual(sofa.options.colors, contract.DEFAULT_MODEL_OPTIONS.colors);
+  for (const id of sofa.options.fabrics) assert.ok(Object.hasOwn(contract.FABRICS, id), id);
+  for (const id of sofa.options.colors) assert.ok(Object.hasOwn(contract.COLORS, id), id);
   assert.deepEqual(Object.keys(pilot.fabrics).sort(), Object.keys(contract.FABRICS).sort());
   assert.deepEqual(Object.keys(pilot.colors).sort(), Object.keys(contract.COLORS).sort());
 });

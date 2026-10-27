@@ -13,8 +13,10 @@
   const projects = JSON.parse(document.querySelector('#portfolio-references').textContent);
   if (projects.includes(incoming.get('projeto'))) destination.searchParams.set('projeto',incoming.get('projeto'));
   const sofa = JSON.parse(document.querySelector('#sofa-options').textContent);
-  if (model === 'sofa-organico' && incoming.get('estudo') === sofa.modelId) {
-    destination.searchParams.set('estudo',sofa.modelId);
+  const study = incoming.get('estudo');
+  const known = (model === 'sofa-organico' && study === sofa.modelId) || (Object.hasOwn(sofa.studies || {}, study) && sofa.studies[study] === model);
+  if (known) {
+    destination.searchParams.set('estudo',study);
     for (const [key,allowed] of [['tecido',sofa.fabrics],['cor',sofa.colors]]) {
       const value=incoming.get(key);
       if (Object.hasOwn(allowed,value)) destination.searchParams.set(key,value);

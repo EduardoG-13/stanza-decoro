@@ -37,10 +37,53 @@ CATALOG = json.loads((ROOT / 'data/catalog.json').read_text(encoding='utf-8'))
 PORTFOLIO = json.loads((ROOT / 'data/portfolio.json').read_text(encoding='utf-8'))
 # 3D model registry (EXT queue). Only models whose assets exist may be listed with assets.
 MODELS_3D = json.loads((ROOT / 'data/models-3d.json').read_text(encoding='utf-8'))
-for _model in MODELS_3D['models']:
-    assert _model['catalogId'] in {item['id'] for item in CATALOG}, _model['modelId']
-    for _key in ('main','mobile','poster','manifest'):
-        assert (ROOT / _model['assets'][_key].lstrip('/')).is_file(), (_model['modelId'], _key)
+STUDY_OPTIONS = json.loads((ROOT / 'data/sofa-pilot.json').read_text(encoding='utf-8'))
+REGION_NAMES = {'body','decorative','contrast','exterior-structure'}
+
+def validate_models_3d():
+    """Registry consistency (models3d pipeline): ids, files, sha256/bytes/revision against each
+    model manifest, regions and options. Returns {catalogId: model} of VERIFIED models."""
+    catalog_ids = {item['id'] for item in CATALOG}; portfolio_ids = {item['id'] for item in PORTFOLIO}
+    seen = set(); verified = {}
+    statuses = set(MODELS_3D.get('verifiedStatuses', ['technical-validated-visual-review-pending','approved']))
+    for model in MODELS_3D['models']:
+        mid = model['modelId']; assert mid not in seen, mid; seen.add(mid)
+        assert model['catalogId'] in catalog_ids, mid
+        assert model.get('portfolioId') in (None, *portfolio_ids), (mid, model.get('portfolioId'))
+        for key in ('main','mobile','poster','manifest'):
+            assert (ROOT / model['assets'][key].lstrip('/')).is_file(), (mid, key)
+        manifest_path = ROOT / model['assets']['manifest'].lstrip('/')
+        manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+        assert manifest['modelId'] == mid and manifest['revision'] == model['revision'], (mid, 'manifest identity/revision')
+        for variant in ('main','mobile'):
+            glb = ROOT / model['assets'][variant].lstrip('/'); data = glb.read_bytes()
+            entry = manifest['models'][variant]
+            assert (manifest_path.parent / entry['uri']).resolve() == glb.resolve(), (mid, variant, 'uri')
+            assert hashlib.sha256(data).hexdigest() == entry['sha256'] and len(data) == entry['bytes'], (mid, variant, 'sha256/bytes')
+            assert data[:4] == b'glTF' and int.from_bytes(data[8:12],'little') == len(data), (mid, variant, 'GLB header')
+        assert set(model['materialRegions']) <= REGION_NAMES and model['materialRegions'].get('body'), mid
+        opts = model['options']
+        assert opts['appliesTo'] == 'body', mid
+        assert set(opts['fabrics']) <= set(STUDY_OPTIONS['fabrics']) and set(opts['colors']) <= set(STUDY_OPTIONS['colors']), mid
+        assert opts['default']['fabricId'] in opts['fabrics'] and opts['default']['colorId'] in opts['colors'], mid
+        for fabric in opts['fabrics']:
+            folder = MODELS_3D.get('materialLibrary', {}).get(fabric, model['assets']['viewerBase'] + 'materials/' + fabric + '/')
+            for name in ('basecolor.jpg','normal.png','roughness.jpg'):
+                assert (ROOT / folder.lstrip('/') / name).is_file(), (mid, fabric, name)
+        if model['status'] in statuses:
+            assert model['catalogId'] not in verified, ('one verified 3D study per catalog item', model['catalogId'])
+            verified[model['catalogId']] = model
+    assert MODELS_3D['defaultModelId'] in seen
+    return verified
+
+VERIFIED_3D = validate_models_3d()
+
+def model_experience(item):
+    """'Ver em 3D' entry on the product page ONLY for a registered and verified 3D study."""
+    model = VERIFIED_3D.get(item['id'])
+    if not model: return ''
+    href = '/explorar-sofa.html' if model['modelId'] == MODELS_3D['defaultModelId'] else '/explorar-sofa.html?modelo=' + quote(model['modelId'])
+    return f'<a class="text-link model-experience-link" href="{escape(href,quote=True)}" data-model-3d="{escape(model["modelId"],quote=True)}">Ver em 3D e experimentar cores e tecidos ↗</a>'
 FAMILIES = {'sofas':'Sofás','assentos':'Poltronas e assentos','complementos':'Cabeceiras e puffs','revestimentos':'Capas e cortinas','cortinas':'Cortinas'}
 images = {}
 image_sizes = {}
@@ -149,6 +192,10 @@ def main():
     shutil.rmtree(OUT / 'assets/sofa-pilot', ignore_errors=True)
     shutil.copytree(ROOT / 'assets/sofa-pilot', OUT / 'assets/sofa-pilot', dirs_exist_ok=True)
     shutil.copy2(ROOT / 'data/models-3d.json', OUT / 'assets/models-3d.json')
+    # models3d pipeline: publish only what the viewer needs (GLBs, posters, manifests, shared maps);
+    # the parametric sources, derived .blend files and the Blender library stay in the repository.
+    shutil.rmtree(OUT / 'assets/models-3d', ignore_errors=True)
+    shutil.copytree(ROOT / 'assets/models-3d', OUT / 'assets/models-3d', ignore=shutil.ignore_patterns('source','lib','*.py','__pycache__','*.blend','*.blend1'))
     # Corrige os endereços dos ícones no manifesto original, sem trocar a marca.
     manifest = {'name':'Stanza Decoro','short_name':'Stanza','icons':[{'src':'/icon/android-chrome-192x192.png','sizes':'192x192','type':'image/png'},{'src':'/icon/android-chrome-512x512.png','sizes':'512x512','type':'image/png'}],'theme_color':'#3e573e','background_color':'#f5f3ed','display':'browser'}
     for icon in manifest['icons']:
@@ -207,7 +254,7 @@ def main():
         gallery_label = 'Registro original' if item.get('originalGallery') else 'Outro enquadramento'
         gallery = ''.join(f'<a class="model-thumbnail" href="{image_url(source)}" data-photo data-photo-group="model" data-photo-caption="{escape(item["name"],quote=True)} — {gallery_label.lower()}" data-photo-quote="/orcamento.html?referencia={item["id"]}" aria-label="Ampliar {gallery_label.lower()} de {escape(item["name"],quote=True)}"><img src="{image_url(source)}" alt="{gallery_label} de {escape(item["name"])}" width="240" height="180" loading="lazy"></a>' for source in item.get('gallery',[]))
         notes = ''.join('<li>'+escape(note)+'</li>' for note in item['projectNotes'])
-        content = replace((ROOT / 'pages/model.html').read_text(encoding='utf-8'),{'MODEL_IMAGE':model_image,'MODEL_IMAGE_WIDTH':model_width,'MODEL_IMAGE_HEIGHT':model_height,'MODEL_ALT':escape(item['alt']),'MODEL_NAME':escape(item['name']),'MODEL_DESCRIPTION':escape(item['description']),'MODEL_ID':item['id'],'RELATED':''.join(reference(other) for other in related),'MODEL_GALLERY':gallery,'MODEL_NOTES':notes,'MODEL_VISIBLE_DETAILS':''.join('<li>'+escape(detail)+'</li>' for detail in item['visibleDetails']),'MODEL_PHOTO_NOTE':('<figcaption class="model-photo-note">'+escape(item['photoNote'])+'</figcaption>' if item.get('photoNote') else ''),'MODEL_EXPERIENCE':('<a class="text-link model-experience-link" href="/explorar-sofa.html">Experimentar cores e tecidos em 3D ↗</a>' if item['id']=='sofa-organico' else '')})
+        content = replace((ROOT / 'pages/model.html').read_text(encoding='utf-8'),{'MODEL_IMAGE':model_image,'MODEL_IMAGE_WIDTH':model_width,'MODEL_IMAGE_HEIGHT':model_height,'MODEL_ALT':escape(item['alt']),'MODEL_NAME':escape(item['name']),'MODEL_DESCRIPTION':escape(item['description']),'MODEL_ID':item['id'],'RELATED':''.join(reference(other) for other in related),'MODEL_GALLERY':gallery,'MODEL_NOTES':notes,'MODEL_VISIBLE_DETAILS':''.join('<li>'+escape(detail)+'</li>' for detail in item['visibleDetails']),'MODEL_PHOTO_NOTE':('<figcaption class="model-photo-note">'+escape(item['photoNote'])+'</figcaption>' if item.get('photoNote') else ''),'MODEL_EXPERIENCE':model_experience(item)})
         path = 'modelos/' + item['id'] + '.html'
         render('model',path,item['name']+' | Stanza Decoro',item['description'],content,image_url(item['source']))
         paths.append(path)

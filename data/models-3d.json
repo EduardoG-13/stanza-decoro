@@ -1,6 +1,6 @@
 {
-  "contract": "stanza-models-3d/v1",
-  "note": "Registro dos modelos 3D publicados ou em revisão. Código EXT = item da fila (docs/sofa-3d-review/QUEUE.md), não é ID de catálogo. Só entram aqui peças com ativos reais; o configurador carrega apenas o modelo pedido, sob demanda.",
+  "contract": "stanza-models-3d/v2",
+  "note": "Registro dos modelos 3D publicados ou em revisão. Código EXT = item da fila (docs/sofa-3d-review/QUEUE.md), não é ID de catálogo. Só entram aqui peças com ativos reais; o configurador carrega apenas o modelo pedido, sob demanda. v2 (pipeline models3d): materialLibrary aponta as pastas de mapas por família (compartilhadas entre modelos); cada modelo expõe só as opções implementadas.",
   "defaultModelId": "stanza-organic-01",
   "models": [
     {
@@ -22,16 +22,56 @@
         "manifest": "/assets/sofa-pilot/manifest.json"
       },
       "materialRegions": {
-        "body": ["fabric_main", "fabric_seam"],
-        "decorative": ["cushion_light_boucle", "cushion_light_seam", "cushion_olive_weave", "cushion_olive_seam", "cushion_olive_reverse"],
-        "exterior-structure": ["legs_dark"]
+        "body": [
+          "fabric_main",
+          "fabric_seam"
+        ],
+        "decorative": [
+          "cushion_light_boucle",
+          "cushion_light_seam",
+          "cushion_olive_weave",
+          "cushion_olive_seam",
+          "cushion_olive_reverse"
+        ],
+        "exterior-structure": [
+          "legs_dark"
+        ]
       },
       "options": {
         "appliesTo": "body",
-        "fabrics": ["boucle", "linen", "velvet"],
-        "colors": ["areia", "oliva", "terracota", "grafite"],
-        "default": { "fabricId": "boucle", "colorId": "areia" }
-      }
+        "fabrics": [
+          "boucle",
+          "linen",
+          "velvet"
+        ],
+        "colors": [
+          "areia",
+          "oliva",
+          "terracota",
+          "grafite"
+        ],
+        "default": {
+          "fabricId": "boucle",
+          "colorId": "areia"
+        },
+        "embedded": {
+          "fabricId": "boucle",
+          "colorId": "areia"
+        }
+      },
+      "portfolioId": "projeto-2",
+      "productPage": "/modelos/sofa-organico.html",
+      "posterAlt": "Estudo tridimensional de sofá orgânico claro, com almofadas"
     }
-  ]
+  ],
+  "verifiedStatuses": [
+    "technical-validated-visual-review-pending",
+    "approved"
+  ],
+  "materialLibrary": {
+    "boucle": "/assets/sofa-pilot/materials/boucle/",
+    "linen": "/assets/sofa-pilot/materials/linen/",
+    "velvet": "/assets/sofa-pilot/materials/velvet/",
+    "boucle-mescla": "/assets/models-3d/materials/boucle-mescla/"
+  }
 }

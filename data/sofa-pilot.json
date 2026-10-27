@@ -4,12 +4,17 @@
   "fabrics": {
     "boucle": "Bouclé",
     "linen": "Trama plana",
-    "velvet": "Veludo"
+    "velvet": "Veludo",
+    "boucle-mescla": "Bouclé mescla"
   },
   "colors": {
     "areia": "Areia",
     "oliva": "Oliva",
     "terracota": "Terracota",
-    "grafite": "Grafite"
+    "grafite": "Grafite",
+    "gelo": "Cinza gelo"
+  },
+  "studies": {
+    "stanza-organic-01": "sofa-organico"
   }
 }

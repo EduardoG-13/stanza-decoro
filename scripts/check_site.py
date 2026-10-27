@@ -92,6 +92,27 @@ for relative,digest in integration['modelSha256'].items():
     assert header[:4]==b'glTF' and int.from_bytes(header[4:8],'little')==2, relative
     assert int.from_bytes(header[8:12],'little')==model.stat().st_size, relative
 assert (pilot/'viewer/vendor/three/LICENSE').exists()
+# models3d pipeline: every registered model is published with intact GLBs (magic, version, length,
+# sha256 of its manifest); only verified models get the "Ver em 3D" entry on their product page.
+registry=json.loads((OUT/'assets/models-3d.json').read_text(encoding='utf-8'))
+verified_statuses=set(registry.get('verifiedStatuses',[]))
+for model in registry['models']:
+    manifest_path=OUT/model['assets']['manifest'].lstrip('/')
+    model_manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
+    assert model_manifest['revision']==model['revision'], model['modelId']
+    for variant in ('main','mobile'):
+        glb=OUT/model['assets'][variant].lstrip('/'); data=glb.read_bytes()
+        assert data[:4]==b'glTF' and int.from_bytes(data[4:8],'little')==2 and int.from_bytes(data[8:12],'little')==len(data), (model['modelId'],variant)
+        assert hashlib.sha256(data).hexdigest()==model_manifest['models'][variant]['sha256'], (model['modelId'],variant)
+    assert (OUT/model['assets']['poster'].lstrip('/')).is_file(), model['modelId']
+    product=(OUT/'modelos'/(model['catalogId']+'.html')).read_text(encoding='utf-8')
+    has_entry=f'data-model-3d="{model["modelId"]}"' in product
+    assert has_entry==(model['status'] in verified_statuses), (model['modelId'],'entrada 3D na página do produto')
+for fabric,folder in registry.get('materialLibrary',{}).items():
+    for name in ('basecolor.jpg','normal.png','roughness.jpg'): assert (OUT/folder.lstrip('/')/name).is_file(), (fabric,name)
+assert not list((OUT/'assets/models-3d').rglob('*.blend')) and not list((OUT/'assets/models-3d').rglob('*.py')), 'fontes 3D não são publicadas'
+home_text=(OUT/'index.html').read_text(encoding='utf-8')
+assert 'models-3d/' not in home_text, 'a home não referencia a coleção 3D'
 assert not errors,errors
 print(f'{len(pages)} páginas conferidas; links/arquivos, IDs, formulários, manifesto e contatos válidos.')
 print(f'Portfólio: {len(portfolio)} referências; catálogo: {len(catalog)}; empreendimentos ausentes da principal.')

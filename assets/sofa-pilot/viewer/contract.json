@@ -104,7 +104,8 @@
     "areia": "#b6b0a8",
     "oliva": "#72765a",
     "terracota": "#ae6952",
-    "grafite": "#494b4b"
+    "grafite": "#494b4b",
+    "gelo": "#babcc0"
   },
   "FABRICS": {
     "linen": {
@@ -130,6 +131,14 @@
       "sheen": 0.72,
       "sheenRoughness": 0.55,
       "repeatMeters": 0.14
+    },
+    "boucle-mescla": {
+      "label": "Bouclé mescla",
+      "roughness": 1,
+      "normalStrength": 1.5,
+      "sheen": 0.12,
+      "sheenRoughness": 0.95,
+      "repeatMeters": 0.3
     }
   },
   "DIMENSIONS": {
@@ -172,5 +181,32 @@
       "viewer/vendor/gsap/"
     ]
   },
-  "BODY_UV_METERS": 0.3
+  "BODY_UV_METERS": 0.3,
+  "REGION_NAMES": [
+    "body",
+    "decorative",
+    "contrast",
+    "exterior-structure"
+  ],
+  "DEFAULT_MODEL_OPTIONS": {
+    "fabrics": [
+      "boucle",
+      "linen",
+      "velvet"
+    ],
+    "colors": [
+      "areia",
+      "oliva",
+      "terracota",
+      "grafite"
+    ],
+    "default": {
+      "fabricId": "boucle",
+      "colorId": "areia"
+    }
+  },
+  "MULTI_MODEL": {
+    "since": "models3d pipeline (EXT-002)",
+    "note": "COLORS/FABRICS are the global, append-only palette; each registered model exposes a subset (data/models-3d.json options). EXT-001 keeps DEFAULT_MODEL_OPTIONS and CAMERAS; other models get framedCameras(bounds) + registry overrides."
+  }
 }

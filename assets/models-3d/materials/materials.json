@@ -1,0 +1,90 @@
+{
+  "contract": "stanza-material-library/v1",
+  "note": "Biblioteca compartilhada de acabamentos da coleção 3D. Estudos visuais originais (CC0), não catálogo homologado; a tela não substitui amostra física.",
+  "bodyUvMeters": 0.3,
+  "families": [
+    {
+      "label": "Bouclé mescla",
+      "family": "heathered_loop_boucle_study",
+      "seed": 705,
+      "normalScale": 1.5,
+      "roughness": 1.0,
+      "sheen": 0.12,
+      "sheenRoughness": 0.95,
+      "description": "Bouclé mesclado de laços irregulares (aprox. 4-7 mm), fios brancos e cinza misturados. Estudo visual próprio a partir de SOFA-5.jpg; sem código comercial.",
+      "createdFor": "EXT-002 (sofas/SOFA-5.jpg)",
+      "id": "boucle-mescla",
+      "repeatMeters": 0.3,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "license": "CC0-1.0",
+      "source": "assets/models-3d/materials/generate_materials.py",
+      "maps": {
+        "baseColor": "boucle-mescla/basecolor.jpg",
+        "normal": "boucle-mescla/normal.png",
+        "roughness": "boucle-mescla/roughness.jpg",
+        "thumbnail": "boucle-mescla/thumbnail.jpg"
+      },
+      "validation": {
+        "baseColorMean": 0.8411507852740071,
+        "roughnessMean": 0.9299549379803922
+      },
+      "embedded": {
+        "gelo": [
+          "basecolor-gelo-1024.jpg",
+          "basecolor-gelo-512.jpg"
+        ],
+        "normal": [
+          "embedded/normal-512.png",
+          "embedded/normal-256.png"
+        ],
+        "roughness": [
+          "embedded/roughness-512.jpg",
+          "embedded/roughness-256.jpg"
+        ]
+      }
+    },
+    {
+      "label": "Madeira escura (wengué)",
+      "family": "dark_stained_wood_study",
+      "seed": 706,
+      "normalScale": 0.4,
+      "description": "Madeira tingida escura com veio longo suave; acabamento fixo de bases e pés.",
+      "createdFor": "EXT-002 (plinto e pés de SOFA-5.jpg)",
+      "id": "wood-wenge",
+      "repeatMeters": 0.6,
+      "textureSize": [
+        1024,
+        1024
+      ],
+      "baseColorSpace": "sRGB",
+      "normalConvention": "OpenGL +Y",
+      "metalness": 0,
+      "license": "CC0-1.0",
+      "source": "assets/models-3d/materials/generate_materials.py",
+      "maps": {
+        "baseColor": "wood-wenge/basecolor.jpg",
+        "normal": "wood-wenge/normal.png",
+        "roughness": "wood-wenge/roughness.jpg",
+        "thumbnail": "wood-wenge/thumbnail.jpg"
+      },
+      "validation": {
+        "baseColorMean": 0.1396193465146052,
+        "roughnessMean": 0.5669924269250324
+      }
+    }
+  ],
+  "reusedFamilies": {
+    "boucle": "/assets/sofa-pilot/materials/boucle/",
+    "linen": "/assets/sofa-pilot/materials/linen/",
+    "velvet": "/assets/sofa-pilot/materials/velvet/"
+  },
+  "tints": {
+    "gelo": "#babcc0"
+  }
+}

@@ -52,6 +52,19 @@ Opções: `variant:'main'|'mobile'` força uma versão; sem opção usa móvel a
 
 Extensões pequenas: `zoom(factor)` requer fator positivo (.85 aproxima, 1.18 afasta); `rotate(radians)` gira a câmera em torno do produto. `inspect()` retorna diagnósticos de variante, renderizações, grupos, malhas, `construction`, `materialRegions` (nome, região `body`/`decorative`/`exterior-structure`, `stanzaFabric`), materiais de corpo, mapas, descarte e limites, sem fazer parte do contrato de orçamento.
 
+## Vários modelos (pipeline models3d, EXT-002+)
+
+O mesmo módulo carrega qualquer modelo registrado em `data/models-3d.json` (publicado como `/assets/models-3d.json`). A API é a mesma; sem as opções abaixo o comportamento é exatamente o da EXT-001.
+
+| Opção | Efeito |
+|---|---|
+| `model` | Entrada do registro (`modelId`, `revision`, `materialRegions`, `options:{fabrics, colors, default, embedded}`, `cameras`). Define identidade da seleção, regiões, opções aceitas por `setFinish` (outras rejeitam com `RangeError`) e o acabamento embutido. Se os extras do nó raiz do GLB (`model_root`/`sofa_root`: `modelId`, `revision`) divergirem do registro, a criação falha. |
+| `materialUrls` | Mapa família → pasta de mapas (`registry.materialLibrary`), para a biblioteca compartilhada. Sem ele: `materials/<id>/` sob `baseUrl`. |
+
+- `COLORS`/`FABRICS` são a paleta global, só acrescida (nunca renomeada): `gelo` e `boucle-mescla` vieram com a EXT-002. Cada modelo expõe um subconjunto; a EXT-001 continua com `DEFAULT_MODEL_OPTIONS` (3 tecidos × 4 cores).
+- Câmeras: a EXT-001 mantém `CAMERAS`. Os demais modelos usam `framedCameras(min,max)` (enquadramento pelos limites: `threequarter`, `front`, `side`, `back`, `detail`, `photo`) com sobreposições de `model.cameras` (ex.: `photo` ajustada à foto, com `fov`). Vistas com `fov` mantêm o campo horizontal em telas mais estreitas que 4:3.
+- `inspect()` passa a informar `options`, `views` e o acabamento embutido em `texturesLoaded` (`<tecido>:embedded-<cor>`).
+
 ## Carga e materiais
 
 O GLB inicial já contém bouclé areia. Nesse estado a base color embutida recebe multiplicador branco, evitando tingimento duplicado. A base embutida é a base neutra × `COLORS.areia` (mesma regra do caminho externo; ver `source/generate_embedded_areia.py`). As outras escolhas carregam os três mapas neutros da família sob demanda e os reutilizam. Voltar a bouclé areia restaura os mapas embutidos. `fabric_main` e `fabric_seam` são os bindings estáveis do corpo.
