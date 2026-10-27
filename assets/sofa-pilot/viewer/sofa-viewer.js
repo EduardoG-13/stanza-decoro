@@ -84,6 +84,26 @@ export const framedCameras = (min, max) => {
     photo: { position:at(-.5,.4,.8), target }
   };
 };
+/**
+ * Smallest camera distance from `target`, along the direction target→position, at which every corner
+ * of the box [min,max] lies inside a perspective frustum (vertical `fovDeg`, `aspect` = w/h) shrunk
+ * by `margin` (0.9 = 10 % air). Aspect-aware, so narrow canvases back off. Pure, testable (2.2.0).
+ */
+export const fitDistance = (min, max, target, position, fovDeg, aspect, margin = .9) => {
+  const sub = (a,b) => a.map((v,k)=>v-b[k]), dot = (a,b) => a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+  const cross = (a,b) => [a[1]*b[2]-a[2]*b[1], a[2]*b[0]-a[0]*b[2], a[0]*b[1]-a[1]*b[0]];
+  const unit = a => { const L = Math.hypot(...a); return L > 1e-9 ? a.map(v=>v/L) : null; };
+  const fwd = unit(sub(target,position)); if (!fwd) return 0;
+  const right = unit(cross(fwd,[0,1,0])) || [1,0,0], up = unit(cross(right,fwd));
+  const tv = Math.tan(fovDeg*Math.PI/360)*margin, th = tv*aspect;
+  let need = 0;
+  for (const x of [min[0],max[0]]) for (const y of [min[1],max[1]]) for (const z of [min[2],max[2]]) {
+    // camera at target - fwd*d: depth = d + along; the corner fits when |x| <= th*depth and |y| <= tv*depth
+    const v = sub([x,y,z],target), along = dot(v,fwd);
+    need = Math.max(need, Math.abs(dot(v,right))/th - along, Math.abs(dot(v,up))/tv - along);
+  }
+  return need;
+};
 const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
 const ease = t => t*t*(3-2*t);
 const groups = ['upholstery','legs','cushions'];
@@ -119,6 +139,7 @@ export async function createSofaViewer(container, options = {}) {
   let identity = model ? { modelId:model.modelId, revision:model.revision } : { ...IDENTITY };
   let regions = model?.materialRegions || MATERIAL_REGIONS;
   let cameras = CAMERAS;
+  let modelBox = null, currentView = null, userMoved = false;
   let desired = { fabricId: options.fabricId || modelOptions.default?.fabricId || 'boucle', colorId: options.colorId || modelOptions.default?.colorId || 'areia' };
   let selection = { ...identity, ...desired };
   const originalChildren = [...container.children].map(child=>({child,hidden:child.hidden}));
@@ -215,15 +236,21 @@ export async function createSofaViewer(container, options = {}) {
     options.onFinish?.({ ...selection }); options.onStatus?.('Pronto para explorar'); invalidate();
     return { ...selection };
   }
-  function setView(viewId) {
+  // setView(viewId, {fit:false}) applies the authored preset as is (used by the home hero, which
+  // applies its own aspect zoom). Default: whole-piece views back off to fitDistance().
+  function setView(viewId, { fit = true } = {}) {
     assertAlive();
     const view = Object.hasOwn(cameras,viewId) && cameras[viewId];
     if (!view) throw new RangeError(`Vista desconhecida: ${viewId}`);
     // Fitted views (view.fov, authored for a 4:3 photo) keep their horizontal field on narrower canvases.
     const fitted = view.fov && camera.aspect < 4/3 ? 2*Math.atan(Math.tan(view.fov*Math.PI/360)*(4/3)/camera.aspect)*180/Math.PI : view.fov;
     camera.fov = fitted || 36; camera.updateProjectionMatrix();
-    camera.position.fromArray(view.position); controls.target.fromArray(view.target);
-    controls.update(); invalidate();
+    const target = new THREE.Vector3().fromArray(view.target), offset = new THREE.Vector3().fromArray(view.position).sub(target);
+    // Whole-piece views never start cropped or over-zoomed: back off until the full model fits.
+    if (fit && viewId !== 'detail' && modelBox)
+      offset.setLength(Math.max(offset.length(), fitDistance(modelBox.min.toArray(), modelBox.max.toArray(), view.target, view.position, camera.fov, camera.aspect)));
+    camera.position.copy(target).add(offset); controls.target.copy(target);
+    currentView = viewId; userMoved = false; controls.update(); invalidate();
   }
   // DEPRECATED since 2.0.0: exterior-only asset, no layered opening. Kept for compatibility:
   // validates the argument, keeps the assembled piece and reports the single stage.
@@ -237,14 +264,14 @@ export async function createSofaViewer(container, options = {}) {
     assertAlive();
     if (!Number.isFinite(amount) || amount <= 0) throw new TypeError('A aproximação deve ser um número positivo.');
     const offset = camera.position.clone().sub(controls.target);
-    offset.setLength(clamp(offset.length()*amount,.45,9));
-    camera.position.copy(controls.target).add(offset); controls.update(); invalidate();
+    offset.setLength(clamp(offset.length()*amount,.45,16));
+    camera.position.copy(controls.target).add(offset); userMoved = true; controls.update(); invalidate();
   }
   function rotate(angle) {
     assertAlive();
     const offset = camera.position.clone().sub(controls.target);
     offset.applyAxisAngle(new THREE.Vector3(0,1,0),angle);
-    camera.position.copy(controls.target).add(offset); controls.update(); invalidate();
+    camera.position.copy(controls.target).add(offset); userMoved = true; controls.update(); invalidate();
   }
   try {
     const context = canvas.getContext('webgl2',{ antialias:true,alpha:false,preserveDrawingBuffer:options.preserveDrawingBuffer === true });
@@ -271,7 +298,7 @@ export async function createSofaViewer(container, options = {}) {
     // OrbitControls sets touch-action:none on connect; retain vertical native scrolling.
     canvas.style.touchAction='pan-y';
     // Wheel remains native page scrolling. Use visible +/- buttons or keyboard to zoom.
-    controls.enableZoom=false; controls.minDistance=.45; controls.maxDistance=9;
+    controls.enableZoom=false; controls.minDistance=.45; controls.maxDistance=16;
     controls.minPolarAngle=.08; controls.maxPolarAngle=Math.PI*.48;
     controls.addEventListener('change',invalidate);
     canvas.addEventListener('keydown',event => {
@@ -287,7 +314,7 @@ export async function createSofaViewer(container, options = {}) {
         const offset = camera.position.clone().sub(controls.target);
         const spherical = new THREE.Spherical().setFromVector3(offset);
         spherical.phi = clamp(spherical.phi+(event.key==='ArrowUp'?-.08:.08),.08,Math.PI*.48);
-        camera.position.copy(controls.target).add(new THREE.Vector3().setFromSpherical(spherical)); controls.update(); invalidate();
+        camera.position.copy(controls.target).add(new THREE.Vector3().setFromSpherical(spherical)); userMoved = true; controls.update(); invalidate();
       }
     },{ signal:abort.signal });
     canvas.addEventListener('webglcontextlost',event => { event.preventDefault(); options.onStatus?.('Contexto gráfico perdido. Recarregue para continuar.'); },{ signal:abort.signal });
@@ -349,9 +376,9 @@ export async function createSofaViewer(container, options = {}) {
       node.material = Array.isArray(node.material)?node.material.map(convert):convert(node.material);
     });
     scene.add(loadedRoot);
+    modelBox = new THREE.Box3().setFromObject(loadedRoot);
     if (identity.modelId !== IDENTITY.modelId) {
-      const box = new THREE.Box3().setFromObject(loadedRoot);
-      cameras = { ...framedCameras(box.min.toArray(),box.max.toArray()), ...(model?.cameras || {}) };
+      cameras = { ...framedCameras(modelBox.min.toArray(),modelBox.max.toArray()), ...(model?.cameras || {}) };
     }
     if (![...materials].some(material=>material.userData.stanzaFabric)) throw new Error('Nenhum material de corpo (fabric_main/fabric_seam) foi exportado.');
     await setFinish(desired);
@@ -359,9 +386,16 @@ export async function createSofaViewer(container, options = {}) {
     const resize = () => {
       if (disposed) return;
       const width=Math.max(container.clientWidth,1),height=Math.max(container.clientHeight,1);
-      renderer.setSize(width,height,false); camera.aspect=width/height; camera.updateProjectionMatrix(); invalidate();
+      renderer.setSize(width,height,false); camera.aspect=width/height; camera.updateProjectionMatrix();
+      // Until the visitor moves the camera, keep the whole piece framed for the new canvas shape.
+      if (!userMoved && currentView) setView(currentView); else invalidate();
     };
     resizeObserver=new ResizeObserver(resize); resizeObserver.observe(container); resize();
+    // Initial framing: before 2.2 the camera stayed at the origin (inside the piece) until a view
+    // was chosen. Start on the requested view (default three-quarter), fitted to the canvas.
+    const initialView = Object.hasOwn(cameras, options.initialView || '') ? options.initialView : 'threequarter';
+    setView(initialView);
+    controls.addEventListener('start', () => { userMoved = true; });
     const api = Object.freeze({ setProgress,setFinish,setView,getSelection:()=>({...selection}),dispose,zoom,rotate,
       inspect:()=>({ ...identity,variant,progress,disposed,reducedMotion:reducedMotion.matches,renders,
         texturesLoaded:[...(embeddedFinishes.size?[`${embedded.fabricId}:embedded-${embedded.colorId}`]:[]),...textureCache.keys()],camera:{position:camera.position.toArray(),target:controls.target.toArray(),fov:camera.fov},

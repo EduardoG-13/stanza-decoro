@@ -42,7 +42,8 @@ async function initialize() {
     if (disposed) {viewer.dispose(); return;}
     const fit = () => {
       const aspect = Math.max(host.clientWidth,1) / Math.max(host.clientHeight,1);
-      viewer.setView('threequarter'); viewer.zoom(Math.max(1,1.12/aspect));
+      // fit:false keeps the hero's own aspect-based framing (the viewer's auto-fit would back off twice).
+      viewer.setView('threequarter', {fit:false}); viewer.zoom(Math.max(1,1.12/aspect));
       viewer.rotate(headingAngle);
     };
     fit(); sizingObserver = new ResizeObserver(fit); sizingObserver.observe(host);
