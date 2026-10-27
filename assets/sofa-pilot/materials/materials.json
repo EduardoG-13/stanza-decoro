@@ -113,5 +113,91 @@
         "periodicity": "periodic Fourier noise, modular weave/loop sampling and wrapped normal derivatives"
       }
     }
-  ]
+  ],
+  "decorativeCushionMaterials": {
+    "since": "2.0.0",
+    "customizable": false,
+    "generator": "source/generate_cushion_materials.py",
+    "license": "CC0-1.0 (own procedural output)",
+    "note": "Fixed finishes of the five decorative cushions (EXT-001). Never recoloured by setFinish; body fabrics above apply to fabric_main/fabric_seam only.",
+    "materials": [
+      {
+        "name": "cushion_olive_weave",
+        "cushions": [
+          "cushion_01",
+          "cushion_05"
+        ],
+        "faces": "front + edge strip",
+        "repeatMeters": 0.14,
+        "cellMeters": 0.014,
+        "maps": {
+          "baseColor": "materials/cushions/olive-weave/basecolor.jpg",
+          "normal": "materials/cushions/olive-weave/normal.png"
+        },
+        "mobileMaps": "materials/cushions/olive-weave/mobile/ (256 px)",
+        "textureSize": [
+          512,
+          512
+        ],
+        "baseColorSpace": "sRGB",
+        "normalColorSpace": "linear-data",
+        "normalConvention": "OpenGL +Y",
+        "roughness": 0.92,
+        "sheen": 0.12
+      },
+      {
+        "name": "cushion_olive_seam",
+        "cushions": [
+          "cushion_01",
+          "cushion_05"
+        ],
+        "faces": "welt",
+        "sameMapsAs": "cushion_olive_weave"
+      },
+      {
+        "name": "cushion_olive_reverse",
+        "cushions": [
+          "cushion_01",
+          "cushion_05"
+        ],
+        "faces": "rear face (cream reverse)",
+        "maps": {
+          "baseColor": "materials/cushions/olive-reverse/basecolor.jpg",
+          "normal": "materials/boucle/normal.png (shared with body)",
+          "roughness": "source/embedded-boucle-roughness.jpg (shared)"
+        },
+        "normalScale": 0.55
+      },
+      {
+        "name": "cushion_light_boucle",
+        "cushions": [
+          "cushion_02",
+          "cushion_03",
+          "cushion_04"
+        ],
+        "tintSRGB": [
+          188,
+          182,
+          174
+        ],
+        "maps": {
+          "baseColor": "materials/cushions/light-boucle/basecolor.jpg",
+          "normal": "materials/boucle/normal.png (shared with body)",
+          "roughness": "source/embedded-boucle-roughness.jpg (shared)"
+        },
+        "mobileMaps": "basecolor 256 px + source/mobile-boucle normal/roughness (shared)",
+        "sheen": 0.25
+      },
+      {
+        "name": "cushion_light_seam",
+        "cushions": [
+          "cushion_02",
+          "cushion_03",
+          "cushion_04"
+        ],
+        "faces": "welt",
+        "sameMapsAs": "cushion_light_boucle"
+      }
+    ]
+  }
 }

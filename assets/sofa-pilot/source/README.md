@@ -1,5 +1,24 @@
 # Fonte editavel original do piloto Stanza
 
+## Estado atual (revisao 2.0.0, EXT-001 — somente exterior)
+
+O texto historico abaixo descreve a importacao da fonte original. Desde entao
+`build_sofa.py` e a fonte de verdade e regenera `sofa.blend`, `models/sofa.glb` e
+`models/sofa-mobile.glb` num unico passe (nunca editar o .blend ou os GLBs a mao):
+
+    LD_LIBRARY_PATH=<libs GL> python -c "import bpy" && python build_sofa.py   # bpy 5.0.1 usado aqui
+
+- `EXTERIOR_ONLY = True`: exporta apenas corpo (`upholstery`), cinco almofadas
+  decorativas (`cushions`) e pes (`legs`). O codigo da construcao interna ilustrativa
+  (1.2.0–1.3.0) continua no arquivo, desativado, para manter o historico legivel.
+- Regioes de material (`stanza_region` nos extras do glTF): corpo personalizavel
+  `fabric_main`/`fabric_seam`; almofadas fixas `cushion_light_*` (02–04) e
+  `cushion_olive_*` (01 e 05, com avesso creme); pes `legs_dark`.
+- `generate_cushion_materials.py`: mapas procedurais proprios (CC0) das almofadas,
+  gravados apenas em `../materials/cushions/`. Pode ser executado com qualquer
+  numpy>=1.26 + Pillow. `generate_materials.py` (tecidos do corpo) continua sem ser
+  executado sobre a arvore.
+
 Esta branch disponibiliza a fonte original para diagnostico e planejamento. Ela
 nao remodela o sofa, nao altera os GLBs, o visualizador, as paginas ou os materiais
 publicados e nao deve ser mesclada na main ou implantada automaticamente.

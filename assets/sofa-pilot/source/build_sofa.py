@@ -1,6 +1,19 @@
 """Editable parametric upholstery study. Run with Blender 5.2 --background --python.
 Coordinates here: X width, -Y front, Z up. glTF exporter maps to X/Y-up/+Z front.
-All dimensions and concealed construction are illustrative, not shop drawings.
+All dimensions are estimated from one photograph (SOFA-2.jpg), not shop drawings.
+
+Revision 2.0.0 (EXT-001, exterior only): the public GLBs carry ONLY what is visible from
+outside - the upholstered body (upholstery), the five loose decorative cushions (cushions)
+and the feet (legs). The illustrative interior of 1.2.0-1.3.0 (frame, webbing/suspension,
+batting, foam) is no longer built for export (EXTERIOR_ONLY below). Its code is kept, gated,
+so the history stays readable; it is not part of the product any more.
+
+Material regions (custom property `stanza_region`, exported as glTF material extras):
+  body        fabric_main / fabric_seam - the only customizable materials (fabric + colour)
+  decorative  cushion_light_boucle / cushion_light_seam (cushions 02-04),
+              cushion_olive_weave / cushion_olive_seam / cushion_olive_reverse (01, 05)
+              - fixed reference finishes, never recoloured by the viewer
+  exterior-structure  legs_dark (feet)
 """
 import bpy, math, json, sys, os
 from pathlib import Path
@@ -8,9 +21,16 @@ from mathutils import Vector
 from math import sin, cos, pi, sqrt, exp
 
 ROOT = Path(__file__).resolve().parents[1]
+REVISION = '2.0.0'
+# EXT-001: True = exterior-only export (no frame/suspension/padding objects or groups).
+# False rebuilds the deprecated 1.3.0 illustrative interior for archaeology only; it is not
+# a supported product path any more (the viewer no longer opens layers).
+EXTERIOR_ONLY = True
 TILE = .14
 OUTLINE = [(-1.16,-.39),(-.91,-.56),(-.50,-.57),(-.13,-.47),(.21,-.44),(.60,-.48),(1.02,-.39),(1.23,-.16),(1.24,.12),(1.05,.37),(.73,.47),(.29,.44),(-.18,.43),(-.66,.44),(-1.04,.32),(-1.22,.04)]
-BACK = [(-1.05,-.29,.61),(-1.10,-.07,.70),(-1.02,.20,.84),(-.82,.34,.91),(-.46,.37,.92),(-.06,.38,.92),(.32,.38,.91),(.62,.34,.89)]
+# EXT-001: backrest raised ~10 cm (top .92 -> 1.025) - in SOFA-2.jpg the back rises clearly above
+# the 45-50 cm cushions; the low arm (left) keeps its height.
+BACK = [(-1.05,-.29,.61),(-1.10,-.07,.72),(-1.02,.20,.91),(-.82,.34,1.0),(-.46,.37,1.02),(-.06,.38,1.025),(.32,.38,1.02),(.62,.34,1.0)]
 # Loose seat cushions (FEAT-002 rev2). Each tuple: name, pos, rot (deg, XYZ), half size
 # (a=width, b=height), loft (max fill per face, m). Pillow axes: local X = width, local Z =
 # height (v=-1 is the LOWER edge), local Y = thickness; side=+1 is the REAR face (it maps to
@@ -23,14 +43,22 @@ BACK = [(-1.05,-.29,.61),(-1.10,-.07,.70),(-1.02,.20,.84),(-.82,.34,.91),(-.46,.
 # undeformed shell overlaps the seat by ~1 cm and its rear face overlaps what it leans on
 # by ~1-1.5 cm (.agents-only solver, see docs/sofa-3d-review/feat002-rev2-cushions.md); the
 # generator then turns that overlap into localized soft compression (settle_contacts()).
+#
+# EXT-001 (2.0.0): cushions enlarged to the photo (~45-50 cm, plumper fill) and the stacking
+# re-read from SOFA-2.jpg: 01 (olive) and 04 (light, smaller) lean on the backrest/arm; 02 sits
+# in front of 01, 03 (tallest) in front of 02 and 04, 05 (small olive) in front of 04.
+# (y,z) were re-solved with the same contact solver (seat ~1 cm, lean ~1-1.2 cm).
 CUSHIONS = [
-  ('cushion_01',(-0.8,-0.016,0.6707),(-14,-6,18),(0.19,0.19),0.08),
-  ('cushion_02',(-0.5,0.1567,0.7112),(-16,14,3),(0.182,0.21),0.082),
-  ('cushion_03',(-0.16,0.0626,0.7177),(-14,-10,-3),(0.2,0.222),0.084),
-  ('cushion_04',(0.17,0.1773,0.6909),(-17,-15,4),(0.166,0.19),0.08),
-  ('cushion_05',(0.45,0.0348,0.6703),(-15,-24,-12),(0.156,0.152),0.072)]
+  ('cushion_01',(-0.78,0.0776,0.7589),(-14,-15,38),(0.24,0.24),0.092),
+  ('cushion_02',(-0.35,0.0937,0.761),(-14,-16,6),(0.23,0.245),0.095),
+  ('cushion_03',(-0.07,-0.0889,0.7733),(-15,-22,-2),(0.225,0.24),0.095),
+  ('cushion_04',(0.19,0.1689,0.7112),(-16,-14,4),(0.19,0.205),0.085),
+  ('cushion_05',(0.45,0.0084,0.7097),(-15,26,-14),(0.195,0.175),0.082)]
 # Contact solve order: what each cushion rests on is built before it.
-SETTLE_ORDER = ['cushion_02','cushion_04','cushion_03','cushion_01','cushion_05']
+SETTLE_ORDER = ['cushion_01','cushion_04','cushion_02','cushion_03','cushion_05']
+# Fixed decorative finish per cushion, read from SOFA-2.jpg (left to right): olive basket
+# weave, three light grey-beige bouclé, small olive basket weave before the chaise.
+CUSHION_FINISH = {'cushion_01':'olive','cushion_02':'light','cushion_03':'light','cushion_04':'light','cushion_05':'olive'}
 
 def catmull(points, t, closed=True):
     n=len(points); total=n if closed else n-1; f=min(t, .999999999)*total; i=int(f); a=f-i
@@ -38,10 +66,13 @@ def catmull(points, t, closed=True):
     p0,p1,p2,p3=[at(k) for k in [i-1,i,i+1,i+2]]
     return .5*((2*p1)+(-p0+p2)*a+(2*p0-5*p1+4*p2-p3)*a*a+(-p0+3*p1-3*p2+p3)*a*a*a)
 
-def mesh(name, verts, faces, parent, mat, uv=None):
+def mesh(name, verts, faces, parent, mat, uv=None, face_mats=None):
+    """mat: one material or a list of slots; face_mats: optional slot index per face."""
     me=bpy.data.meshes.new(name+'_mesh'); me.from_pydata(verts,[],faces); me.update()
     ob=bpy.data.objects.new(name,me); bpy.context.collection.objects.link(ob); ob.parent=parent
-    me.materials.append(mat)
+    for m in (mat if isinstance(mat,(list,tuple)) else [mat]): me.materials.append(m)
+    if face_mats:
+        for p in me.polygons: p.material_index=face_mats[p.index]
     for p in me.polygons: p.use_smooth=True
     layer=me.uv_layers.new(name='Fabric_140mm')
     for poly in me.polygons:
@@ -58,34 +89,60 @@ def empty(name,parent=None):
     o=bpy.data.objects.new(name,None); bpy.context.collection.objects.link(o); o.parent=parent; o['asset_id']=name
     return o
 
-def material(name,color,roughness=1):
+def material(name,color,roughness=1,region=None):
     m=bpy.data.materials.new(name); m.use_nodes=True
     bs=m.node_tree.nodes.get('Principled BSDF'); bs.inputs['Base Color'].default_value=(*color,1); bs.inputs['Roughness'].default_value=roughness; bs.inputs['Metallic'].default_value=0
+    if region: m['stanza_region']=region
     return m
 
 def srgb(v): return v/12.92 if v <= .04045 else ((v+.055)/1.055)**2.4
 
-def fabric(name, mobile=False):
-    # Base color is pre-tinted in the embedded GLB only. Separate neutral maps permit runtime tints.
-    m=material(name,(1,1,1)); nodes=m.node_tree.nodes; links=m.node_tree.links; bs=nodes.get('Principled BSDF')
-    folder=ROOT/'materials'/'boucle'
+_IMAGES={}
+def image(path,kind):
+    """One Blender image per file, so materials that share a map share ONE glTF image."""
+    key=str(path)
+    if key not in _IMAGES:
+        im=bpy.data.images.load(key,check_existing=False)
+        im.colorspace_settings.name='sRGB' if kind=='basecolor' else 'Non-Color'; im.pack(); _IMAGES[key]=im
+    return _IMAGES[key]
+
+def textured(name,maps,region,normal_strength,sheen,sheen_roughness):
+    m=material(name,(1,1,1),region=region); nodes=m.node_tree.nodes; links=m.node_tree.links; bs=nodes.get('Principled BSDF')
     for kind,socket in [('basecolor','Base Color'),('roughness','Roughness'),('normal','Normal')]:
-        ext='png' if kind=='normal' else 'jpg'
-        if kind=='basecolor':
-            path=ROOT/'source'/'embedded-boucle-areia.jpg'
-        elif kind=='roughness': path=ROOT/'source'/'embedded-boucle-roughness.jpg'
-        else: path=folder/(kind+'.'+ext)
-        if mobile: path=ROOT/'source'/'mobile-boucle'/(kind+'.'+ext)
-        im=bpy.data.images.load(str(path),check_existing=False)
-        im.colorspace_settings.name='sRGB' if kind=='basecolor' else 'Non-Color'
-        tex=nodes.new('ShaderNodeTexImage'); tex.image=im; tex.label=kind+' | 140 mm repeat'; tex.extension='REPEAT'
+        if kind not in maps: continue   # e.g. olive weave: constant roughness factor instead of a map
+        tex=nodes.new('ShaderNodeTexImage'); tex.image=image(maps[kind],kind); tex.label=kind+' | 140 mm repeat'; tex.extension='REPEAT'
         if kind=='normal':
-            norm=nodes.new('ShaderNodeNormalMap'); norm.inputs['Strength'].default_value=.9
+            norm=nodes.new('ShaderNodeNormalMap'); norm.inputs['Strength'].default_value=normal_strength
             links.new(tex.outputs['Color'],norm.inputs['Color']); links.new(norm.outputs['Normal'],bs.inputs[socket])
         else: links.new(tex.outputs['Color'],bs.inputs[socket])
-        im.pack()
-    bs.inputs['Sheen Weight'].default_value=.2; bs.inputs['Sheen Roughness'].default_value=.9
+    bs.inputs['Sheen Weight'].default_value=sheen; bs.inputs['Sheen Roughness'].default_value=sheen_roughness
     return m
+
+def boucle_maps(mobile):
+    if mobile:
+        f=ROOT/'source'/'mobile-boucle'
+        return {'basecolor':f/'basecolor.jpg','roughness':f/'roughness.jpg','normal':f/'normal.png'}
+    return {'basecolor':ROOT/'source'/'embedded-boucle-areia.jpg','roughness':ROOT/'source'/'embedded-boucle-roughness.jpg','normal':ROOT/'materials'/'boucle'/'normal.png'}
+
+def fabric(name, mobile=False):
+    # BODY material (customizable). Base color is pre-tinted (areia) in the embedded GLB only;
+    # the viewer swaps in neutral maps + a colour multiplier for the other choices.
+    return textured(name,boucle_maps(mobile),'body',.9,.2,.9)
+
+def cushion_materials(mobile=False):
+    """EXT-001 fixed decorative cushion finishes (own procedural maps, generate_cushion_materials.py).
+    Light cushions reuse the body bouclé normal/roughness IMAGES (shared, no extra bytes) with
+    their own light grey-beige base colour; olive cushions get the coarse basket-weave maps and a
+    plain cream reverse face. Welts are copies of their own cushion material (fixed as well)."""
+    sub='mobile' if mobile else ''
+    c=ROOT/'materials'/'cushions'; b=boucle_maps(mobile)
+    light=textured('cushion_light_boucle',{**b,'basecolor':c/'light-boucle'/sub/'basecolor.jpg'},'decorative',.9,.25,.9)
+    olive=textured('cushion_olive_weave',{'basecolor':c/'olive-weave'/sub/'basecolor.jpg','normal':c/'olive-weave'/sub/'normal.png'},'decorative',1.0,.12,.8)
+    olive.node_tree.nodes.get('Principled BSDF').inputs['Roughness'].default_value=.92
+    reverse=textured('cushion_olive_reverse',{**b,'basecolor':c/'olive-reverse'/sub/'basecolor.jpg'},'decorative',.55,.15,.85)
+    lseam=light.copy(); lseam.name='cushion_light_seam'
+    oseam=olive.copy(); oseam.name='cushion_olive_seam'
+    return {'light':(light,lseam,None),'olive':(olive,oseam,reverse)}
 
 def seat_dimple(x,y):
     """Soft foam dimple under each cushion's real footprint (FEAT-002 rev2): the cushions
@@ -99,7 +156,8 @@ def seat_dimple(x,y):
 def seat(name, parent, mat, n=144, foam=False, batting=False):
     pts=[catmull(OUTLINE,i/n) for i in range(n)]
     # A continuous upholstered bean, with a restrained crown and softened underside.
-    profile=[(.88,.086),(.94,.09),(.978,.115),(.997,.165),(1,.24),(1,.31),(.997,.365),(.984,.407),(.963,.437),(.925,.462),(.86,.477),(.74,.485),(.57,.489),(.38,.491),(.19,.492)]
+    # EXT-001: underside lowered from z=.086 to .052 so only short feet show (SOFA-2.jpg).
+    profile=[(.88,.052),(.94,.057),(.978,.088),(.997,.165),(1,.24),(1,.31),(.997,.365),(.984,.407),(.963,.437),(.925,.462),(.86,.477),(.74,.485),(.57,.489),(.38,.491),(.19,.492)]
     # FEAT-003: the seat FOAM is its own coherent block (a firm, lower cushion core that
     # sits inside the upholstery), not the outer shell merely rescaled. It is shorter,
     # flatter-crowned and inset from the cover so the batting can wrap it. The BATTING is a
@@ -193,7 +251,8 @@ def pillow_shape(n,size,seed,loft):
                 u=i/n*2-1
                 # Knife-edge cushions: tapered seams, soft broad fill, small inward edge gathers.
                 x=a*u*(1+.045*(1-v*v));z=b*v*(1+.025*(1-u*u))
-                belly=max(0,(1-u*u)*(1-v*v))**.55
+                # EXT-001: fuller fill profile (exponent .55 -> .45) - plumper cushions as in the photo.
+                belly=max(0,(1-u*u)*(1-v*v))**.45
                 edge=min(1-abs(u),1-abs(v))
                 gathers=.0055*sin(34*u+9*v+seed)*exp(-edge*9)*sin(pi*max(0,edge)/.28)
                 d=.008+loft*belly+gathers
@@ -297,10 +356,15 @@ def cushion_geometry(n,pos,rot,size,seed,loft,colliders):
         line.append(tuple(Mi@p))
     return [tuple(Mi@p) for p in world],uv,fs,perimeter,line,world
 
-def pillow(name,parent,mat,seam,geo,pos,rot):
+def pillow(name,parent,mat,seam,geo,pos,rot,reverse=None):
     vs,uv,fs,perimeter,line,_world=geo
     holder=empty(name,parent);holder.location=pos;holder.rotation_euler=tuple(math.radians(r) for r in rot)
-    ob=mesh(name+'_cover',vs,fs,holder,mat,uv)
+    if reverse is None: ob=mesh(name+'_cover',vs,fs,holder,mat,uv)
+    else:
+        # pillow_shape() face order: n*n front faces (side=-1), n*n rear faces (side=+1, towards
+        # the backrest), then the perimeter strip. The olive cushions' rear face is the cream reverse.
+        nn=len(perimeter)//4
+        ob=mesh(name+'_cover',vs,fs,holder,[mat,reverse],uv,face_mats=[1 if nn*nn<=k<2*nn*nn else 0 for k in range(len(fs))])
     tube(name+'_welt',line,.0015,holder,seam,sides=4)
     return ob
 
@@ -350,17 +414,16 @@ def box(name,location,scale,parent,mat,bevel=.008):
 def build(mobile=False):
     bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
     for m in list(bpy.data.materials):bpy.data.materials.remove(m)
-    root=empty('sofa_root');root['modelId']='stanza-organic-01';root['revision']='1.3.0';root['dimensions_estimated']=True;root['construction']='illustrative'
-    groups={name:empty(name,root) for name in ['upholstery','padding','frame','legs','cushions','suspension']}
+    for im in list(bpy.data.images):bpy.data.images.remove(im)
+    _IMAGES.clear()
+    root=empty('sofa_root');root['modelId']='stanza-organic-01';root['revision']=REVISION;root['dimensions_estimated']=True
+    root['construction']='exterior-only' if EXTERIOR_ONLY else 'illustrative'
+    root['materialRegions']=json.dumps({'body':['fabric_main','fabric_seam'],'decorative':['cushion_light_boucle','cushion_light_seam','cushion_olive_weave','cushion_olive_seam','cushion_olive_reverse'],'exterior-structure':['legs_dark']})
+    group_names=['upholstery','legs','cushions'] if EXTERIOR_ONLY else ['upholstery','padding','frame','legs','cushions','suspension']
+    groups={name:empty(name,root) for name in group_names}
     cloth=fabric('fabric_main',mobile); seam=cloth.copy();seam.name='fabric_seam'
-    foam=material('padding_illustrative',(.72,.62,.43),.97)
-    # FEAT-003: batting (manta de poliéster) is a NEW, visually distinct sub-material inside
-    # the padding group: lighter, slightly warmer-white and softer than the foam core, so
-    # the thin wrap reads as the loft layer, not as a second foam shell.
-    batt=material('batting_illustrative',(.90,.88,.83),.99)
-    frame=material('frame_illustrative',(.21,.13,.075),.84)
-    feet=material('legs_dark',(.026,.025,.022),.5)
-    belt=material('suspension_illustrative',(.10,.083,.067),.95)
+    decor=cushion_materials(mobile)
+    feet=material('legs_dark',(.026,.025,.022),.5,region='exterior-structure')
     seatob=seat('seat_cover',groups['upholstery'],cloth,n=80 if mobile else 144)
     backob=back('back_cover',groups['upholstery'],cloth,n=52 if mobile else 96,m=20 if mobile else 32)
     # Real thin shell thickness on the upholstery, not overlapping foam surfaces.
@@ -374,83 +437,96 @@ def build(mobile=False):
         depression=seat_dimple(x,y)
         pts.append((x,y,.4385+ripple-depression))
     tube('seat_panel_seam',pts,.0011,groups['upholstery'],seam,sides=5 if not mobile else 4)
-    # FEAT-003 padding by components: a firm FOAM core plus a thin BATTING loft wrapping it.
-    # The batting is a genuinely distinct object/material (not the foam shell rescaled):
-    # slightly larger and taller than the foam but inset from the cover, so when the layers
-    # are separated the manta reads as a thin soft wrap over the foam block.
-    seat('seat_foam',groups['padding'],foam,n=64 if mobile else 96,foam=True)
-    seat('seat_batting',groups['padding'],batt,n=48 if mobile else 80,batting=True)
-    back('back_foam',groups['padding'],foam,n=40 if mobile else 64,m=16 if mobile else 20,foam=True)
-    back('back_batting',groups['padding'],batt,n=36 if mobile else 56,m=14 if mobile else 18,batting=True)
-    # FEAT-003 frame: a solid-wood perimeter rail following the bean contour (Simplicity
-    # Sofas / Beaumont & Fletcher: corner-blocked, doweled, screwed-and-glued hardwood frame
-    # of which the feet are part). The perimeter hugs ~82% of the silhouette so it reads as
-    # the load rail that the webbing and feet attach to. FR_S scales the contour for the rail.
-    FR_S=.86
-    framepts=[]
-    for i in range(64 if mobile else 96):
-        p=catmull(OUTLINE,i/(64 if mobile else 96));framepts.append((p.x*FR_S,p.y*(FR_S-.06),.19))
-    tube('perimeter_support',framepts,.043,groups['frame'],frame,sides=4)
-    # Front and rear seat rails that the webbing is tensioned between, plus lateral tie rails
-    # at the ends; these run with the contour so no bar is left functionless when exposed.
-    # Rails and webbing anchors are fitted INSIDE the upholstered contour (rev2 fix: the
-    # FEAT-003 straight rails at y=-.50/.46 and the strap ends poked up to ~15 cm through the
-    # seat cover where the bean outline swings inward). The seat cover's band at rail height
-    # (z .17-.24) sits at ~99% of OUTLINE; FIT_S/FIT_M keep a clear margin inside it.
-    STRAP_X=[-.86,-.58,-.30,-.02,.26,.54,.84]   # anchor columns across the width
-    FIT_S=.99; FIT_M=.035
-    ring=[catmull(OUTLINE,i/720) for i in range(720)]
-    def edge_y(x,front):
-        ys=[p.y*FIT_S for p in ring if abs(p.x*FIT_S-x)<.012]
-        return min(ys) if front else max(ys)
-    def span_y(x0,x1,front):
-        xs=[x0+(x1-x0)*k/24 for k in range(25)]
-        return max(edge_y(x,True) for x in xs)+FIT_M+.025 if front else min(edge_y(x,False) for x in xs)-FIT_M-.025
-    FR_X=(-.95,.95); RR_X=(-.90,.88)
-    FRONT_Y=span_y(*FR_X,True); REAR_Y=span_y(*RR_X,False)
-    box('front_rail',((FR_X[0]+FR_X[1])/2,FRONT_Y,.205),(FR_X[1]-FR_X[0],.05,.07),groups['frame'],frame)
-    box('rear_rail',((RR_X[0]+RR_X[1])/2,REAR_Y,.205),(RR_X[1]-RR_X[0],.05,.07),groups['frame'],frame)
-    for k,x in enumerate([-.9,.92]):
-        y0=max(edge_y(x+d,True) for d in (-.025,0,.025))+FIT_M; y1=min(edge_y(x+d,False) for d in (-.025,0,.025))-FIT_M
-        box('side_rail_'+str(k),(x,(y0+y1)/2,.205),(.05,y1-y0,.07),groups['frame'],frame)
-    # Two cross braces under the widest span keep the perimeter from racking (corner-block idea).
-    for k,x in enumerate([-.4,.42]):
-        box('cross_support_'+str(k),(x,0,.17),(.05,.80,.06),groups['frame'],frame)
-    box('rear_support',(-.1,.30,.37),(1.58,.06,.11),groups['frame'],frame)
-    # FEAT-003 webbing: individual elasticized straps tensioned FRONT->REAR across the seat
-    # (the primary span the body loads), each anchored to the front and rear wood rails. A
-    # partial interlace is justified, NOT a universal criss-cross: only the three widest
-    # central spans get two lateral straps woven over/under them for the quality cue the
-    # references describe; the outer/short spans stay single-direction, as a real maker would
-    # not waste webbing where the span is short. Straps sit just above the rails (z~.225).
-    def contour_y(x,base):                       # lateral strap rows stay inside the contour
-        return base*(1-.12*(x/1.2)**2)
-    WZ=.225; sb=0
-    anchors={}
-    for k,x in enumerate(STRAP_X):
-        fa=(x,FRONT_Y,WZ); ra=(x,REAR_Y,WZ)
-        anchors[k]=(fa,ra)
-        # central columns (2,3,4) are interlaced -> their longitudinal straps ride a touch low
-        central = k in (2,3,4)
-        strap('suspension_band_'+str(sb),fa,ra,groups['suspension'],belt,
-              width=.052,thick=.004,sag=.016 if central else .012,over=False); sb+=1
-    # Lateral interlacing straps only across the three central longitudinal straps.
-    for k,y in enumerate([-.22,.0,.22]):
-        la=(STRAP_X[1]+.02,contour_y(STRAP_X[1],y),WZ); lb=(STRAP_X[5]-.02,contour_y(STRAP_X[5],y),WZ)
-        strap('suspension_band_'+str(sb),la,lb,groups['suspension'],belt,
-              width=.05,thick=.004,sag=.012,over=True); sb+=1
+    # EXT-001: the illustrative interior below (FEAT-003, revisions 1.2.0-1.3.0) is NOT built
+    # for the exterior-only product (EXTERIOR_ONLY=True). Kept gated so the history reads.
+    if not EXTERIOR_ONLY:
+        foam=material('padding_illustrative',(.72,.62,.43),.97)
+        batt=material('batting_illustrative',(.90,.88,.83),.99)
+        frame=material('frame_illustrative',(.21,.13,.075),.84)
+        belt=material('suspension_illustrative',(.10,.083,.067),.95)
+        # FEAT-003 padding by components: a firm FOAM core plus a thin BATTING loft wrapping it.
+        # The batting is a genuinely distinct object/material (not the foam shell rescaled):
+        # slightly larger and taller than the foam but inset from the cover, so when the layers
+        # are separated the manta reads as a thin soft wrap over the foam block.
+        seat('seat_foam',groups['padding'],foam,n=64 if mobile else 96,foam=True)
+        seat('seat_batting',groups['padding'],batt,n=48 if mobile else 80,batting=True)
+        back('back_foam',groups['padding'],foam,n=40 if mobile else 64,m=16 if mobile else 20,foam=True)
+        back('back_batting',groups['padding'],batt,n=36 if mobile else 56,m=14 if mobile else 18,batting=True)
+        # FEAT-003 frame: a solid-wood perimeter rail following the bean contour (Simplicity
+        # Sofas / Beaumont & Fletcher: corner-blocked, doweled, screwed-and-glued hardwood frame
+        # of which the feet are part). The perimeter hugs ~82% of the silhouette so it reads as
+        # the load rail that the webbing and feet attach to. FR_S scales the contour for the rail.
+        FR_S=.86
+        framepts=[]
+        for i in range(64 if mobile else 96):
+            p=catmull(OUTLINE,i/(64 if mobile else 96));framepts.append((p.x*FR_S,p.y*(FR_S-.06),.19))
+        tube('perimeter_support',framepts,.043,groups['frame'],frame,sides=4)
+        # Front and rear seat rails that the webbing is tensioned between, plus lateral tie rails
+        # at the ends; these run with the contour so no bar is left functionless when exposed.
+        # Rails and webbing anchors are fitted INSIDE the upholstered contour (rev2 fix: the
+        # FEAT-003 straight rails at y=-.50/.46 and the strap ends poked up to ~15 cm through the
+        # seat cover where the bean outline swings inward). The seat cover's band at rail height
+        # (z .17-.24) sits at ~99% of OUTLINE; FIT_S/FIT_M keep a clear margin inside it.
+        STRAP_X=[-.86,-.58,-.30,-.02,.26,.54,.84]   # anchor columns across the width
+        FIT_S=.99; FIT_M=.035
+        ring=[catmull(OUTLINE,i/720) for i in range(720)]
+        def edge_y(x,front):
+            ys=[p.y*FIT_S for p in ring if abs(p.x*FIT_S-x)<.012]
+            return min(ys) if front else max(ys)
+        def span_y(x0,x1,front):
+            xs=[x0+(x1-x0)*k/24 for k in range(25)]
+            return max(edge_y(x,True) for x in xs)+FIT_M+.025 if front else min(edge_y(x,False) for x in xs)-FIT_M-.025
+        FR_X=(-.95,.95); RR_X=(-.90,.88)
+        FRONT_Y=span_y(*FR_X,True); REAR_Y=span_y(*RR_X,False)
+        box('front_rail',((FR_X[0]+FR_X[1])/2,FRONT_Y,.205),(FR_X[1]-FR_X[0],.05,.07),groups['frame'],frame)
+        box('rear_rail',((RR_X[0]+RR_X[1])/2,REAR_Y,.205),(RR_X[1]-RR_X[0],.05,.07),groups['frame'],frame)
+        for k,x in enumerate([-.9,.92]):
+            y0=max(edge_y(x+d,True) for d in (-.025,0,.025))+FIT_M; y1=min(edge_y(x+d,False) for d in (-.025,0,.025))-FIT_M
+            box('side_rail_'+str(k),(x,(y0+y1)/2,.205),(.05,y1-y0,.07),groups['frame'],frame)
+        # Two cross braces under the widest span keep the perimeter from racking (corner-block idea).
+        for k,x in enumerate([-.4,.42]):
+            box('cross_support_'+str(k),(x,0,.17),(.05,.80,.06),groups['frame'],frame)
+        box('rear_support',(-.1,.30,.37),(1.58,.06,.11),groups['frame'],frame)
+        # FEAT-003 webbing: individual elasticized straps tensioned FRONT->REAR across the seat
+        # (the primary span the body loads), each anchored to the front and rear wood rails. A
+        # partial interlace is justified, NOT a universal criss-cross: only the three widest
+        # central spans get two lateral straps woven over/under them for the quality cue the
+        # references describe; the outer/short spans stay single-direction, as a real maker would
+        # not waste webbing where the span is short. Straps sit just above the rails (z~.225).
+        def contour_y(x,base):                       # lateral strap rows stay inside the contour
+            return base*(1-.12*(x/1.2)**2)
+        WZ=.225; sb=0
+        anchors={}
+        for k,x in enumerate(STRAP_X):
+            fa=(x,FRONT_Y,WZ); ra=(x,REAR_Y,WZ)
+            anchors[k]=(fa,ra)
+            # central columns (2,3,4) are interlaced -> their longitudinal straps ride a touch low
+            central = k in (2,3,4)
+            strap('suspension_band_'+str(sb),fa,ra,groups['suspension'],belt,
+                  width=.052,thick=.004,sag=.016 if central else .012,over=False); sb+=1
+        # Lateral interlacing straps only across the three central longitudinal straps.
+        for k,y in enumerate([-.22,.0,.22]):
+            la=(STRAP_X[1]+.02,contour_y(STRAP_X[1],y),WZ); lb=(STRAP_X[5]-.02,contour_y(STRAP_X[5],y),WZ)
+            strap('suspension_band_'+str(sb),la,lb,groups['suspension'],belt,
+                  width=.05,thick=.004,sag=.012,over=True); sb+=1
     # FEAT-003 feet: four turned feet that REST on the floor (bottom at z=0) and read as
     # part of the base. The cylinder is a touch taller so its top meets the perimeter rail
     # underside (~.147); a short mount block bridges foot-top to the wood rail so the foot is
     # visibly attached to the frame (Beaumont & Fletcher: the feet are part of the frame),
     # not floating under it. Feet keep their own dark finish (legs_dark).
-    FOOT_H=.15
-    for k,(x,y) in enumerate([(-.90,-.26),(.92,-.17),(-.80,.30),(.80,.28)]):
-        bpy.ops.mesh.primitive_cylinder_add(vertices=16 if mobile else 32,radius=.05,depth=FOOT_H,location=(x,y,FOOT_H/2));ob=bpy.context.object;ob.name='foot_'+str(k+1);ob.parent=groups['legs'];ob.data.materials.append(feet)
+    # EXT-001: exterior-only feet are short dark pucks (~5 cm visible below the lowered body
+    # band, as in SOFA-2.jpg); their tops end inside the body, no hidden mount blocks.
+    FOOT_H=.10 if EXTERIOR_ONLY else .15
+    # EXT-001: feet moved out to ~80 % of the outline so their outer edge sits at the recessed
+    # bottom ring - short dark pucks that read under the body (as at the chaise end in the photo)
+    # instead of hiding ~15 cm deep under the lowered band.
+    FEET=[(-.73,-.45),(.82,-.31),(-.83,.26),(.84,.30)] if EXTERIOR_ONLY else [(-.90,-.26),(.92,-.17),(-.80,.30),(.80,.28)]
+    for k,(x,y) in enumerate(FEET):
+        bpy.ops.mesh.primitive_cylinder_add(vertices=16 if mobile else 32,radius=.05,depth=FOOT_H,location=(x,y,FOOT_H/2));ob=bpy.context.object;ob.name='foot_'+str(k+1);ob.data.name='foot_'+str(k+1)+'_mesh';ob.parent=groups['legs'];ob.data.materials.append(feet)
         bevel=ob.modifiers.new('Foot softened edge','BEVEL');bevel.width=.009;bevel.segments=2;bpy.context.view_layer.objects.active=ob;bpy.ops.object.modifier_apply(modifier=bevel.name)
         for p in ob.data.polygons:p.use_smooth=True
         # Mount block tying the foot top to the frame rail so the connection reads coherently.
-        box('foot_mount_'+str(k+1),(x,y,FOOT_H+.012),(.09,.09,.03),groups['legs'],feet,bevel=.006)
+        if not EXTERIOR_ONLY: box('foot_mount_'+str(k+1),(x,y,FOOT_H+.012),(.09,.09,.03),groups['legs'],feet,bevel=.006)
     # FEAT-002 rev2: cushions settle against the OUTER cover shells (raw mesh data; the 1.5 mm
     # solidify grows inward) and against the cushions they lean on, in SETTLE_ORDER.
     # Groups are still at the origin here, so mesh coordinates are world coordinates.
@@ -461,7 +537,9 @@ def build(mobile=False):
         k,(_n,pos,rot,sz,loft)=spec[name]
         others=[(collider(geos[o][5],geos[o][2]),-.0008) for o in geos]
         geos[name]=cushion_geometry(12 if mobile else 20,pos,rot,sz,k,loft,rigid+others)
-    for name,pos,rot,sz,loft in CUSHIONS: pillow(name,groups['cushions'],cloth,seam,geos[name],pos,rot)
+    for name,pos,rot,sz,loft in CUSHIONS:
+        cover,welt,reverse=decor[CUSHION_FINISH[name]]
+        pillow(name,groups['cushions'],cover,welt,geos[name],pos,rot,reverse)
     bpy.context.view_layer.update()
     points=[o.matrix_world @ Vector(c) for o in bpy.context.scene.objects if o.type=='MESH' for c in o.bound_box]
     cx=(min(p.x for p in points)+max(p.x for p in points))/2

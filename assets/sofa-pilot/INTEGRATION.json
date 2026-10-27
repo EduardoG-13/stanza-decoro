@@ -1,18 +1,19 @@
 {
   "sourcePackage": "stanza-sofa-pilot.zip",
   "modelId": "stanza-organic-01",
-  "upstreamRevision": "1.3.0",
+  "upstreamRevision": "2.0.0",
   "geometryChanged": true,
   "modelSha256": {
-    "models/sofa.glb": "2ecc7aeb8861992072e659e473dd855b1f20ab61b55eb484a9f1435fa1bbc53b",
-    "models/sofa-mobile.glb": "c6b673d0be781feff7c8aafa1b025263a2f8895b87294d83d8d0ac392a383d0b"
+    "models/sofa.glb": "02fdb59ec8a52467a10840642546baa669127d28ed79251bd4d644997938d580",
+    "models/sofa-mobile.glb": "57d6a53a098e9ce91fa35ddaaaa9d6fc4f5f33de159bc4e8583713d36972c16e"
   },
   "viewerChanges": [
-    "Optional backgroundColor and floorColor for site composition."
+    "Optional backgroundColor and floorColor for site composition.",
+    "2.0.0 (EXT-001): exterior-only; only body materials (fabric_main/fabric_seam) are customizable; decorative cushion materials are fixed MeshPhysicalMaterial; setProgress deprecated no-op; optional modelUrls {main,mobile}; inspect() reports materialRegions."
   ],
   "siteAdapters": [
-    "home-opening.js: continuous visible-only camera rotation, initial view and aspect fitting",
-    "sofa-experience.js: manual finish, camera and layer controls; no scroll expansion"
+    "home-opening.js: decorative exterior rotation only while visible (<=30 fps), reduced motion / Save-Data keep the poster",
+    "sofa-experience.js: finish (body) and camera controls; model chosen from data/models-3d.json; no layer/structure controls"
   ],
   "upstreamValidationScope": "Original package only. Current site integration is verified separately."
 }

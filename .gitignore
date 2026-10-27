@@ -13,3 +13,4 @@ site.config.local.json
 
 dist-formulario/
 dist-producao/
+*.blend1
