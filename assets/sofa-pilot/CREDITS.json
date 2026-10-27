@@ -1,7 +1,7 @@
 {
   "contract": "stanza-sofa-credits/v1",
   "modelId": "stanza-organic-01",
-  "revision": "1.1.0",
+  "revision": "1.2.0",
   "researchedOn": "2026-10-25",
   "note": "Referências visuais são distintas dos arquivos incorporados. Nenhuma fotografia de referência ou mapa PBR de terceiros foi redistribuído.",
   "referencesConsulted": [
@@ -100,7 +100,8 @@
       "purpose": "Geometria 3D editável e reutilizável, com hierarquia e UVs",
       "license": "CC0-1.0, na medida em que direitos nos arquivos gerados possam existir",
       "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "limitations": "Forma interpretada da referência fornecida; dimensões estimadas e construção interna ilustrativa. A licença dos arquivos gerados não concede direitos sobre marcas, fotos ou designs de terceiros."
+      "limitations": "Forma interpretada da referência fornecida; dimensões estimadas e construção interna ilustrativa. A licença dos arquivos gerados não concede direitos sobre marcas, fotos ou designs de terceiros.",
+      "revision120Changes": "FEAT-003: autoria interna por componente. Introduzidos no gerador (não existiam antes da 1.2.0) os objetos seat_foam/back_foam (núcleo de espuma próprio, mais baixo/firme, no lugar do antigo seat_padding/back_padding que era a casca do revestimento reescalada) e seat_batting/back_batting (manta fina de poliéster, material batting_illustrative, envolvendo a espuma). As percintas suspension_band_* deixaram de ser 8 placas planas paralelas e passaram a ser faixas individuais tensionadas (catenária leve) ancoradas aos trilhos de madeira, com interlace parcial apenas nos vãos centrais. A estrutura ganhou front_rail/rear_rail/side_rail_* seguindo o contorno; os pés foot_* repousam no piso (z=0) com foot_mount_* ligando-os ao trilho. Nenhuma referência externa foi redistribuída; disposição das percintas fundamentada (não impondo cruzamento universal) nas fontes consultadas em CREDITS/INSPECTION."
     },
     {
       "id": "original-viewer-and-generation-code",

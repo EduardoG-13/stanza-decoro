@@ -3,7 +3,7 @@ import { GLTFLoader } from './vendor/three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from './vendor/three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from './vendor/three/addons/environments/RoomEnvironment.js';
 
-export const IDENTITY = Object.freeze({ modelId: 'stanza-organic-01', revision: '1.1.0' });
+export const IDENTITY = Object.freeze({ modelId: 'stanza-organic-01', revision: '1.2.0' });
 export const DIMENSIONS = Object.freeze({ width:2.487, height:1.042, depth:1.084, unit:'m', estimated:true });
 export const COLORS = Object.freeze({ areia: '#d8c9b2', oliva: '#72765a', terracota: '#ae6952', grafite: '#494b4b' });
 export const FABRICS = Object.freeze({

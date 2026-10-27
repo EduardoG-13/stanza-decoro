@@ -1,7 +1,7 @@
 {
   "IDENTITY": {
     "modelId": "stanza-organic-01",
-    "revision": "1.1.0"
+    "revision": "1.2.0"
   },
   "CAMERAS": {
     "threequarter": {
@@ -338,7 +338,7 @@
   },
   "DIMENSIONS": {
     "width": 2.487,
-    "height": 1.007,
+    "height": 1.042,
     "depth": 1.084,
     "unit": "m",
     "estimated": true
