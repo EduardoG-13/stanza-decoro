@@ -12,11 +12,10 @@
 .sofa-status.is-error {color:var(--error)}
 .sofa-camera-tools {display:flex;gap:8px;align-items:center}
 .sofa-camera-tools span {margin-inline:auto;font-size:.875rem;color:var(--muted)}
-.sofa-camera-tools button,.sofa-view-options button,.sofa-step-options button {min-height:44px;border:1px solid var(--control);background:transparent;color:var(--ink);padding:8px 12px;border-radius:2px;font-size:.875rem}
+.sofa-camera-tools button,.sofa-view-options button {min-height:44px;border:1px solid var(--control);background:transparent;color:var(--ink);padding:8px 12px;border-radius:2px;font-size:.875rem}
 .sofa-camera-tools button {width:44px;font-size:1.2rem}
-.sofa-camera-tools button:hover,.sofa-view-options button:hover,.sofa-step-options button:hover {background:var(--soft)}
-.sofa-step-options button[aria-pressed=true],.sofa-step-options button[aria-pressed=true]:hover {background:var(--olive);color:white;border-color:var(--olive)}
-.sofa-disclaimer,.sofa-help,.sofa-layer-key {font-size:.875rem;line-height:1.65;margin:16px 0;color:var(--muted)}
+.sofa-camera-tools button:hover,.sofa-view-options button:hover {background:var(--soft)}
+.sofa-disclaimer,.sofa-help {font-size:.875rem;line-height:1.65;margin:16px 0;color:var(--muted)}
 .sofa-inspector fieldset {margin:0 0 26px;padding:20px 0 0;border:0;border-top:1px solid var(--line);min-width:0}
 .sofa-inspector legend {font:1.7rem var(--serif);padding-right:16px}
 
@@ -34,10 +33,7 @@
 .sofa-colors input:checked+span {outline:2px solid var(--olive);outline-offset:3px}
 .sofa-colors input:focus-visible+span {outline:3px solid var(--ink);outline-offset:5px}
 .sofa-colors b {font-size:.875rem;font-weight:500}
-.sofa-view-options,.sofa-step-options {display:flex;flex-wrap:wrap;gap:8px}
-.sofa-range-label {display:flex;justify-content:space-between;gap:12px;font-size:.875rem}
-#sofa-progress {width:100%;min-height:44px;accent-color:var(--olive)}
-.sofa-scroll-toggle {display:flex;align-items:center;gap:12px;font-size:.875rem;min-height:48px;margin-top:24px;cursor:pointer}
+.sofa-view-options {display:flex;flex-wrap:wrap;gap:8px}
 .sofa-selection {border-top:1px solid var(--ink);padding-top:24px}
 
 #sofa-selection-name {font:2rem var(--serif);color:var(--ink);margin-bottom:24px}

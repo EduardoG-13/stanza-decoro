@@ -1,7 +1,7 @@
 {
   "IDENTITY": {
     "modelId": "stanza-organic-01",
-    "revision": "1.3.0"
+    "revision": "2.0.0"
   },
   "CAMERAS": {
     "threequarter": {
@@ -52,15 +52,15 @@
         0.35
       ]
     },
-    "layers": {
+    "photo": {
       "position": [
-        3.5,
-        2.7,
-        4.5
+        0.4,
+        1.13,
+        3.05
       ],
       "target": [
-        0,
-        1,
+        -0.05,
+        0.5,
         0
       ]
     }
@@ -75,399 +75,12 @@
           0,
           0
         ],
-        "padding": [
-          0,
-          0,
-          0
-        ],
-        "frame": [
-          0,
-          0,
-          0
-        ],
         "legs": [
           0,
           0,
           0
         ],
         "cushions": [
-          0,
-          0,
-          0
-        ],
-        "suspension": [
-          0,
-          0,
-          0
-        ]
-      },
-      "subOffsets": {
-        "seat_batting": [
-          0,
-          0,
-          0
-        ],
-        "back_batting": [
-          0,
-          0,
-          0
-        ],
-        "seat_foam": [
-          0,
-          0,
-          0
-        ],
-        "back_foam": [
-          0,
-          0,
-          0
-        ]
-      },
-      "camera": {
-        "position": [
-          2.6,
-          1.65,
-          3.1
-        ],
-        "target": [
-          0,
-          0.5,
-          0
-        ]
-      }
-    },
-    {
-      "progress": 0.2,
-      "label": "Almofadas e revestimento se soltam",
-      "offsets": {
-        "upholstery": [
-          0,
-          0.45,
-          0.18
-        ],
-        "padding": [
-          0,
-          0,
-          0
-        ],
-        "frame": [
-          0,
-          0,
-          0
-        ],
-        "legs": [
-          0,
-          0,
-          0
-        ],
-        "cushions": [
-          0,
-          0.6,
-          0.42
-        ],
-        "suspension": [
-          0,
-          0,
-          0
-        ]
-      },
-      "subOffsets": {
-        "seat_batting": [
-          0,
-          0,
-          0
-        ],
-        "back_batting": [
-          0,
-          0,
-          0
-        ],
-        "seat_foam": [
-          0,
-          0,
-          0
-        ],
-        "back_foam": [
-          0,
-          0,
-          0
-        ]
-      },
-      "camera": {
-        "position": [
-          2.1,
-          1.5,
-          2.6
-        ],
-        "target": [
-          0,
-          0.6,
-          0.15
-        ]
-      }
-    },
-    {
-      "progress": 0.35,
-      "label": "Manta exposta sob o tecido",
-      "offsets": {
-        "upholstery": [
-          0,
-          0.95,
-          0.42
-        ],
-        "padding": [
-          0,
-          0,
-          0
-        ],
-        "frame": [
-          0,
-          0,
-          0
-        ],
-        "legs": [
-          0,
-          0,
-          0
-        ],
-        "cushions": [
-          0,
-          1.05,
-          0.72
-        ],
-        "suspension": [
-          0,
-          0,
-          0
-        ]
-      },
-      "subOffsets": {
-        "seat_batting": [
-          0,
-          0.3,
-          0.12
-        ],
-        "back_batting": [
-          0,
-          0.3,
-          0.12
-        ],
-        "seat_foam": [
-          0,
-          0,
-          0
-        ],
-        "back_foam": [
-          0,
-          0,
-          0
-        ]
-      },
-      "camera": {
-        "position": [
-          3.5,
-          2.7,
-          4.5
-        ],
-        "target": [
-          0,
-          1,
-          0
-        ]
-      }
-    },
-    {
-      "progress": 0.5,
-      "label": "Revestimento e manta separados da espuma",
-      "offsets": {
-        "upholstery": [
-          0,
-          1.25,
-          0.55
-        ],
-        "padding": [
-          0,
-          0,
-          0
-        ],
-        "frame": [
-          0,
-          0,
-          0
-        ],
-        "legs": [
-          0,
-          0,
-          0
-        ],
-        "cushions": [
-          0,
-          1.4,
-          0.9
-        ],
-        "suspension": [
-          0,
-          0,
-          0
-        ]
-      },
-      "subOffsets": {
-        "seat_batting": [
-          0,
-          0.62,
-          0.26
-        ],
-        "back_batting": [
-          0,
-          0.62,
-          0.26
-        ],
-        "seat_foam": [
-          0,
-          0.18,
-          0
-        ],
-        "back_foam": [
-          0,
-          0.18,
-          0
-        ]
-      },
-      "camera": {
-        "position": [
-          3.5,
-          2.7,
-          4.5
-        ],
-        "target": [
-          0,
-          1,
-          0
-        ]
-      }
-    },
-    {
-      "progress": 0.7,
-      "label": "Estrutura exposta · percintas e madeira",
-      "offsets": {
-        "upholstery": [
-          0,
-          1.6,
-          0.7
-        ],
-        "padding": [
-          0,
-          0.5,
-          0
-        ],
-        "frame": [
-          0,
-          0,
-          0
-        ],
-        "legs": [
-          0,
-          0,
-          0
-        ],
-        "cushions": [
-          0,
-          1.75,
-          1.05
-        ],
-        "suspension": [
-          0,
-          0.16,
-          0
-        ]
-      },
-      "subOffsets": {
-        "seat_batting": [
-          0,
-          0.95,
-          0.4
-        ],
-        "back_batting": [
-          0,
-          0.95,
-          0.4
-        ],
-        "seat_foam": [
-          0,
-          0.5,
-          0.2
-        ],
-        "back_foam": [
-          0,
-          0.5,
-          0.2
-        ]
-      },
-      "camera": {
-        "position": [
-          3.5,
-          2.7,
-          4.5
-        ],
-        "target": [
-          0,
-          1,
-          0
-        ]
-      }
-    },
-    {
-      "progress": 1,
-      "label": "Retorno à peça montada",
-      "offsets": {
-        "upholstery": [
-          0,
-          0,
-          0
-        ],
-        "padding": [
-          0,
-          0,
-          0
-        ],
-        "frame": [
-          0,
-          0,
-          0
-        ],
-        "legs": [
-          0,
-          0,
-          0
-        ],
-        "cushions": [
-          0,
-          0,
-          0
-        ],
-        "suspension": [
-          0,
-          0,
-          0
-        ]
-      },
-      "subOffsets": {
-        "seat_batting": [
-          0,
-          0,
-          0
-        ],
-        "back_batting": [
-          0,
-          0,
-          0
-        ],
-        "seat_foam": [
-          0,
-          0,
-          0
-        ],
-        "back_foam": [
           0,
           0,
           0
@@ -518,9 +131,42 @@
   },
   "DIMENSIONS": {
     "width": 2.487,
-    "height": 0.993,
+    "height": 1.106,
     "depth": 1.084,
     "unit": "m",
     "estimated": true
+  },
+  "MATERIAL_REGIONS": {
+    "body": [
+      "fabric_main",
+      "fabric_seam"
+    ],
+    "decorative": [
+      "cushion_light_boucle",
+      "cushion_light_seam",
+      "cushion_olive_weave",
+      "cushion_olive_seam",
+      "cushion_olive_reverse"
+    ],
+    "exterior-structure": [
+      "legs_dark"
+    ]
+  },
+  "DEPRECATED": {
+    "since": "2.0.0",
+    "setProgress": "no-op: keeps the assembled piece (exterior-only asset, no layered opening)",
+    "LAYER_STAGES": "single assembled stage kept for old importers; the 1.x opening stages were removed",
+    "removedCameras": [
+      "layers"
+    ],
+    "removedGroups": [
+      "padding",
+      "frame",
+      "suspension"
+    ],
+    "removedModules": [
+      "viewer/scroll.js",
+      "viewer/vendor/gsap/"
+    ]
   }
 }

@@ -1,0 +1,37 @@
+{
+  "contract": "stanza-models-3d/v1",
+  "note": "Registro dos modelos 3D publicados ou em revisão. Código EXT = item da fila (docs/sofa-3d-review/QUEUE.md), não é ID de catálogo. Só entram aqui peças com ativos reais; o configurador carrega apenas o modelo pedido, sob demanda.",
+  "defaultModelId": "stanza-organic-01",
+  "models": [
+    {
+      "modelId": "stanza-organic-01",
+      "catalogId": "sofa-organico",
+      "queue": "EXT-001",
+      "title": "Sofá orgânico claro",
+      "revision": "2.0.0",
+      "status": "technical-validated-visual-review-pending",
+      "statusLabel": "tecnicamente validado – revisão visual pendente",
+      "construction": "exterior-only",
+      "reference": "sofas/SOFA-2.jpg",
+      "page": "/explorar-sofa.html",
+      "assets": {
+        "viewerBase": "/assets/sofa-pilot/",
+        "main": "/assets/sofa-pilot/models/sofa.glb",
+        "mobile": "/assets/sofa-pilot/models/sofa-mobile.glb",
+        "poster": "/assets/sofa-pilot/previews/poster.jpg",
+        "manifest": "/assets/sofa-pilot/manifest.json"
+      },
+      "materialRegions": {
+        "body": ["fabric_main", "fabric_seam"],
+        "decorative": ["cushion_light_boucle", "cushion_light_seam", "cushion_olive_weave", "cushion_olive_seam", "cushion_olive_reverse"],
+        "exterior-structure": ["legs_dark"]
+      },
+      "options": {
+        "appliesTo": "body",
+        "fabrics": ["boucle", "linen", "velvet"],
+        "colors": ["areia", "oliva", "terracota", "grafite"],
+        "default": { "fabricId": "boucle", "colorId": "areia" }
+      }
+    }
+  ]
+}

@@ -1,4 +1,5 @@
-// Ambient motion exists only while the product is visible and the tab is active.
+// Home hero: decorative EXTERIOR rotation only (no layer opening since 2.0.0). Motion exists
+// only while the product is visible and the tab is active; reduced motion / Save-Data keep the poster.
 const host = document.querySelector('#home-sofa');
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const connection = navigator.connection;
@@ -37,7 +38,7 @@ async function initialize() {
   try {
     const {createSofaViewer} = await import('./sofa-pilot/viewer/sofa-viewer.js');
     if (disposed || state() === 'reduced') {initialized = false; host.dataset.scene = 'poster'; return;}
-    viewer = await createSofaViewer(host, {variant:'mobile', cameraNarrative:false, backgroundColor:'#f4f1e9', floorColor:'#f4f1e9'});
+    viewer = await createSofaViewer(host, {variant:'mobile', backgroundColor:'#f4f1e9', floorColor:'#f4f1e9'});
     if (disposed) {viewer.dispose(); return;}
     const fit = () => {
       const aspect = Math.max(host.clientWidth,1) / Math.max(host.clientHeight,1);

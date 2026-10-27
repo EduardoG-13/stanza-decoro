@@ -1,22 +1,23 @@
 // The pilot owns geometry and materials; this adapter owns only site controls.
+// EXT-001 (2.0.0): exterior-only model. No layer/opening controls; fabric and colour apply to
+// the sofa BODY only (decorative cushions keep their fixed finish inside the viewer).
 const $ = selector => document.querySelector(selector);
 const options = JSON.parse($('#sofa-options').textContent);
+const registry = JSON.parse($('#models-3d')?.textContent || '{"models":[]}');
 const start = $('#start-sofa'), stage = $('#sofa-stage'), status = $('#sofa-status');
+// Model selection is incremental: the page names its model (data-model-id); an optional
+// ?modelo=<modelId> may pick another REGISTERED model. Only that model's assets are loaded.
+const requested = new URLSearchParams(location.search).get('modelo') || stage.dataset.modelId || registry.defaultModelId;
+const model = registry.models.find(entry => entry.modelId === requested) || registry.models.find(entry => entry.modelId === registry.defaultModelId);
 let viewer, loading = false, finishRequest = 0;
 function report(message, error = false) { status.textContent = message; status.classList.toggle('is-error', error); }
-function showProgress(value, label) {
-  $('#sofa-progress').value = value;
-  $('#sofa-progress-value').textContent = Math.round(value * 100) + '%';
-  if (label) $('#sofa-step').textContent = label;
-  document.querySelectorAll('[data-progress]').forEach(button => button.setAttribute('aria-pressed', String(Math.abs(Number(button.dataset.progress) - value) < .001)));
-}
 function showSelection(selection) {
   const fabric = options.fabrics[selection.fabricId], color = options.colors[selection.colorId];
   if (!fabric || !color) return;
   document.querySelectorAll('input[name="sofa-fabric"]').forEach(input => input.checked = input.value === selection.fabricId);
   document.querySelectorAll('input[name="sofa-color"]').forEach(input => input.checked = input.value === selection.colorId);
   $('#sofa-selection-name').textContent = fabric + ' · ' + color;
-  const params = new URLSearchParams({referencia: 'sofa-organico', estudo: options.modelId, tecido: selection.fabricId, cor: selection.colorId});
+  const params = new URLSearchParams({referencia: model?.catalogId || 'sofa-organico', estudo: selection.modelId, tecido: selection.fabricId, cor: selection.colorId});
   $('#sofa-quote').href = '/orcamento.html?' + params;
 }
 async function initialize() {
@@ -24,8 +25,12 @@ async function initialize() {
   loading = true; start.disabled = true; stage.setAttribute('aria-busy','true');
   report('Preparando a visualização 3D…');
   try {
+    if (!model) throw new Error('Modelo 3D não registrado.');
     const {createSofaViewer} = await import('./sofa-pilot/viewer/sofa-viewer.js');
-    viewer = await createSofaViewer(stage, {onProgress: showProgress, onFinish: showSelection, onStatus: message => report(message)});
+    viewer = await createSofaViewer(stage, {
+      baseUrl: model.assets.viewerBase, modelUrls: {main: model.assets.main, mobile: model.assets.mobile},
+      onFinish: showSelection, onStatus: message => report(message)
+    });
     document.querySelectorAll('.sofa-inspector fieldset, [data-camera]').forEach(control => control.disabled = false);
     stage.classList.add('is-ready');
     report('Pronto. Arraste para girar ou use os controles.');
@@ -42,10 +47,6 @@ document.querySelectorAll('[data-camera]').forEach(button => button.addEventList
 document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => {
   if (!viewer) return; viewer.setView(button.dataset.view);
 }));
-document.querySelectorAll('[data-progress]').forEach(button => button.addEventListener('click', () => {
-  if (!viewer) return; viewer.setProgress(Number(button.dataset.progress));
-}));
-$('#sofa-progress').addEventListener('input', event => {if (viewer) {viewer.setProgress(Number(event.target.value));}});
 document.querySelectorAll('input[name="sofa-fabric"], input[name="sofa-color"]').forEach(input => input.addEventListener('change', async () => {
   if (!viewer) return;
   const request = ++finishRequest;

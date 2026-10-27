@@ -35,6 +35,12 @@ assert CONFIG['quote']['mode'] in ['manual','emulator','firebase']
 assert not (CONFIG['production'] and CONFIG['quote']['mode'] == 'emulator'), 'Demonstração local não pode ser publicada.'
 CATALOG = json.loads((ROOT / 'data/catalog.json').read_text(encoding='utf-8'))
 PORTFOLIO = json.loads((ROOT / 'data/portfolio.json').read_text(encoding='utf-8'))
+# 3D model registry (EXT queue). Only models whose assets exist may be listed with assets.
+MODELS_3D = json.loads((ROOT / 'data/models-3d.json').read_text(encoding='utf-8'))
+for _model in MODELS_3D['models']:
+    assert _model['catalogId'] in {item['id'] for item in CATALOG}, _model['modelId']
+    for _key in ('main','mobile','poster','manifest'):
+        assert (ROOT / _model['assets'][_key].lstrip('/')).is_file(), (_model['modelId'], _key)
 FAMILIES = {'sofas':'Sofás','assentos':'Poltronas e assentos','complementos':'Cabeceiras e puffs','revestimentos':'Capas e cortinas','cortinas':'Cortinas'}
 images = {}
 image_sizes = {}
@@ -139,7 +145,10 @@ def main():
         (OUT/'assets/cities'/f'{uf}.json').write_text(json.dumps(data['cities'],ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
     shutil.copy2(ROOT / 'icon/Logo Stanza Decoro Grande.png', OUT / 'assets/images/stanza-logo.png')
     shutil.copytree(ROOT / 'icon', OUT / 'icon', dirs_exist_ok=True)
+    # Clean copy: files removed from the package (e.g. the 1.x layer/scroll adapter) must not linger.
+    shutil.rmtree(OUT / 'assets/sofa-pilot', ignore_errors=True)
     shutil.copytree(ROOT / 'assets/sofa-pilot', OUT / 'assets/sofa-pilot', dirs_exist_ok=True)
+    shutil.copy2(ROOT / 'data/models-3d.json', OUT / 'assets/models-3d.json')
     # Corrige os endereços dos ícones no manifesto original, sem trocar a marca.
     manifest = {'name':'Stanza Decoro','short_name':'Stanza','icons':[{'src':'/icon/android-chrome-192x192.png','sizes':'192x192','type':'image/png'},{'src':'/icon/android-chrome-512x512.png','sizes':'512x512','type':'image/png'}],'theme_color':'#3e573e','background_color':'#f5f3ed','display':'browser'}
     for icon in manifest['icons']:
@@ -158,7 +167,7 @@ def main():
       ('custom','sob-medida.html','custom.html','Estofados sob medida | Stanza Decoro','Conte sua ideia de sofá, poltrona, cabeceira ou outro estofado. Modelos e medidas especiais sujeitos à avaliação técnica.'),
       ('reform','reformas.html','reform.html','Reforma de estofados | Stanza Decoro','Converse sobre a reforma da sua peça. Fotos, referências e informações de acesso ajudam na avaliação.'),
       ('portfolio','portfolio.html','portfolio.html','Portfólio de peças e ambientes | Stanza Decoro','Explore referências do acervo Stanza, entre sofás, assentos, complementos e revestimentos.'),
-      ('explore','explorar-sofa.html','explore.html','Explore um estudo de sofá em 3D | Stanza Decoro','Experimente cores, tecidos e camadas em um estudo interativo. Acabamentos ilustrativos para conversar sobre o seu projeto.'),
+      ('explore','explorar-sofa.html','explore.html','Explore um estudo de sofá em 3D | Stanza Decoro','Gire um estudo 3D do sofá orgânico e experimente cores e tecidos no corpo da peça. Acabamentos ilustrativos para conversar sobre o seu projeto.'),
       ('quote','orcamento.html','quote.html','Planejar meu projeto | Stanza Decoro','Prepare as informações de fabricação ou reforma e continue o atendimento da Stanza no WhatsApp.'),
       ('privacy','privacidade.html','privacy.html','Privacidade | Stanza Decoro','Entenda como funciona a preparação do resumo e o atendimento pelos canais da Stanza.')
     ]
@@ -169,6 +178,8 @@ def main():
         content = replace((ROOT / 'pages' / source).read_text(encoding='utf-8'),{**common,'QUOTE_HOSTED_URL':escape(CONFIG['quote'].get('hostedUrl',''),quote=True)})
         if page in ['quote','explore']:
             content += '<script type="application/json" id="sofa-options">' + (ROOT / 'data/sofa-pilot.json').read_text(encoding='utf-8').replace('<','\\u003c') + '</script>'
+        if page == 'explore':
+            content += '<script type="application/json" id="models-3d">' + json.dumps(MODELS_3D,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c') + '</script>'
         if page == 'quote':
             content += '<script type="application/json" id="quote-config">' + json.dumps(CONFIG['quote'],ensure_ascii=False).replace('<','\\u003c') + '</script>'
             if CONFIG['quote']['mode'] != 'manual' or CONFIG['quote'].get('hostedUrl'):
