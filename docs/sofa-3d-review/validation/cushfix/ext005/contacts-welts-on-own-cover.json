@@ -1,0 +1,35 @@
+{
+ "glb": "assets/models-3d/stanza-piped-01/models/stanza-piped-01.glb",
+ "pairs": {
+  "seat_cushion_1_welt_top:seat_cushion_1": {
+   "penetration_mm": 1.99,
+   "verts_inside": 320,
+   "gap_mm": 0.0
+  },
+  "seat_cushion_1_welt_bottom:seat_cushion_1": {
+   "penetration_mm": 2.0,
+   "verts_inside": 494,
+   "gap_mm": 0.0
+  },
+  "back_cushion_1_welt_ny:back_cushion_1_cover": {
+   "penetration_mm": 2.0,
+   "verts_inside": 553,
+   "gap_mm": 0.0
+  },
+  "back_cushion_1_welt_py:back_cushion_1_cover": {
+   "penetration_mm": 2.0,
+   "verts_inside": 538,
+   "gap_mm": 0.0
+  },
+  "back_cushion_2_welt_ny:back_cushion_2_cover": {
+   "penetration_mm": 2.0,
+   "verts_inside": 547,
+   "gap_mm": 0.0
+  },
+  "seat_cushion_2_welt_top:seat_cushion_2": {
+   "penetration_mm": 2.0,
+   "verts_inside": 320,
+   "gap_mm": 0.0
+  }
+ }
+}

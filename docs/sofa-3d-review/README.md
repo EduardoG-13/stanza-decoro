@@ -30,10 +30,10 @@ Infraestrutura multi-modelo (biblioteca Blender, biblioteca de acabamentos, regi
 
 ![EXT-004: foto × render](images/ext004_photo_vs_render.jpg)
 
-**EXT-005 — Sofá cinza com vivo claro** (`stanza-piped-01` 1.0.0, catálogo `sofa-com-vivo`; vivo = contraste fixo):
-[ext005-sofa-com-vivo.md](ext005-sofa-com-vivo.md) · prévia `/explorar-sofa.html?modelo=stanza-piped-01`.
+**EXT-005 — Sofá cinza com vivo claro** (`stanza-piped-01` 1.1.0, catálogo `sofa-com-vivo`; vivo = contraste fixo):
+[ext005-sofa-com-vivo.md](ext005-sofa-com-vivo.md) · almofadas cheias 1.1.0: [cushions-fix-2026-10.md](cushions-fix-2026-10.md) · prévia `/explorar-sofa.html?modelo=stanza-piped-01`.
 
-![EXT-005: foto × render](images/ext005_photo_vs_render.jpg)
+![EXT-005 1.1.0: foto × antes × depois e perfil](images/cushfix_ext005_photo_side.jpg)
 
 ## EXT-001 r2, revisão 2.1.0 (refino de fidelidade à foto)
 
