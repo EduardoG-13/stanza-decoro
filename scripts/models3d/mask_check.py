@@ -3,7 +3,7 @@
     python scripts/models3d/mask_check.py <capture_dir> <run_label> <view> <reference_pass> <pass> [<pass> ...]
 
 Uses the region masks written by capture.mjs (`<run>__<pass>__<view>__mask.png`; body red,
-decorative green, exterior-structure blue). Each mask is eroded by 2 px so anti-aliased
+decorative green, contrast yellow, exterior-structure blue). Each mask is eroded by 2 px so anti-aliased
 silhouettes are excluded. Prints JSON: per pass, mean/max absolute RGB difference against
 the reference pass inside each region, and the pixel count of each region.
 """
@@ -12,7 +12,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageFilter
 
-COLS = {'body': (255, 0, 0), 'decorative': (0, 255, 0), 'exterior-structure': (0, 0, 255)}
+COLS = {'body': (255, 0, 0), 'decorative': (0, 255, 0), 'contrast': (255, 255, 0), 'exterior-structure': (0, 0, 255)}
 
 def region_masks(path):
     m = np.asarray(Image.open(path).convert('RGB')).astype(int)
