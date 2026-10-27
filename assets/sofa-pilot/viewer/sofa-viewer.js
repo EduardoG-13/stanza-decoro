@@ -21,16 +21,40 @@ export const CAMERAS = Object.freeze({
 const zero = [0,0,0];
 // Exported local offsets in metres; original exported transforms are never overwritten.
 // All stages are illustrative, not instructions for dismantling a real product.
+// FEAT-004: the illustrative opening now reads in the construction order
+// fabric -> batting -> foam -> webbing -> wood frame (feet stay with the frame; cushions
+// lift with the fabric since they are the loose top layer). Because the real build nests
+// the foam and the batting inside the same public `padding` group, each stage also carries
+// optional `subOffsets` keyed by the padding sub-node names so the thin manta can separate
+// from the foam core WITHOUT adding a new public group. The six public groups are unchanged.
+// Contract preserved: progress 0 and 1 are the assembled piece (identical); ~.5 = separated
+// (fabric + batting lifted off the foam); ~.7 = structure exposed (foam up, webbing + wood
+// frame legible). 1 is NOT redefined as maximum explosion.
+const paddingSub = { seat_batting:zero, back_batting:zero, seat_foam:zero, back_foam:zero };
 export const LAYER_STAGES = Object.freeze([
-  { progress:0, label:'Peça montada', offsets:{ upholstery:zero,padding:zero,frame:zero,legs:zero,cushions:zero,suspension:zero }, camera:CAMERAS.threequarter },
-  { progress:.2, label:'Aproximação do revestimento', offsets:{ upholstery:zero,padding:zero,frame:zero,legs:zero,cushions:zero,suspension:zero }, camera:{ position:[2.1,1.5,2.6],target:[0,.6,.15] } },
-  { progress:.5, label:'Revestimento e acolchoamento separados', offsets:{ upholstery:[0,.8,.3],padding:[0,.3,0],frame:zero,legs:zero,cushions:[0,.9,.65],suspension:[0,.08,0] }, camera:CAMERAS.layers },
-  { progress:.7, label:'Estrutura exposta · construção ilustrativa', offsets:{ upholstery:[0,1.3,.5],padding:[0,.65,0],frame:zero,legs:zero,cushions:[0,1.45,.85],suspension:[0,.22,0] }, camera:CAMERAS.layers },
-  { progress:1, label:'Retorno à peça montada', offsets:{ upholstery:zero,padding:zero,frame:zero,legs:zero,cushions:zero,suspension:zero }, camera:CAMERAS.threequarter }
+  { progress:0, label:'Peça montada',
+    offsets:{ upholstery:zero,padding:zero,frame:zero,legs:zero,cushions:zero,suspension:zero },
+    subOffsets:{ ...paddingSub }, camera:CAMERAS.threequarter },
+  { progress:.2, label:'Almofadas e revestimento se soltam',
+    offsets:{ upholstery:[0,.45,.18],padding:zero,frame:zero,legs:zero,cushions:[0,.6,.42],suspension:zero },
+    subOffsets:{ ...paddingSub }, camera:{ position:[2.1,1.5,2.6],target:[0,.6,.15] } },
+  { progress:.35, label:'Manta exposta sob o tecido',
+    offsets:{ upholstery:[0,.95,.42],padding:zero,frame:zero,legs:zero,cushions:[0,1.05,.72],suspension:zero },
+    subOffsets:{ seat_batting:[0,.3,.12],back_batting:[0,.3,.12],seat_foam:zero,back_foam:zero }, camera:CAMERAS.layers },
+  { progress:.5, label:'Revestimento e manta separados da espuma',
+    offsets:{ upholstery:[0,1.25,.55],padding:zero,frame:zero,legs:zero,cushions:[0,1.4,.9],suspension:zero },
+    subOffsets:{ seat_batting:[0,.62,.26],back_batting:[0,.62,.26],seat_foam:[0,.18,0],back_foam:[0,.18,0] }, camera:CAMERAS.layers },
+  { progress:.7, label:'Estrutura exposta · percintas e madeira',
+    offsets:{ upholstery:[0,1.6,.7],padding:[0,.5,0],frame:zero,legs:zero,cushions:[0,1.75,1.05],suspension:[0,.16,0] },
+    subOffsets:{ seat_batting:[0,.95,.4],back_batting:[0,.95,.4],seat_foam:[0,.5,.2],back_foam:[0,.5,.2] }, camera:CAMERAS.layers },
+  { progress:1, label:'Retorno à peça montada',
+    offsets:{ upholstery:zero,padding:zero,frame:zero,legs:zero,cushions:zero,suspension:zero },
+    subOffsets:{ ...paddingSub }, camera:CAMERAS.threequarter }
 ]);
 const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
 const ease = t => t*t*(3-2*t);
 const groups = ['upholstery','padding','frame','legs','cushions','suspension'];
+const paddingSubNodes = ['seat_batting','back_batting','seat_foam','back_foam'];
 
 /** Create an independent viewer in a sized HTML element. See API.md. */
 export async function createSofaViewer(container, options = {}) {
@@ -161,6 +185,16 @@ export async function createSofaViewer(container, options = {}) {
       node.position.copy(originalPositions.get(name));
       node.position.add(new THREE.Vector3().fromArray(a.offsets[name]).lerp(new THREE.Vector3().fromArray(b.offsets[name]),t));
     }
+    // Padding sub-nodes (foam core vs batting loft) move in their LOCAL padding space,
+    // recomputed from their original positions every call (no delta accumulation). Their
+    // parent `padding` group offset above is added by the scene graph automatically.
+    for (const name of paddingSubNodes) {
+      const node = loadedRoot.getObjectByName(name); if (!node || !originalPositions.has(name)) continue;
+      const sa = (a.subOffsets && a.subOffsets[name]) || zero;
+      const sb = (b.subOffsets && b.subOffsets[name]) || zero;
+      node.position.copy(originalPositions.get(name));
+      node.position.add(new THREE.Vector3().fromArray(sa).lerp(new THREE.Vector3().fromArray(sb),t));
+    }
     if (options.cameraNarrative !== false) {
       camera.position.fromArray(a.camera.position).lerp(new THREE.Vector3().fromArray(b.camera.position),t);
       controls.target.fromArray(a.camera.target).lerp(new THREE.Vector3().fromArray(b.camera.target),t);
@@ -236,6 +270,13 @@ export async function createSofaViewer(container, options = {}) {
       const node = loadedRoot.getObjectByName(name);
       if (node) originalPositions.set(name,node.position.clone());
       else if (name !== 'suspension') throw new Error(`Grupo ausente no GLB: ${name}`);
+    }
+    // FEAT-004: remember the padding sub-nodes (foam/batting) so the opening can separate
+    // the thin manta from the foam core without introducing a new public group. Absent on
+    // pre-1.2.0 assets; the opening then simply moves the padding group as a whole.
+    for (const name of paddingSubNodes) {
+      const node = loadedRoot.getObjectByName(name);
+      if (node) originalPositions.set(name,node.position.clone());
     }
     loadedRoot.traverse(node => {
       if (!node.isMesh) return;

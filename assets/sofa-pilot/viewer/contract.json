@@ -101,6 +101,28 @@
           0
         ]
       },
+      "subOffsets": {
+        "seat_batting": [
+          0,
+          0,
+          0
+        ],
+        "back_batting": [
+          0,
+          0,
+          0
+        ],
+        "seat_foam": [
+          0,
+          0,
+          0
+        ],
+        "back_foam": [
+          0,
+          0,
+          0
+        ]
+      },
       "camera": {
         "position": [
           2.6,
@@ -116,12 +138,12 @@
     },
     {
       "progress": 0.2,
-      "label": "Aproximação do revestimento",
+      "label": "Almofadas e revestimento se soltam",
       "offsets": {
         "upholstery": [
           0,
-          0,
-          0
+          0.45,
+          0.18
         ],
         "padding": [
           0,
@@ -140,10 +162,32 @@
         ],
         "cushions": [
           0,
+          0.6,
+          0.42
+        ],
+        "suspension": [
+          0,
+          0,
+          0
+        ]
+      },
+      "subOffsets": {
+        "seat_batting": [
+          0,
           0,
           0
         ],
-        "suspension": [
+        "back_batting": [
+          0,
+          0,
+          0
+        ],
+        "seat_foam": [
+          0,
+          0,
+          0
+        ],
+        "back_foam": [
           0,
           0,
           0
@@ -163,17 +207,17 @@
       }
     },
     {
-      "progress": 0.5,
-      "label": "Revestimento e acolchoamento separados",
+      "progress": 0.35,
+      "label": "Manta exposta sob o tecido",
       "offsets": {
         "upholstery": [
           0,
-          0.8,
-          0.3
+          0.95,
+          0.42
         ],
         "padding": [
           0,
-          0.3,
+          0,
           0
         ],
         "frame": [
@@ -188,12 +232,104 @@
         ],
         "cushions": [
           0,
-          0.9,
-          0.65
+          1.05,
+          0.72
         ],
         "suspension": [
           0,
-          0.08,
+          0,
+          0
+        ]
+      },
+      "subOffsets": {
+        "seat_batting": [
+          0,
+          0.3,
+          0.12
+        ],
+        "back_batting": [
+          0,
+          0.3,
+          0.12
+        ],
+        "seat_foam": [
+          0,
+          0,
+          0
+        ],
+        "back_foam": [
+          0,
+          0,
+          0
+        ]
+      },
+      "camera": {
+        "position": [
+          3.5,
+          2.7,
+          4.5
+        ],
+        "target": [
+          0,
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "progress": 0.5,
+      "label": "Revestimento e manta separados da espuma",
+      "offsets": {
+        "upholstery": [
+          0,
+          1.25,
+          0.55
+        ],
+        "padding": [
+          0,
+          0,
+          0
+        ],
+        "frame": [
+          0,
+          0,
+          0
+        ],
+        "legs": [
+          0,
+          0,
+          0
+        ],
+        "cushions": [
+          0,
+          1.4,
+          0.9
+        ],
+        "suspension": [
+          0,
+          0,
+          0
+        ]
+      },
+      "subOffsets": {
+        "seat_batting": [
+          0,
+          0.62,
+          0.26
+        ],
+        "back_batting": [
+          0,
+          0.62,
+          0.26
+        ],
+        "seat_foam": [
+          0,
+          0.18,
+          0
+        ],
+        "back_foam": [
+          0,
+          0.18,
           0
         ]
       },
@@ -212,16 +348,16 @@
     },
     {
       "progress": 0.7,
-      "label": "Estrutura exposta · construção ilustrativa",
+      "label": "Estrutura exposta · percintas e madeira",
       "offsets": {
         "upholstery": [
           0,
-          1.3,
-          0.5
+          1.6,
+          0.7
         ],
         "padding": [
           0,
-          0.65,
+          0.5,
           0
         ],
         "frame": [
@@ -236,13 +372,35 @@
         ],
         "cushions": [
           0,
-          1.45,
-          0.85
+          1.75,
+          1.05
         ],
         "suspension": [
           0,
-          0.22,
+          0.16,
           0
+        ]
+      },
+      "subOffsets": {
+        "seat_batting": [
+          0,
+          0.95,
+          0.4
+        ],
+        "back_batting": [
+          0,
+          0.95,
+          0.4
+        ],
+        "seat_foam": [
+          0,
+          0.5,
+          0.2
+        ],
+        "back_foam": [
+          0,
+          0.5,
+          0.2
         ]
       },
       "camera": {
@@ -288,6 +446,28 @@
           0
         ],
         "suspension": [
+          0,
+          0,
+          0
+        ]
+      },
+      "subOffsets": {
+        "seat_batting": [
+          0,
+          0,
+          0
+        ],
+        "back_batting": [
+          0,
+          0,
+          0
+        ],
+        "seat_foam": [
+          0,
+          0,
+          0
+        ],
+        "back_foam": [
           0,
           0,
           0

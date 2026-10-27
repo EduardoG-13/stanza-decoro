@@ -30,7 +30,9 @@ e reduzidas para manter o repositório leve. Não são renders de Blender.
 
 ### Abertura em camadas (FEAT-004)
 
-_As composições da sequência de abertura e da reversibilidade são adicionadas no commit do FEAT-004._
+![Sequência de abertura: montada → tecido → manta → espuma → percintas → madeira](images/layers_sequence_main.png)
+
+![Reversibilidade: p0 e p1 idênticos (deriva = 0)](images/layers_reversibility_main.png)
 
 ### Personalização verificada (FEAT-005) — 12 combinações
 
@@ -41,7 +43,7 @@ _A grade das 12 combinações e o retorno a bouclé+areia são adicionados no co
 - [Gate de fidelidade do gerador (pré-FEAT-002)](gate-comparison_feat002.md)
 - [FEAT-002 — almofadas: contato suave](feat002-before-after.md)
 - [FEAT-003 — interior por componentes](feat003-before-after.md)
-- FEAT-004 — abertura em camadas reversível _(adicionado no commit do FEAT-004)_
+- [FEAT-004 — abertura em camadas reversível](feat004-before-after.md)
 - FEAT-005 — tecidos, cores e iluminação _(adicionado no commit do FEAT-005)_
 - FEAT-006 — exportação final, métricas e validação _(adicionado no commit do FEAT-006)_
 - Proposta separada: cor independente por almofada _(adicionada no commit do FEAT-005)_
