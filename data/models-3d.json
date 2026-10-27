@@ -609,6 +609,75 @@
           "note": "fitted to SOFA-9.png (11 correspondences, f 600 px fixed, roll -2.6 deg, rms ~4.8 px; SOFA-9.2.png is the same viewpoint cropped), then re-aimed at the sofa centre (pure rotation + zoom about the camera centre; the reference is warped by the same homography for the overlay)"
         }
       }
+    },
+    {
+      "modelId": "stanza-puff-square-01",
+      "catalogId": "puff-quadrado",
+      "portfolioId": "projeto-14",
+      "queue": "EXT-030",
+      "title": "Puff quadrado",
+      "revision": "1.0.0",
+      "status": "technical-validated-visual-review-pending",
+      "statusLabel": "tecnicamente validado – revisão visual pendente",
+      "construction": "exterior-only",
+      "reference": "pufs/pufs-10.jpg",
+      "page": "/explorar-sofa.html?modelo=stanza-puff-square-01",
+      "productPage": "/modelos/puff-quadrado.html",
+      "posterAlt": "Estudo tridimensional do puff quadrado estofado em amarelo mostarda, de arestas macias, apoiado direto no piso",
+      "assets": {
+        "viewerBase": "/assets/sofa-pilot/",
+        "main": "/assets/models-3d/stanza-puff-square-01/models/stanza-puff-square-01.glb",
+        "mobile": "/assets/models-3d/stanza-puff-square-01/models/stanza-puff-square-01-mobile.glb",
+        "poster": "/assets/models-3d/stanza-puff-square-01/previews/poster.jpg",
+        "manifest": "/assets/models-3d/stanza-puff-square-01/manifest.json"
+      },
+      "materialRegions": {
+        "body": [
+          "fabric_main",
+          "fabric_seam"
+        ]
+      },
+      "options": {
+        "appliesTo": "body",
+        "fabrics": [
+          "sarja",
+          "linen",
+          "velvet",
+          "boucle"
+        ],
+        "colors": [
+          "mostarda",
+          "cinza-malva",
+          "grafite",
+          "gelo",
+          "areia",
+          "terracota"
+        ],
+        "default": {
+          "fabricId": "sarja",
+          "colorId": "mostarda"
+        },
+        "embedded": {
+          "fabricId": "sarja",
+          "colorId": "mostarda"
+        }
+      },
+      "cameras": {
+        "photo": {
+          "position": [
+            0.243,
+            0.77,
+            1.143
+          ],
+          "target": [
+            0.0,
+            0.2,
+            0.0
+          ],
+          "fov": 36,
+          "note": "visual approximation of the pufs-10.jpg angle (azimuth ~12 deg right of front, elevation ~26 deg from the outline and top/front ratio; not a fitted camera), brought to 1.3 m instead of the ~3 m photo distance so the single puff fills the view"
+        }
+      }
     }
   ],
   "verifiedStatuses": [

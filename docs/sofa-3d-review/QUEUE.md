@@ -15,7 +15,7 @@ Este lote termina aqui. Os créditos são limitados, então nada além do que es
 - **EXT-001 e EXT-003 avaliados e mantidos sem mudança:**
   - EXT-001 2.1.0: nenhuma almofada flutua ou atravessa outra peça (penetração ≤ 1,6 mm, contato em área). Uma pose nova exigiria reconstruir antes o cálculo de apoio da 2.1.0, que não se reproduz.
   - EXT-003 1.0.0: contatos ≤ 3,7 mm (há um vértice oculto a 6,4 mm). A diferença para a foto é de composição; mudar seria remodelar.
-- **Peças novas** (tecnicamente validadas – revisão visual pendente): EXT-014 `stanza-armchair-01`, EXT-040 `stanza-headboard-panels-01`, EXT-007 `stanza-curved-arm-01`.
+- **Peças novas** (tecnicamente validadas – revisão visual pendente): EXT-014 `stanza-armchair-01`, EXT-040 `stanza-headboard-panels-01`, EXT-007 `stanza-curved-arm-01`; depois, a pedido explícito, EXT-030 `stanza-puff-square-01` (puff quadrado).
 - **Todos os demais itens da fila continuam pendentes e NÃO devem ser retomados automaticamente.** Cada um só começa com um pedido explícito.
 - **EXT-034 (puff capitonê da foto do EXT-014) continua pendente.**
 
@@ -393,15 +393,16 @@ Em caso de dúvida, o material fica **fixo** e a dúvida é registrada em “Lim
 
 ### EXT-030 — Puffs para uma sala de TV
 
-- **Estado:** pendente
+- **Estado:** tecnicamente validado – revisão visual pendente
 - **Fontes:** [`pufs/pufs-10.jpg`](../../pufs/pufs-10.jpg)
-- **Relação:** catálogo `puff-quadrado`; portfólio `projeto-14`
-- **Arquivos:** —
-- **Revisão:** —
-- **Opções reais:** a definir (aplicar a regra de regiões acima)
-- **Evidências:** —
-- **Limitações:** Ver nota do EXT-029.
-- **Próxima ação:** ler a foto, definir regiões e proporções, gerar fonte paramétrica e GLBs, registrar em `data/models-3d.json`.
+- **Relação:** catálogo `puff-quadrado`; portfólio `projeto-14` (mesma foto; IDs preservados). Modelado UM puff (o amarelo do centro); sala, banco com nichos e demais puffs fora.
+- **Arquivos:** `assets/models-3d/stanza-puff-square-01/` — `source/build.py` (fonte de verdade), `source/stanza-puff-square-01.blend`, `models/stanza-puff-square-01.glb`, `models/stanza-puff-square-01-mobile.glb`, `previews/poster.jpg`, `manifest.json`; mapas `assets/models-3d/materials/sarja/` (tinta embutida `mostarda`); registro `data/models-3d.json` (`stanza-puff-square-01`, câmera `photo` aproximada)
+- **Revisão:** 1.0.0 (somente exterior; cubo estofado macio, base no piso, costura discreta no topo) · principal 24 288 tri / 2,06 MB · móvel 7 680 tri / 0,65 MB
+- **Opções reais:** corpo — tecidos `sarja` (inicial), `linen`, `velvet`, `boucle` × cores `mostarda` (inicial, **nova e aditiva**, #e2aa18), `cinza-malva` (o cinza da foto), `grafite`, `gelo`, `areia`, `terracota`. Sem decorativas, contrastes ou estrutura.
+- **Evidências:** [ext030-puff-quadrado.md](ext030-puff-quadrado.md), `images/ext030_puff_quadrado.jpg`, `validation/ext030/` (glTF-Validator 0/0/0/0, comportamento 80/80)
+- **Prévia:** `/explorar-sofa.html?modelo=stanza-puff-square-01`; produto `/modelos/puff-quadrado.html` com "Ver em 3D"
+- **Limitações:** um único ângulo; escala por premissa (0,45 m); cor/tecido estimados sob luz quente; costuras só sugeridas; preset `photo` aproximado (não ajustado); validação só headless.
+- **Próxima ação:** revisão visual pela Stanza; se aprovado, marcar `approved`.
 
 ### EXT-031 — Puffs vermelhos
 

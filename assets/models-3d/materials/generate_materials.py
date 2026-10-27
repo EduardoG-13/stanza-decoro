@@ -29,7 +29,8 @@ N = 1024
 # Tints used for embedded initial finishes. MUST equal COLORS in assets/sofa-pilot/viewer/sofa-viewer.js.
 TINTS = {'gelo': (186, 188, 192), 'grafite-quente': (84, 80, 80), 'cru': (226, 221, 210), 'cinza-malva': (138, 130, 134), 'petroleo': (14, 86, 104),
          'areia': (182, 176, 168),   # EXT-040: = COLORS.areia (#b6b0a8), tint of the embedded velvet (no new colour)
-         'musgo': (107, 101, 52)}    # EXT-007: = COLORS.musgo (#6b6534), new additive colour (moss velvet of SOFA-9)
+         'musgo': (107, 101, 52),    # EXT-007: = COLORS.musgo (#6b6534), new additive colour (moss velvet of SOFA-9)
+         'mostarda': (226, 170, 24)} # EXT-030: = COLORS.mostarda (#e2aa18), new additive colour (yellow puff of pufs-10.jpg)
 
 
 def noise(rng, sx, sy=None, n=N):
@@ -231,9 +232,9 @@ def sarja():
     meta = {'label': 'Sarja', 'family': 'flat_twill_upholstery_study', 'seed': 707, 'normalScale': .9,
             'roughness': 1.0, 'sheen': .10, 'sheenRoughness': .8,
             'description': 'Sarja 2/2 de trama fechada e fosca (fios de ~1,2 mm, diagonal suave). Estudo visual próprio a partir de SOFA-3.jpg; sem código comercial.',
-            'createdFor': 'EXT-003 (sofas/SOFA-3.jpg); reutilizada no EXT-005 (acervo/sofa-com-vivo.webp)'}
+            'createdFor': 'EXT-003 (sofas/SOFA-3.jpg); reutilizada no EXT-005 (acervo/sofa-com-vivo.webp) e no EXT-030 (pufs/pufs-10.jpg)'}
     meta, col, _ = write_family('sarja', height, color, rough, repeat_m, meta)
-    meta['embedded'] = {t: tinted('sarja', col, t) for t in ('grafite-quente', 'cinza-malva')}
+    meta['embedded'] = {t: tinted('sarja', col, t) for t in ('grafite-quente', 'cinza-malva', 'mostarda')}
     meta['embedded'].update({'normal': ['embedded/normal-512.png', 'embedded/normal-256.png'],
                              'roughness': ['embedded/roughness-512.jpg', 'embedded/roughness-256.jpg']})
     return meta

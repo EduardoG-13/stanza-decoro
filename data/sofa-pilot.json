@@ -19,7 +19,8 @@
     "cru": "Cru",
     "cinza-malva": "Cinza malva",
     "petroleo": "Azul petróleo",
-    "musgo": "Verde musgo"
+    "musgo": "Verde musgo",
+    "mostarda": "Amarelo mostarda"
   },
   "studies": {
     "stanza-organic-01": "sofa-organico",
@@ -29,6 +30,7 @@
     "stanza-piped-01": "sofa-com-vivo",
     "stanza-armchair-01": "poltrona-bracos",
     "stanza-headboard-panels-01": "cabeceira-paineis",
-    "stanza-curved-arm-01": "sofa-curvo"
+    "stanza-curved-arm-01": "sofa-curvo",
+    "stanza-puff-square-01": "puff-quadrado"
   }
 }
