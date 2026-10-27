@@ -1,12 +1,20 @@
-# Revisão dos estudos 3D (stanza-organic-01, stanza-straight-01, stanza-modular-01, stanza-two-seat-01, stanza-piped-01, stanza-armchair-01, stanza-headboard-panels-01 e fila)
+# Revisão dos estudos 3D (stanza-organic-01, stanza-straight-01, stanza-modular-01, stanza-two-seat-01, stanza-piped-01, stanza-armchair-01, stanza-headboard-panels-01, stanza-curved-arm-01, stanza-puff-square-01 e fila)
 
 Esta pasta reúne, de forma **versionada e visível no PR**, o material de revisão do aprimoramento
 do sofá 3D (branch `work/sofa-3d-inspection`). Os caminhos internos do sandbox (`.agents/`,
 `/projects/sandbox/.kiro/`) **não** são revisáveis pelo usuário; por isso as imagens e relatórios
 essenciais ficam aqui, com caminhos relativos ao repositório, e aparecem renderizados no PR.
 
-> A `main` permanece intacta. Nada foi mesclado nem publicado no site oficial. Este é um estudo
-> visual; dimensões são estimadas, não desenhos de fabricação.
+> Estudo visual; dimensões são estimadas, não desenhos de fabricação.
+
+## Último lote antes da publicação
+
+- **Enquadramento ao abrir o 3D** (correção): [framing-fix.md](framing-fix.md). Todo modelo abre inteiro, centrado, em desktop e celular.
+- **EXT-030 — Puff quadrado** (`stanza-puff-square-01` 1.0.0, catálogo `puff-quadrado`, cor nova `mostarda`): [ext030-puff-quadrado.md](ext030-puff-quadrado.md) · prévia `/explorar-sofa.html?modelo=stanza-puff-square-01`.
+
+  ![EXT-030: foto × render](images/ext030_puff_quadrado.jpg)
+- **Refino leve:** EXT-040 → 1.0.1 (canais mais finos, [antes × depois](images/ext040_r101_channels.jpg)). Os demais modelos ficaram como estavam: o bico do vivo do EXT-005 no canto superior traseiro exige mexer no assentamento macio da almofada (várias iterações, risco de regressão); as almofadas do EXT-007 só ficariam mais cheias se fossem reposicionadas por causa dos braços; o EXT-001 não tinha nada trivial a corrigir.
+- **UX do configurador e da página de produto** (sem redesenho): textos que valem para qualquer peça, ícones de giro em SVG, estado de carregamento, opções em 2 colunas no celular, "Ver em 3D" como botão. [Configurador no celular, antes × depois](images/ux_configurator_phone_before_after.jpg) · [botão de produto e controles](images/ux_product_cta_controls_before_after.jpg).
 
 ## Coleção — pipeline models3d e EXT-002
 
@@ -40,7 +48,7 @@ Infraestrutura multi-modelo (biblioteca Blender, biblioteca de acabamentos, regi
 
 ![EXT-014: foto × render](images/ext014_photo_vs_render.jpg)
 
-**EXT-040 — Cabeceira de painéis horizontais** (`stanza-headboard-panels-01` 1.0.0, catálogo `cabeceira-paineis`; só a composição estofada de parede):
+**EXT-040 — Cabeceira de painéis horizontais** (`stanza-headboard-panels-01` 1.0.1, catálogo `cabeceira-paineis`; só a composição estofada de parede):
 [ext040-cabeceira-paineis.md](ext040-cabeceira-paineis.md) · prévia `/explorar-sofa.html?modelo=stanza-headboard-panels-01`.
 
 ![EXT-040: foto × render](images/ext040_photo_vs_render.jpg)

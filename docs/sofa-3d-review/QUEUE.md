@@ -18,6 +18,7 @@ Este lote termina aqui. Os créditos são limitados, então nada além do que es
 - **Peças novas** (tecnicamente validadas – revisão visual pendente): EXT-014 `stanza-armchair-01`, EXT-040 `stanza-headboard-panels-01`, EXT-007 `stanza-curved-arm-01`; depois, a pedido explícito, EXT-030 `stanza-puff-square-01` (puff quadrado).
 - **Todos os demais itens da fila continuam pendentes e NÃO devem ser retomados automaticamente.** Cada um só começa com um pedido explícito.
 - **EXT-034 (puff capitonê da foto do EXT-014) continua pendente.**
+- **Lote final (pedido explícito):** correção do enquadramento inicial do visualizador ([framing-fix.md](framing-fix.md)); EXT-030 `stanza-puff-square-01` 1.0.0; EXT-040 → 1.0.1 (canais mais finos); EXT-005 (bico do vivo no canto superior traseiro) e EXT-007 (almofadas mais cheias) avaliados e mantidos, porque a correção não é barata nem segura.
 
 ## Regra de classificação das regiões de material
 
