@@ -243,9 +243,9 @@ export async function createSofaViewer(container, options = {}) {
     assertAlive();
     const view = Object.hasOwn(cameras,viewId) && cameras[viewId];
     if (!view) throw new RangeError(`Vista desconhecida: ${viewId}`);
-    // Fitted views (view.fov, authored for a 4:3 photo) keep their horizontal field on narrower canvases.
-    const fitted = view.fov && camera.aspect < 4/3 ? 2*Math.atan(Math.tan(view.fov*Math.PI/360)*(4/3)/camera.aspect)*180/Math.PI : view.fov;
-    camera.fov = fitted || 36; camera.updateProjectionMatrix();
+    // Fitted views (view.fov, authored for a 4:3 photo) keep their field of view; on narrower canvases
+    // the fit below backs off just enough (widening the fov, as before, shrank tall pieces on phones).
+    camera.fov = view.fov || 36; camera.updateProjectionMatrix();
     const target = new THREE.Vector3().fromArray(view.target), offset = new THREE.Vector3().fromArray(view.position).sub(target);
     // Whole-piece views never start cropped or over-zoomed: back off until the full model fits.
     if (fit && viewId !== 'detail' && modelBox)
