@@ -42,6 +42,12 @@ e reduzidas para manter o repositório leve. Não são renders de Blender.
 
 ![Retorno a bouclé+areia com os mapas embutidos (sem duplo tingimento)](images/customization_areia_return_main.png)
 
+### Enquadramento final nos dois consumidores (FEAT-006)
+
+![Configurador e hero (desktop)](images/final_framing_consumers.png)
+
+![Configurador e hero (mobile)](images/final_framing_consumers_mobile.png)
+
 ## Relatórios
 
 - [Gate de fidelidade do gerador (pré-FEAT-002)](gate-comparison_feat002.md)
@@ -49,8 +55,9 @@ e reduzidas para manter o repositório leve. Não são renders de Blender.
 - [FEAT-003 — interior por componentes](feat003-before-after.md)
 - [FEAT-004 — abertura em camadas reversível](feat004-before-after.md)
 - [FEAT-005 — tecidos, cores e iluminação](feat005-before-after.md)
-- FEAT-006 — exportação final, métricas e validação _(adicionado no commit do FEAT-006)_
+- [FEAT-006 — exportação final, métricas e validação](feat006-final.md)
 - [Proposta separada: cor independente por almofada (extensão futura)](proposal-per-cushion-color.md)
+- Relatórios frescos do Khronos glTF-Validator: [`validation/`](validation/)
 
 ## Rótulos de honestidade
 

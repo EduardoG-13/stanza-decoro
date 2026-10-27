@@ -32,7 +32,7 @@ Inclua controles e mensagens de erro adequados à sua página. A demonstração 
 | Função | Comportamento |
 |---|---|
 | `createSofaViewer(element, options?)` | Retorna `Promise<viewer>` quando GLB e acabamento inicial estão prontos. Falhas rejeitam a Promise e restauram o poster. |
-| `setProgress(number)` | Limita um número finito a 0…1. Calcula deslocamentos a partir das posições originais, sem acumular erros. 0 e 1 montam a mesma peça; .5 separa e .7 revela a estrutura. |
+| `setProgress(number)` | Limita um número finito a 0…1. Calcula deslocamentos a partir das posições originais, sem acumular erros. 0 e 1 montam a mesma peça (idênticas); a abertura segue a ordem de construção tecido → manta → espuma → percintas → madeira: ~.35 expõe a manta, ~.5 separa revestimento e manta da espuma, ~.7 revela a estrutura (percintas e armação). |
 | `setFinish({fabricId, colorId})` | Retorna `Promise<selection>`. Aceita os dois identificadores ou uma alteração parcial. A última solicitação vence. Preserva câmeras e camadas. |
 | `setView(viewId)` | Aplica a câmera documentada. IDs: `threequarter`, `front`, `side`, `detail`, `layers`. |
 | `getSelection()` | Retorna uma cópia com somente `modelId`, `revision`, `fabricId` e `colorId`. Não envia dados. |
@@ -41,7 +41,7 @@ Inclua controles e mensagens de erro adequados à sua página. A demonstração 
 `getSelection()` retorna, por exemplo:
 
 ```json
-{"modelId":"stanza-organic-01","revision":"1.0.0","fabricId":"boucle","colorId":"areia"}
+{"modelId":"stanza-organic-01","revision":"1.2.0","fabricId":"boucle","colorId":"areia"}
 ```
 
 Tecidos: `linen`, `boucle`, `velvet`. Cores: `areia`, `oliva`, `terracota`, `grafite`. São estudos visuais. Não correspondem a catálogo, disponibilidade ou amostra física homologada.

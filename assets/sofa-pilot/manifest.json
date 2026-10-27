@@ -1193,19 +1193,24 @@
   },
   "performance": {
     "measurement": "HTTP response body bytes, no gzip; includes poster, CSS and loaded modules; excludes headers",
-    "mainInitialBytes": 4938291,
-    "mobileInitialBytes": 2654027,
+    "mainInitialBytes": 5087334,
+    "mobileInitialBytes": 2739114,
     "geometryTargets": {
       "main": 60000,
       "mobile": 25000
     },
+    "geometryActual": {
+      "main": 49064,
+      "mobile": 24280
+    },
     "initialBytesTarget": 5000000,
     "maxTextureDimensionTarget": 2048,
     "continuousRendering": false,
-    "otherFinishesLazyLoaded": true
+    "otherFinishesLazyLoaded": true,
+    "deviationNote": "Rev 1.2.0: triangle counts stay within target (main 49064<=60000; mobile 24280<=25000, close to the 25000 ceiling after FEAT-003 interior components). mainInitialBytes ~5.09 MB is ~1.7% over the 5 MB initial-bytes target, due to the added foam/batting/webbing/rail geometry; not reduced by cutting the silhouette or the new internal layers (per the no-sacrifice-of-silhouette instruction). Mobile stays well under 5 MB. maxTextureDimension unchanged (<=2048)."
   },
   "dependencies": {
-    "blender": "5.2.2 LTS",
+    "blender": "5.2.2 LTS (authoring target); revision 1.2.0 GLBs/.blend regenerated with the bpy 5.0.1 PyPI module (headless). The generator rebuilds the scene from parametric literals, so the regenerated geometry does not depend on the exact Blender build; this version caveat is disclosed, not a blocker.",
     "three": "0.180.0",
     "gsap": "3.13.0",
     "gltf-validator": "2.0.0-dev.3.10"
